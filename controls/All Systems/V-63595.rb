@@ -113,19 +113,26 @@ A Microsoft article on Credential Guard system requirement can be found at the
 following link.
 https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard-requirements"
 
-  describe register_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
-    it { should have_property 'EnableVirtualizationBasedSecurity' }
-    its('EnableVirtualizationBasedSecurity') { should cmp 1 }
-  end
-  describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
+  if(sys_info).manufacturer != "VMware, Inc."
+    describe register_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
+     it { should have_property 'EnableVirtualizationBasedSecurity' }
+     its('EnableVirtualizationBasedSecurity') { should cmp 1 }
+   end
+   describe.one do
+     describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
       it { should have_property 'RequirePlatformSecurityFeatures' }
       its('RequirePlatformSecurityFeatures') { should cmp 1 }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
+     end
+     describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
       it { should have_property 'RequirePlatformSecurityFeatures' }
       its('RequirePlatformSecurityFeatures') { should cmp 3 }
-    end
+     end
+   end
+ else
+  impact 0.0
+  describe "This is a VDI System; System is not required to meet Control V-63319." do
+    skip "This is a VDI System; System is not required to meet Control V-63319."
   end
+ end
 end
 
