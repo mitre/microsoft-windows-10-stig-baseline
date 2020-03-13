@@ -37,7 +37,8 @@ Value: 1"
 Administrative Templates >> Windows Components >> Remote Desktop Services >>
 Remote Desktop Connection Client >> \"Do not allow passwords to be saved\" to
 \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services") do
     it { should have_property 'DisablePasswordSaving' }
     its('DisablePasswordSaving') { should cmp 1 }
   end

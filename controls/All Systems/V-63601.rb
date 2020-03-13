@@ -33,6 +33,7 @@ If the value for \"Accounts: Administrator account status\" is not set to
   tag fix: "Configure the policy value for Computer Configuration >> Windows
 Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Accounts: Administrator account status\" to \"Disabled\"."
+
     describe security_policy do
       its('EnableAdminAccount') { should cmp 0 }
     end

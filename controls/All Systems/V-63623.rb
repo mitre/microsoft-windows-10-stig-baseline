@@ -39,7 +39,8 @@ Value: 1"
 Administrative Templates >> System >> Internet Communication Management >>
 Internet Communication settings >> \"Turn off printing over HTTP\" to
 \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Printers') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Printers") do
     it { should have_property 'DisableHTTPPrinting' }
     its('DisableHTTPPrinting') { should cmp 1 }
   end

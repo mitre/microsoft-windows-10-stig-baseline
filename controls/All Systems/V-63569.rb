@@ -39,9 +39,14 @@ Value: 0x00000000 (0)"
 Administrative Templates >> Network >> Lanman Workstation >> \"Enable insecure
 guest logons\" to \"Disabled\"."
 
+ if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId == "1507" )
+  impact 0.0
+  describe "This setting requires v1507 does not include this setting; it is NA for version." do
+    skip "This setting requires v1507 does not include this setting; it is NA for version."
+  end 
+else 
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LanmanWorkstation") do
     it { should have_property 'AllowInsecureGuestAuth' }
     its('AllowInsecureGuestAuth') { should cmp 0 }
-  end  
+  end 
 end
-

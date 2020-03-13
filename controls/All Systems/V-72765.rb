@@ -30,6 +30,7 @@ If it is not, this is a finding.
 Approval must be documented with the ISSO."
   tag fix: "Turn off Bluetooth radios not organizationally approved. Establish
 an organizational policy for the use of Bluetooth."
+
   describe "Turn off Bluetooth radios when not in use. Establish an organizational policy for the use of Bluetooth to include training of personnel" do
     skip 'This is NA if the system does not have Bluetooth'
   end

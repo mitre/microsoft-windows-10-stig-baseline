@@ -60,6 +60,7 @@ Search for \"Features\".
 Select \"Turn Windows features on or off\".
 
 De-select \"SMB 1.0/CIFS File Sharing Support\"."
+
   describe command('Get-WindowsOptionalFeature -Online | Where FeatureName -eq SMB1Protocol') do
     its('stdout') { should_not eq "\r\n\r\nFeature Name : SMB1Protocol\r\nState        : Enabled\r\n\r\n\r\n\r\n" }
   end

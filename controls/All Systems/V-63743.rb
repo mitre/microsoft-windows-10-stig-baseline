@@ -34,7 +34,8 @@ Value: 1"
   tag fix: "Configure the policy value for Computer Configuration >>
 Administrative Templates >> Windows Components >> RSS Feeds >> \"Prevent
 downloading of enclosures\" to \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Feeds') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Feeds") do
     it { should have_property 'DisableEnclosureDownload' }
     its('DisableEnclosureDownload') { should cmp 1 }
   end

@@ -39,6 +39,7 @@ trusted caller\" user right, this is a finding."
 Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
 \"Access Credential Manager as a trusted caller\" to be defined but containing
 no entries (blank)."
+
   describe security_policy do
     its('SeTrustedCredManAccessPrivilege') { should eq [] }
   end

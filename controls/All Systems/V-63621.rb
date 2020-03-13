@@ -41,7 +41,8 @@ Value: 1"
 Administrative Templates >> System >> Internet Communication Management >>
 Internet Communication settings >> \"Turn off Internet download for Web
 publishing and online ordering wizards\" to \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer") do
     it { should have_property 'NoWebServices' }
     its('NoWebServices') { should cmp 1 }
   end

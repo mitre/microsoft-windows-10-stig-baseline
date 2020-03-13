@@ -41,7 +41,14 @@ Administrative Templates >> Windows Components >> Biometrics >> Facial Features
 
 v1607:
 The policy name is \"Use enhanced anti-spoofing when available\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Biometrics\\FacialFeatures') do
+
+if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId == "1507" )
+  impact 0.0
+  describe "Windows 10 v1507 LTSB version does not include this setting." do
+    skip "Windows 10 v1507 LTSB version does not include this setting"
+  end 
+else
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Biometrics\\FacialFeatures") do
     it { should have_property 'EnhancedAntiSpoofing' }
     its('EnhancedAntiSpoofing') { should cmp 1 }
   end

@@ -47,7 +47,8 @@ bypassing Windows Defender SmartScreen prompts for files\" to \"Enabled\".
 Windows 10 includes duplicate policies for this setting. It can also be
 configured under Computer Configuration >> Administrative Templates >> Windows
 Components >> Windows Defender SmartScreen >> Microsoft Edge."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\PhishingFilter') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\PhishingFilter") do
     it { should have_property 'PreventOverrideAppRepUnknown' }
     its('PreventOverrideAppRepUnknown') { should cmp 1 }
   end

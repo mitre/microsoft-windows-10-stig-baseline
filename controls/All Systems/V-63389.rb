@@ -33,7 +33,7 @@ Run \"Programs and Features\".
 Select \"Turn Windows Features on or off\".
 
 De-select \"TFTP Client\"."
-  describe service('TFTP Client') do
+describe windows_feature('TFTP Client') do
     it { should_not be_installed }
   end  
 end

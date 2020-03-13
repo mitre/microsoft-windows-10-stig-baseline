@@ -44,7 +44,8 @@ correctly."
   tag fix: "Configure the policy value for Computer Configuration >>
 Administrative Templates >> Windows Components >> AutoPlay Policies >> \"Turn
 off AutoPlay\" to \"Enabled:All Drives\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer") do
     it { should have_property 'NoDriveTypeAutoRun' }
     its('NoDriveTypeAutoRun') { should cmp 255 }
   end

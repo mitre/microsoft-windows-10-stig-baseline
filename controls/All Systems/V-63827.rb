@@ -40,7 +40,8 @@ Value: 1"
 Settings >> Security Settings >> Local Policies >> Security Options >> \"User
 Account Control: Only elevate UIAccess applications that are installed in
 secure locations\" to \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
     it { should have_property 'EnableSecureUIAPaths' }
     its('EnableSecureUIAPaths') { should cmp 1 }
   end

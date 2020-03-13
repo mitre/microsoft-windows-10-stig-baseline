@@ -37,7 +37,8 @@ Value: 1"
   tag fix: "Configure the policy value for Computer Configuration >>
 Administrative Templates >> System >> Power Management >> Sleep Settings >>
 \"Require a password when a computer wakes (on battery)\" to \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Power\\PowerSettings\\0e796bdb-100d-47d6-a2d5-f7d2daa51f51') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Power\\PowerSettings\\0e796bdb-100d-47d6-a2d5-f7d2daa51f51") do
     it { should have_property 'DCSettingIndex' }
     its('DCSettingIndex') { should cmp 1 }
   end

@@ -41,6 +41,7 @@ Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
 \"Create a pagefile\" to only include the following groups or accounts:
 
 Administrators"
+
   describe.one do
     describe security_policy do
       its('SeCreatePagefilePrivilege') { should be eq ['S-1-5-32-544'] }

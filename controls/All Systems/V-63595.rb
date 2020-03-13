@@ -112,12 +112,17 @@ Protection\" selected for \"Select Platform Security Level:\".
 A Microsoft article on Credential Guard system requirement can be found at the
 following link.
 https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard-requirements"
+
+  describe register_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
+    it { should have_property 'EnableVirtualizationBasedSecurity' }
+    its('EnableVirtualizationBasedSecurity') { should cmp 1 }
+  end
   describe.one do
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
       it { should have_property 'RequirePlatformSecurityFeatures' }
       its('RequirePlatformSecurityFeatures') { should cmp 1 }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
       it { should have_property 'RequirePlatformSecurityFeatures' }
       its('RequirePlatformSecurityFeatures') { should cmp 3 }
     end

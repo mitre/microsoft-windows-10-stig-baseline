@@ -34,7 +34,8 @@ Value: 0"
   tag fix: "Configure the policy value for Computer Configuration >>
 Administrative Templates >> Windows Components >> Search >> \"Allow indexing of
 encrypted files\" to \"Disabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search") do
     it { should have_property 'AllowIndexingEncryptedStoresOrItems' }
     its('AllowIndexingEncryptedStoresOrItems') { should cmp 0 }
   end

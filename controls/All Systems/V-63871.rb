@@ -83,6 +83,7 @@ requirements.)
 
 Note: \"Local account\" is a built-in security group used to assign user rights
 and permissions to all local accounts."
+
 is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
 if is_domain == 'WORKGROUP'

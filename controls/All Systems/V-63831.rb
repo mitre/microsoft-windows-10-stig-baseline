@@ -39,7 +39,8 @@ Value: 1"
 Settings >> Security Settings >> Local Policies >> Security Options >> \"User
 Account Control: Virtualize file and registry write failures to per-user
 locations\" to \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
     it { should have_property 'EnableVirtualization' }
     its('EnableVirtualization') { should cmp 1 }
   end

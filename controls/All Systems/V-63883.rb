@@ -42,6 +42,7 @@ Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
 accounts:
 
 Administrators"
+
   describe.one do
     describe security_policy do
       its('SeRemoteShutdownPrivilege') { should eq ['S-1-5-32-544'] }

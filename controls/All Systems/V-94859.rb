@@ -61,16 +61,17 @@ Operating System Drives \"Require additional authentication at startup\" to
 \"Enabled\" with \"Configure TPM Startup PIN:\" set to \"Require startup PIN
 with TPM\" or with \"Configure TPM startup key and PIN:\" set to \"Require
 startup key and PIN with TPM\"."
+
   describe.one do
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\FVE') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\FVE") do
       it { should have_property 'UseAdvancedStartup' }
       its('UseAdvancedStartup') { should cmp 1 }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\FVE') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\FVE") do
       it { should have_property 'UseTPMPIN' }
       its('UseTPMPIN') { should cmp 1 }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\FVE') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\FVE") do
       it { should have_property 'UseTPMKeyPIN' }
       its('UseTPMKeyPIN') { should cmp 1 }
     end

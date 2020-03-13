@@ -57,7 +57,8 @@ The requirement is NA if the policy value for Computer Configuration >>
 Administrative Templates >> Windows Components >> App Privacy >> \"Let Windows
 apps activate with voice\" is configured to \"Enabled\" with “Default for all
 Apps:” set to “Force Deny”."
-if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft NT\\CurrentVersion").ReleaseId >= 1903 )
+
+if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId >= "1903" )
   describe.one do
     describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy") do
       it { should have_property 'LetAppsActivateWithVoiceAboveLock' }

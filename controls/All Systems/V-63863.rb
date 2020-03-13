@@ -38,6 +38,7 @@ user right, this is a finding."
 Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
 \"Create permanent shared objects\" to be defined but containing no entries
 (blank)."
+
   describe security_policy do
     its('SeCreatePermanentPrivilege') { should eq [] }
   end

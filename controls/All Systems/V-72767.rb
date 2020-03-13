@@ -29,6 +29,7 @@ personnel are trained. If it does not, this is a finding."
   tag fix: "Turn off Bluetooth radios when not in use. Establish an
 organizational policy for the use of Bluetooth to include training of
 personnel."
+
   describe "Turn off Bluetooth radios when not in use. Establish an organizational policy for the use of Bluetooth to include training of personnel" do
     skip 'This is NA if the system does not have Bluetooth'
   end

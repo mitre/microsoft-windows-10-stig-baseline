@@ -93,17 +93,18 @@ DoD Root CA 3 - US DoD CCEB Interoperability Root CA 2 -
 
 The certificates can be installed using the InstallRoot tool. The tool and user
 guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+
 describe.one do
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E") do
       it { should_not exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E") do
       it { should_not exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E") do
       it { should_not exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E") do
       it { should_not exist }
     end
   end

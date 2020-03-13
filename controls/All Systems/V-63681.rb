@@ -49,11 +49,12 @@ a site-defined equivalent.
 
 If a site-defined title is used, it can in no case contravene or modify the
 language of the banner text required in WN10-SO-000075."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
     it { should have_property 'LegalNoticeCaption' }
   end 
 
-  key = registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System').LegalNoticeCaption.to_s
+  key = registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System").LegalNoticeCaption.to_s
   legal_notice_caption = attribute('LegalNoticeCaption')
   
   describe 'The required legal notice caption' do

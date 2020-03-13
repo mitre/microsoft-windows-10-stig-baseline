@@ -46,7 +46,14 @@ This policy setting requires the installation of the SecGuide custom templates
 included with the STIG package. \"SecGuide.admx\" and \"SecGuide.adml\" must be
 copied to the \\Windows\\PolicyDefinitions and
 \\Windows\\PolicyDefinitions\\en-US directories respectively."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\kernel') do
+
+if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId >= "1709" )
+  impact 0.0
+  describe "This is applicable to Windows 10 prior to v1709." do
+    skip "This is applicable to Windows 10 prior to v1709."
+  end 
+else 
+  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\kernel") do
     it { should have_property 'DisableExceptionChainValidation'}
     its('DisableExceptionChainValidation') { should cmp 0 }
   end

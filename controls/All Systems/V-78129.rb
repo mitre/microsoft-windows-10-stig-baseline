@@ -70,6 +70,7 @@ services, or attached devices.
 Implement technical measures where feasible such as removal of applications or
 use of application whitelisting to restrict the use of applications that can
 access the Internet."
+
  describe 'Establish and enforce a policy that prohibits administrative account from using applications that access the Internet' do
  skip 'Implement technical measures where feasible such as removal of application or use of application whitelisting to restrict the use of applications that can access Internet'
  end

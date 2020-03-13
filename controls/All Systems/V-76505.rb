@@ -42,6 +42,7 @@ groups, this is a finding."
   tag fix: "Remove any unresolved SIDs found in User Rights assignments and
 determined to not be for currently valid accounts or groups by removing the
 accounts or groups from the appropriate group policy."
+
   describe "A manual review is required to ensure orphaned security identifiers (SIDs) are removed from user rights on Windows 2012 / 2012 R2" do
   skip 'A manual review is required to ensure orphaned security identifiers (SIDs) are removed from user rights on Windows 2012 / 2012 R2'
   end

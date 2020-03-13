@@ -55,6 +55,7 @@ or accounts:
 
 Administrators
 Remote Desktop Users"
+
   describe.one do
     describe security_policy do
       its('SeNetworkLogonRight') { should be eq ['S-1-5-32-544', 'S-1-5-32-555'] }

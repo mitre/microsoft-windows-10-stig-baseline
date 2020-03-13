@@ -59,6 +59,7 @@ Alternately:
 Search for \"Features\".
 Select \"Turn Windows features on or off\".
 De-select \"Windows PowerShell 2.0\"."
+
   describe.one do
     describe command('Get-WindowsOptionalFeature -Online | Where FeatureName -eq MicrosoftWindowsPowerShellV2') do
       its('stdout') { should_not eq "\r\n\r\nFeature Name : MicrosoftWindowsPowerShellV2\r\nState        : Enabled\r\n\r\n\r\n\r\n" }

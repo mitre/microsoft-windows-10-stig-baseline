@@ -38,7 +38,8 @@ Value: 1"
 Administrative Templates >> Windows Components >> Remote Desktop Services >>
 Remote Desktop Session Host >> Security >> \"Always prompt for password upon
 connection\" to \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services") do
     it { should have_property 'fPromptForPassword' }
     its('fPromptForPassword') { should cmp 1 }
   end

@@ -71,6 +71,7 @@ requirements.)
 
 All Systems:
 Guests Group"
+
 is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
   if is_domain == 'WORKGROUP'

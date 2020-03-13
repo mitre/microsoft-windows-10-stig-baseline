@@ -51,20 +51,21 @@ This policy setting requires the installation of the SecGuide custom templates
 included with the STIG package.  \"SecGuide.admx\" and \"SecGuide.adml\" must
 be copied to the \\Windows\\PolicyDefinitions and
 \\Windows\\PolicyDefinitions\\en-US directories respectively."
+
     describe.one do
-      describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\batfile\\shell\\unasuser') do
+      describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\batfile\\shell\\unasuser") do
         it { should have_property 'SuppressionPolicy' }
         its('SuppressionPolicy') { should cmp 4096 }
       end
-      describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\cmdfile\\shell\\unasuser') do
+      describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\cmdfile\\shell\\unasuser") do
         it { should have_property 'SuppressionPolicy' }
         its('SuppressionPolicy') { should cmp 4096 }
       end
-      describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\exefile\\shell\\unasuser') do
+      describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\exefile\\shell\\unasuser") do
         it { should have_property 'SuppressionPolicy' }
         its('SuppressionPolicy') { should cmp 4096 }
       end
-      describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\mscfile\\shell\\unasuser') do
+      describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\mscfile\\shell\\unasuser") do
         it { should have_property 'SuppressionPolicy' }
         its('SuppressionPolicy') { should cmp 4096 }
       end

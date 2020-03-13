@@ -55,9 +55,10 @@ Configuration >> Administrative Templates >> System >> Kerberos >> \"Support
 device authentication using certificate\" to \"Not Configured or \"Enabled\"
 with either option selected in \"Device authentication behavior using
 certificate:\"."
+
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\Kerberos\\Parameters') do
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\Kerberos\\Parameters") do
     it { should have_property 'DevicePKInitEnabled' }
     its('DevicePKInitEnabled') { should cmp 1 }
   end if is_domain != 'WORKGROUP'

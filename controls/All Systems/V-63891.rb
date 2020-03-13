@@ -44,6 +44,7 @@ accounts:
 
 Administrators
 Window Manager\\Window Manager Group"
+
   describe.one do
     describe security_policy do
       its('SeIncreaseBasePriorityPrivilege') { should eq ['S-1-5-32-544', 'S-1-5-90-0'] }

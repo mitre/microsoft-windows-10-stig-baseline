@@ -37,7 +37,8 @@ Value: 0"
   tag fix: "Configure the policy value for Computer Configuration >> Windows
 Settings >> Security Settings >> Local Policies >> Security Options >> \"Domain
 member: Disable machine account password changes\" to \"Disabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Netlogon\\Parameters') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Netlogon\\Parameters") do
     it { should have_property 'DisablePasswordChange' }
     its('DisablePasswordChange') { should cmp 0 }
   end

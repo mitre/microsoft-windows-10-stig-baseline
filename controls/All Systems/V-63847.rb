@@ -40,6 +40,7 @@ part of the operating system\" user right, this is a finding."
 Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
 \"Act as part of the operating system\" to be defined but containing no entries
 (blank)."
+
   describe security_policy do
     its('SeTcbPrivilege') { should be eq [] }
   end

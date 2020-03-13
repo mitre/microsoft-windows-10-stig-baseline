@@ -40,7 +40,8 @@ Value: 0x00000001 (1)"
   tag fix: "Configure the policy value for Computer Configuration >>
 Administrative Templates >> Windows Components >> App Runtime >> \"Allow
 Microsoft accounts to be optional\" to \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
     it { should have_property 'MSAOptional' }
     its('MSAOptional') { should cmp 1 }
   end

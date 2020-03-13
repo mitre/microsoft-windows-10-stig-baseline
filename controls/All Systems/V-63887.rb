@@ -44,6 +44,7 @@ Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
 
 LOCAL SERVICE
 NETWORK SERVICE"
+
   describe.one do
     describe security_policy do
       its('SeAuditPrivilege') { should eq ['S-1-5-19', 'S-1-5-20'] }

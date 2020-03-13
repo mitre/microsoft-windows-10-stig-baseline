@@ -43,6 +43,7 @@ Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
 \"Debug programs\" to only include the following groups or accounts:
 
 Administrators"
+
   describe.one do
     describe security_policy do
       its('SeDebugPrivilege') { should eq ['S-1-5-32-544'] }

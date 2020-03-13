@@ -43,7 +43,8 @@ otherwise the browser will not be able to connect to a secure site."
 Settings >> Security Settings >> Local Policies >> Security Options >> \"System
 cryptography: Use FIPS compliant algorithms for encryption, hashing, and
 signing\" to \"Enabled\"."
-  describe registry_key('HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\FIPSAlgorithmPolicy') do
+
+  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\FIPSAlgorithmPolicy") do
     it { should have_property 'Enabled' }
     its('Enabled') { should cmp 1 }
   end

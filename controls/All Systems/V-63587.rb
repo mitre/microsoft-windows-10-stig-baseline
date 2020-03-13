@@ -107,29 +107,30 @@ AC06108CA348CC03B53795C64BF84403C1DBD341
 
 The certificates can be installed using the InstallRoot tool. The tool and user
 guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+
   describe.one do
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F") do
       it { should_not exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341") do
       it { should exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F") do
       it { should_not exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341") do
       it { should exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F") do
       it { should_not exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341") do
       it { should exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F") do
       it { should_not exist }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341') do
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341") do
       it { should exist }
     end
   end

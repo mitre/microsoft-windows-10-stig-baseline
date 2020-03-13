@@ -37,6 +37,7 @@ this is a finding."
   tag fix: "Configure the policy value for Computer Configuration >> Windows
 Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
 \"Lock pages in memory\" to be defined but containing no entries (blank)."
+
   describe security_policy do
     its('SeLockMemoryPrivilege') { should eq [] }
   end
