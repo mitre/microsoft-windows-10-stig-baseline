@@ -1,5 +1,5 @@
 control "V-63699" do
-  only_if { unless input('sensitive') }
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "Users must not be allowed to ignore Windows Defender SmartScreen
 filter warnings for malicious websites in Microsoft Edge."
   desc  "The Windows Defender SmartScreen filter in Microsoft Edge provides
@@ -7,7 +7,7 @@ warning messages and blocks potentially malicious websites and file downloads.
 If users are allowed to ignore warnings from the Windows Defender SmartScreen
 filter they could still access malicious websites."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000230"
   tag gid: "V-63699"
   tag rid: "SV-78189r6_rule"

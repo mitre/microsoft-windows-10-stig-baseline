@@ -9,9 +9,8 @@ version: 1.19
 
 inputs:
   - name: sensitive
-    type: Boolean
     description: "If this system should run only the sensitive tests"
-    value: false
+    value: "false"
 
   - name: backup_operators
     type: array

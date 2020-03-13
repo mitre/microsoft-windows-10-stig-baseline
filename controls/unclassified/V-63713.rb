@@ -1,11 +1,11 @@
 control "V-63713" do
-  only_if { !input('sensitive') }
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "The Windows Defender SmartScreen filter for Microsoft Edge must be
 enabled."
   desc  "The Windows Defender SmartScreen filter in Microsoft Edge provides
 warning messages and blocks potentially malicious websites."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000250"
   tag gid: "V-63713"
   tag rid: "SV-78203r6_rule"

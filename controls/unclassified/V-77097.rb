@@ -1,4 +1,5 @@
 control "V-77097" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "Windows 10 Exploit Protection system-level mitigation, Control flow
 guard (CFG), must be on."
   desc  "Exploit protection in Windows 10 enables mitigations against potential
@@ -7,7 +8,7 @@ threats at the system and application level.  Several mitigations, including
 ensures flow integrity for indirect calls. If this is turned off, Windows 10
 may be subject to various exploits."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-EP-000040"
   tag gid: "V-77097"
   tag rid: "SV-91793r3_rule"

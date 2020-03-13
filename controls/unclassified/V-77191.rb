@@ -1,4 +1,5 @@
 control "V-77191" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "Exploit Protection mitigations in Windows 10 must be configured for
 AcroRd32.exe."
   desc  "Exploit protection in Windows 10 provides a means of enabling
@@ -6,7 +7,7 @@ additional mitigations against potential threats at the system and application
 level. Without these additional application protections, Windows 10 may be
 subject to various exploits."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-EP-000080"
   tag gid: "V-77191"
   tag rid: "SV-91887r3_rule"

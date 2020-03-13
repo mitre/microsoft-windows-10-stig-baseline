@@ -1,4 +1,5 @@
 control "V-63701" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "Users must not be allowed to ignore Windows Defender SmartScreen
 filter warnings for unverified files in Microsoft Edge."
   desc  "The Windows Defender SmartScreen filter in Microsoft Edge provides
@@ -6,7 +7,7 @@ warning messages and blocks potentially malicious websites and file downloads.
 If users are allowed to ignore warnings from the Windows Defender SmartScreen
 filter they could still download potentially malicious files."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000235"
   tag gid: "V-63701"
   tag rid: "SV-78191r6_rule"

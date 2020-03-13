@@ -1,4 +1,5 @@
 control "V-77095" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "Windows 10 Exploit Protection system-level mitigation, Randomize
 memory allocations (Bottom-Up ASLR), must be on."
   desc  "Exploit protection in Windows 10 enables mitigations against potential
@@ -9,7 +10,7 @@ randomizes locations for virtual memory allocations, including those for system
 structures. If this is turned off, Windows 10 may be subject to various
 exploits."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-EP-000030"
   tag gid: "V-77095"
   tag rid: "SV-91791r4_rule"
