@@ -5,7 +5,7 @@ disabled."
 Enabling Windows Installer to elevate privileges when installing applications
 can allow malicious persons and applications to gain full control of a system."
   impact 0.7
-  tag severity: nil
+  tag severity: "High"
   tag gtitle: "WN10-CC-000315"
   tag gid: "V-63325"
   tag rid: "SV-77815r1_rule"

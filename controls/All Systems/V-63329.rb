@@ -48,6 +48,7 @@ If this needs to be corrected, configure the policy value for Computer
 Configuration >> Administrative Templates >> Windows Components >> Windows
 Installer >> \"Prevent Internet Explorer security prompt for Windows Installer
 scripts\" to \"Not Configured\" or \"Disabled\"."
+
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
   
   describe.one do

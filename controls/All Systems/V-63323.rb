@@ -8,7 +8,7 @@ Credential Guard to be configured and enabled properly. Without a TPM enabled
 and ready for use, Credential Guard keys are stored in a less secure method
 using software."
   impact 0.3
-  tag severity: nil
+  tag severity: "Low"
   tag gtitle: "WN10-00-000010"
   tag gid: "V-63323"
   tag rid: "SV-77813r5_rule"

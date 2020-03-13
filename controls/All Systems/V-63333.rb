@@ -6,7 +6,7 @@ a Windows Update restart.  Some protections are in place to help ensure this is
 done in a secure fashion; however, disabling this will prevent the caching of
 credentials for this purpose and also ensure the user is aware of the restart."
   impact 0.5
-  tag severity: nil
+  tag severity: "Medium"
   tag gtitle: "WN10-CC-000325"
   tag gid: "V-63333"
   tag rid: "SV-77823r1_rule"

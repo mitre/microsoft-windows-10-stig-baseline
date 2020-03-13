@@ -1,5 +1,5 @@
 control "V-63699" do
-  only_if { !input('sensitive') }
+  only_if { unless input('sensitive') }
   title "Users must not be allowed to ignore Windows Defender SmartScreen
 filter warnings for malicious websites in Microsoft Edge."
   desc  "The Windows Defender SmartScreen filter in Microsoft Edge provides
