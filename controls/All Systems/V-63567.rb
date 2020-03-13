@@ -7,7 +7,7 @@ sending a NetBIOS name release request to the server for each entry in the
 server's cache, causing a response delay in the normal operation of the servers
 WINS resolution capability."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000035"
   tag gid: "V-63567"
   tag rid: "SV-78057r1_rule"

@@ -6,7 +6,7 @@ FIPS-compliant for encryption, hashing, and signing.  FIPS-compliant algorithms
 meet specific standards established by the U.S. Government and must be the
 algorithms used for all OS encryption functions."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000230"
   tag gid: "V-63811"
   tag rid: "SV-78301r1_rule"

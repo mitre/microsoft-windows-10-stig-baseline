@@ -5,7 +5,7 @@ local session of a user.  Solicited assistance is help that is specifically
 requested by the local user.  This may allow unauthorized parties access to the
 resources on the computer."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-CC-000155"
   tag gid: "V-63651"
   tag rid: "SV-78141r1_rule"

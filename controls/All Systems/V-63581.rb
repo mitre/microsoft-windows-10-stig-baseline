@@ -8,7 +8,7 @@ automatically establishing multiple connections.  When both wired and wireless
 connections are available, for example, the less preferred connection
 (typically wireless) will be disconnected."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000055"
   tag gid: "V-63581"
   tag rid: "SV-78071r2_rule"

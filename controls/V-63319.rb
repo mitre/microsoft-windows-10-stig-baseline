@@ -8,7 +8,7 @@ order for Credential Guard to be configured and enabled properly.
 Virtualization based security and Credential Guard are only available with
 Windows 10 Enterprise 64-bit version."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000005"
   tag gid: "V-63319"
   tag rid: "SV-77809r3_rule"

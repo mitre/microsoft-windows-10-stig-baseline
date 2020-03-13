@@ -8,7 +8,7 @@ administrative, and other high-level capabilities.
 interactively to a system.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000025"
   tag gid: "V-63851"
   tag rid: "SV-78341r2_rule"

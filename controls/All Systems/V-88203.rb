@@ -5,7 +5,7 @@ organization instances."
 must be restricted to authorized instances if enabled. Configuring this setting
 will restrict synchronizing of OneDrive accounts to DoD organization instances."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000360"
   tag gid: "V-88203"
   tag rid: "SV-98853r2_rule"

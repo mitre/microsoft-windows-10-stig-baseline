@@ -8,7 +8,7 @@ level. SEHOP (structured exception handling overwrite protection) ensures the
 integrity of an exception chain during exception dispatch. If this is turned
 off, Windows 10 may be subject to various exploits."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-EP-000050"
   tag gid: "V-77101"
   tag rid: "SV-91797r3_rule"

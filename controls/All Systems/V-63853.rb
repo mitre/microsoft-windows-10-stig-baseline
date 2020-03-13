@@ -9,7 +9,7 @@ circumvent file and directory permissions and could allow access to sensitive
 data.\"
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000030"
   tag gid: "V-63853"
   tag rid: "SV-78343r1_rule"

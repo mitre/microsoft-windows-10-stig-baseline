@@ -10,7 +10,7 @@ apps are used and advanced reliability data. Windows Analytics can use a
 \"limited enhanced\" level to provide information such as health data for
 devices."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000204"
   tag gid: "V-82145"
   tag rid: "SV-96859r1_rule"

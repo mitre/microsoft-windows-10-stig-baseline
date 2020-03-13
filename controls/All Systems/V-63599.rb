@@ -6,7 +6,7 @@ authentication information, which was stored in the Local Security Authority
 (LSA) in previous versions of Windows, is isolated from the rest of operating
 system and can only be accessed by privileged system software."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000075"
   tag gid: "V-63599"
   tag rid: "SV-78089r8_rule"

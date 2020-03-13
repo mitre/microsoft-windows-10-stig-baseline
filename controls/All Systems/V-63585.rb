@@ -5,7 +5,7 @@ authenticated network must be blocked."
 a system and should be limited.  When connected to a domain, communication must
 go through the domain connection."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000060"
   tag gid: "V-63585"
   tag rid: "SV-78075r1_rule"

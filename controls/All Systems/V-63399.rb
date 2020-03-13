@@ -3,7 +3,7 @@ control "V-63399" do
   desc  "A firewall provides a line of defense against attack, allowing or
 blocking inbound and outbound connections based on a set of rules."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000135"
   tag gid: "V-63399"
   tag rid: "SV-77889r1_rule"

@@ -4,7 +4,7 @@ disabled."
   desc  "Legacy plug-in applications may continue to function when a File
 Explorer session has become corrupt.  Disabling this feature will prevent this."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000220"
   tag gid: "V-63691"
   tag rid: "SV-78181r3_rule"

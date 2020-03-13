@@ -4,7 +4,7 @@ authentication."
   desc  "Basic authentication uses plain text passwords that could be used to
 compromise a system."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-CC-000345"
   tag gid: "V-63347"
   tag rid: "SV-77837r1_rule"

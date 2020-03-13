@@ -4,7 +4,7 @@ commands."
   desc  "Allowing autorun commands to execute may introduce malicious code to a
 system.  Configuring this setting prevents autorun commands from executing."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-CC-000185"
   tag gid: "V-63671"
   tag rid: "SV-78161r1_rule"

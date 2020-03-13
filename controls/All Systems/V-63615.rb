@@ -6,7 +6,7 @@ this capability will prevent potentially sensitive information from being sent
 outside the enterprise and uncontrolled updates to the system.  This setting
 prevents the computer from downloading print driver packages over HTTP."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000100"
   tag gid: "V-63615"
   tag rid: "SV-78105r1_rule"

@@ -5,7 +5,7 @@ disabled."
 must be restricted to authorized instances. Enabling this setting will prevent
 the use of personal OneDrive accounts for synchronization."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UC-000005"
   tag gid: "V-82137"
   tag rid: "SV-96851r1_rule"

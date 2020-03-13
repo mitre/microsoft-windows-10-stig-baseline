@@ -18,7 +18,7 @@ from credential theft attacks.
 group.
   "
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-00-000070"
   tag gid: "V-63361"
   tag rid: "SV-77851r2_rule"

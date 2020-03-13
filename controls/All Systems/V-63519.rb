@@ -5,7 +5,7 @@ greater."
 prevent audit events from being recorded properly and require frequent
 attention by administrative personnel."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000500"
   tag gid: "V-63519"
   tag rid: "SV-78009r1_rule"

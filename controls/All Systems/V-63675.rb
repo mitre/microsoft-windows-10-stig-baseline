@@ -5,7 +5,7 @@ logon."
 negate legal proceedings resulting from unauthorized access to system
 resources."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000075"
   tag gid: "V-63675"
   tag rid: "SV-78165r2_rule"

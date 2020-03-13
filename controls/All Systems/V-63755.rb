@@ -6,7 +6,7 @@ enabled, then anonymous users have the same rights and permissions as the
 built-in Everyone group.  Anonymous users must not have these permissions or
 rights."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000160"
   tag gid: "V-63755"
   tag rid: "SV-78245r1_rule"

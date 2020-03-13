@@ -9,7 +9,7 @@ that can generate Security Log audit records, which must only be the system
 service accounts defined.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000105"
   tag gid: "V-63887"
   tag rid: "SV-78377r1_rule"

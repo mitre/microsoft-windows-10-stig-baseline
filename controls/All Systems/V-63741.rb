@@ -5,7 +5,7 @@ encryption set to the required level."
 or sensitive information. Selecting \"High Level\" will ensure encryption of
 Remote Desktop Services sessions in both directions."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000290"
   tag gid: "V-63741"
   tag rid: "SV-78231r1_rule"

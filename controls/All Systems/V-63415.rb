@@ -7,7 +7,7 @@ users to effectively negate the purpose of mandating periodic password changes.
  The default value is 24 for Windows domain systems.  DoD has decided this is
 the appropriate value for all Windows systems."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AC-000020"
   tag gid: "V-63415"
   tag rid: "SV-77905r2_rule"

@@ -4,7 +4,7 @@ control "V-63739" do
 information for accessing a system.  Only authorized users must be able to
 perform such translations."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-SO-000140"
   tag gid: "V-63739"
   tag rid: "SV-78229r1_rule"

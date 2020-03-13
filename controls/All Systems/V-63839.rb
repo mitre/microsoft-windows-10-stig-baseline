@@ -4,7 +4,7 @@ control "V-63839" do
 display sensitive information to unauthorized personnel.  Turning off this
 feature will limit access to the information to a logged on user."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-UC-000015"
   tag gid: "V-63839"
   tag rid: "SV-78329r1_rule"

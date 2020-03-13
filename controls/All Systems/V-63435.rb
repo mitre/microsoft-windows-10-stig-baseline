@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 credentials for a user account logon.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000010"
   tag gid: "V-63435"
   tag rid: "SV-77925r1_rule"

@@ -3,7 +3,7 @@ control "V-63355" do
   desc  "Allowing other operating systems to run on a secure system may allow
 security to be circumvented."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000055"
   tag gid: "V-63355"
   tag rid: "SV-77845r1_rule"

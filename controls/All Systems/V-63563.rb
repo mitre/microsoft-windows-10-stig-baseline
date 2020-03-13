@@ -6,7 +6,7 @@ generated routes."
 properly.   When disabled, this forces ICMP to be routed via shortest path
 first."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000030"
   tag gid: "V-63563"
   tag rid: "SV-78053r1_rule"

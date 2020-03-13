@@ -5,7 +5,7 @@ control "V-63423" do
 crack the password, thus gaining access to the system and compromising the
 device, information, or the local network."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AC-000035"
   tag gid: "V-63423"
   tag rid: "SV-77913r1_rule"

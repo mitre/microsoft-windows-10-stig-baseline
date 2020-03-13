@@ -12,7 +12,7 @@ record the command line information with the process creation events in the
 log.  This can provide additional detail when malware has run on a system.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000066"
   tag gid: "V-68817"
   tag rid: "SV-83409r1_rule"

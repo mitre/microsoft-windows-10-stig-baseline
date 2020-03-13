@@ -6,7 +6,7 @@ Convention (UNC) paths specified in Hardened UNC paths before allowing access
 them.  This aids in preventing tampering with or spoofing of connections to
 these paths."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000050"
   tag gid: "V-63577"
   tag rid: "SV-78067r1_rule"

@@ -9,7 +9,7 @@ right may be able to retrieve the credentials of other accounts from Credential
 Manager.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000005"
   tag gid: "V-63843"
   tag rid: "SV-78333r1_rule"

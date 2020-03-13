@@ -8,7 +8,7 @@ accessing or creating virtual machines on the system. The Hyper-V Hypervisor is
 used by Virtualization Based Security features such as Credential Guard on
 Windows 10; however, it is not the full Hyper-V installation."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000080"
   tag gid: "V-63365"
   tag rid: "SV-77855r3_rule"

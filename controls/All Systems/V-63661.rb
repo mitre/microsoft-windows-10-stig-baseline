@@ -6,7 +6,7 @@ basis.  This setting controls the maximum password age that a machine account
 may have.  This setting must be set to no more than 30 days, ensuring the
 machine changes its password monthly."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-SO-000055"
   tag gid: "V-63661"
   tag rid: "SV-78151r1_rule"

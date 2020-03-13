@@ -9,7 +9,7 @@ circumvent file and directory permissions and could allow access to sensitive
 data. It could also be used to over-write more current data.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000160"
   tag gid: "V-63939"
   tag rid: "SV-78429r1_rule"

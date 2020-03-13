@@ -8,7 +8,7 @@ outside the enterprise and uncontrolled updates to the system.  This setting
 will prevent the Program Inventory from collecting data about a system and
 sending the information to Microsoft."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000175"
   tag gid: "V-63663"
   tag rid: "SV-78153r1_rule"

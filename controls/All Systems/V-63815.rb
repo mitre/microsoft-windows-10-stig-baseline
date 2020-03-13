@@ -7,7 +7,7 @@ permissions. If this policy is enabled, the default DACL is stronger, allowing
 non-admin users to read shared objects, but not modify shared objects that they
 did not create."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-SO-000240"
   tag gid: "V-63815"
   tag rid: "SV-78305r1_rule"

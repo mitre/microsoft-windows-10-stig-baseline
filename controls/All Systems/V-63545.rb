@@ -4,7 +4,7 @@ control "V-63545" do
 unauthorized use.  Requiring logon will ensure the device is only used by
 authorized personnel."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000005"
   tag gid: "V-63545"
   tag rid: "SV-78035r1_rule"

@@ -5,7 +5,7 @@ operating system. Secure Boot is required to support additional security
 features in Windows 10, including Virtualization Based Security and Credential
 Guard. If Secure Boot is turned off, these security features will not function."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-00-000020"
   tag gid: "V-77085"
   tag rid: "SV-91781r2_rule"

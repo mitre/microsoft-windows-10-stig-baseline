@@ -4,7 +4,7 @@ control "V-63351" do
 servers. Employing an automated mechanism to detect this type of software will
 aid in elimination of the software from the operating system."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-00-000045"
   tag gid: "V-63351"
   tag rid: "SV-77841r4_rule"

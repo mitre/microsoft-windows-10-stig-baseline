@@ -5,7 +5,7 @@ and RC4 encryption suites."
 setting configures a minimum encryption type for Kerberos, preventing the use
 of the DES and RC4 encryption suites."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000190"
   tag gid: "V-63795"
   tag rid: "SV-78285r1_rule"

@@ -4,7 +4,7 @@ control "V-63569" do
 Shared resources on a system must require authentication to establish proper
 access."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000040"
   tag gid: "V-63569"
   tag rid: "SV-78059r2_rule"

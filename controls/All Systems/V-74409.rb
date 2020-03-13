@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 of task scheduler jobs and COM+ objects.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000084"
   tag gid: "V-74409"
   tag rid: "SV-89083r1_rule"

@@ -7,7 +7,7 @@ part of the Windows Update trusted process, however to minimize outside
 exposure, obtaining updates from or sending to systems on the Internet must be
 prevented."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000206"
   tag gid: "V-65681"
   tag rid: "SV-80171r3_rule"

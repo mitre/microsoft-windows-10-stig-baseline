@@ -6,7 +6,7 @@ elevation of privileges, including administrative accounts, unless authorized.
 This setting configures the elevation requirements for logged on administrators
 to complete a task that requires raised privileges."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000250"
   tag gid: "V-63819"
   tag rid: "SV-78309r1_rule"

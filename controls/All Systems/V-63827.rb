@@ -7,7 +7,7 @@ This setting configures Windows to only allow applications installed in a
 secure location on the file system, such as the Program Files or the
 Windows\\System32 folders, to run with elevated privileges."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000265"
   tag gid: "V-63827"
   tag rid: "SV-78317r1_rule"

@@ -11,7 +11,7 @@ assets and detecting signs of suspicious and unexpected behavior.
     Audit Policy Change records events related to changes in audit policy.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000095"
   tag gid: "V-63475"
   tag rid: "SV-77965r2_rule"

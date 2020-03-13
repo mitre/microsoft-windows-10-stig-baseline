@@ -14,7 +14,7 @@ privilege escalation from credential theft attacks which could lead to the
 compromise of an entire domain.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000075"
   tag gid: "V-63873"
   tag rid: "SV-78363r1_rule"

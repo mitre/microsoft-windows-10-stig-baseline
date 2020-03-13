@@ -5,7 +5,7 @@ passwords are stored in the Local Security Authority Subsystem Service (LSASS)
 exposing them to theft.  WDigest is disabled by default in Windows 10.  This
 setting ensures this is enforced."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000038"
   tag gid: "V-71763"
   tag rid: "SV-86387r1_rule"

@@ -5,7 +5,7 @@ networks that contacts have shared.  It also allows the sharing of the system's
 known networks to contacts.  Automatically connecting to hotspots and shared
 networks can expose a system to unsecured or potentially malicious systems."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000065"
   tag gid: "V-63591"
   tag rid: "SV-78081r2_rule"

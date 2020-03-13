@@ -9,7 +9,7 @@ access token. This could be used to provide elevated rights and compromise a
 system.
   "
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-UR-000045"
   tag gid: "V-63859"
   tag rid: "SV-78349r1_rule"

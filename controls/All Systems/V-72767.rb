@@ -4,7 +4,7 @@ control "V-72767" do
 communicate with a system. If a rogue device is paired with a system, there is
 potential for sensitive information to be compromised."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000220"
   tag gid: "V-72767"
   tag rid: "SV-87405r1_rule"

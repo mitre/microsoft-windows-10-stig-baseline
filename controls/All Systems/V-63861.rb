@@ -9,7 +9,7 @@ that are available to all sessions, which could affect processes in other
 users' sessions.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000050"
   tag gid: "V-63861"
   tag rid: "SV-78351r1_rule"

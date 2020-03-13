@@ -8,7 +8,7 @@ elevation to be initiated by accounts with administrative privileges.  This
 ensures correct accounts are used on the system for privileged tasks to help
 mitigate credential theft."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000255"
   tag gid: "V-63821"
   tag rid: "SV-78311r1_rule"

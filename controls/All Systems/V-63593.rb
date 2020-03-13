@@ -5,7 +5,7 @@ maintained."
 the Windows system.  Changing the system's registry permissions allows the
 possibility of unauthorized and anonymous modification to the operating system."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-RG-000005"
   tag gid: "V-63593"
   tag rid: "SV-78083r2_rule"

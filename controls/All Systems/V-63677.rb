@@ -4,7 +4,7 @@ Window 10."
   desc  "Enhanced anti-spoofing provides additional protections when using
 facial recognition with devices that support it."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000195"
   tag gid: "V-63677"
   tag rid: "SV-78167r3_rule"

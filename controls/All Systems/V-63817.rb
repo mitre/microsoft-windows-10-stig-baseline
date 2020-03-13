@@ -6,7 +6,7 @@ elevation of privileges, including administrative accounts, unless authorized.
 This setting configures the built-in Administrator account so that it runs in
 Admin Approval Mode."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000245"
   tag gid: "V-63817"
   tag rid: "SV-78307r1_rule"

@@ -7,7 +7,7 @@ could be compromised.  Longer minimum PIN lengths increase the available
 combinations an attacker would have to attempt.  Shorter minimum length
 significantly reduces the strength."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000260"
   tag gid: "V-63721"
   tag rid: "SV-78211r6_rule"

@@ -4,7 +4,7 @@ control "V-63665" do
 channel.  Requiring strong session keys enforces 128-bit encryption between
 systems."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000060"
   tag gid: "V-63665"
   tag rid: "SV-78155r1_rule"

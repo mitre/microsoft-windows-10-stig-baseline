@@ -8,7 +8,7 @@ provide a trail of evidence in case the system or network is compromised.  The
 Application event log may be  susceptible to tampering if proper permissions
 are not applied."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000515"
   tag gid: "V-63533"
   tag rid: "SV-78023r2_rule"

@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 and can be used to elevate processes.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000080"
   tag gid: "V-63469"
   tag rid: "SV-77959r1_rule"

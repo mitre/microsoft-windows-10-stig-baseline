@@ -6,7 +6,7 @@ automatically as part of their remote desktop connection.  Disabling this
 setting would allow anyone to use the stored credentials in a connection item
 to connect to the terminal server."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000280"
   tag gid: "V-63733"
   tag rid: "SV-78223r1_rule"

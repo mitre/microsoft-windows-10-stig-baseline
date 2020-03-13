@@ -8,7 +8,7 @@ credential cache is well-protected, if a system is attacked, an unauthorized
 individual may isolate the password to a domain user account using a
 password-cracking program and gain access to the domain."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-SO-000085"
   tag gid: "V-63687"
   tag rid: "SV-78177r1_rule"

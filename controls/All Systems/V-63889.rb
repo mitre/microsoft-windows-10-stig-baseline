@@ -9,7 +9,7 @@ program to impersonate another user or account to run on their behalf. An
 attacker could potentially use this to elevate privileges.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000110"
   tag gid: "V-63889"
   tag rid: "SV-78379r1_rule"

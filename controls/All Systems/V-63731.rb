@@ -5,7 +5,7 @@ Session Hosts."
 computers to Remote Session Hosts that they access helps reduce possible
 exposure of sensitive data."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000275"
   tag gid: "V-63731"
   tag rid: "SV-78221r1_rule"

@@ -6,7 +6,7 @@ validated, the system must trust the DoD Root Certificate Authorities (CAs).
 The DoD root certificates will ensure that the trust chain is established for
 server certificates issued from the DoD CAs."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-PK-000005"
   tag gid: "V-63579"
   tag rid: "SV-78069r4_rule"

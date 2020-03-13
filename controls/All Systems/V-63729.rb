@@ -5,7 +5,7 @@ unauthorized user to establish a remote desktop session to another system.  The
 system must be configured to prevent users from saving passwords in the Remote
 Desktop Client."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000270"
   tag gid: "V-63729"
   tag rid: "SV-78219r1_rule"

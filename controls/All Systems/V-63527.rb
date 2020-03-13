@@ -4,7 +4,7 @@ control "V-63527" do
 prevent audit events from being recorded properly and require frequent
 attention by administrative personnel."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000510"
   tag gid: "V-63527"
   tag rid: "SV-78017r1_rule"

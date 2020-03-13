@@ -7,7 +7,7 @@ users to circumvent the file access restrictions present on NTFS disk drives
 for backup and restore purposes.  Members of the Backup Operators group must
 have separate logon accounts for performing backup duties."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000075"
   tag gid: "V-63363"
   tag rid: "SV-77853r1_rule"

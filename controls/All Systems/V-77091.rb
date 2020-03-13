@@ -7,7 +7,7 @@ threats at the system and application level.  Several mitigations, including
 level. DEP prevents code from being run from data-only memory pages. If this is
 turned off, Windows 10 may be subject to various exploits."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-EP-000020"
   tag gid: "V-77091"
   tag rid: "SV-91787r3_rule"

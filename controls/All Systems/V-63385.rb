@@ -3,7 +3,7 @@ control "V-63385" do
   desc  "Some protocols and services do not support required security features,
 such as encrypting passwords or traffic."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000115"
   tag gid: "V-63385"
   tag rid: "SV-77875r1_rule"

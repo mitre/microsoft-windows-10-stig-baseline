@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 authentication policy including Kerberos policy and Trust changes.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000105"
   tag gid: "V-63481"
   tag rid: "SV-77971r1_rule"

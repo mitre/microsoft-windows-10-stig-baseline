@@ -7,7 +7,7 @@ potentially expose sensitive information.  If a share is necessary, share
 permissions, as well as NTFS permissions, must be reconfigured to give the
 minimum access to those accounts that require it."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000060"
   tag gid: "V-63357"
   tag rid: "SV-77847r1_rule"

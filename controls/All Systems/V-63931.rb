@@ -9,7 +9,7 @@ change hardware configuration environment variables. This could result in
 hardware failures or a DoS.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000140"
   tag gid: "V-63931"
   tag rid: "SV-78421r1_rule"

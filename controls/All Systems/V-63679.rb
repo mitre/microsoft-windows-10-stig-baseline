@@ -5,7 +5,7 @@ of the logon information to an unauthorized user.  This setting configures the
 system to always require users to type in a username and password to elevate a
 running application."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000200"
   tag gid: "V-63679"
   tag rid: "SV-78169r1_rule"

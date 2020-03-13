@@ -5,7 +5,7 @@ requirement for NTLM SSP based servers."
 use with RPC sessions.  All of the options must be enabled to ensure the
 maximum security level."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000220"
   tag gid: "V-63807"
   tag rid: "SV-78297r1_rule"

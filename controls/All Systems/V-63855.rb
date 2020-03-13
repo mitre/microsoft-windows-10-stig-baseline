@@ -9,7 +9,7 @@ system time, which can impact authentication, as well as affect time stamps on
 event log entries.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000035"
   tag gid: "V-63855"
   tag rid: "SV-78345r1_rule"

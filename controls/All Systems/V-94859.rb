@@ -8,7 +8,7 @@ operating system controls. Encrypting the data ensures that confidentiality is
 protected even when the operating system is not running. Pre-boot
 authentication prevents unauthorized users from accessing encrypted drives."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000031"
   tag gid: "V-94859"
   tag rid: "SV-104689r1_rule"

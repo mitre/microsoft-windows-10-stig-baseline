@@ -5,7 +5,7 @@ level."
 setting must be set to Negotiate signing or Require signing, depending on the
 environment and type of LDAP server in use."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000210"
   tag gid: "V-63803"
   tag rid: "SV-78293r1_rule"

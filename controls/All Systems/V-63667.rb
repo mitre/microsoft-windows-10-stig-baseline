@@ -6,7 +6,7 @@ control "V-63667" do
 This setting will disable autoplay for non-volume devices (such as Media
 Transfer Protocol (MTP) devices)."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-CC-000180"
   tag gid: "V-63667"
   tag rid: "SV-78157r1_rule"

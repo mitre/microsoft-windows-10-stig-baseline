@@ -6,7 +6,7 @@ authenticating to an SMB server, reduces the overall security of the
 environment.  Check with the vendor of the SMB server to see if there is a way
 to support encrypted password authentication."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000110"
   tag gid: "V-63711"
   tag rid: "SV-78201r1_rule"

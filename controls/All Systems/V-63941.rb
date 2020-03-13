@@ -8,7 +8,7 @@ administrative, and other high level capabilities.
 can take ownership of objects and make changes.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000165"
   tag gid: "V-63941"
   tag rid: "SV-78431r1_rule"

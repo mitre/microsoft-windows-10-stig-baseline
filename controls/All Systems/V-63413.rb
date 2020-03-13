@@ -7,7 +7,7 @@ that must pass after failed logon attempts before the counter is reset to 0.
 The smaller this value is, the less effective the account lockout feature will
 be in protecting the local system."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AC-000015"
   tag gid: "V-63413"
   tag rid: "SV-77903r1_rule"

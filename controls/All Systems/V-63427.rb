@@ -4,7 +4,7 @@ control "V-63427" do
 and brute-force attacks.  This setting configures the system to verify that
 newly created passwords conform to the Windows password complexity policy."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AC-000040"
   tag gid: "V-63427"
   tag rid: "SV-77917r1_rule"

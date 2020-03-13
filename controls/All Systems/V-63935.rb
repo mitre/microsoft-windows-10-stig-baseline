@@ -9,7 +9,7 @@ non-system processes performance. An attacker could potentially use this to
 identify processes to attack.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000150"
   tag gid: "V-63935"
   tag rid: "SV-78425r1_rule"

@@ -5,7 +5,7 @@ days of inactivity."
 undetected.  Inactive accounts must be deleted if no longer necessary or, if
 still required, disable until needed."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-00-000065"
   tag gid: "V-63359"
   tag rid: "SV-77849r1_rule"

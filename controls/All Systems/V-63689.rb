@@ -5,7 +5,7 @@ performing  checks on memory to help prevent malicious code from running.  This
 setting will prevent Data Execution Prevention from being turned off for File
 Explorer."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000215"
   tag gid: "V-63689"
   tag rid: "SV-78179r1_rule"

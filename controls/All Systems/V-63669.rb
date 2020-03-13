@@ -6,7 +6,7 @@ locked when unattended.  The screen saver should be set at a maximum of 15
 minutes and be password protected.  This protects critical and sensitive data
 from exposure to unauthorized personnel with physical access to the computer."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000070"
   tag gid: "V-63669"
   tag rid: "SV-78159r2_rule"

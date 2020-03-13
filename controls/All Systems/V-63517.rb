@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 security subsystem.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000160"
   tag gid: "V-63517"
   tag rid: "SV-78007r1_rule"

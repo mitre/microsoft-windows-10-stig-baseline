@@ -21,7 +21,7 @@ decrease the risk of lateral movement resulting from credential theft attacks.
 access.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000070"
   tag gid: "V-63871"
   tag rid: "SV-78361r3_rule"

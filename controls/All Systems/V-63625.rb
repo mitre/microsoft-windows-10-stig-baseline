@@ -5,7 +5,7 @@ systems and, as initially installed, does not require a password.  This can
 allow access to system resources by unauthorized users.  Renaming this account
 to an unidentified name improves the protection of this account and the system."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000025"
   tag gid: "V-63625"
   tag rid: "SV-78115r1_rule"

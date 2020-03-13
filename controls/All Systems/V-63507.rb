@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 state, such as startup and shutdown of the system.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000140"
   tag gid: "V-63507"
   tag rid: "SV-77997r1_rule"

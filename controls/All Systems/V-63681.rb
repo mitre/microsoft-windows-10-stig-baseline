@@ -4,7 +4,7 @@ control "V-63681" do
 negate legal proceedings resulting from unauthorized access to system
 resources."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-SO-000080"
   tag gid: "V-63681"
   tag rid: "SV-78171r1_rule"

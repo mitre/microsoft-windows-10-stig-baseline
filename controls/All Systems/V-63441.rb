@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 hash or the Password Policy Checking API being called.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000020"
   tag gid: "V-63441"
   tag rid: "SV-77931r1_rule"

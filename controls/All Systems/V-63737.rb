@@ -8,7 +8,7 @@ before allowing the packets to be exchanged. Usually the attacker will modify
 the information in the packets in an attempt to cause either the client or
 server to reveal sensitive information."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000285"
   tag gid: "V-63737"
   tag rid: "SV-78227r1_rule"

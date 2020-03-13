@@ -22,7 +22,7 @@ for the administration of the local system, services, or attached devices.
 policy to ensure compliance.
   "
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-00-000240"
   tag gid: "V-78129"
   tag rid: "SV-92835r1_rule"

@@ -8,7 +8,7 @@ clients and servers that are running earlier versions of Windows or
 applications that still use it.  It is also used to authenticate logons to
 stand-alone computers that are running later versions."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-SO-000205"
   tag gid: "V-63801"
   tag rid: "SV-78291r1_rule"

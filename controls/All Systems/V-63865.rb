@@ -8,7 +8,7 @@ administrative, and other high level capabilities.
 to other objects, which could potentially expose the system to attack.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000060"
   tag gid: "V-63865"
   tag rid: "SV-78355r2_rule"

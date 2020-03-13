@@ -6,7 +6,7 @@ games, however it could potentially record screen shots of other applications
 and expose sensitive data.  Disabling the feature will prevent this from
 occurring."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000252"
   tag gid: "V-74417"
   tag rid: "SV-89091r2_rule"

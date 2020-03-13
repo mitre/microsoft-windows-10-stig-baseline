@@ -6,7 +6,7 @@ Group Policy objects have not changed\" option ensures that the policies will
 be reprocessed even if none have been changed. This way, any unauthorized
 changes are forced to match the domain-based group policy settings again."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000090"
   tag gid: "V-63609"
   tag rid: "SV-78099r1_rule"

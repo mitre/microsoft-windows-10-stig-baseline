@@ -5,7 +5,7 @@ connection, such as through wireless, to be shared and used by other systems
 essentially creating a mobile hotspot.  This exposes the system sharing the
 connection to others with potentially malicious purpose."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000044"
   tag gid: "V-71765"
   tag rid: "SV-86389r1_rule"

@@ -5,7 +5,7 @@ requirements."
 possibility of unauthorized and anonymous modification to the operating system
 and installed applications."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000095"
   tag gid: "V-63373"
   tag rid: "SV-77863r2_rule"

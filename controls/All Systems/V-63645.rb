@@ -5,7 +5,7 @@ battery)."
 setting ensures the user is prompted for a password on resume from sleep (on
 battery)."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000145"
   tag gid: "V-63645"
   tag rid: "SV-78135r1_rule"

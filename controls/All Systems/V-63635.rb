@@ -8,7 +8,7 @@ Collecting this data is essential for analyzing the security of information
 assets and detecting signs of suspicious and unexpected behavior.  This setting
 allows administrators to enable more precise auditing capabilities."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000030"
   tag gid: "V-63635"
   tag rid: "SV-78125r1_rule"

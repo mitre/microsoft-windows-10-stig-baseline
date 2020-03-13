@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 deleting, renaming, disabling, or enabling user accounts.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000035"
   tag gid: "V-63447"
   tag rid: "SV-77937r1_rule"

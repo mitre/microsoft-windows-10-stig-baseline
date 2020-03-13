@@ -9,7 +9,7 @@ dynamically be loaded on a system by a user. This could potentially be used to
 install malicious code by an attacker.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000120"
   tag gid: "V-63917"
   tag rid: "SV-78407r1_rule"

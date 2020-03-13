@@ -9,7 +9,7 @@ right allows the \"Trusted for Delegation\" setting to be changed. This could
 potentially allow unauthorized users to impersonate other users.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000095"
   tag gid: "V-63881"
   tag rid: "SV-78371r1_rule"

@@ -8,7 +8,7 @@ administrative, and other high level capabilities.
 expose sensitive data by creating shared objects.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000055"
   tag gid: "V-63863"
   tag rid: "SV-78353r1_rule"

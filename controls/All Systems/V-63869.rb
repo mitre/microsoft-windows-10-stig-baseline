@@ -10,7 +10,7 @@ critical operating system components.  This right is given to Administrators in
 the default configuration.
   "
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-UR-000065"
   tag gid: "V-63869"
   tag rid: "SV-78359r1_rule"

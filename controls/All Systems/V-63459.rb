@@ -13,7 +13,7 @@ recorded on the local system. If it is to a network share, it is recorded on
 the system accessed.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000065"
   tag gid: "V-63459"
   tag rid: "SV-77951r1_rule"

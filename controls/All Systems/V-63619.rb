@@ -4,7 +4,7 @@ control "V-63619" do
 attack.  Renaming this account to an unidentified name improves the protection
 of this account and the system."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000020"
   tag gid: "V-63619"
   tag rid: "SV-78109r1_rule"

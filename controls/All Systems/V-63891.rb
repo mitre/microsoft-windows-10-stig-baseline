@@ -8,7 +8,7 @@ administrative, and other high level capabilities.
 scheduling priority causing performance issues or a DoS.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000115"
   tag gid: "V-63891"
   tag rid: "SV-78381r2_rule"

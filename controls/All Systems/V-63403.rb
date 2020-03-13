@@ -6,7 +6,7 @@ allow lateral movement across systems if credentials are compromised.  Limiting
 inbound connections only from authorized remote management systems will help
 limit this exposure."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000140"
   tag gid: "V-63403"
   tag rid: "SV-77893r2_rule"

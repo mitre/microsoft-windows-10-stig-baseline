@@ -8,7 +8,7 @@ non-exportable credentials providing additional protection of the credentials.
 Enabling this configures the host to support Restricted Admin mode or Remote
 Credential Guard."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000068"
   tag gid: "V-74699"
   tag rid: "SV-89373r2_rule"

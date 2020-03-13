@@ -6,7 +6,7 @@ Organizations may control the execution of applications through other means
 such as whitelisting.  Turning off Microsoft consumer experiences will help
 prevent the unwanted installation of suggested applications."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000197"
   tag gid: "V-71771"
   tag rid: "SV-86395r2_rule"

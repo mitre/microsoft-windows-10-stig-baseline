@@ -7,7 +7,7 @@ trust the ECA Root CAs. The ECA root certificates will ensure the trust chain
 is established for server certificates issued from the External CAs. This
 requirement only applies to unclassified systems."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-PK-000010"
   tag gid: "V-63583"
   tag rid: "SV-78073r3_rule"

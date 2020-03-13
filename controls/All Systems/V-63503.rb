@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 operations and the Windows Firewall service.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000135"
   tag gid: "V-63503"
   tag rid: "SV-77993r2_rule"

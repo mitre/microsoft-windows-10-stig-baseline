@@ -5,7 +5,7 @@ credentials."
  Disallowing the storage of RunAs credentials for Windows Remote Management
 will prevent them from being used with plug-ins."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000355"
   tag gid: "V-63375"
   tag rid: "SV-77865r1_rule"

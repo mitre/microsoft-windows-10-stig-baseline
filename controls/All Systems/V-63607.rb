@@ -7,7 +7,7 @@ can limit allowed drivers based on classifications determined by the malware
 protection application.  At a minimum, drivers determined to be bad must not be
 allowed."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000085"
   tag gid: "V-63607"
   tag rid: "SV-78097r1_rule"

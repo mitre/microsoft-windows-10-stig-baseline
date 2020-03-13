@@ -9,7 +9,7 @@ manage volume and disk configurations. They could potentially delete volumes,
 resulting in, data loss or a DoS.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000145"
   tag gid: "V-63933"
   tag rid: "SV-78423r1_rule"

@@ -5,7 +5,7 @@ control "V-63393" do
 for end users to access resources is less secure than the use of hardware-based
 certificates."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000130"
   tag gid: "V-63393"
   tag rid: "SV-77883r2_rule"

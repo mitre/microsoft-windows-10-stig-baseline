@@ -7,7 +7,7 @@ a root other than DoD Root CAs, the DoD Interoperability Root CA
 cross-certificates must be installed in the Untrusted Certificate Store. This
 requirement only applies to unclassified systems."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-PK-000015"
   tag gid: "V-63587"
   tag rid: "SV-78077r5_rule"

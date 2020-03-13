@@ -5,7 +5,7 @@ than built-in accounts and local administrator accounts, must not exist on a
 workstation in a domain.  Users must log onto workstations in a domain with
 their domain accounts."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-00-000085"
   tag gid: "V-63367"
   tag rid: "SV-77857r2_rule"
@@ -40,6 +40,7 @@ All of the built-in accounts may not exist on a system, depending on the
 Windows 10 version."
   tag fix: "Limit local user accounts on domain-joined systems.  Remove any
 unauthorized local accounts."
+
   admin_script = <<-EOH
   $convert_json = Get-LocalUser -Name "Administrator" | ConvertTo-Json
   $convert_out_json = ConvertFrom-Json -InputObject $convert_json

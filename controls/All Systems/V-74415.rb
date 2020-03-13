@@ -7,7 +7,7 @@ malicious websites and files that could later be used for anti-virus and
 Intrusion Detection System (IDS) signatures.  Disabling this function will
 prevent the data from automatically being deleted when the browser closes."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000228"
   tag gid: "V-74415"
   tag rid: "SV-89089r4_rule"

@@ -4,7 +4,7 @@ RPC server."
   desc  "Configuring RPC to restrict unauthenticated RPC clients from
 connecting to the RPC server will prevent anonymous connections."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000165"
   tag gid: "V-63657"
   tag rid: "SV-78147r1_rule"

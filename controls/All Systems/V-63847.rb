@@ -10,7 +10,7 @@ authorized to access.  Any accounts with this right can take complete control
 of a system.
   "
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-UR-000015"
   tag gid: "V-63847"
   tag rid: "SV-78337r1_rule"

@@ -8,7 +8,7 @@ protection of code integrity.  Secure Boot is the minimum security level with
 DMA protection providing additional memory protection.  DMA Protection requires
 a CPU that supports input/output memory management unit (IOMMU)."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000070"
   tag gid: "V-63595"
   tag rid: "SV-78085r6_rule"

@@ -5,7 +5,7 @@ information (such as passwords) is encrypted, but not all information is
 encrypted.  If this policy is enabled, outgoing secure channel traffic will be
 encrypted and signed."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000035"
   tag gid: "V-63639"
   tag rid: "SV-78129r1_rule"

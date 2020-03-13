@@ -5,7 +5,7 @@ downloaded from the internet that may be malicious. Enabling Windows Defender
 SmartScreen will warn or prevent users from running potentially malicious
 programs."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000210"
   tag gid: "V-63685"
   tag rid: "SV-78175r6_rule"

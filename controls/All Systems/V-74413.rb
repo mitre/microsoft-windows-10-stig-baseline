@@ -6,7 +6,7 @@ of utilizing encryption to protect data. By default Windows uses ECC curves
 with shorter key lengths first.  Requiring ECC curves with longer key lengths
 to be prioritized first helps ensure more secure algorithms are used."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000052"
   tag gid: "V-74413"
   tag rid: "SV-89087r2_rule"

@@ -17,7 +17,7 @@ compromise of an entire domain.
 access.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000085"
   tag gid: "V-63877"
   tag rid: "SV-78367r2_rule"

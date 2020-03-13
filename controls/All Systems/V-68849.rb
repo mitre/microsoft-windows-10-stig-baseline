@@ -6,7 +6,7 @@ applications. Structured Exception Handling Overwrite Protection (SEHOP) blocks
 exploits that use the Structured Exception Handling overwrite technique, a
 common buffer overflow attack."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-00-000150"
   tag gid: "V-68849"
   tag rid: "SV-83445r4_rule"

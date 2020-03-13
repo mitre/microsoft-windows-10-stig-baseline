@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 rights, such as Create a token object.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000107"
   tag gid: "V-71761"
   tag rid: "SV-86385r1_rule"

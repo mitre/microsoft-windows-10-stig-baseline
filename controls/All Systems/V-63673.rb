@@ -7,7 +7,7 @@ default, autoplay is disabled on removable drives, such as the floppy disk
 drive (but not the CD-ROM drive) and on network drives.  If you enable this
 policy, you can also disable autoplay on all drives."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-CC-000190"
   tag gid: "V-63673"
   tag rid: "SV-78163r1_rule"

@@ -12,7 +12,7 @@ Server 2003 is no longer a supported operating system. Some older network
 attached devices may only support SMBv1.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000165"
   tag gid: "V-74723"
   tag rid: "SV-89397r1_rule"

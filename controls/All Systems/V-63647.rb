@@ -5,7 +5,7 @@ information (such as passwords) is encrypted, but the channel is not integrity
 checked.  If this policy is enabled, outgoing secure channel traffic will be
 signed."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000045"
   tag gid: "V-63647"
   tag rid: "SV-78137r1_rule"

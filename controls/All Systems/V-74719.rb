@@ -5,7 +5,7 @@ credentials, typically used to run commands with elevated privileges.  Using
 privileged credentials in a standard user session can expose those credentials
 to theft."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000175"
   tag gid: "V-74719"
   tag rid: "SV-89393r2_rule"

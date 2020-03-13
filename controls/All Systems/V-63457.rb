@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 of a user's logon token.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000060"
   tag gid: "V-63457"
   tag rid: "SV-77947r2_rule"

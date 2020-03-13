@@ -3,7 +3,7 @@ control "V-63555" do
   desc  "Configuring the system to disable IPv6 source routing protects against
 spoofing."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000020"
   tag gid: "V-63555"
   tag rid: "SV-78045r1_rule"

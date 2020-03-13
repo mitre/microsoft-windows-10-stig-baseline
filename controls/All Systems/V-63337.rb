@@ -7,7 +7,7 @@ remove non-volatile memory and read it directly, thereby circumventing
 operating system controls.   Encrypting the data ensures that confidentiality
 is protected even when the operating system is not running."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000030"
   tag gid: "V-63337"
   tag rid: "SV-77827r4_rule"

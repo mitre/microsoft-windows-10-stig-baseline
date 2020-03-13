@@ -5,7 +5,7 @@ style apps must be enabled."
 enterprise.  Enabling this setting allows enterprise credentials to be used
 with modern style apps that support this, instead of Microsoft accounts."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-CC-000170"
   tag gid: "V-63659"
   tag rid: "SV-78149r2_rule"

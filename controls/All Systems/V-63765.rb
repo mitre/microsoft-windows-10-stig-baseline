@@ -3,7 +3,7 @@ control "V-63765" do
   desc  "NTLM sessions that are allowed to fall back to Null (unauthenticated)
 sessions may gain unauthorized access."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000180"
   tag gid: "V-63765"
   tag rid: "SV-78255r1_rule"

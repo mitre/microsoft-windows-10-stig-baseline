@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 packets.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000125"
   tag gid: "V-63495"
   tag rid: "SV-77985r1_rule"

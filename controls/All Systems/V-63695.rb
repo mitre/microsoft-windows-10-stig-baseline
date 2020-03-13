@@ -4,7 +4,7 @@ control "V-63695" do
 open when run in protected mode.  Restricting files an application can open, to
 a limited set of folders, increases the security of Windows."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000225"
   tag gid: "V-63695"
   tag rid: "SV-78185r1_rule"

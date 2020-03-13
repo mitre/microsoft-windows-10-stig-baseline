@@ -5,7 +5,7 @@ in)."
 setting ensures the user is prompted for a password on resume from sleep
 (plugged in)."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000150"
   tag gid: "V-63649"
   tag rid: "SV-78139r1_rule"

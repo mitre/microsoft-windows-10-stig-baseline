@@ -6,7 +6,7 @@ network operations.  Digitally signed SMB packets aid in preventing
 man-in-the-middle attacks.  If this policy is enabled, the SMB server will only
 communicate with an SMB client that performs SMB packet signing."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000120"
   tag gid: "V-63719"
   tag rid: "SV-78209r1_rule"

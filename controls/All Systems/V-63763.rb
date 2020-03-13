@@ -5,7 +5,7 @@ authentication must use the computer identity vs. authenticating anonymously."
 authentication may gain unauthorized access if allowed to authenticate
 anonymously vs. using the computer identity."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000175"
   tag gid: "V-63763"
   tag rid: "SV-78253r1_rule"

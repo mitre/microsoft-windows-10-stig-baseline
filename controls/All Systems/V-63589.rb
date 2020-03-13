@@ -7,7 +7,7 @@ a root other than DoD Root CAs, the US DoD CCEB Interoperability Root CA
 cross-certificates must be installed in the Untrusted Certificate Store. This
 requirement only applies to unclassified systems."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-PK-000020"
   tag gid: "V-63589"
   tag rid: "SV-78079r4_rule"

@@ -8,7 +8,7 @@ of bad logon attempts must be reasonably small to minimize the possibility of a
 successful password attack, while allowing for honest errors made during a
 normal user logon."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AC-000010"
   tag gid: "V-63409"
   tag rid: "SV-77899r1_rule"

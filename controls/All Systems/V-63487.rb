@@ -13,7 +13,7 @@ privileges, such as \"Act as part of the operating system\" or \"Debug
 programs\".
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000115"
   tag gid: "V-63487"
   tag rid: "SV-77977r1_rule"

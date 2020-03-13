@@ -4,7 +4,7 @@ system."
   desc  "Some protocols and services do not support required security features,
 such as encrypting passwords or traffic."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000105"
   tag gid: "V-63381"
   tag rid: "SV-77871r1_rule"
@@ -34,6 +34,7 @@ system.
 Run \"Programs and Features\".
 Select \"Turn Windows Features on or off\".
 De-select \"Simple Network Management Protocol (SNMP)\"."
+
   describe windows_feature('SNMP') do
     it { should_not be_installed }
   end  

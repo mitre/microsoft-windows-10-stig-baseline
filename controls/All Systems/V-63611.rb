@@ -5,7 +5,7 @@ account is not disabled.  This account is a known account that exists on all
 Windows systems and cannot be deleted.  This account is initialized during the
 installation of the operating system with no password assigned."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000010"
   tag gid: "V-63611"
   tag rid: "SV-78101r1_rule"

@@ -3,7 +3,7 @@ control "V-63747" do
   desc  "Basic authentication uses plain text passwords that could be used to
 compromise a system."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000300"
   tag gid: "V-63747"
   tag rid: "SV-78237r1_rule"

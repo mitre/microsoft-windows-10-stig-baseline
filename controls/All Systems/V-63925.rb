@@ -8,7 +8,7 @@ administrative, and other high level capabilities.
 assigned to processes, which could cause performance issues or a DoS.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000125"
   tag gid: "V-63925"
   tag rid: "SV-78415r1_rule"

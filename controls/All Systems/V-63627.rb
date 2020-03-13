@@ -7,7 +7,7 @@ authenticate using certificates and fall back to passwords if the domain
 controller does not support certificates for devices.  This may also be
 configured to always use certificates for device authentication."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000115"
   tag gid: "V-63627"
   tag rid: "SV-78117r1_rule"

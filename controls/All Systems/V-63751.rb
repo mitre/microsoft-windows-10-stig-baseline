@@ -3,7 +3,7 @@ control "V-63751" do
   desc  "Indexing of encrypted files may expose sensitive data.  This setting
 prevents encrypted files from being indexed."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000305"
   tag gid: "V-63751"
   tag rid: "SV-78241r1_rule"

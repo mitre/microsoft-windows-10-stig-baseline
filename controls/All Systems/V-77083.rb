@@ -7,7 +7,7 @@ security features in Windows 10, including Virtualization Based Security and
 Credential Guard. Systems with UEFI that are operating in Legacy BIOS mode will
 not support these security features."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000015"
   tag gid: "V-77083"
   tag rid: "SV-91779r3_rule"
@@ -35,7 +35,7 @@ Run \"System Information\".
 Under \"System Summary\", if \"BIOS Mode\" does not display \"UEFI\", this is
 finding."
   tag fix: "Configure UEFI firmware to run in UEFI mode, not Legacy BIOS mode."
-  
+
     describe "Configure UEFI firmware to run in UEFI mode, not Legacy BIOS mode" do
     skip 'For virtual desktop implementations (VDIs) where the virtual desktop instance is deleted or refreshed upon logoff, this is NA'
     end

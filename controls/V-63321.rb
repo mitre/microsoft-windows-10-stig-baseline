@@ -4,7 +4,7 @@ control "V-63321" do
 administrators.  This setting prevents users from changing installation options
 that may bypass security features."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000310"
   tag gid: "V-63321"
   tag rid: "SV-77811r1_rule"

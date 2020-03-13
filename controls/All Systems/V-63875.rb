@@ -17,7 +17,7 @@ compromise of an entire domain.
 a DoS.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000080"
   tag gid: "V-63875"
   tag rid: "SV-78365r2_rule"

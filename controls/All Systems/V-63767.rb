@@ -4,7 +4,7 @@ control "V-63767" do
 prevents online identities from authenticating to domain-joined systems.
 Authentication will be centrally managed with Windows user accounts."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000185"
   tag gid: "V-63767"
   tag rid: "SV-78257r1_rule"

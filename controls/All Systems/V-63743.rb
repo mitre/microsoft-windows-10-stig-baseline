@@ -3,7 +3,7 @@ control "V-63743" do
   desc  "Attachments from RSS feeds may not be secure.  This setting will
 prevent attachments from being downloaded from RSS feeds."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000295"
   tag gid: "V-63743"
   tag rid: "SV-78233r1_rule"

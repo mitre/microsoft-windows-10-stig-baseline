@@ -17,7 +17,7 @@ solution incorporating continuous scanning using HBSS and periodic scanning
 using other tools, as specified in the requirement.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000025"
   tag gid: "V-63343"
   tag rid: "SV-77833r2_rule"

@@ -4,7 +4,7 @@ control "V-63549" do
 sensitive information to unauthorized personnel.  Turning off this feature will
 limit access to the information to a logged on user."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000010"
   tag gid: "V-63549"
   tag rid: "SV-78039r1_rule"

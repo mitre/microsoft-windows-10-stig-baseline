@@ -4,7 +4,7 @@ control "V-63633" do
 gain access to a system.  Preventing the enumeration of users limits this
 information to authorized personnel."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000130"
   tag gid: "V-63633"
   tag rid: "SV-78123r1_rule"
@@ -48,7 +48,7 @@ computers\" to \"Disabled\"."
     it { should have_property 'EnumerateLocalUsers' }
     its('EnumerateLocalUsers') { should cmp 0 }
    end if is_domain == 'WORKGROUP'
-   
+
    if is_domain == 'WORKGROUP'
     impact 0.0
     describe 'The system is not a member of a domain, control is NA' do

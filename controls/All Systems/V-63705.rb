@@ -4,7 +4,7 @@ control "V-63705" do
 of history, cookies, temporary Internet files, or other data.  Disabling this
 feature maintains this data for review as necessary."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000240"
   tag gid: "V-63705"
   tag rid: "SV-78195r4_rule"

@@ -4,7 +4,7 @@ control "V-63601" do
 attack.  It also provides no accountability to individual administrators on a
 system.  It must be disabled to prevent its use."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000005"
   tag gid: "V-63601"
   tag rid: "SV-78091r1_rule"

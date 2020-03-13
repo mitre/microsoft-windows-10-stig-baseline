@@ -6,7 +6,7 @@ could allow for unauthorized use. Requiring logon will ensure the apps are only
 used by authorized personnel."
 
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000365"
   tag gid: "V-94719"
   tag rid: "SV-104549r1_rule"

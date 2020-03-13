@@ -8,7 +8,7 @@ have rights no longer intended.  Valid domain accounts or groups may also show
 up as unresolved SIDs if a connection to the domain cannot be established for
 some reason."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000190"
   tag gid: "V-76505"
   tag rid: "SV-91201r1_rule"

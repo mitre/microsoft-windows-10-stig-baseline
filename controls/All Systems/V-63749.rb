@@ -4,7 +4,7 @@ control "V-63749" do
 account names and enumerate all shared resources can provide a map of potential
 points to attack the system."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-SO-000150"
   tag gid: "V-63749"
   tag rid: "SV-78239r1_rule"

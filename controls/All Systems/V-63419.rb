@@ -5,7 +5,7 @@ someone to gain unauthorized knowledge of the passwords.   Scheduled changing
 of passwords hinders the ability of unauthorized system users to crack
 passwords and gain access to a system."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AC-000025"
   tag gid: "V-63419"
   tag rid: "SV-77909r1_rule"

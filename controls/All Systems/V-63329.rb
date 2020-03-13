@@ -5,7 +5,7 @@ software."
 system.  Ensuring users are notified if a web-based program attempts to install
 software allows them to refuse the installation."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000320"
   tag gid: "V-63329"
   tag rid: "SV-77819r1_rule"

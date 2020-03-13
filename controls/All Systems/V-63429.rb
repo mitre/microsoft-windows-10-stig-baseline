@@ -4,7 +4,7 @@ control "V-63429" do
 as storing clear-text versions of the passwords. For this reason, this policy
 must never be enabled."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-AC-000045"
   tag gid: "V-63429"
   tag rid: "SV-77919r1_rule"

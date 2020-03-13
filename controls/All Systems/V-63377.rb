@@ -5,7 +5,7 @@ installed on a workstation."
 unauthorized internet services to be hosted.  Websites must only be hosted on
 servers that have been designed for that purpose and can be adequately secured."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-00-000100"
   tag gid: "V-63377"
   tag rid: "SV-77867r1_rule"
@@ -37,6 +37,7 @@ needs be documented with the ISSO.  In addition, any applicable requirements
 from the IIS STIG must be addressed."
   tag fix: "Uninstall \"Internet Information Services\" or \"Internet
 Information Services Hostable Web Core\" from the system."
+
   describe windows_feature('Internet Information Services') do
     it { should_not be_installed }
   end 

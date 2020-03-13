@@ -6,7 +6,7 @@ elevation of privileges, including administrative accounts, unless authorized.
 This setting configures non-UAC compliant applications to run in virtualized
 file and registry entries in per-user locations, allowing them to run."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000275"
   tag gid: "V-63831"
   tag rid: "SV-78321r1_rule"

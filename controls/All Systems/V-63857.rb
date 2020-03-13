@@ -8,7 +8,7 @@ administrative, and other high level capabilities.
 pagefile, which could affect system performance.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000040"
   tag gid: "V-63857"
   tag rid: "SV-78347r1_rule"

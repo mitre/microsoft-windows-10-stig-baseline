@@ -6,7 +6,7 @@ several tools available that use this hash to retrieve account passwords.  This
 setting controls whether or not a LAN Manager hash of the password is stored in
 the SAM the next time the password is changed."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-SO-000195"
   tag gid: "V-63797"
   tag rid: "SV-78287r1_rule"

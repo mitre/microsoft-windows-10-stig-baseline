@@ -8,7 +8,7 @@ outside the enterprise and uncontrolled updates to the system.  This setting
 prevents Windows from downloading a list of providers for the Web publishing
 and online ordering wizards."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000105"
   tag gid: "V-63621"
   tag rid: "SV-78111r1_rule"

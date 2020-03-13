@@ -9,7 +9,7 @@ protected even when the operating system is not running. Pre-boot
 authentication prevents unauthorized users from accessing encrypted drives.
 Increasing the pin length requires a greater number of guesses for an attacker."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000032"
   tag gid: "V-94861"
   tag rid: "SV-104691r1_rule"

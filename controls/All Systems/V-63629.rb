@@ -4,7 +4,7 @@ logon screen."
   desc  "Enabling interaction with the network selection UI allows users to
 change connections to available networks without signing into Windows."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000120"
   tag gid: "V-63629"
   tag rid: "SV-78119r1_rule"

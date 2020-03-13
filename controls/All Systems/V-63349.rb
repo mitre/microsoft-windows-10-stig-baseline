@@ -15,7 +15,7 @@ Long-Term Servicing Channel (LTSC, formerly Branch - LTSB) which will receive
 security updates for 10 years but excludes feature updates.
   "
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-00-000040"
   tag gid: "V-63349"
   tag rid: "SV-77839r9_rule"

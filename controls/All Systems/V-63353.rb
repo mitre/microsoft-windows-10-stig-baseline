@@ -4,7 +4,7 @@ control "V-63353" do
 maintaining the security and proper access controls of a system.  To support
 this, volumes must be formatted using the NTFS file system."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-00-000050"
   tag gid: "V-63353"
   tag rid: "SV-77843r2_rule"

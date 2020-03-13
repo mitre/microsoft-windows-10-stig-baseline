@@ -3,7 +3,7 @@ control "V-63841" do
   desc  "Preserving zone of origin (internet, intranet, local, restricted)
 information on file attachments allows Windows to determine risk."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UC-000020"
   tag gid: "V-63841"
   tag rid: "SV-78331r2_rule"

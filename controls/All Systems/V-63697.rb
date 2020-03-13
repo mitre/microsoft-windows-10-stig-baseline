@@ -5,7 +5,7 @@ Lock Workstation."
 locked.  Configuring a system to lock when a smart card is removed will ensure
 the system is inaccessible when unattended."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000095"
   tag gid: "V-63697"
   tag rid: "SV-78187r1_rule"

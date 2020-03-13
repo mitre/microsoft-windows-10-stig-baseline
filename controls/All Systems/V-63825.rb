@@ -6,7 +6,7 @@ elevation of privileges, including administrative accounts, unless authorized.
 This setting requires Windows to respond to application installation requests
 by prompting for credentials."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000260"
   tag gid: "V-63825"
   tag rid: "SV-78315r1_rule"

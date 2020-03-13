@@ -6,7 +6,7 @@ network operations.   If this policy is enabled, the SMB client will request
 packet signing when communicating with an SMB server that is enabled or
 required to perform SMB packet signing."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000105"
   tag gid: "V-63707"
   tag rid: "SV-78197r1_rule"

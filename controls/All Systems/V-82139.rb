@@ -6,7 +6,7 @@ legitimate. This policy setting prevents the user from ignoring Secure Sockets
 Layer/Transport Layer Security (SSL/TLS) certificate errors that interrupt
 browsing."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000238"
   tag gid: "V-82139"
   tag rid: "SV-96853r1_rule"

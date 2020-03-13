@@ -3,7 +3,7 @@ control "V-63559" do
   desc  "Configuring the system to disable IP source routing protects against
 spoofing."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000025"
   tag gid: "V-63559"
   tag rid: "SV-78049r1_rule"

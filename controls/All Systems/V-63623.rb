@@ -7,7 +7,7 @@ outside the enterprise and uncontrolled updates to the system.  This setting
 prevents the client computer from printing over HTTP, which allows the computer
 to print to printers on the intranet as well as the Internet."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000110"
   tag gid: "V-63623"
   tag rid: "SV-78113r1_rule"

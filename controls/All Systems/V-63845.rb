@@ -8,7 +8,7 @@ administrative, and other high level capabilities.
 access resources on the system, and must be limited to those that require it.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000010"
   tag gid: "V-63845"
   tag rid: "SV-78335r3_rule"

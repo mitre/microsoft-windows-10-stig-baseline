@@ -5,7 +5,7 @@ same day allows users to cycle passwords through their history database.  This
 enables users to effectively negate the purpose of mandating periodic password
 changes."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AC-000030"
   tag gid: "V-63421"
   tag rid: "SV-77911r1_rule"

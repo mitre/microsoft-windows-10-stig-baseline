@@ -11,7 +11,7 @@ programs that are authorized to execute on organizational information systems
 is commonly referred to as whitelisting.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000035"
   tag gid: "V-63345"
   tag rid: "SV-77835r3_rule"

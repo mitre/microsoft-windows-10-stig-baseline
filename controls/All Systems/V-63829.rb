@@ -5,7 +5,7 @@ Mode, enabling UAC."
 elevation of privileges, including administrative accounts, unless authorized.
 This setting enables UAC."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000270"
   tag gid: "V-63829"
   tag rid: "SV-78319r1_rule"

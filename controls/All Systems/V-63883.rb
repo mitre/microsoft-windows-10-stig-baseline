@@ -8,7 +8,7 @@ administrative, and other high level capabilities.
 remotely shut down a system which could result in a DoS.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000100"
   tag gid: "V-63883"
   tag rid: "SV-78373r1_rule"

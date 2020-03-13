@@ -12,7 +12,7 @@ from the processing of PowerShell commands and scripts.  This can provide
 additional detail when malware has run on a system.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000326"
   tag gid: "V-68819"
   tag rid: "SV-83411r2_rule"

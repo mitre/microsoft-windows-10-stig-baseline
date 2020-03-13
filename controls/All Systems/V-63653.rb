@@ -6,7 +6,7 @@ vulnerable to malicious access.  Frequent password changes can be a significant
 safeguard for your system.  A new password for the computer account will be
 generated every 30 days."
   impact 0.3
-  tag severity: nil
+  tag severity: "low"
   tag gtitle: "WN10-SO-000050"
   tag gid: "V-63653"
   tag rid: "SV-78143r1_rule"

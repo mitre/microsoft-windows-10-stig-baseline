@@ -6,7 +6,7 @@ password attacks on the system.   This parameter specifies the amount of time
 that an account will remain locked after the specified number of failed logon
 attempts."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AC-000005"
   tag gid: "V-63405"
   tag rid: "SV-77895r2_rule"

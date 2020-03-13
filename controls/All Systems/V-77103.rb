@@ -7,7 +7,7 @@ threats at the system and application level.  Several mitigations, including
 \"Validate heap integrity\" terminates a process when heap corruption is
 detected. If this is turned off, Windows 10 may be subject to various exploits."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-EP-000060"
   tag gid: "V-77103"
   tag rid: "SV-91799r3_rule"

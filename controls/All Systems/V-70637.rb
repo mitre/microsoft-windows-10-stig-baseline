@@ -5,7 +5,7 @@ provide additional detail when malware has been run on a system.  Disabling the
 Windows PowerShell 2.0 mitigates against a downgrade attack that evades the
 Windows PowerShell 5.0 script block logging feature."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-00-000155"
   tag gid: "V-70637"
   tag rid: "SV-85259r2_rule"

@@ -9,7 +9,7 @@ manage the security log and change auditing configurations. This could be used
 to clear evidence of tampering.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-UR-000130"
   tag gid: "V-63927"
   tag rid: "SV-78417r1_rule"

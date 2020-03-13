@@ -5,7 +5,7 @@ to Administrators."
 Restricting remote rpc connections to the SAM to Administrators helps protect
 those credentials."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000167"
   tag gid: "V-71769"
   tag rid: "SV-86393r3_rule"

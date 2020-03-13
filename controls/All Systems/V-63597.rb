@@ -10,7 +10,7 @@ built-in administrator accounts will prevent the elevated privileges of these
 accounts from being used over the network.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000037"
   tag gid: "V-63597"
   tag rid: "SV-78087r2_rule"

@@ -12,7 +12,7 @@ assets and detecting signs of suspicious and unexpected behavior.
 changing of security groups, including changes in group members.
   "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-AU-000030"
   tag gid: "V-63445"
   tag rid: "SV-77935r1_rule"

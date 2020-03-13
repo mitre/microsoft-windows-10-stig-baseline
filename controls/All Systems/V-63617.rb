@@ -7,7 +7,7 @@ prevent accounts with blank passwords from existing on a system.  However, if a
 local account with a blank password did exist, enabling this setting will
 prevent network access, limiting the account to local console logon only."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000015"
   tag gid: "V-63617"
   tag rid: "SV-78107r1_rule"

@@ -5,7 +5,7 @@ use of credentials other than the currently logged on user.  Using privileged
 credentials in a standard user session can expose those credentials to theft.
 Removing this option from context menus helps prevent this from occurring."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000039"
   tag gid: "V-72329"
   tag rid: "SV-86953r1_rule"

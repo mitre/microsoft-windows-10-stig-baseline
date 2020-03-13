@@ -4,7 +4,7 @@ control "V-63745" do
 (null session connections) to list all accounts names, thus providing a list of
 potential points to attack the system."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-SO-000145"
   tag gid: "V-63745"
   tag rid: "SV-78235r1_rule"

@@ -13,7 +13,7 @@ enhanced\" level to provide information such as health data for devices.  This
 requires the configuration of an additional setting available with v1709 and
 later of Windows 10. "
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000205"
   tag gid: "V-63683"
   tag rid: "SV-78173r3_rule"

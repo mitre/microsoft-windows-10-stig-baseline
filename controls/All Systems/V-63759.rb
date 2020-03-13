@@ -6,7 +6,7 @@ those defined in \"Network access: Named Pipes that can be accessed
 anonymously\" and \"Network access: Shares that can be accessed anonymously\",
 both of which must be blank under other requirements."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-SO-000165"
   tag gid: "V-63759"
   tag rid: "SV-78249r1_rule"

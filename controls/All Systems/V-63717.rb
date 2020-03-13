@@ -6,7 +6,7 @@ Hello for Business provides additional security.  Keys stored in the TPM may
 only be used on that system while keys stored using software are more
 susceptible to compromise and could be used on other systems."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000255"
   tag gid: "V-63717"
   tag rid: "SV-78207r5_rule"

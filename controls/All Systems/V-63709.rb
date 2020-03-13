@@ -4,7 +4,7 @@ control "V-63709" do
 compromise.  Disabling the Edge password manager will prevent this for the
 browser."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000245"
   tag gid: "V-63709"
   tag rid: "SV-78199r4_rule"
