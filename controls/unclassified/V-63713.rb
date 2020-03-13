@@ -1,4 +1,5 @@
 control "V-63713" do
+  only_if { !input('sensitive') }
   title "The Windows Defender SmartScreen filter for Microsoft Edge must be
 enabled."
   desc  "The Windows Defender SmartScreen filter in Microsoft Edge provides
