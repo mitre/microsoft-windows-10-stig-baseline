@@ -18,7 +18,8 @@ install:
   - ps: (& cmd /c); iex (irm https://omnitruck.chef.io/install.ps1); Install-Project -Project chef-workstation -channel current
   - ps: 'Get-CimInstance win32_operatingsystem -Property Caption, OSArchitecture, Version | fl Caption, OSArchitecture, Version'
   - ps: $PSVersionTable
-  #-ps: c:\opscode\chef-workstation\bin\chef.exe exec ruby --version
+  - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell
+  - ps: c:\opscode\chef-workstation\bin\chef.exe exec ruby --version
   - ps: secedit /export /cfg $env:temp/export.cfg
   - ps: ((get-content $env:temp/export.cfg) -replace ('PasswordComplexity = 1', 'PasswordComplexity = 0')) | Out-File $env:temp/export.cfg
   - ps: ((get-content $env:temp/export.cfg) -replace ('MinimumPasswordLength = 8', 'MinimumPasswordLength = 0')) | Out-File $env:temp/export.cfg
