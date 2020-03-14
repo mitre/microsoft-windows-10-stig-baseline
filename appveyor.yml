@@ -30,9 +30,10 @@ build_script:
   - ps: c:\opscode\chefdk\bin\chef.bat shell-init powershell | iex; cmd /c c:\opscode\chef-workstation\bin\chef.bat --version
 
 test_script:
+  - chef shell-init
   - chef --version
-  - chef.bat exec delivery local all
-  - chef.bat exec kitchen verify
+  - chef exec delivery local all
+  - chef exec kitchen verify
 
 artifacts:
   - path: '**\*.json'
