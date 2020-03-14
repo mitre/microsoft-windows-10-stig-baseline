@@ -19,6 +19,7 @@ install:
   - ps: 'Get-CimInstance win32_operatingsystem -Property Caption, OSArchitecture, Version | fl Caption, OSArchitecture, Version'
   - ps: $PSVersionTable
   - ps: $Env:Path += "C:\opscode\chef\bin;C:\opscode\chef-workstation\bin"
+  - ps: $Env:CHEF_LICENSE = "accept"
   - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license accept
   - ps: c:\opscode\chef-workstation\bin\chef.exe exec ruby --version
   - ps: secedit /export /cfg $env:temp/export.cfg
