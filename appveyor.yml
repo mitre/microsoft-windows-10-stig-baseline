@@ -35,7 +35,6 @@ build_script:
 test_script:
   # - ps: c:\opscode\chef-workstation\bin\chef shell-init --chef-license accept
   - ps: c:\opscode\chef-workstation\bin\chef.exe --version
-  - ps: c:\opscode\chef-workstation\bin\chef.exe exec delivery local all
   - ps: c:\opscode\chef-workstation\bin\chef.exe exec kitchen verify
 
 artifacts:
