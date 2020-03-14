@@ -64,6 +64,8 @@ configured for use. (Versions 2.0 or 1.2 support Credential Guard.)
 
 The TPM must be enabled in the firmware.
 Run \"tpm.msc\" for configuration options in Windows."
+
+is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
   
 if is_domain == 'WORKGROUP'
   impact 0.0
