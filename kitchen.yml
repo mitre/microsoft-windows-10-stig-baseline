@@ -1,0 +1,29 @@
+driver:
+  name: vagrant
+  customize:
+    cpus: 2
+    memory: 4096
+
+transport:
+  name: winrm
+  elevated: true
+
+provisioner:
+  name: chef_zero
+  deprecations_as_errors: true
+  chef_license: accept
+
+platforms:
+  - name: windows-10
+    driver:
+      box: tas50/windows_10
+
+verifier:
+  name: inspec
+  inspec_tests:
+    - path: .
+
+suites:
+  - name: powershell5
+    run_list:
+#      - recipe[powershell::powershell5]
