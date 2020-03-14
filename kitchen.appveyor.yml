@@ -23,8 +23,10 @@ platforms:
 
 verifier:
   name: inspec
+  inspec_tests:
+    - path: .
 
 suites:
-  - name: powershell5
+  - name: vanilla
     run_list:
-      - recipe[powershell::powershell5]
+#      - recipe[powershell::powershell5]

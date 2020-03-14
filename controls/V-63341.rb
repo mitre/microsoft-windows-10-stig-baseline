@@ -4,7 +4,7 @@ authentication."
   desc  "Digest authentication is not as strong as other options and may be
 subject to man-in-the-middle attacks."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-CC-000360"
   tag gid: "V-63341"
   tag rid: "SV-77831r2_rule"
@@ -35,5 +35,10 @@ Value: 0"
   tag fix: "Configure the policy value for Computer Configuration >>
 Administrative Templates >> Windows Components >> Windows Remote Management
 (WinRM) >> WinRM Client >> \"Disallow Digest authentication\" to \"Enabled\"."
-end
 
+  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Client") do
+    it { should have_property 'AllowDigest' }
+    its('AllowDigest') { should cmp 0 }
+  end
+
+end

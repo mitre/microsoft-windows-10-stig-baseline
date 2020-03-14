@@ -39,5 +39,12 @@ If \"Edition\" is not \"Windows 10 Enterprise\", this is a finding.
 
 If \"System type\" is not \"64-bit operating system…\", this is a finding."
   tag fix: "Use Windows 10 Enterprise 64-bit version for domain-joined systems."
-end
 
+  describe os.arch do
+    it { should eq 'x86_64' }
+  end
+
+  describe os.name do
+    it { should eq 'windows_10_enterprise' }
+  end
+end
