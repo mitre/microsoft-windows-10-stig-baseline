@@ -20,7 +20,7 @@ install:
   - ps: $PSVersionTable
   - ps: $Env:Path += "C:\opscode\chef\bin;C:\opscode\chef-workstation\bin"
   - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license accept
-  - ps: c:\opscode\chef-workstation\bin\chef.exe exec ruby --version --chef-license accept
+  - ps: c:\opscode\chef-workstation\bin\chef.exe exec ruby --version
   - ps: secedit /export /cfg $env:temp/export.cfg
   - ps: ((get-content $env:temp/export.cfg) -replace ('PasswordComplexity = 1', 'PasswordComplexity = 0')) | Out-File $env:temp/export.cfg
   - ps: ((get-content $env:temp/export.cfg) -replace ('MinimumPasswordLength = 8', 'MinimumPasswordLength = 0')) | Out-File $env:temp/export.cfg
@@ -29,10 +29,10 @@ install:
   - ps: net localgroup administrators $env:machine_user /add
 
 build_script:
-  - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license=accept | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe --version --chef-license accept
+  - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license=accept | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe --version
 
 test_script:
-  # - ps: c:\opscode\chef-workstation\bin\chef shell-init
+  # - ps: c:\opscode\chef-workstation\bin\chef shell-init --chef-license accept
   - ps: c:\opscode\chef-workstation\bin\chef.exe --version
   - ps: c:\opscode\chef-workstation\bin\chef.exe exec delivery local all
   - ps: c:\opscode\chef-workstation\bin\chef.exe exec kitchen verify
