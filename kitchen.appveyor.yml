@@ -25,6 +25,9 @@ verifier:
   name: inspec
   inspec_tests:
     - path: .
+  reporter:
+    - cli
+    - json:%{platform}_%{suite}_results.json
 
 suites:
   - name: vanilla

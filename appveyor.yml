@@ -34,4 +34,7 @@ test_script:
   - chef.bat exec delivery local all
   - chef.bat exec kitchen verify
 
+artifacts:
+  - path: '**\*.json'
+
 deploy: off
