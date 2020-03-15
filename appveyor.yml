@@ -33,7 +33,9 @@ build_script:
   - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license=accept | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe --version
 
 before_test:
-  - ps: c:\opscode\chef-workstation\bin\chef.exe exec gem install inspec_tools --no-document
+  - ps: gem install inspec_tools --no-document
+  - ps: $Env:Path += "C:\opscode\chef\bin;C:\opscode\chef-workstation\bin"
+  - ps: $Env:CHEF_LICENSE = "accept"
 
 test_script:
   - ps: c:\opscode\chef-workstation\bin\chef.exe --version
