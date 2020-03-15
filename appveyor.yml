@@ -33,7 +33,7 @@ build_script:
   - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license=accept | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe --version
 
 before_test:
-  - ps: gc:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license=accept | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe gem install inspec_tools --no-document
+  - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license=accept | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe gem install inspec_tools --no-document
 
 test_script:
   - ps: c:\opscode\chef-workstation\bin\chef.exe --version
