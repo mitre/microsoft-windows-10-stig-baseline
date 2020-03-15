@@ -21,7 +21,7 @@ install:
   - ps: $Env:Path += "C:\opscode\chef\bin;C:\opscode\chef-workstation\bin;C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin"
   - ps: $Env:CHEF_LICENSE = "accept"
   - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell
-  - ps: $Env:Path += "$Env:GEM_HOME\bin"
+  - ps: $Env:Path += "c:\users\appveyor\appdata\local\chefdk\gem\ruby\2.6.0\bin"
   - ps: chef.exe gem install inspec_tools --no-document
   - ps: chef.exe exec ruby --version
   - ps: secedit /export /cfg $env:temp/export.cfg
