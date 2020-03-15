@@ -20,7 +20,7 @@ install:
   - ps: $PSVersionTable
   - ps: $Env:Path += "C:\users\appveyor\appdata\local\chefdk\gem\ruby\2.6.0\bin;C:\opscode\chef\bin;C:\opscode\chef-workstation\bin;C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin"
   - ps: $Env:CHEF_LICENSE = "accept"
-  - ps: c:\opscode\chef-workstation\bin\chef shell-init powershell | Invoke-Expression >> $PROFILE
+  - ps: c:\opscode\chef-workstation\bin\chef shell-init powershell | Invoke-Expression
   - ps: $Env:Path += "c:\users\appveyor\appdata\local\chefdk\gem\ruby\2.6.0\bin"
   - ps: ruby --version
   - ps: secedit /export /cfg $env:temp/export.cfg
