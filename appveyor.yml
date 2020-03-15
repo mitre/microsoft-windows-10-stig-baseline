@@ -32,12 +32,17 @@ install:
 build_script:
   - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell --chef-license=accept | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe --version
 
+before_test:
+  - ps: c:\opscode\chef-workstation\bin\chef.exe exec gem install inspec_tools --no-document
+
 test_script:
-  # - ps: c:\opscode\chef-workstation\bin\chef shell-init --chef-license accept
   - ps: c:\opscode\chef-workstation\bin\chef.exe --version
-  - ps: c:\opscode\chef-workstation\bin\chef.exe exec kitchen verify
+  - ps: c:\opscode\chef-workstation\bin\chef.exe exec kitchen verify; echo 1;
+  - ps: $results = $(ls *results.json)
+  - ps: c:\opscode\chef-workstation\bin\chef.exe exec inspec_tools summary -j $results -c
+  - ps: c:\opscode\chef-workstation\bin\chef.exe exec inspec_tools compliance -j $results -f .\threshold.yml
 
 artifacts:
-  - path: '**\*.json'
+  - path: '*results.json'
 
 deploy: off
