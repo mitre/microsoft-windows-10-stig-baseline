@@ -20,7 +20,7 @@ install:
   - ps: $PSVersionTable
   - ps: $Env:Path += "C:\users\appveyor\appdata\local\chefdk\gem\ruby\2.6.0\bin;C:\opscode\chef\bin;C:\opscode\chef-workstation\bin;C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin"
   - ps: $Env:CHEF_LICENSE = "accept"
-  - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell
+  - ps: c:\opscode\chef-workstation\bin\chef shell-init powershell | Invoke-Expression" >> $PROFILE
   - ps: $Env:Path += "c:\users\appveyor\appdata\local\chefdk\gem\ruby\2.6.0\bin"
   - ps: ruby --version
   - ps: secedit /export /cfg $env:temp/export.cfg
@@ -31,8 +31,9 @@ install:
   - ps: net localgroup administrators $env:machine_user /add
 
 build_script:
-  - ps: chef shell-init powershell
+  - ps: chef shell-init powershell | Invoke-Expression >> $PROFILE
   - ps: chef gem install inspec_tools --no-document
+
 test_script:
   - chef.exe --version
   - chef.exe exec kitchen verify; echo 1;
