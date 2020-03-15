@@ -31,7 +31,7 @@ install:
   - ps: net localgroup administrators $env:machine_user /add
 
 build_script:
-  - ps: chef shell-init powershell | Invoke-Expression >> $PROFILE
+  - ps: chef shell-init powershell | Invoke-Expression
   - ps: chef gem install inspec_tools --no-document
 
 test_script:
