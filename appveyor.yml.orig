@@ -18,7 +18,11 @@ install:
   - ps: (& cmd /c); iex (irm https://omnitruck.chef.io/install.ps1); Install-Project -Project chef-workstation -channel current
   - ps: "Get-CimInstance win32_operatingsystem -Property Caption, OSArchitecture, Version | fl Caption, OSArchitecture, Version"
   - ps: $PSVersionTable
-  - chef.exe exec ruby --version
+  - ps: $Env:Path += "C:\users\appveyor\appdata\local\chefdk\gem\ruby\2.6.0\bin;C:\opscode\chef\bin;C:\opscode\chef-workstation\bin;C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin"
+  - ps: $Env:CHEF_LICENSE = "accept"
+  - ps: c:\opscode\chef-workstation\bin\chef shell-init powershell | Invoke-Expression
+  - ps: $Env:Path += "c:\users\appveyor\appdata\local\chefdk\gem\ruby\2.6.0\bin"
+  - ps: ruby --version
   - ps: secedit /export /cfg $env:temp/export.cfg
   - ps: ((get-content $env:temp/export.cfg) -replace ('PasswordComplexity = 1', 'PasswordComplexity = 0')) | Out-File $env:temp/export.cfg
   - ps: ((get-content $env:temp/export.cfg) -replace ('MinimumPasswordLength = 8', 'MinimumPasswordLength = 0')) | Out-File $env:temp/export.cfg
@@ -27,13 +31,13 @@ install:
   - ps: net localgroup administrators $env:machine_user /add
 
 build_script:
-  - ps: c:\opscode\chefdk\bin\chef.exe shell-init powershell | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe --version
+  - ps: chef shell-init powershell | Invoke-Expression
+  - ps: chef gem install inspec_tools --no-document
 
 test_script:
-  - chef --version
+  - chef.exe --version
   - chef.exe exec kitchen verify; echo 1;
   - $results = $(ls *results.json)
-  - chef.exe gem install inspec_tools --no-document
   - chef.exe exec inspec_tools summary -j $results -c
   - chef.exe exec inspec_tools compliance -j $results -f .\threshold.yml
 
