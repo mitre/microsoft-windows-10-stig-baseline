@@ -54,10 +54,10 @@ Audit Policies >> Object Access >> \"Audit Other Object Access Events\" with
 
   describe.one do
     describe audit_policy do
-      its('Other Object Access Events') { should eq 'Success and Failure' }
+      its('Other Object Access Events') { should eq 'Failure' }
     end
     describe audit_policy do
-      its('Other Object Access Events') { should eq 'Failure' }
+      its('Other Object Access Events') { should eq 'Success and Failure' }
     end
   end
 end

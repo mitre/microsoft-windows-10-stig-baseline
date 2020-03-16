@@ -79,9 +79,16 @@ configured to \"Enabled\" with file name and location defined under
   $result = $select_object.TerminateOnError
   write-output $result
   EOH
-
+  
+  if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId >= "1709" )
     describe powershell(script) do
       its('strip') { should_not eq "2"}
     end
+  else
+    impact 0.0
+    describe "This STIG does not apply to Prior Versions before 1709." do
+      skip "This STIG does not apply to Prior Versions before 1709."
+    end
+   end
 end
 

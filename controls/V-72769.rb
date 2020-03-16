@@ -34,8 +34,15 @@ this is a finding."
 View Bluetooth Settings.
 Ensure \"Alert me when a new Bluetooth device wants to connect\" is checked."
 
+if(sys_info).manufacturer != "VMware, Inc."
   describe "Configure Bluetooth to notify users if devices attempt to connect. View Bluetooth Settings. Ensure \"Alert me when a new Bluetooth device wants to connect\" is checked" do
     skip 'This is NA if the system does not have Bluetooth'
+  end
+else
+  impact 0.0
+  describe "This is a VDI System; This System is NA for Control V-72769." do
+    skip "This is a VDI System; This System is NA for Control V-72769."
+   end
   end
 end
 

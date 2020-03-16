@@ -31,8 +31,15 @@ Approval must be documented with the ISSO."
   tag fix: "Turn off Bluetooth radios not organizationally approved. Establish
 an organizational policy for the use of Bluetooth."
 
+if(sys_info).manufacturer != "VMware, Inc."
   describe "Turn off Bluetooth radios when not in use. Establish an organizational policy for the use of Bluetooth to include training of personnel" do
     skip 'This is NA if the system does not have Bluetooth'
+  end
+else
+  impact 0.0
+  describe "This is a VDI System; This System is NA for Control V-72765" do
+    skip "This is a VDI System; This System is NA for Control V-72765."
+   end
   end
 end
 

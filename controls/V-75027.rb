@@ -54,10 +54,10 @@ selected."
 
   describe.one do
     describe audit_policy do
-      its('File Share') { should eq 'Success and Failure' }
+      its('File Share') { should eq 'Failure' }
     end
     describe audit_policy do
-      its('File Share') { should eq 'Failure' }
+      its('File Share') { should eq 'Success and Failure' }
     end
   end
 end

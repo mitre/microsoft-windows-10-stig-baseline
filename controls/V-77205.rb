@@ -90,8 +90,10 @@ configured to \"Enabled\" with file name and location defined under
   write-output $result_aslr_force_relocate_images
   EOH
 
-    describe powershell(dep_script) do
-      its('strip') { should_not eq "2" }
+  if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId >= "1709" )
+    describe.one do
+      describe powershell(dep_script) do
+       its('strip') { should_not eq "2" }
     end
     describe powershell(aslr_bottomup_script) do
       its('strip') { should_not eq "2" }
@@ -99,5 +101,12 @@ configured to \"Enabled\" with file name and location defined under
     describe powershell(aslr_forcerelocimage_script) do
       its('strip') { should_not eq "2" }
     end
+  end
+else
+  impact 0.0
+  describe "This STIG does not apply to Prior Versions before 1709." do
+    skip "This STIG does not apply to Prior Versions before 1709."
+  end
+ end
 end
 

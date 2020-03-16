@@ -46,9 +46,16 @@ v1507 LTSB:
 The policy path is Computer Configuration >> Administrative Templates >>
 Windows Components >> Microsoft Passport for Work."
 
+if(sys_info).manufacturer != "VMware, Inc."
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\PassportForWork") do
     it { should have_property 'RequireSecurityDevice' }
     its('RequireSecurityDevice') { should cmp 1 }
+  end
+else
+  impact 0.0
+  describe "This is a VDI System; This System is NA for Control V-63717." do
+    skip "This is a VDI System; This System is NA for Control V-63717."
+   end
   end
 end
 
