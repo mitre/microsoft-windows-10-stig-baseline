@@ -1,4 +1,5 @@
 control "V-63583" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "The External Root CA certificates must be installed in the Trusted
 Root Store on unclassified systems."
   desc  "To ensure secure websites protected with External Certificate

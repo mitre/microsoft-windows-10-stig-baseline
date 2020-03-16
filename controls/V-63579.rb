@@ -1,4 +1,5 @@
 control "V-63579" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "The DoD Root CA certificates must be installed in the Trusted Root
 Store."
   desc  "To ensure secure DoD websites and DoD-signed code are properly

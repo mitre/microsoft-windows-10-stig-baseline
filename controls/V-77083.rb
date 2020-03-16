@@ -35,6 +35,7 @@ Run \"System Information\".
 Under \"System Summary\", if \"BIOS Mode\" does not display \"UEFI\", this is
 finding."
   tag fix: "Configure UEFI firmware to run in UEFI mode, not Legacy BIOS mode."
+  
   if(sys_info).manufacturer != "VMware, Inc."
     describe "Configure UEFI firmware to run in UEFI mode, not Legacy BIOS mode" do
     skip 'For virtual desktop implementations (VDIs) where the virtual desktop instance is deleted or refreshed upon logoff, this is NA'

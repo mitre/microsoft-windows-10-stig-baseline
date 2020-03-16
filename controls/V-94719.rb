@@ -74,5 +74,6 @@ else
   describe "This setting requires v1903 or later of Windows 10; it is NA for prior versions." do
     skip "This setting requires v1903 or later of Windows 10; it is NA for prior versions."
   end
+ end
 end
 

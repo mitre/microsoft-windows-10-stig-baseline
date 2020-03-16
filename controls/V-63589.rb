@@ -1,4 +1,5 @@
 control "V-63589" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "The US DoD CCEB Interoperability Root CA cross-certificates must be
 installed in the Untrusted Certificates Store on unclassified systems."
   desc  "To ensure users do not experience denial of service when performing

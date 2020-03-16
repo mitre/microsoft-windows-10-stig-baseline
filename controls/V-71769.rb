@@ -64,5 +64,6 @@ for the policy to be enforced."
     it { should have_property 'RestrictRemoteSAM' }
     its('RestrictRemoteSAM') { should cmp 'O:BAG:BAD:(A;;RC;;;BA)'}
   end
+ end
 end
 

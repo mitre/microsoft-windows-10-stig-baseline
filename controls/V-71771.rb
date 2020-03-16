@@ -51,5 +51,6 @@ else
     it { should have_property 'DisableWindowsConsumerFeatures' }
     its('DisableWindowsConsumerFeatures') { should cmp 1 }
   end
+ end
 end
 

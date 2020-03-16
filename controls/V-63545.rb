@@ -40,9 +40,16 @@ Configure the policy value for Computer Configuration >> Administrative
 Templates >> Control Panel >> Personalization >> \"Prevent enabling lock screen
 camera\" to \"Enabled\"."
 
+if(sys_info).manufacturer != "VMware, Inc."
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization") do
   it { should have_property 'NoLockScreenCamera' }
   its('NoLockScreenCamera') { should cmp 1 }
- end  
+ end 
+else
+  impact 0.0
+  describe "This is a VDI System; This System is NA for Control V-77083." do
+  skip "This is a VDI System; This System is NA for Control V-77083."
+  end
+ end 
 end
 

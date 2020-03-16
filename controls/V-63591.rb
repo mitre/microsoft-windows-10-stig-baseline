@@ -54,5 +54,6 @@ else
     it { should have_property 'AutoConnectAllowedOEM' }
     its('AutoConnectAllowedOEM') { should cmp 0 }
   end
+ end 
 end
 

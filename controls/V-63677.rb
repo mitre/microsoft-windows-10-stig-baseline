@@ -52,5 +52,6 @@ else
     it { should have_property 'EnhancedAntiSpoofing' }
     its('EnhancedAntiSpoofing') { should cmp 1 }
   end
+ end
 end
 

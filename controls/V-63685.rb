@@ -1,4 +1,5 @@
 control "V-63685" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "The Windows Defender SmartScreen for Explorer must be enabled."
   desc  "Windows Defender SmartScreen helps protect systems from programs
 downloaded from the internet that may be malicious. Enabling Windows Defender

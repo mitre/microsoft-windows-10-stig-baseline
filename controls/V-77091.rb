@@ -1,4 +1,5 @@
 control "V-77091" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "Windows 10 Exploit Protection system-level mitigation, Data Execution
 Prevention (DEP), must be on."
   desc  "Exploit protection in Windows 10 enables mitigations against potential

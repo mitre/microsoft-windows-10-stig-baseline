@@ -144,7 +144,8 @@ $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimE
 write-output $result_payload_enropsimexec
 EOH
 
-  describe.one do
+if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId >= "1709" )
+   describe.one do
     describe powershell(dep_script) do
       its('strip') { should_not eq "2" }
     end
@@ -170,5 +171,11 @@ EOH
       its('strip') { should_not eq "2" }
     end
   end
+else
+  impact 0.0
+  describe "This is applicable to Windows 10 prior to v1709." do
+    skip "This is applicable to Windows 10 prior to v1709."
+  end
+ end
 end
 

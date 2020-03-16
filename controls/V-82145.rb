@@ -60,5 +60,6 @@ else
   describe "This setting is applicable starting with v1709 or later of Windows 10; it is NA for prior versions" do
     skip "This setting is applicable starting with v1709 or later of Windows 10; it is NA for prior versions"
   end
+ end
 end
 
