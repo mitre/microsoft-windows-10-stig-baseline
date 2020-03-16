@@ -54,6 +54,7 @@ the share and NTFS permissions to limit access to the specific groups or
 accounts that require it.
 
 Remove any unnecessary non-system created shares."
+
   share_names = []
   share_paths = []
   get = command('Get-WMIObject -Query "SELECT * FROM Win32_Share" | Findstr /V "Name --"').stdout.strip.split("\n")

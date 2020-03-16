@@ -38,6 +38,7 @@ on a system.
 Note: This does not apply to server-based applications that have a requirement
 for .p12 certificate files (e.g., Oracle Wallet Manager) or Adobe PreFlight
 certificate files."
+
   describe command('where /R c: *.p12 *.pfx') do
     its('stdout') { should eq '' }
   end  

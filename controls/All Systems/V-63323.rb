@@ -65,6 +65,7 @@ configured for use. (Versions 2.0 or 1.2 support Credential Guard.)
 The TPM must be enabled in the firmware.
 Run \"tpm.msc\" for configuration options in Windows."
 
+if(sys_info).manufacturer != "VMware, Inc."
 is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
   
 if is_domain == 'WORKGROUP'
@@ -83,6 +84,12 @@ if is_domain != 'WORKGROUP'
       subject { tpm_present }
       it { should eq 'True' }
     end
+  end
+  else
+   impact 0.0
+   describe "This is a VDI System; This System is NA for Control V-63323." do
+    skip "This is a VDI System; This System is NA for Control V-63323."
+   end
   end
 end
 

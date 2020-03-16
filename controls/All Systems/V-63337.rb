@@ -50,6 +50,7 @@ BitLocker, included in Windows, can be enabled in the Control Panel under
 NOTE: An alternate encryption application may be used in lieu of BitLocker
 providing it is configured for full disk encryption and satisfies the pre-boot
 authentication requirements (WN10-00-000031 and WN10-00-000032)."
+
   describe "A manual review is required to ensure the operating system has BitLocker Drive Encryption is installed and enabled" do
     skip 'A manual review is required to ensure the operating system BitLocker Drive Encryption is installed and enabled'
   end 

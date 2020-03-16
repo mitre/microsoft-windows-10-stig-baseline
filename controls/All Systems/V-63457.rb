@@ -49,10 +49,10 @@ Logon/Logoff >> \"Audit Group Membership\" with \"Success\" selected."
 
   describe.one do
     describe audit_policy do
-      its('Group Membership') { should eq 'Success and Failure' }
+      its('Group Membership') { should eq 'Success' }
     end
     describe audit_policy do
-      its('Group Membership') { should eq 'Success' }
+      its('Group Membership') { should eq 'Success and Failure' }
     end
   end
 end

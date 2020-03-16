@@ -1,4 +1,5 @@
 control "V-63345" do
+  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
   title "The operating system must employ a deny-all, permit-by-exception
 policy to allow the execution of authorized software programs."
   desc  "Utilizing a whitelist provides a configuration management method for
@@ -75,6 +76,7 @@ Implementation guidance for AppLocker is available in the NSA paper
 \"Application Whitelisting using Microsoft AppLocker\" at the following link:
 
 https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm"
+
   describe "A manual review is required to ensure the operating system employs a deny-all, permit-by-exception
   policy to allow the execution of authorized software programs" do
     skip 'A manual review is required to ensure the operating system employs a deny-all, permit-by-exception

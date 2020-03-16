@@ -55,6 +55,7 @@ an IP address, subnet or range. Apply the rule to all firewall profiles.
 
 If a third-party firewall is used, configure inbound exceptions to only include
 authorized remote management hosts."
+
   describe "A manual review of any inbound firewall rules that allow connections to unathorized connections. Also check for third-party firewalls" do
     skip 'A manual review of any inbound firewall rules that allow connections'
   end

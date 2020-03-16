@@ -130,8 +130,8 @@ https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard-r
    end
  else
   impact 0.0
-  describe "This is a VDI System; System is not required to meet Control V-63319." do
-    skip "This is a VDI System; System is not required to meet Control V-63319."
+  describe "This is a VDI System; This System is NA for Control V-63595." do
+    skip "This is a VDI System; This System is NA for Control V-63595."
   end
  end
 end

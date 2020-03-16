@@ -28,6 +28,7 @@ system, this is a finding.
 The configuration requirements will be determined by the applicable firewall
 STIG."
   tag fix: "Install and enable a host-based firewall on the system."
+  
   describe 'A host-based firewall must be installed and enabled on the system' do
     skip 'is a manual check'
   end
