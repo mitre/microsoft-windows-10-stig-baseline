@@ -1,5 +1,5 @@
 control "V-63345" do
-  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
+  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
   title "The operating system must employ a deny-all, permit-by-exception
 policy to allow the execution of authorized software programs."
   desc  "Utilizing a whitelist provides a configuration management method for

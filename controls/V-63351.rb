@@ -29,17 +29,8 @@ solution.
 If there is no anti-virus solution installed on the system, this is a finding."
   tag fix: "Install an anti-virus solution on the system."
   
-  describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Symantec\\Symantec Endpoint Protection\\CurrentVersion") do
-      it { should exist }
+    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\McAfee\\DesktopProtection") do
+      it { should have_property 'szProductVer' }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\McAfee\\DesktopProtection\\szProductVer") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\McAfee\\Endpoint\\AV") do
-      it { should exist }
-      it { should have_property 'ProductVersion' }
-    end
-  end
 end
 

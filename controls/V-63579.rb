@@ -1,5 +1,5 @@
 control "V-63579" do
-  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
+  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
   title "The DoD Root CA certificates must be installed in the Trusted Root
 Store."
   desc  "To ensure secure DoD websites and DoD-signed code are properly
@@ -116,55 +116,11 @@ DoD Root CA 5
 The InstallRoot tool is available on IASE at
 http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
-  describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561") do
-      it { should exist }
+dod_certificates = JSON.parse(input('dod_trusted_certificates').to_json)
+query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*DoD Root*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    describe 'The DoD Interoperability Root CA cross-certificates installed' do
+      subject { query.params }
+      it { should be_in dod_certificates }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\D73CA91102A2204A36459ED32213B467D7CE97FB") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\B8269F25DBD937ECAFD4C35A9838571723F2D026") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\4ECB5CC3095670454DA1CBD410FC921F46B8564B") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\D73CA91102A2204A36459ED32213B467D7CE97FB") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\B8269F25DBD937ECAFD4C35A9838571723F2D026") do
-      it { should exist }
-    end
-     describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\4ECB5CC3095670454DA1CBD410FC921F46B8564B") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\D73CA91102A2204A36459ED32213B467D7CE97FB") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\B8269F25DBD937ECAFD4C35A9838571723F2D026") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\4ECB5CC3095670454DA1CBD410FC921F46B8564B") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\D73CA91102A2204A36459ED32213B467D7CE97FB") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\B8269F25DBD937ECAFD4C35A9838571723F2D026") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\4ECB5CC3095670454DA1CBD410FC921F46B8564B") do
-      it { should exist }
-    end
-  end
 end
 

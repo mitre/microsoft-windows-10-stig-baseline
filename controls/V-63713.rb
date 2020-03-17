@@ -1,5 +1,5 @@
 control "V-63713" do
-  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
+  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
   title "The Windows Defender SmartScreen filter for Microsoft Edge must be
 enabled."
   desc  "The Windows Defender SmartScreen filter in Microsoft Edge provides

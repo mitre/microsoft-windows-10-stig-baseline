@@ -32,9 +32,5 @@ STIG."
   describe 'A host-based firewall must be installed and enabled on the system' do
     skip 'is a manual check'
   end
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Software\\Policies\\Microsoft\\Windows Defender\\DomainProfile") do
-    it { should have_property 'EnableFirewall' }
-    its('EnableFirewall') { should cmp 1 }
-  end
 end
 

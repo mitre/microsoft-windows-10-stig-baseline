@@ -1,5 +1,5 @@
 control "V-63587" do
-  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
+  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
   title "The DoD Interoperability Root CA cross-certificates must be installed
 in the Untrusted Certificates Store on unclassified systems."
   desc  "To ensure users do not experience denial of service when performing
@@ -42,6 +42,7 @@ information is not displayed, this is finding.
 
 If an expired certificate (\"NotAfter\" date) is not listed in the results,
 this is not a finding.
+
 
 Subject: CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US
 Issuer: CN=DoD Interoperability Root CA 1, OU=PKI, OU=DoD, O=U.S. Government,
@@ -109,31 +110,11 @@ AC06108CA348CC03B53795C64BF84403C1DBD341
 The certificates can be installed using the InstallRoot tool. The tool and user
 guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
-  describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F") do
-      it { should_not exist }
+dod_certificates = JSON.parse(input('dod_certificates').to_json)
+query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Issuer -Like "*US DoD CCEB Interoperability*" -and $_.Subject -Like "*DoD Interoperability*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    describe 'The DoD Interoperability Root CA cross-certificates installed' do
+      subject { query.params }
+      it { should be_in dod_certificates }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F") do
-      it { should_not exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F") do
-      it { should_not exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\22BBE981F0694D246CC1472ED2B021DC8540A22F") do
-      it { should_not exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\AC06108CA348CC03B53795C64BF84403C1DBD341") do
-      it { should exist }
-    end
-  end
 end
 

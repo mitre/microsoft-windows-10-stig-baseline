@@ -1,5 +1,5 @@
 control "V-63583" do
-  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
+  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
   title "The External Root CA certificates must be installed in the Trusted
 Root Store on unclassified systems."
   desc  "To ensure secure websites protected with External Certificate
@@ -96,31 +96,11 @@ ECA Root CA 4
 The InstallRoot tool is available on IASE at
 http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
-   describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\C313F919A6ED4E0E8451AFA930FB419A20F181E4") do
-      it { should exist }
+dod_eca_certificates = JSON.parse(input('dod_eca_certificates').to_json)
+query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*ECA*"} | Select Subject, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    describe 'The ECA Root CA certificates cross-certificates installed' do
+      subject { query.params }
+      it { should be_in dod_certificates }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\C313F919A6ED4E0E8451AFA930FB419A20F181E4") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\C313F919A6ED4E0E8451AFA930FB419A20F181E4") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\C313F919A6ED4E0E8451AFA930FB419A20F181E4") do
-      it { should exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582") do
-      it { should exist }
-    end
-  end
 end
 

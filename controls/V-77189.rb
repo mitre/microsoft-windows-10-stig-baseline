@@ -1,5 +1,5 @@
 control "V-77189" do
-  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
+  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
   title "Exploit Protection mitigations in Windows 10 must be configured for
 Acrobat.exe."
   desc  "Exploit protection in Windows 10 provides a means of enabling

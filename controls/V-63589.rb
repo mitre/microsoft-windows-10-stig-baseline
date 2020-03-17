@@ -1,5 +1,5 @@
 control "V-63589" do
-  only_if("This Control is required for non-class systems.") { input('sensitive') == 'false' }
+  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
   title "The US DoD CCEB Interoperability Root CA cross-certificates must be
 installed in the Untrusted Certificates Store on unclassified systems."
   desc  "To ensure users do not experience denial of service when performing
@@ -95,19 +95,11 @@ DoD Root CA 3 - US DoD CCEB Interoperability Root CA 2 -
 The certificates can be installed using the InstallRoot tool. The tool and user
 guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
-describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\SystemCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E") do
-      it { should_not exist }
+dod_cceb_certificates = JSON.parse(input('dod_cceb_certificates').to_json)
+query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Issuer -Like "*US DoD CCEB Interoperability*" -and $_.Subject -Like "*DoD*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    describe 'The DoD CCEB Interoperability CA cross-certificates installed' do
+      subject { query.params }
+      it { should be_in dod_certificates }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E") do
-      it { should_not exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SystemCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E") do
-      it { should_not exist }
-    end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EnterpriseCertificates\\Root\\Certificates\\929BF3196896994C0A201DF4A5B71F603FEFBF2E") do
-      it { should_not exist }
-    end
-  end
 end
 
