@@ -51,7 +51,7 @@ be copied to the \\Windows\\PolicyDefinitions and
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
   
-  describe registry_key("HKEY_LOCAL_MACHINE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
+  describe registry_key('HKEY_LOCAL_MACHINE\Microsoft\Windows\CurrentVersion\Policies\System') do
     it { should have_property 'LocalAccountTokenFilterPolicy' }
     its('LocalAccountTokenFilterPolicy') { should cmp 0 }
   end if is_domain != 'WORKGROUP'

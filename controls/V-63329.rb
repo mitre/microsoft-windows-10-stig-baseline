@@ -52,10 +52,10 @@ scripts\" to \"Not Configured\" or \"Disabled\"."
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
   
   describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\\Windows\Installer') do
       it { should_not have_property 'SafeForScripting' }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer') do
       its('SafeForScripting') { should_not cmp 1 }
     end if is_domain != 'WORKGROUP'
 

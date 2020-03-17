@@ -40,7 +40,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Accounts: Limit local account use of blank passwords to console logon only\"
 to \"Enabled\"."
 
-   describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa") do
+   describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa') do
     it { should have_property 'LimitBlankPasswordUse' }
     its('LimitBlankPasswordUse') { should cmp 1 }
   end

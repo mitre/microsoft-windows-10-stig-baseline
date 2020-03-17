@@ -38,12 +38,12 @@ finding."
   
   if(sys_info).manufacturer != "VMware, Inc."
     describe "Configure UEFI firmware to run in UEFI mode, not Legacy BIOS mode" do
-    skip 'For virtual desktop implementations (VDIs) where the virtual desktop instance is deleted or refreshed upon logoff, this is NA'
+    skip 'Configure UEFI firmware to run in UEFI mode, not Legacy BIOS mode'
     end
   else
     impact 0.0
     describe "This is a VDI System; This System is NA for Control V-77083." do
-    skip "This is a VDI System; This System is NA for Control V-77083."
+    skip 'This is a VDI System; This System is NA for Control V-77083.'
   end
  end
 end

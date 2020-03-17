@@ -41,7 +41,7 @@ templates included with the STIG package.  \"MSS-Legacy.admx\" and \"
 MSS-Legacy.adml\" must be copied to the \\Windows\\PolicyDefinitions and
 \\Windows\\PolicyDefinitions\\en-US directories respectively."
   
-  describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Tcpip6\\Parameters") do
+  describe registry_key('HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip6\Parameters') do
     it { should have_property 'DisableIPSourceRouting' }
     its('DisableIPSourceRouting') { should cmp 2 }
   end  

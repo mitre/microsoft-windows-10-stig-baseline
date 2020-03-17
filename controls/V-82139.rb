@@ -45,15 +45,15 @@ Value: 0x00000001 (1)"
 Administrative Templates >> Windows Components >> Microsoft Edge >> \"Prevent
 certificate error overrides\" to \"Enabled\"."
 
-if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId >= "1809" )
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\Internet Settings") do
+if (registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= "1809" )
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Internet Settings') do
     it {should have_property 'PreventCertErrorOverrides' }
     its('PreventCertErrorOverrides') { should cmp 1 }
   end 
 else
   impact 0.0
   describe "This setting is applicable starting with v1809 of Windows 10; it is NA for prior versions" do
-    skip "This setting is applicable starting with v1809 of Windows 10; it is NA for prior versions"
+    skip 'This setting is applicable starting with v1809 of Windows 10; it is NA for prior versions.'
   end
  end 
 end

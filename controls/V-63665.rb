@@ -39,7 +39,7 @@ configured consistently between systems."
 Settings >> Security Settings >> Local Policies >> Security Options >> \"Domain
 member: Require strong (Windows 2000 or Later) session key\" to \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Netlogon\\Parameters") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters') do
     it { should have_property 'RequireStrongKey' }
     its('RequireStrongKey') { should cmp 1 }
   end

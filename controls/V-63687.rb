@@ -53,7 +53,7 @@ available)\" to \"10\" logons or less.
 This setting only applies to domain-joined systems, however, it is configured
 by default on all systems."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon') do
     it { should have_property 'CachedLogonsCount' }
     its('CachedLogonsCount') { should be <= 10 }
   end

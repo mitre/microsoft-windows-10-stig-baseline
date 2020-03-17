@@ -100,7 +100,7 @@ https://docs.microsoft.com/en-us/windows/access-protection/credential-guard/cred
 if(sys_info).manufacturer != "VMware, Inc."
 is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard') do
     it { should have_property 'LsaCfgFlags' }
     its('LsaCfgFlags') { should cmp 1 }
   end if is_domain != 'WORKGROUP'
@@ -114,7 +114,7 @@ is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout
 else
   impact 0.0
   describe "This is a VDI System; This System is NA for Control V-63599." do
-    skip "This is a VDI System; This System is NA for Control V-63599."
+    skip 'This is a VDI System; This System is NA for Control V-63599.'
   end
  end
 end

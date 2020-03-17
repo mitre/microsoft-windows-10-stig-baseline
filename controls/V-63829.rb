@@ -39,7 +39,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >> \"User
 Account Control: Run all administrators in Admin Approval Mode\" to
 \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System') do
     it { should have_property 'EnableLUA' }
     its('EnableLUAs') { should cmp 1 }
   end

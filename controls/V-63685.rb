@@ -87,16 +87,16 @@ Templates >> Windows Components >> File Explorer >> \"Configure Windows
 SmartScreen\" to \"Enabled\" with \"Require approval from an administrator
 before running downloaded unknown software\" selected."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System') do
     it { should have_property 'ShellSmartScreenLevel' }
     its('ShellSmartScreenLevel') { should cmp 'Block' }
   end
   describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System') do
       it { should have_property 'EnableSmartScreen' }
       its('EnableSmartScreen') { should cmp 1 }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System') do
       it { should have_property 'EnableSmartScreen' }
       its('EnableSmartScreen') { should cmp 2 }
     end

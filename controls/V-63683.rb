@@ -58,15 +58,15 @@ configured to limit the Enhanced diagnostic data to the minimum required by
 Windows Analytics."
 
   describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection') do
       it { should have_property 'AllowTelemetry' }
       its('AllowTelemetry') { should cmp 0 }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection') do
       it { should have_property 'AllowTelemetry' }
       its('AllowTelemetry') { should cmp 1 }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection') do
       it { should have_property 'AllowTelemetry' }
       its('AllowTelemetry') { should cmp 2 }
     end

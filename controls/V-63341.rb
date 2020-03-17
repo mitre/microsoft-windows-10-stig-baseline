@@ -36,7 +36,7 @@ Value: 0"
 Administrative Templates >> Windows Components >> Windows Remote Management
 (WinRM) >> WinRM Client >> \"Disallow Digest authentication\" to \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Client") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WinRM\Client') do
     it { should have_property 'AllowDigest' }
     its('AllowDigest') { should cmp 0 }
   end

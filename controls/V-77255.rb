@@ -144,7 +144,7 @@ $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimE
 write-output $result_payload_enropsimexec
 EOH
 
-if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId >= "1709" )
+if (registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= "1709" )
   describe.one do
     describe powershell(dep_script) do
       its('strip') { should_not eq "2" }
@@ -174,7 +174,7 @@ if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVe
 else
   impact 0.0
   describe "This STIG does not apply to Prior Versions before 1709." do
-    skip "This STIG does not apply to Prior Versions before 1709."
+    skip 'This STIG does not apply to Prior Versions before 1709.'
   end
  end 
 end

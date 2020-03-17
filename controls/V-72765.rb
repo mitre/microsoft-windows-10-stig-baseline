@@ -38,7 +38,7 @@ if(sys_info).manufacturer != "VMware, Inc."
 else
   impact 0.0
   describe "This is a VDI System; This System is NA for Control V-72765" do
-    skip "This is a VDI System; This System is NA for Control V-72765."
+    skip 'This is a VDI System; This System is NA for Control V-72765.'
    end
   end
 end

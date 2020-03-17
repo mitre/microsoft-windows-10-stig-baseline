@@ -114,16 +114,16 @@ following link.
 https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard-requirements"
 
   if(sys_info).manufacturer != "VMware, Inc."
-    describe register_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
+    describe register_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard') do
      it { should have_property 'EnableVirtualizationBasedSecurity' }
      its('EnableVirtualizationBasedSecurity') { should cmp 1 }
    end
    describe.one do
-     describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
+     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard') do
       it { should have_property 'RequirePlatformSecurityFeatures' }
       its('RequirePlatformSecurityFeatures') { should cmp 1 }
      end
-     describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard") do
+     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard') do
       it { should have_property 'RequirePlatformSecurityFeatures' }
       its('RequirePlatformSecurityFeatures') { should cmp 3 }
      end
@@ -131,7 +131,7 @@ https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard-r
  else
   impact 0.0
   describe "This is a VDI System; This System is NA for Control V-63595." do
-    skip "This is a VDI System; This System is NA for Control V-63595."
+    skip 'This is a VDI System; This System is NA for Control V-63595.'
   end
  end
 end

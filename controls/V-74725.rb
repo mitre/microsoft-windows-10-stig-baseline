@@ -56,7 +56,7 @@ copied to the \\Windows\\PolicyDefinitions and
 The system must be restarted for the changes to take effect. "
 
   if windows_feature('FS-SMB1').installed?
-    describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\mrxsmb10") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mrxsmb10') do
       it { should have_property 'Start' }
       its('Start') { should cmp 4 }
   end

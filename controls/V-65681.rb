@@ -77,36 +77,36 @@ joined systems, configure through domain group policy as \"HTTP only (0)\" or
 >> Windows Update >> Advanced Options >> \"Choose how updates are delivered\"
 with either \"Off\" or \"PCs on my local network\" selected."
 
-if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId == "1507" )
+if (registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId == "1507" )
   describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config') do
       it { should have_property 'DODownloadMode' }
       its('DODownloadMode') { should cmp 0 }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config') do
       it { should have_property 'DODownloadMode' }
       its('DODownloadMode') { should cmp 1 }
     end
   end
 else
   describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config') do
       it { should have_property 'DODownloadMode' }
       its('DODownloadMode') { should cmp 0 }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config') do
       it { should have_property 'DODownloadMode' }
       its('DODownloadMode') { should cmp 1 }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config') do
       it { should have_property 'DODownloadMode' }
       its('DODownloadMode') { should cmp 2 }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config') do
       it { should have_property 'DODownloadMode' }
       its('DODownloadMode') { should cmp 99 }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config') do
       it { should have_property 'DODownloadMode' }
       its('DODownloadMode') { should cmp 100 }
     end

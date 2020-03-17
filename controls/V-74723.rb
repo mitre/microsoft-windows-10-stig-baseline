@@ -55,7 +55,7 @@ copied to the \\Windows\\PolicyDefinitions and
 The system must be restarted for the change to take effect."
 
   if windows_feature('FS-SMB1').installed?
-    describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters') do
       it { should have_property 'SMB1' }
       its('SMB1') { should cmp 0 }
     end

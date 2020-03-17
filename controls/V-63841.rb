@@ -47,12 +47,12 @@ Manager >> \"Do not preserve zone information in file attachments\" to \"Not
 Configured\" or \"Disabled\"."
 
   describe.one do
-    describe registry_key('HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Attachments') do
+    describe registry_key('HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments') do
       it { should have_property 'SaveZoneInformation' }
       its('SaveZoneInformation') { should_not be 1 }
     end
   end
-  describe registry_key('HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Attachments') do
+  describe registry_key('HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments') do
     it { should_not have_property 'SaveZoneInformation' }
   end
 end

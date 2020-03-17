@@ -53,10 +53,10 @@ a Windows Domain\" to \"Enabled\"."
 is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
   
   describe.one do
-      describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WcmSvc\\GroupPolicy") do
+      describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy') do
         it { should_not have_property 'fMinimizeConnections' }
       end
-      describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WcmSvc\\GroupPolicy") do
+      describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy') do
         its('fMinimizeConnections') { should cmp 1 }
       end if is_domain != 'WORKGROUP'
 

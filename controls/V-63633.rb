@@ -44,7 +44,7 @@ computers\" to \"Disabled\"."
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System') do
     it { should have_property 'EnumerateLocalUsers' }
     its('EnumerateLocalUsers') { should cmp 0 }
    end if is_domain == 'WORKGROUP'

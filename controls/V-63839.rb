@@ -37,7 +37,7 @@ Value: 1"
 Templates >> Start Menu and Taskbar >> Notifications >> \"Turn off toast
 notifications on the lock screen\" to \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications') do
     it { should have_property 'NoToastApplicationNotificationOnLockScreen' }
     its('NoToastApplicationNotificationOnLockScreen') { should cmp 1 }
   end

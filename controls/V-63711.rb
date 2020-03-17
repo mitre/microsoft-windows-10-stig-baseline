@@ -40,7 +40,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Microsoft network client: Send unencrypted password to third-party SMB
 servers\" to \"Disabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters') do
     it { should have_property 'EnablePlainTextPassword' }
     its('EnablePlainTextPassword') { should cmp 0 }
   end

@@ -39,7 +39,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Network access: Let Everyone permissions apply to anonymous users\" to
 \"Disabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa') do
     it { should have_property 'EveryoneIncludesAnonymous' }
     its('EveryoneIncludesAnonymous') { should cmp 0 }
   end

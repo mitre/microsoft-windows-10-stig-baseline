@@ -39,7 +39,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 secure RPC) clients\" to \"Require NTLMv2 session security\" and \"Require
 128-bit encryption\" (all options selected)."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0') do
   it { should have_property 'NTLMMinClientSec' }
   its('NTLMMinClientSec') { should cmp 537395200 }
   end

@@ -55,19 +55,19 @@ Value Name: \\\\*\\NETLOGON
 Value: RequireMutualAuthentication=1, RequireIntegrity=1"
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
   
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkProvider\\HardenedPaths") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
     it { should have_property '\\\\*\\SYSVOL' }
     its('\\\\*\\SYSVOL') { should cmp 'RequireMutualAuthentication=1' }
   end
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkProvider\\HardenedPaths") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
     it { should have_property '\\\\*\\SYSVOL' }
     its('\\\\*\\SYSVOL') { should cmp 'RequireIntegrity=1' }
   end
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkProvider\\HardenedPaths") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
     it { should have_property '\\\\*\\NETLOGON' }
     its('\\\\*\\NETLOGON') { should cmp 'RequireMutualAuthentication=1' }
   end
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkProvider\\HardenedPaths") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
     it { should have_property '\\\\*\\NETLOGON' }
     its('\\\\*\\NETLOGON') { should cmp 'RequireIntegrity=1' }
   end if is_domain != 'WORKGROUP'

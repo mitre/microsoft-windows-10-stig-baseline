@@ -40,7 +40,7 @@ Administrative Templates >> Windows Components >> Windows Logon Options >>
 \"Sign-in last interactive user automatically after a system-initiated
 restart\" to \"Disabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System') do
     it { should have_property 'DisableAutomaticRestartSignOn' }
     its('DisableAutomaticRestartSignOn') { should cmp 1 }
   end

@@ -39,7 +39,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Network access: Restrict anonymous access to Named Pipes and Shares\" to
 \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LanManServer\\Parameters") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters') do
     it { should have_property 'RestrictNullSessAccess' }
     its('RestrictNullSessAccess') { should cmp 1 }
   end

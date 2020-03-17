@@ -42,15 +42,15 @@ Broadcasting >> \"Enables or disables Windows Game Recording and Broadcasting\"
 to \"Disabled\"."
 
 
-if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId != "1507" && registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId != "1607"  )
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\GameDVR") do
+if (registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId != "1507" && registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId != "1607"  )
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GameDVR') do
     it { should have_property 'AllowGameDVR' }
     its('AllowGameDVR') { should cmp 0 }
   end
 else
   impact 0.0
   describe "This STIG does not apply to Prior Versions before 1507 and 1607." do
-    skip "This STIG does not apply to Prior Versions before 1507 and 1607."
+    skip 'This STIG does not apply to Prior Versions before 1507 and 1607.'
   end
  end 
 end

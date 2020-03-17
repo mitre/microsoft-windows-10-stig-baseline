@@ -37,7 +37,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Network access: Do not allow anonymous enumeration of SAM accounts\" to
 \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa') do
     it { should have_property 'RestrictAnonymousSAM' }
     its('RestrictAnonymousSAM') { should cmp 1 }
   end

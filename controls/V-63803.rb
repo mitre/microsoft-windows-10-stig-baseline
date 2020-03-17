@@ -38,7 +38,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Network security: LDAP client signing requirements\" to \"Negotiate signing\"
 at a minimum."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LDAP") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LDAP') do
     it { should have_property 'LDAPClientIntegrity' }
     its('LDAPClientIntegrity') { should cmp 1 }
   end

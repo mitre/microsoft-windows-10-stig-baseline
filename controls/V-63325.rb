@@ -37,7 +37,7 @@ Value: 0"
 Administrative Templates >> Windows Components >> Windows Installer >> \"Always
 install with elevated privileges\" to \"Disabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer') do
     it { should have_property 'AlwaysInstallElevated' }
     its('AlwaysInstallElevated') { should cmp 0 }
   end

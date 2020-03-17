@@ -34,7 +34,7 @@ Value: 0"
 Administrative Templates >> Windows Components >> Windows Remote Management
 (WinRM) >> WinRM Service >> \"Allow unencrypted traffic\" to \"Disabled\"."
 
-   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Service") do
+   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service') do
     it { should have_property 'AllowUnencryptedTraffic' }
     its('AllowUnencryptedTraffic') { should cmp 0 }
   end

@@ -50,15 +50,15 @@ Builds >> \"Limit Enhanced diagnostic data to the minimum required by Windows
 Analytics\" to \"Enabled\" with \"Enable Windows Analytics collection\"
 selected in \"Options:\"."
 
-if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId >= "1709" )
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection") do
+if (registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= "1709" )
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection') do
     it { should have_property 'LimitEnhancedDiagnosticDataWindowsAnalytics' }
     its('LimitEnhancedDiagnosticDataWindowsAnalytics') { should cmp 1 }
   end 
 else
   impact 0.0
   describe "This setting is applicable starting with v1709 or later of Windows 10; it is NA for prior versions" do
-    skip "This setting is applicable starting with v1709 or later of Windows 10; it is NA for prior versions"
+    skip 'This setting is applicable starting with v1709 or later of Windows 10; it is NA for prior versions.'
   end
  end
 end

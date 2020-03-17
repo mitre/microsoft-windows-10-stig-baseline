@@ -107,18 +107,18 @@ keys in later versions of Windows 10 to the following SID.
 
 S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681"
 
-  describe windows_registry("HKEY_LOCAL_MACHINE\\SECURITY") do
+  describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
     it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
     it { should be_allowed('Special', by_user: 'BUILTIN\\Administrators') }
   end
-  describe windows_registry("HKEY_LOCAL_MACHINE\\SOFTWARE") do
+  describe windows_registry('HKEY_LOCAL_MACHINE\SOFTWARE') do
     it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
     it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
     it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
     it { should be_allowed('full-control', by_user: 'BUILTIN\\CREATOR OWNER') }
     it { should be_allowed('read', by_user: 'APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES') }
   end
-  describe windows_registry("HKEY_LOCAL_MACHINE\\SYSTEM") do
+  describe windows_registry('HKEY_LOCAL_MACHINE\SYSTEM') do
     it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
     it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
     it { should be_allowed('read', by_user: 'BUILTIN\\Users') }

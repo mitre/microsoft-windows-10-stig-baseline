@@ -40,7 +40,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >> \"System
 objects: Strengthen default permissions of internal system objects (e.g.
 Symbolic links)\" to \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager') do
     it { should have_property 'ProtectionMode' }
     its('ProtectionMode') { should cmp 1 }
   end

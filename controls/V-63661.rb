@@ -43,7 +43,7 @@ Security Settings >> Local Policies >> Security Options >> \"Domain member:
 Maximum machine account password age\" to \"30\" or less (excluding 0 which is
 unacceptable)."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Netlogon\\Parameters") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters') do
     it { should have_property 'MaximumPasswordAge' }
     its('MaximumPasswordAge') { should be <= 30 }
   end

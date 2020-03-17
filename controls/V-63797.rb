@@ -39,7 +39,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Network security: Do not store LAN Manager hash value on next password
 change\" to \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa') do
     it { should have_property 'NoLMHash' }
     its('NoLMHash') { should cmp 1 }
   end

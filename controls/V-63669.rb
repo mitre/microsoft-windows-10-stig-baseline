@@ -41,7 +41,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Interactive logon: Machine inactivity limit\" to \"900\" seconds\" or less,
 excluding \"0\" which is effectively disabled."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System') do
     it { should have_property 'InactivityTimeoutSecs' }
     its('InactivityTimeoutSecs') { should be <= 900 }
   end

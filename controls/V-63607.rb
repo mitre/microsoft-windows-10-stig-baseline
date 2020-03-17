@@ -57,10 +57,10 @@ Policy\" to \"Not Configured\" or \"Enabled\" with any option other than
 \"All\" selected."
 
    describe.one do
-    describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Policies\\EarlyLaunch") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Policies\EarlyLaunch') do
       it { should_not have_property 'DriverLoadPolicy' }
     end
-    describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Policies\\EarlyLaunch") do
+    describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Policies\EarlyLaunch') do
       its('DriverLoadPolicy') { should_not be 7 }
     end
   end

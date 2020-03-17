@@ -39,7 +39,7 @@ Administrative Templates >> System >> Internet Communication Management >>
 Internet Communication settings >> \"Turn off downloading of print drivers over
 HTTP\" to \"Enabled\"."
 
-   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Printers") do
+   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers') do
     it { should have_property 'DisableWebPnPDownload' }
     its('DisableWebPnPDownload') { should cmp 1 }
   end

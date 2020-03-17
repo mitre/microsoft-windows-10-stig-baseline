@@ -41,7 +41,7 @@ Settings >> Security Settings >> Local Policies >> Security Options >> \"Audit:
 Force audit policy subcategory settings (Windows Vista or later) to override
 audit policy category settings\" to \"Enabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa') do
    it { should have_property 'SCENoApplyLegacyAuditPolicy' }
    its('SCENoApplyLegacyAuditPolicy') { should cmp 1 }
   end

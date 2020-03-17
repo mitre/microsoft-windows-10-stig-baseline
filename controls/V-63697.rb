@@ -47,11 +47,11 @@ Settings >> Security Settings >> Local Policies >> Security Options >>
 \"Force Logoff\"."
 
   describe.one do
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon') do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon') do
       it { should have_property 'SCRemoveOption' }
       its('SCRemoveOption') { should cmp 1 }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon') do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon') do
       it { should have_property 'SCRemoveOption' }
       its('SCRemoveOption') { should cmp 2 }
     end

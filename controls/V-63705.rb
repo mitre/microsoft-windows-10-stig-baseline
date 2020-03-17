@@ -39,7 +39,7 @@ Value: 0x00000000 (0)"
 Administrative Templates >> Windows Components >> Microsoft Edge >> \"Allow
 InPrivate browsing\" to \"Disabled\"."
 
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\MicrosoftEdge\\Main") do
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main') do
     it { should have_property 'AllowInPrivate' }
     its('AllowInPrivate') { should cmp 0 }
   end

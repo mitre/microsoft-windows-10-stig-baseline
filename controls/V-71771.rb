@@ -41,15 +41,15 @@ Value: 0x00000001 (1)"
 Administrative Templates >> Windows Components >> Cloud Content >> \"Turn off
 Microsoft consumer experiences\" to \"Enabled\"."
 
-if (registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion").ReleaseId != "1507" )
-  describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent") do
+if (registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId != "1507" )
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent') do
     it { should have_property 'DisableWindowsConsumerFeatures' }
     its('DisableWindowsConsumerFeatures') { should cmp 1 } 
   end
 else 
   impact 0.0
   describe "Windows 10 v1507 LTSB version does not include this setting, it is NA for those systems." do
-    skip "Windows 10 v1507 LTSB version does not include this setting, it is NA for those systems."
+    skip 'Windows 10 v1507 LTSB version does not include this setting, it is NA for those systems.'
   end 
  end
 end
