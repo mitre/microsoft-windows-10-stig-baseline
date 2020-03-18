@@ -51,19 +51,19 @@ Manager >> \"Minimize the number of simultaneous connections to the Internet or
 a Windows Domain\" to \"Enabled\"."
   
 is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
-  
+  if is_domain == 'WORKGROUP'
+  impact 0.0
+  describe 'The system is not a member of a domain, control is NA' do
+  skip 'The system is not a member of a domain, control is NA'
+  end
+else
   describe.one do
       describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy') do
         it { should_not have_property 'fMinimizeConnections' }
       end
       describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy') do
         its('fMinimizeConnections') { should cmp 1 }
-      end if is_domain != 'WORKGROUP'
-
-    if is_domain == 'WORKGROUP'
-      impact 0.0
-      describe 'The system is not a member of a domain, control is NA' do
-      skip 'The system is not a member of a domain, control is NA'
-    end
+      end 
+  end 
 end
 
