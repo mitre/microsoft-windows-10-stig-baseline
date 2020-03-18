@@ -55,19 +55,19 @@ control 'V-72329' do
       \\Windows\\PolicyDefinitions\\en-US directories respectively."
 
   describe.one do
-    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\batfile\shell\unasuser') do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\batfile\shell\runasuser') do
       it { should have_property 'SuppressionPolicy' }
       its('SuppressionPolicy') { should cmp 4096 }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\cmdfile\shell\unasuser') do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\cmdfile\shell\runasuser') do
       it { should have_property 'SuppressionPolicy' }
       its('SuppressionPolicy') { should cmp 4096 }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\exefile\shell\unasuser') do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\exefile\shell\runasuser') do
       it { should have_property 'SuppressionPolicy' }
       its('SuppressionPolicy') { should cmp 4096 }
     end
-    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\mscfile\shell\unasuser') do
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Classes\mscfile\shell\runasuser') do
       it { should have_property 'SuppressionPolicy' }
       its('SuppressionPolicy') { should cmp 4096 }
     end
