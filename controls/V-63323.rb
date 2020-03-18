@@ -74,7 +74,7 @@ Run \"tpm.msc\" for configuration options in Windows."
     end
   elsif (is_domain == 'WORKGROUP')
     impact 0.0
-    describe 'This system is not joined to a domain and this control is NA'
+    describe 'This system is not joined to a domain and this control is NA' do
       skip 'This system is not joined to a domain and this control is NA'
     end
   else
@@ -88,4 +88,5 @@ Run \"tpm.msc\" for configuration options in Windows."
       subject { tpm_present }
       it { should eq 'True' }
     end
+  end
 end
