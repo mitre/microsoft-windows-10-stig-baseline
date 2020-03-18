@@ -64,6 +64,7 @@ else
       describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy') do
         its('fMinimizeConnections') { should cmp 1 }
       end 
+  end
   end 
 end
 
