@@ -65,6 +65,5 @@ is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout
       describe 'The system is not a member of a domain, control is NA' do
       skip 'The system is not a member of a domain, control is NA'
     end
-  end
 end
 
