@@ -88,6 +88,4 @@ Run \"tpm.msc\" for configuration options in Windows."
       subject { tpm_present }
       it { should eq 'True' }
     end
-  end
- end
 end
