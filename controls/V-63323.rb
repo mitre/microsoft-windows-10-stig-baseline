@@ -89,4 +89,5 @@ Run \"tpm.msc\" for configuration options in Windows."
       it { should eq 'True' }
     end
   end
+ end
 end
