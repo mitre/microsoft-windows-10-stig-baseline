@@ -66,6 +66,4 @@ control 'V-71769' do
     describe 'Windows 10 v1507 LTSB version does not include this setting, it is NA for those systems.' do
       skip 'Windows 10 v1507 LTSB version does not include this setting, it is NA for those systems.'
     end
-  end
- end
 end
