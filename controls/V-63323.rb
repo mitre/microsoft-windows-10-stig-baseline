@@ -65,17 +65,21 @@ configured for use. (Versions 2.0 or 1.2 support Credential Guard.)
 The TPM must be enabled in the firmware.
 Run \"tpm.msc\" for configuration options in Windows."
 
-if(sys_info).manufacturer != "VMware, Inc."
-is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
-  
-if is_domain == 'WORKGROUP'
-  impact 0.0
-  desc 'This system is not joined to a domain, therfore this control is not appliable as it does not apply to standalone systems'
-end
+  is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
-if is_domain != 'WORKGROUP'
-  tpm_ready = command('Get-Tpm | select -expand TpmReady').stdout.strip
-  tpm_present = command('Get-Tpm | select -expand TpmPresent').stdout.strip
+  if (sys_info.manufacturer != "VMware, Inc.")
+    impact 0.0
+    describe "This is a VDI System and this control is NA." do
+      skip "This is a VDI System and this control is NA"
+    end
+  elsif (is_domain == 'WORKGROUP')
+    impact 0.0
+    describe 'This system is not joined to a domain and this control is NA'
+      skip 'This system is not joined to a domain and this control is NA'
+    end
+  else
+    tpm_ready = command('Get-Tpm | select -expand TpmReady').stdout.strip
+    tpm_present = command('Get-Tpm | select -expand TpmPresent').stdout.strip
     describe 'Trusted Platform Module (TPM) TpmReady' do
       subject { tpm_ready }
       it { should eq 'True' }
@@ -85,11 +89,4 @@ if is_domain != 'WORKGROUP'
       it { should eq 'True' }
     end
   end
-  else
-   impact 0.0
-   describe "This is a VDI System; This System is NA for Control V-63323." do
-    skip "This is a VDI System; This System is NA for Control V-63323."
-   end
-  end
 end
-

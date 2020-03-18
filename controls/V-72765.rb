@@ -1,8 +1,8 @@
 control "V-72765" do
   title "Bluetooth must be turned off unless approved by the organization."
   desc  "If not configured properly, Bluetooth may allow rogue devices to
-communicate with a system. If a rogue device is paired with a system, there is
-potential for sensitive information to be compromised."
+        communicate with a system. If a rogue device is paired with a system, there is
+        potential for sensitive information to be compromised."
   impact 0.5
   tag severity: "medium"
   tag gtitle: "WN10-00-000210"
@@ -24,12 +24,12 @@ potential for sensitive information to be compromised."
   tag ia_controls: nil
   tag check: "This is NA if the system does not have Bluetooth.
 
-Verify the Bluetooth radio is turned off unless approved by the organization.
-If it is not, this is a finding.
+      Verify the Bluetooth radio is turned off unless approved by the organization.
+      If it is not, this is a finding.
 
-Approval must be documented with the ISSO."
+      Approval must be documented with the ISSO."
   tag fix: "Turn off Bluetooth radios not organizationally approved. Establish
-an organizational policy for the use of Bluetooth."
+    an organizational policy for the use of Bluetooth."
 
 if(sys_info).manufacturer != "VMware, Inc."
   describe "Turn off Bluetooth radios when not in use. Establish an organizational policy for the use of Bluetooth to include training of personnel" do
@@ -37,8 +37,8 @@ if(sys_info).manufacturer != "VMware, Inc."
   end
 else
   impact 0.0
-  describe "This is a VDI System; This System is NA for Control V-72765" do
-    skip 'This is a VDI System; This System is NA for Control V-72765.'
+  describe "This is a VDI System this control is NA." do
+    skip 'This is a VDI System this control is NA.'
    end
   end
 end
