@@ -73,5 +73,6 @@ certificate:\"."
       skip 'The system is not a member of a domain, control is NA'
     end
   end
+ end
 end
 
