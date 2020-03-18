@@ -52,9 +52,9 @@ Explorer >> \"Turn off shell protocol protected mode\" to \"Not Configured\" or
       it { should have_property 'PreXPSP2ShellProtocolBehavior' }
       its('PreXPSP2ShellProtocolBehavior') { should_not be 1 }
     end
-  end
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer') do
-    it { should_not have_property 'PreXPSP2ShellProtocolBehavior' }
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer') do
+      it { should_not have_property 'PreXPSP2ShellProtocolBehavior' }
+    end
   end
 end
 
