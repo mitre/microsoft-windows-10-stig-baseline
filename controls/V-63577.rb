@@ -57,19 +57,11 @@ Value: RequireMutualAuthentication=1, RequireIntegrity=1"
   
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
     it { should have_property '\\\\*\\SYSVOL' }
-    its('\\\\*\\SYSVOL') { should cmp 'RequireMutualAuthentication=1' }
-  end
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
-    it { should have_property '\\\\*\\SYSVOL' }
-    its('\\\\*\\SYSVOL') { should cmp 'RequireIntegrity=1' }
+    its('\\\\*\\SYSVOL') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
   end
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
     it { should have_property '\\\\*\\NETLOGON' }
-    its('\\\\*\\NETLOGON') { should cmp 'RequireMutualAuthentication=1' }
-  end
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
-    it { should have_property '\\\\*\\NETLOGON' }
-    its('\\\\*\\NETLOGON') { should cmp 'RequireIntegrity=1' }
+    its('\\\\*\\NETLOGON') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
   end if is_domain != 'WORKGROUP'
 
   if is_domain == 'WORKGROUP'
