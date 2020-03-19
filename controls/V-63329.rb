@@ -64,5 +64,6 @@ scripts\" to \"Not Configured\" or \"Disabled\"."
       its('SafeForScripting') { should_not cmp 1 }
     end
   end
+ end
 end
 
