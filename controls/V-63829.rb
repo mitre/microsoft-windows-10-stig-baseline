@@ -40,7 +40,7 @@ Account Control: Run all administrators in Admin Approval Mode\" to
 \"Enabled\"."
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System') do
-    it { should have_property 'EnableLUA' }
+    it { should have_property 'EnableLUAs' }
     its('EnableLUAs') { should cmp 1 }
   end
 end
