@@ -39,13 +39,10 @@ Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
 \"Account lockout threshold\" to \"3\" or less invalid logon attempts
 (excluding \"0\" which is unacceptable)."
 
-  describe.one do
     describe security_policy do
       its('LockoutBadCount') { should be <= 3 }
     end
     describe security_policy do
       its('LockoutBadCount') { should be > 0 }
     end
-  end
 end
-
