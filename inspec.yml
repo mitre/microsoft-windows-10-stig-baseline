@@ -90,7 +90,7 @@ inputs:
       }
     ]
 
-  - name: eca_certificates
+  - name: dod_eca_certificates
     description: 'List of ECA Root CA certificates Certificates'
     type: Array
     value: [
