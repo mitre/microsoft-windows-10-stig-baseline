@@ -132,6 +132,7 @@ https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard-r
       it { should have_property 'RequirePlatformSecurityFeatures' }
       its('RequirePlatformSecurityFeatures') { should cmp 3 }
      end
-   end
+    end 
+  end
 end
 
