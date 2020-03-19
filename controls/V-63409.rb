@@ -44,7 +44,7 @@ Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
       its('LockoutBadCount') { should be <= 3 }
     end
     describe security_policy do
-      ts('LockoutBadCount') { should be > 0 }
+      its('LockoutBadCount') { should be > 0 }
     end
   end
 end
