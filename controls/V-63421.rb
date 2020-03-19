@@ -36,7 +36,7 @@ Settings >> Security Settings >> Account Policies >> Password Policy >>
 \"Minimum Password Age\" to at least \"1\" day."
 
   describe security_policy do
-    its('MinimumPasswordAge') { should be >= 1 }
+    its('MinimumPasswordAge') { should cmp >= 1 }
   end 
 end
 
