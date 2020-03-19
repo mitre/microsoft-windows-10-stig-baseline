@@ -113,11 +113,16 @@ A Microsoft article on Credential Guard system requirement can be found at the
 following link.
 https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard-requirements"
 
-  if(sys_info).manufacturer != "VMware, Inc."
+  if(sys_info).manufacturer == "VMware, Inc."
+    impact 0.0
+    describe "This is a VDI System; This System is NA for Control V-63595." do
+      skip 'This is a VDI System; This System is NA for Control V-63595.'
+    end
+  else
     describe register_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard') do
      it { should have_property 'EnableVirtualizationBasedSecurity' }
      its('EnableVirtualizationBasedSecurity') { should cmp 1 }
-   end
+    end
    describe.one do
      describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard') do
       it { should have_property 'RequirePlatformSecurityFeatures' }
@@ -128,11 +133,5 @@ https://technet.microsoft.com/en-us/itpro/windows/keep-secure/credential-guard-r
       its('RequirePlatformSecurityFeatures') { should cmp 3 }
      end
    end
- else
-  impact 0.0
-  describe "This is a VDI System; This System is NA for Control V-63595." do
-    skip 'This is a VDI System; This System is NA for Control V-63595.'
-  end
- end
 end
 

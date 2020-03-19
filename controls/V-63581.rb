@@ -65,6 +65,5 @@ else
         its('fMinimizeConnections') { should cmp 1 }
       end 
   end
-  end 
 end
 
