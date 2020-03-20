@@ -49,18 +49,7 @@ control 'V-63855' do
       Administrators
       LOCAL SERVICE"
 
-  describe.one do
     describe security_policy do
-      its('SeSystemtimePrivilege') { should be eq ['S-1-5-32-544', 'S-1-5-19'] }
+      its('SeSystemtimePrivilege') { should be_in ['S-1-5-32-544', 'S-1-5-19'] }
     end
-    describe security_policy do
-      its('SeSystemtimePrivilege') { should be eq ['S-1-5-32-544'] }
-    end
-    describe security_policy do
-      its('SeSystemtimePrivilege') { should be eq ['S-1-5-19'] }
-    end
-    describe security_policy do
-      its('SeSystemtimePrivilege') { should be eq [] }
-    end
-  end
 end

@@ -28,32 +28,34 @@ control 'V-63687' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+  
   tag check: "This is the default configuration for this setting (10 logons to
-      cache).
+        cache).
 
-      If the following registry value does not exist or is not configured as
-      specified, this is a finding:
+        If the following registry value does not exist or is not configured as
+        specified, this is a finding:
 
-      Registry Hive:  HKEY_LOCAL_MACHINE
-      Registry Path:  \\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\
+        Registry Hive:  HKEY_LOCAL_MACHINE
+        Registry Path:  \\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\
 
-      Value Name:  CachedLogonsCount
+        Value Name:  CachedLogonsCount
 
-      Value Type:  REG_SZ
-      Value:  10 (or less)
+        Value Type:  REG_SZ
+        Value:  10 (or less)
 
-      This setting only applies to domain-joined systems, however, it is configured
-      by default on all systems."
+        This setting only applies to domain-joined systems, however, it is configured
+        by default on all systems."
+  
   tag fix: "This is the default configuration for this setting (10 logons to
-      cache).
+        cache).
 
-      Configure the policy value for Computer Configuration >> Windows Settings >>
-      Security Settings >> Local Policies >> Security Options >> \"Interactive logon:
-      Number of previous logons to cache (in case domain controller is not
-      available)\" to \"10\" logons or less.
+        Configure the policy value for Computer Configuration >> Windows Settings >>
+        Security Settings >> Local Policies >> Security Options >> \"Interactive logon:
+        Number of previous logons to cache (in case domain controller is not
+        available)\" to \"10\" logons or less.
 
-      This setting only applies to domain-joined systems, however, it is configured
-      by default on all systems."
+        This setting only applies to domain-joined systems, however, it is configured
+        by default on all systems."
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon') do
     it { should have_property 'CachedLogonsCount' }

@@ -30,18 +30,18 @@ control 'V-63409' do
   tag ia_controls: nil
 
   tag check: "Verify the effective setting in Local Group Policy Editor.
-      Run \"gpedit.msc\".
+        Run \"gpedit.msc\".
 
-      Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
-      >> Security Settings >> Account Policies >> Account Lockout Policy.
+        Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
+        >> Security Settings >> Account Policies >> Account Lockout Policy.
 
-      If the \"Account lockout threshold\" is \"0\" or more than #{input('max_pass_lockout')} attempts,
-      this is a finding."
+        If the \"Account lockout threshold\" is \"0\" or more than #{input('max_pass_lockout')} attempts,
+        this is a finding."
 
   tag fix: "Configure the policy value for Computer Configuration >> Windows
-      Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
-      \"Account lockout threshold\" to #{input('max_pass_lockout')} or less invalid logon attempts
-      (excluding \"0\" which is unacceptable)."
+        Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
+        \"Account lockout threshold\" to #{input('max_pass_lockout')} or less invalid logon attempts
+        (excluding \"0\" which is unacceptable)."
 
   describe security_policy do
     its('LockoutBadCount') { should be <= input('max_pass_lockout') }

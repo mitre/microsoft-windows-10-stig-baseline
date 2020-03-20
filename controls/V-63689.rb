@@ -54,8 +54,8 @@ control 'V-63689' do
       it { should have_property 'NoDataExecutionPrevention' }
       its('NoDataExecutionPrevention') { should_not be 1 }
     end
-  end
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer') do
-    it { should_not have_property 'NoDataExecutionPrevention' }
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer') do
+      it { should_not have_property 'NoDataExecutionPrevention' }
+    end
   end
 end

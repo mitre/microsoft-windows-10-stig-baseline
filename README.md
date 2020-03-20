@@ -10,6 +10,10 @@ For the best security of the runner, always install on the runner the latest ver
 
 Latest versions and installation options are available at the InSpec site.
 
+## Required Inputs **_prior_** to running the profile
+
+- `is_unclassified_system (String) ('true' or 'false') [true]
+
 ## Contribution
 
 Please feel free to submit a PR or Issue on the board. To get an idea of our style and best practices, please see our inspec training at:
@@ -23,7 +27,7 @@ Please feel free to submit a PR or Issue on the board. To get an idea of our sty
 
 Approved for Public Release; Distribution Unlimited. Case Number 18-3678.
 
-### NOTICE  
+### NOTICE
 
 MITRE hereby grants express written permission to use, reproduce, distribute, modify, and otherwise leverage this software to the extent permitted by the licensed terms provided in the LICENSE.md file included with this project.
 
@@ -33,4 +37,4 @@ This software was produced for the U. S. Government under Contract Number HHSM-5
 
 No other use other than that granted to the U. S. Government, or to those acting on behalf of the U. S. Government under that Clause is authorized without the express written permission of The MITRE Corporation.
 
-For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA  22102-7539, (703) 983-6000.
+For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA 22102-7539, (703) 983-6000.

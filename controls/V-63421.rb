@@ -27,17 +27,17 @@ control 'V-63421' do
   tag ia_controls: nil
 
   tag check: "Verify the effective setting in Local Group Policy Editor.
-      Run \"gpedit.msc\".
+        Run \"gpedit.msc\".
 
-      Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
-      >> Security Settings >> Account Policies >> Password Policy.
+        Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
+        >> Security Settings >> Account Policies >> Password Policy.
 
-      If the value for the \"Minimum password age\" is less than #{input('min_pass_age')} day, this is a
-      finding."
+        If the value for the \"Minimum password age\" is less than #{input('min_pass_age')} day, this is a
+        finding."
 
   tag fix: "Configure the policy value for Computer Configuration >> Windows
-      Settings >> Security Settings >> Account Policies >> Password Policy >>
-      \"Minimum Password Age\" to at least #{input('min_pass_age')} day."
+        Settings >> Security Settings >> Account Policies >> Password Policy >>
+        \"Minimum Password Age\" to at least #{input('min_pass_age')} day."
 
   describe security_policy do
     its('MinimumPasswordAge') { should be >= input('min_pass_age') }

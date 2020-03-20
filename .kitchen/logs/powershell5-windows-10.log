@@ -1,0 +1,26 @@
+I, [2020-03-14T16:44:15.267471 #97915]  INFO -- powershell5-windows-10: -----> Verifying <powershell5-windows-10>...
+I, [2020-03-14T16:44:17.226370 #97915]  INFO -- powershell5-windows-10: Loaded Windows_10_STIG 
+E, [2020-03-14T16:44:20.427823 #97915] ERROR -- powershell5-windows-10: Verify failed on instance <powershell5-windows-10>.
+E, [2020-03-14T16:44:20.428058 #97915] ERROR -- powershell5-windows-10: ------Exception-------
+E, [2020-03-14T16:44:20.428092 #97915] ERROR -- powershell5-windows-10: Class: Kitchen::ActionFailed
+E, [2020-03-14T16:44:20.428118 #97915] ERROR -- powershell5-windows-10: Message: InSpec Runner returns 1
+E, [2020-03-14T16:44:20.428143 #97915] ERROR -- powershell5-windows-10: ----------------------
+E, [2020-03-14T16:44:20.428167 #97915] ERROR -- powershell5-windows-10: ------Backtrace-------
+E, [2020-03-14T16:44:20.428192 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/kitchen-inspec-1.3.1/lib/kitchen/verifier/inspec.rb:98:in `call'
+E, [2020-03-14T16:44:20.428217 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:459:in `block in verify_action'
+E, [2020-03-14T16:44:20.428242 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:552:in `synchronize_or_call'
+E, [2020-03-14T16:44:20.428267 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:514:in `block in action'
+E, [2020-03-14T16:44:20.428291 #97915] ERROR -- powershell5-windows-10: /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/benchmark.rb:293:in `measure'
+E, [2020-03-14T16:44:20.428317 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:513:in `action'
+E, [2020-03-14T16:44:20.428341 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:451:in `verify_action'
+E, [2020-03-14T16:44:20.428382 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:382:in `block (2 levels) in transition_to'
+E, [2020-03-14T16:44:20.428408 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/lifecycle_hooks.rb:45:in `run_with_hooks'
+E, [2020-03-14T16:44:20.428432 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:381:in `block in transition_to'
+E, [2020-03-14T16:44:20.428456 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:380:in `each'
+E, [2020-03-14T16:44:20.428479 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:380:in `transition_to'
+E, [2020-03-14T16:44:20.428502 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:162:in `verify'
+E, [2020-03-14T16:44:20.428539 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:198:in `public_send'
+E, [2020-03-14T16:44:20.428562 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:198:in `run_action_in_thread'
+E, [2020-03-14T16:44:20.428584 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2020-03-14T16:44:20.428607 #97915] ERROR -- powershell5-windows-10: /Library/Ruby/Gems/2.6.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb:474:in `block in create_with_logging_context'
+E, [2020-03-14T16:44:20.428629 #97915] ERROR -- powershell5-windows-10: ----End Backtrace-----

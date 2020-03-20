@@ -44,6 +44,6 @@ control 'V-63847' do
       (blank)."
 
   describe security_policy do
-    its('SeTcbPrivilege') { should be eq [] }
+    its('SeTcbPrivilege') { should eq [] }
   end
 end

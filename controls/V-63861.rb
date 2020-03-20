@@ -29,26 +29,27 @@ control 'V-63861' do
   tag responsibility: nil
   tag ia_controls: nil
   tag check: "Verify the effective setting in Local Group Policy Editor.
-      Run \"gpedit.msc\".
+        Run \"gpedit.msc\".
 
-      Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
-      >> Security Settings >> Local Policies >> User Rights Assignment.
+        Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
+        >> Security Settings >> Local Policies >> User Rights Assignment.
 
-      If any groups or accounts other than the following are granted the \"Create
-      global objects\" user right, this is a finding:
+        If any groups or accounts other than the following are granted the \"Create
+        global objects\" user right, this is a finding:
 
-      Administrators
-      LOCAL SERVICE
-      NETWORK SERVICE
-      SERVICE"
+        Administrators
+        LOCAL SERVICE
+        NETWORK SERVICE
+        SERVICE"
+  
   tag fix: "Configure the policy value for Computer Configuration >> Windows
-      Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
-      \"Create global objects\" to only include the following groups or accounts:
+        Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
+        \"Create global objects\" to only include the following groups or accounts:
 
-      Administrators
-      LOCAL SERVICE
-      NETWORK SERVICE
-      SERVICE"
+        Administrators
+        LOCAL SERVICE
+        NETWORK SERVICE
+        SERVICE"
 
   describe.one do
     describe security_policy do

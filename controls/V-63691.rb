@@ -53,8 +53,8 @@ control 'V-63691' do
       it { should have_property 'NoHeapTerminationOnCorruption' }
       its('NoHeapTerminationOnCorruption') { should_not be 1 }
     end
-  end
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer') do
-    it { should_not have_property 'NoHeapTerminationOnCorruption' }
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer') do
+      it { should_not have_property 'NoHeapTerminationOnCorruption' }
+    end
   end
 end

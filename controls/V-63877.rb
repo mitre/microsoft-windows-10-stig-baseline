@@ -38,41 +38,41 @@ control 'V-63877' do
   tag ia_controls: nil
   tag check: "Verify the effective setting in Local Group Policy Editor.
 
-      Run \"gpedit.msc\".
+        Run \"gpedit.msc\".
 
-      Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
-      >> Security Settings >> Local Policies >> User Rights Assignment.
+        Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
+        >> Security Settings >> Local Policies >> User Rights Assignment.
 
-      If the following groups or accounts are not defined for the \"Deny log on
-      locally\" right, this is a finding.
+        If the following groups or accounts are not defined for the \"Deny log on
+        locally\" right, this is a finding.
 
-      Domain Systems Only:
-      Enterprise Admins Group
-      Domain Admins Group
+        Domain Systems Only:
+        Enterprise Admins Group
+        Domain Admins Group
 
-      Privileged Access Workstations (PAWs) dedicated to the management of Active
-      Directory are exempt from denying the Enterprise Admins and Domain Admins
-      groups. (See the Windows Privileged Access Workstation STIG for PAW
-      requirements.)
+        Privileged Access Workstations (PAWs) dedicated to the management of Active
+        Directory are exempt from denying the Enterprise Admins and Domain Admins
+        groups. (See the Windows Privileged Access Workstation STIG for PAW
+        requirements.)
 
-      All Systems:
-      Guests Group"
+        All Systems:
+        Guests Group"
       
   tag fix: "Configure the policy value for Computer Configuration >> Windows
-      Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
-      \"Deny log on locally\" to include the following.
+        Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
+        \"Deny log on locally\" to include the following.
 
-      Domain Systems Only:
-      Enterprise Admins Group
-      Domain Admins Group
+        Domain Systems Only:
+        Enterprise Admins Group
+        Domain Admins Group
 
-      Privileged Access Workstations (PAWs) dedicated to the management of Active
-      Directory are exempt from denying the Enterprise Admins and Domain Admins
-      groups. (See the Windows Privileged Access Workstation STIG for PAW
-      requirements.)
+        Privileged Access Workstations (PAWs) dedicated to the management of Active
+        Directory are exempt from denying the Enterprise Admins and Domain Admins
+        groups. (See the Windows Privileged Access Workstation STIG for PAW
+        requirements.)
 
-      All Systems:
-      Guests Group"
+        All Systems:
+        Guests Group"
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 

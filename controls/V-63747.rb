@@ -25,29 +25,29 @@ control 'V-63747' do
   tag ia_controls: nil
 
   tag check: "The default behavior is for the Windows RSS platform to not use
-      Basic authentication over HTTP connections.
+        Basic authentication over HTTP connections.
 
-      If the registry value name below does not exist, this is not a finding.
+        If the registry value name below does not exist, this is not a finding.
 
-      If it exists and is configured with a value of \"0\", this is not a finding.
+        If it exists and is configured with a value of \"0\", this is not a finding.
 
-      If it exists and is configured with a value of \"1\", this is a finding.
+        If it exists and is configured with a value of \"1\", this is a finding.
 
-      Registry Hive: HKEY_LOCAL_MACHINE
-      Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Feeds\\
+        Registry Hive: HKEY_LOCAL_MACHINE
+        Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Feeds\\
 
-      Value Name: AllowBasicAuthInClear
+        Value Name: AllowBasicAuthInClear
 
-      Value Type: REG_DWORD
-      Value: 0 (or if the Value Name does not exist)"
+        Value Type: REG_DWORD
+        Value: 0 (or if the Value Name does not exist)"
       
   tag fix: "The default behavior is for the Windows RSS platform to not use
-      Basic authentication over HTTP connections.
+        Basic authentication over HTTP connections.
 
-      If this needs to be corrected, configure the policy value for Computer
-      Configuration >> Administrative Templates >> Windows Components >> RSS Feeds >>
-      \"Turn on Basic feed authentication over HTTP\" to \"Not Configured\" or
-      \"Disabled\"."
+        If this needs to be corrected, configure the policy value for Computer
+        Configuration >> Administrative Templates >> Windows Components >> RSS Feeds >>
+        \"Turn on Basic feed authentication over HTTP\" to \"Not Configured\" or
+        \"Disabled\"."
 
   describe.one do
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds') do

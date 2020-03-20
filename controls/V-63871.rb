@@ -41,50 +41,52 @@ control 'V-63871' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+  
   tag check: "Verify the effective setting in Local Group Policy Editor.
 
-      Run \"gpedit.msc\".
+        Run \"gpedit.msc\".
 
-      Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
-      >> Security Settings >> Local Policies >> User Rights Assignment.
+        Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
+        >> Security Settings >> Local Policies >> User Rights Assignment.
 
-      If the following groups or accounts are not defined for the \"Deny access to
-      this computer from the network\" right, this is a finding:
+        If the following groups or accounts are not defined for the \"Deny access to
+        this computer from the network\" right, this is a finding:
 
-      Domain Systems Only:
-      Enterprise Admins group
-      Domain Admins group
-      Local account (see Note below)
+        Domain Systems Only:
+        Enterprise Admins group
+        Domain Admins group
+        Local account (see Note below)
 
-      All Systems:
-      Guests group
+        All Systems:
+        Guests group
 
-      Privileged Access Workstations (PAWs) dedicated to the management of Active
-      Directory are exempt from denying the Enterprise Admins and Domain Admins
-      groups. (See the Windows Privileged Access Workstation STIG for PAW
-      requirements.)
+        Privileged Access Workstations (PAWs) dedicated to the management of Active
+        Directory are exempt from denying the Enterprise Admins and Domain Admins
+        groups. (See the Windows Privileged Access Workstation STIG for PAW
+        requirements.)
 
-      Note: \"Local account\" is a built-in security group used to assign user rights
-      and permissions to all local accounts."
+        Note: \"Local account\" is a built-in security group used to assign user rights
+        and permissions to all local accounts."
+  
   tag fix: "Configure the policy value for Computer Configuration >> Windows
-      Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
-      \"Deny access to this computer from the network\" to include the following.
+        Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
+        \"Deny access to this computer from the network\" to include the following.
 
-      Domain Systems Only:
-      Enterprise Admins group
-      Domain Admins group
-      Local account (see Note below)
+        Domain Systems Only:
+        Enterprise Admins group
+        Domain Admins group
+        Local account (see Note below)
 
-      All Systems:
-      Guests group
+        All Systems:
+        Guests group
 
-      Privileged Access Workstations (PAWs) dedicated to the management of Active
-      Directory are exempt from denying the Enterprise Admins and Domain Admins
-      groups. (See the Windows Privileged Access Workstation STIG for PAW
-      requirements.)
+        Privileged Access Workstations (PAWs) dedicated to the management of Active
+        Directory are exempt from denying the Enterprise Admins and Domain Admins
+        groups. (See the Windows Privileged Access Workstation STIG for PAW
+        requirements.)
 
-      Note: \"Local account\" is a built-in security group used to assign user rights
-      and permissions to all local accounts."
+        Note: \"Local account\" is a built-in security group used to assign user rights
+        and permissions to all local accounts."
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 

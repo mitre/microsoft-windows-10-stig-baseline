@@ -29,36 +29,36 @@ control 'V-63627' do
   tag ia_controls: nil
   
   tag check: "This requirement is applicable to domain-joined systems, for
-      standalone systems this is NA.
+        standalone systems this is NA.
 
-      The default behavior for \"Support device authentication using certificate\" is
-      \"Automatic\".
+        The default behavior for \"Support device authentication using certificate\" is
+        \"Automatic\".
 
-      If the registry value name below does not exist, this is not a finding.
+        If the registry value name below does not exist, this is not a finding.
 
-      If it exists and is configured with a value of \"1\", this is not a finding.
+        If it exists and is configured with a value of \"1\", this is not a finding.
 
-      If it exists and is configured with a value of \"0\", this is a finding.
+        If it exists and is configured with a value of \"0\", this is a finding.
 
-      Registry Hive:  HKEY_LOCAL_MACHINE
-      Registry Path:
-      \\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\Kerberos\\Parameters\\
+        Registry Hive:  HKEY_LOCAL_MACHINE
+        Registry Path:
+        \\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\Kerberos\\Parameters\\
 
-      Value Name:  DevicePKInitEnabled
-      Value Type:  REG_DWORD
-      Value:  1 (or if the Value Name does not exist)"
+        Value Name:  DevicePKInitEnabled
+        Value Type:  REG_DWORD
+        Value:  1 (or if the Value Name does not exist)"
 
   tag fix: "This requirement is applicable to domain-joined systems, for
-      standalone systems this is NA.
+        standalone systems this is NA.
 
-      The default behavior for \"Support device authentication using certificate\" is
-      \"Automatic\".
+        The default behavior for \"Support device authentication using certificate\" is
+        \"Automatic\".
 
-      If this needs to be corrected, configured the policy value for Computer
-      Configuration >> Administrative Templates >> System >> Kerberos >> \"Support
-      device authentication using certificate\" to \"Not Configured or \"Enabled\"
-      with either option selected in \"Device authentication behavior using
-      certificate:\"."
+        If this needs to be corrected, configured the policy value for Computer
+        Configuration >> Administrative Templates >> System >> Kerberos >> \"Support
+        device authentication using certificate\" to \"Not Configured or \"Enabled\"
+        with either option selected in \"Device authentication behavior using
+        certificate:\"."
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 

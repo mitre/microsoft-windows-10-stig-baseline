@@ -1,4 +1,6 @@
 Batch 1
+=======
+
 - We should add a ReleaseID propertiy to one of the windows resources
 - Need to add the ability in only_if to update the impact
 - Most of the unclassified controls could be implemented in one control that uses an input 
@@ -12,3 +14,4 @@ Batch 2
 - We need to add `domains`, `domain_name` and `is_domain?(param)`,`domain_sid` etc functions to the windows resources
 - Review 63875 and 63871 to account for the Standalone and Domain issue - see Powershell reference
 - we should add a function to `inspec check` that scans the desc, check and fix text for "NA" and then minimally just insures we have `impact 0.0` in the file.
+- v-74415 - does this mean it is na for 1507 and 1607 like the control after it ? etc?

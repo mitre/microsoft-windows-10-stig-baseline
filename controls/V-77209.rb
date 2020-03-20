@@ -1,20 +1,20 @@
-control "V-77209" do
-  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
-  title "Exploit Protection mitigations in Windows 10 must be configured for
-FLTLDR.EXE."
+# frozen_string_literal: true
+
+control 'V-77209' do
+  title 'Exploit Protection mitigations in Windows 10 must be configured for FLTLDR.EXE.'
   desc  "Exploit protection in Windows 10 provides a means of enabling
-additional mitigations against potential threats at the system and application
-level. Without these additional application protections, Windows 10 may be
-subject to various exploits."
+        additional mitigations against potential threats at the system and application
+        level. Without these additional application protections, Windows 10 may be
+        subject to various exploits."
   impact 0.5
-  tag severity: "medium"
-  tag gtitle: "WN10-EP-000120"
-  tag gid: "V-77209"
-  tag rid: "SV-91905r3_rule"
-  tag stig_id: "WN10-EP-000120"
-  tag fix_id: "F-84341r4_fix"
-  tag cci: ["CCI-000366"]
-  tag nist: ["CM-6 b", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-EP-000120'
+  tag gid: 'V-77209'
+  tag rid: 'SV-91905r3_rule'
+  tag stig_id: 'WN10-EP-000120'
+  tag fix_id: 'F-84341r4_fix'
+  tag cci: ['CCI-000366']
+  tag nist: ['CM-6 b', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -27,171 +27,176 @@ subject to various exploits."
   tag ia_controls: nil
   tag check: "This is NA prior to v1709 of Windows 10.
 
-This is applicable to unclassified systems, for other systems this is NA.
+      This is applicable to unclassified systems, for other systems this is NA.
 
-Run \"Windows PowerShell\" with elevated privileges (run as administrator).
+      Run \"Windows PowerShell\" with elevated privileges (run as administrator).
 
-Enter \"Get-ProcessMitigation -Name FLTLDR.EXE\".
-(Get-ProcessMitigation can be run without the -Name parameter to get a list of
-all application mitigations configured.)
+      Enter \"Get-ProcessMitigation -Name FLTLDR.EXE\".
+      (Get-ProcessMitigation can be run without the -Name parameter to get a list of
+      all application mitigations configured.)
 
-If the following mitigations do not have a status of \"ON\", this is a finding:
+      If the following mitigations do not have a status of \"ON\", this is a finding:
 
-DEP:
-Enable: ON
+      DEP:
+      Enable: ON
 
-ImageLoad:
-BlockRemoteImageLoads: ON
+      ImageLoad:
+      BlockRemoteImageLoads: ON
 
-Payload:
-EnableExportAddressFilter: ON
-EnableExportAddressFilterPlus: ON
-EnableImportAddressFilter: ON
-EnableRopStackPivot: ON
-EnableRopCallerCheck: ON
-EnableRopSimExec: ON
+      Payload:
+      EnableExportAddressFilter: ON
+      EnableExportAddressFilterPlus: ON
+      EnableImportAddressFilter: ON
+      EnableRopStackPivot: ON
+      EnableRopCallerCheck: ON
+      EnableRopSimExec: ON
 
-Child Process:
-DisallowChildProcessCreation: ON
+      Child Process:
+      DisallowChildProcessCreation: ON
 
-The PowerShell command produces a list of mitigations; only those with a
-required status of \"ON\" are listed here. If the PowerShell command does not
-produce results, ensure the letter case of the filename within the command
-syntax matches the letter case of the actual filename on the system."
+      The PowerShell command produces a list of mitigations; only those with a
+      required status of \"ON\" are listed here. If the PowerShell command does not
+      produce results, ensure the letter case of the filename within the command
+      syntax matches the letter case of the actual filename on the system."
   tag fix: "Ensure the following mitigations are turned \"ON\" for FLTLDR.EXE:
 
-DEP:
-Enable: ON
+      DEP:
+      Enable: ON
 
-ImageLoad:
-BlockRemoteImageLoads: ON
+      ImageLoad:
+      BlockRemoteImageLoads: ON
 
-Payload:
-EnableExportAddressFilter: ON
-EnableExportAddressFilterPlus: ON
-EnableImportAddressFilter: ON
-EnableRopStackPivot: ON
-EnableRopCallerCheck: ON
-EnableRopSimExec: ON
+      Payload:
+      EnableExportAddressFilter: ON
+      EnableExportAddressFilterPlus: ON
+      EnableImportAddressFilter: ON
+      EnableRopStackPivot: ON
+      EnableRopCallerCheck: ON
+      EnableRopSimExec: ON
 
-Child Process:
-DisallowChildProcessCreation: ON
+      Child Process:
+      DisallowChildProcessCreation: ON
 
-Application mitigations defined in the STIG are configured by a DoD EP XML file
-included with the Windows 10 STIG package in the \"Supporting Files\" folder.
+      Application mitigations defined in the STIG are configured by a DoD EP XML file
+      included with the Windows 10 STIG package in the \"Supporting Files\" folder.
 
-The XML file is applied with the group policy setting Computer Configuration >>
-Administrative Settings >> Windows Components >> Windows Defender Exploit Guard
->> Exploit Protection >> \"Use a common set of exploit protection settings\"
-configured to \"Enabled\" with file name and location defined under
-\"Options:\".  It is recommended the file be in a read-only network location."
+      The XML file is applied with the group policy setting Computer Configuration >>
+      Administrative Settings >> Windows Components >> Windows Defender Exploit Guard
+      >> Exploit Protection >> \"Use a common set of exploit protection settings\"
+      configured to \"Enabled\" with file name and location defined under
+      \"Options:\".  It is recommended the file be in a read-only network location."
 
-dep_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_dep_enable = $convert_out_json.Dep | Select Enable
-$result_dep_enable = $select_object_dep_enable.Enable
-write-output $result_dep_enable 
-EOH
+  dep_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_dep_enable = $convert_out_json.Dep | Select Enable
+    $result_dep_enable = $select_object_dep_enable.Enable
+    write-output $result_dep_enable
+  EOH
 
-imageload_blockremimagload_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_imageload_blockremimagload = $convert_out_json.Imageload | Select BlockRemoteImageLoads
-$result_imageload_blockremimagload = $select_object_imageload_blockremimagload.BlockRemoteImageLoads
-write-output $result_imageload_blockremimagload
-EOH
+  imageload_blockremimagload_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_imageload_blockremimagload = $convert_out_json.Imageload | Select BlockRemoteImageLoads
+    $result_imageload_blockremimagload = $select_object_imageload_blockremimagload.BlockRemoteImageLoads
+    write-output $result_imageload_blockremimagload
+  EOH
 
-payload_enexpaddrfil_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enexportaddrfil = $convert_out_json.Payload | Select EnableExportAddressFilter
-$result_payload_enexportaddrfil = $select_object_payload_enexportaddrfil.EnableExportAddressFilter
-write-output $result_payload_enexportaddrfil
-EOH
+  payload_enexpaddrfil_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enexportaddrfil = $convert_out_json.Payload | Select EnableExportAddressFilter
+    $result_payload_enexportaddrfil = $select_object_payload_enexportaddrfil.EnableExportAddressFilter
+    write-output $result_payload_enexportaddrfil
+  EOH
 
-payload_enexpaddrfilplus_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE| ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enexpaddrfilplus = $convert_out_json.Payload | Select EnableExportAddressFilterPlus
-$result_payload_enexpaddrfilplus = $select_object_payload_enexpaddrfilplus.EnableExportAddressFilterPlus
-write-output $result_payload_enexpaddrfilplus
-EOH
+  payload_enexpaddrfilplus_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE| ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enexpaddrfilplus = $convert_out_json.Payload | Select EnableExportAddressFilterPlus
+    $result_payload_enexpaddrfilplus = $select_object_payload_enexpaddrfilplus.EnableExportAddressFilterPlus
+    write-output $result_payload_enexpaddrfilplus
+  EOH
 
-payload_enimpaddrfil_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enimpaddrfil = $convert_out_json.Payload | Select EnableImportAddressFilter
-$result_payload_enimpaddrfil = $select_object_payload_enimpaddrfil.EnableImportAddressFilter
-write-output $result_payload_enimpaddrfil
-EOH
+  payload_enimpaddrfil_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enimpaddrfil = $convert_out_json.Payload | Select EnableImportAddressFilter
+    $result_payload_enimpaddrfil = $select_object_payload_enimpaddrfil.EnableImportAddressFilter
+    write-output $result_payload_enimpaddrfil
+  EOH
 
-payload_enropstacpiv_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enropstacpiv = $convert_out_json.Payload | Select EnableRopStackPivot
-$result_payload_enropstacpiv = $select_object_payload_enropstacpiv.EnableRopStackPivot
-write-output $result_payload_enropstacpiv
-EOH
+  payload_enropstacpiv_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enropstacpiv = $convert_out_json.Payload | Select EnableRopStackPivot
+    $result_payload_enropstacpiv = $select_object_payload_enropstacpiv.EnableRopStackPivot
+    write-output $result_payload_enropstacpiv
+  EOH
 
-payload_enropcalleche_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enropcalleche = $convert_out_json.Payload | Select EnableRopCallerCheck
-$result_payload_enropcalleche = $select_object_payload_enropcalleche.EnableRopCallerCheck
-write-output $result_payload_enropcalleche
-EOH
+  payload_enropcalleche_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enropcalleche = $convert_out_json.Payload | Select EnableRopCallerCheck
+    $result_payload_enropcalleche = $select_object_payload_enropcalleche.EnableRopCallerCheck
+    write-output $result_payload_enropcalleche
+  EOH
 
-payload_enropsimexec_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enropsimexec = $convert_out_json.Payload | Select EnableRopSimExec
-$result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
-write-output $result_payload_enropsimexec
-EOH
+  payload_enropsimexec_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enropsimexec = $convert_out_json.Payload | Select EnableRopSimExec
+    $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
+    write-output $result_payload_enropsimexec
+  EOH
 
-childprocess_disallchilprocre_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_childprocess_disallchilprocre = $convert_out_json.ChildProcess | Select DisallowChildProcessCreation
-$result_childprocess_disallchilprocre = $select_object_childprocess_disallchilprocre.DisallowChildProcessCreation
-write-output $result_childprocess_disallchilprocre
-EOH
+  childprocess_disallchilprocre_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name FLTLDR.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_childprocess_disallchilprocre = $convert_out_json.ChildProcess | Select DisallowChildProcessCreation
+    $result_childprocess_disallchilprocre = $select_object_childprocess_disallchilprocre.DisallowChildProcessCreation
+    write-output $result_childprocess_disallchilprocre
+  EOH
 
-if (registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= "1709" )
-  describe.one do
-    describe powershell(dep_script) do
-      its('strip') { should_not eq "2" }
+  if input('is_unclassified_system') == 'false' || nil
+    impact 0.0
+    describe 'This Control is Not Applicable to classified systems.' do
+      skip 'This Control is Not Applicable to classified systems.'
     end
-    describe powershell(imageload_blockremimagload_script) do
-      its('strip') { should_not eq "2" }
+  elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId < '1709'
+    impact 0.0
+    describe 'This STIG does not apply to Prior Versions before 1709.' do
+      skip 'This STIG does not apply to Prior Versions before 1709.'
     end
-    describe powershell(payload_enexpaddrfil_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enexpaddrfilplus_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enimpaddrfil_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enropstacpiv_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enropcalleche_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enropsimexec_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(childprocess_disallchilprocre_script) do
-      its('strip') { should_not eq "2" }
+  else
+    describe.one do
+      describe powershell(dep_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(imageload_blockremimagload_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enexpaddrfil_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enexpaddrfilplus_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enimpaddrfil_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enropstacpiv_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enropcalleche_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enropsimexec_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(childprocess_disallchilprocre_script) do
+        its('strip') { should_not eq '2' }
+      end
     end
   end
-else
-  impact 0.0
-  describe "This STIG does not apply to Prior Versions before 1709." do
-    skip 'This STIG does not apply to Prior Versions before 1709.'
-  end
- end
 end
