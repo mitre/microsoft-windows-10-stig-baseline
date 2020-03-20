@@ -99,7 +99,7 @@ control 'V-63871' do
     #get_domain_sid = command('wmic group get Name,SID | FINDSTR /C:"Domain Users"').stdout.strip
     #domain_sid = get_domain_sid[50..79]
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{input('max_pass_age')}-519" }
+      its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-"input('max_pass_age')"-519" }
     end
     describe security_policy do
       its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}512" }
