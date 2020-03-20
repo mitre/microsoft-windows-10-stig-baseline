@@ -28,7 +28,7 @@ control 'V-63863' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
       Run \"gpedit.msc\".
 
       Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -36,7 +36,7 @@ control 'V-63863' do
 
       If any groups or accounts are granted the \"Create permanent shared objects\"
       user right, this is a finding."
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
       \"Create permanent shared objects\" to be defined but containing no entries
       (blank)."

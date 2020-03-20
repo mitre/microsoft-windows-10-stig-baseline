@@ -25,7 +25,7 @@ control 'V-63341' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
         configured as specified, this is a finding:
 
         Registry Hive: HKEY_LOCAL_MACHINE
@@ -36,7 +36,7 @@ control 'V-63341' do
         Value Type: REG_DWORD
         Value: 0"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
         Administrative Templates >> Windows Components >> Windows Remote Management
         (WinRM) >> WinRM Client >> \"Disallow Digest authentication\" to \"Enabled\"."
 

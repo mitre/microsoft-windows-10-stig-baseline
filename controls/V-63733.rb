@@ -26,7 +26,7 @@ control 'V-63733' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -37,7 +37,7 @@ control 'V-63733' do
       Value Type: REG_DWORD
       Value: 1"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Remote Desktop Services >>
       Remote Desktop Session Host >> Security >> \"Always prompt for password upon
       connection\" to \"Enabled\"."

@@ -28,7 +28,7 @@ control 'V-63583' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify the ECA Root CA certificates are installed on unclassified
+  desc "check", "Verify the ECA Root CA certificates are installed on unclassified
       systems as Trusted Root Certification Authorities.
 
       Run \"PowerShell\" as an administrator.
@@ -92,7 +92,7 @@ control 'V-63583' do
       Thumbprint: 73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582
       Valid to: Sunday, December 30, 2029"
 
-  tag fix: "Install the ECA Root CA certificates on unclassified systems.
+  desc "fix", "Install the ECA Root CA certificates on unclassified systems.
       ECA Root CA 2
       ECA Root CA 4
 

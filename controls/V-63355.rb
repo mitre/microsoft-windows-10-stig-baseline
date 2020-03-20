@@ -23,7 +23,7 @@ control 'V-63355' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the system does not include other operating system
+  desc "check", "Verify the system does not include other operating system
         installations.
 
         Run \"Advanced System Settings\".
@@ -33,7 +33,7 @@ control 'V-63355' do
         If the drop-down list box \"Default operating system:\" shows any operating
         system other than Windows 10, this is a finding."
 
-  tag fix: "Ensure Windows 10 is the only operating system on a device.  Remove
+  desc "fix", "Ensure Windows 10 is the only operating system on a device.  Remove
         alternate operating systems."
 
   describe command("bcdedit | Findstr description | Findstr /v /c:'Windows Boot Manager'") do

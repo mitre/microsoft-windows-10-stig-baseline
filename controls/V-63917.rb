@@ -29,7 +29,7 @@ control 'V-63917' do
   tag responsibility: nil
   tag ia_controls: nil
   
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
       Run \"gpedit.msc\".
 
       Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -40,7 +40,7 @@ control 'V-63917' do
 
       Administrators"
   
-      tag fix: "Configure the policy value for Computer Configuration >> Windows
+      desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
       \"Load and unload device drivers\" to only include the following groups or
       accounts:

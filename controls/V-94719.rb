@@ -26,7 +26,7 @@ control 'V-94719' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This setting requires v1903 or later of Windows 10; it is NA for
+  desc "check", "This setting requires v1903 or later of Windows 10; it is NA for
       prior versions.  The setting is NA when the “Allow voice activation” policy is
       configured to disallow applications to be activated with voice for all users.
       If the following registry value does not exist or is not configured as
@@ -50,7 +50,7 @@ control 'V-94719' do
 
       Type: REG_DWORD
       Value: 0x00000002 (2)"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> App Privacy >> \"Let Windows
       apps activate with voice while the system is locked\" to \"Enabled\" with
       “Default for all Apps:” set to “Force Deny”.

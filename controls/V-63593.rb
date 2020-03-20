@@ -26,7 +26,7 @@ control 'V-63593' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify the default registry permissions for the keys note below
+  desc "check", "Verify the default registry permissions for the keys note below
       of the HKEY_LOCAL_MACHINE hive.
 
       If any non-privileged groups such as Everyone, Users or Authenticated Users
@@ -74,7 +74,7 @@ control 'V-63593' do
 
       If the defaults have not been changed, these are not a finding."
 
-  tag fix: "Maintain the default permissions for the HKEY_LOCAL_MACHINE
+  desc "fix", "Maintain the default permissions for the HKEY_LOCAL_MACHINE
       registry hive.
 
       The default permissions of the higher level keys are noted below.

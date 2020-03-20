@@ -25,7 +25,7 @@ control 'V-70637' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Run \"Windows PowerShell\" with elevated privileges (run as
+  desc "check", "Run \"Windows PowerShell\" with elevated privileges (run as
       administrator).
 
       Enter the following:
@@ -45,7 +45,7 @@ control 'V-70637' do
 
       If \"Windows PowerShell 2.0\" (whether the subcategory of \"Windows PowerShell
       2.0 Engine\" is selected or not) is selected, this is a finding."
-  tag fix: "Disable \"Windows PowerShell 2.0\" on the system.
+  desc "fix", "Disable \"Windows PowerShell 2.0\" on the system.
 
       Run \"Windows PowerShell\" with elevated privileges (run as administrator).
       Enter the following:

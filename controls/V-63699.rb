@@ -27,7 +27,7 @@ control 'V-63699' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "This is applicable to unclassified systems, for other systems
+  desc "check", "This is applicable to unclassified systems, for other systems
       this is NA.
 
       Windows 10 LTSC\\B versions do not include Microsoft Edge, this is NA for those
@@ -44,7 +44,7 @@ control 'V-63699' do
       Type: REG_DWORD
       Value: 0x00000001 (1)"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Microsoft Edge >> \"Prevent
       bypassing Windows Defender SmartScreen prompts for sites\" to \"Enabled\".
 

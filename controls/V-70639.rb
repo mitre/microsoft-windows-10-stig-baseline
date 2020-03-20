@@ -30,7 +30,7 @@ control 'V-70639' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Different methods are available to disable SMBv1 on Windows 10.
+  desc "check", "Different methods are available to disable SMBv1 on Windows 10.
       This is the preferred method, however if V-74723 and V-74725 are configured,
       this is NA.
 
@@ -47,7 +47,7 @@ control 'V-70639' do
       Select \"Turn Windows features on or off\".
 
       If \"SMB 1.0/CIFS File Sharing Support\" is selected, this is a finding."
-  tag fix: "Disable the SMBv1 protocol.
+  desc "fix", "Disable the SMBv1 protocol.
 
       Run \"Windows PowerShell\" with elevated privileges (run as administrator).
 

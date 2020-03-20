@@ -24,11 +24,11 @@ control 'V-72767' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This is NA if the system does not have Bluetooth.
+  desc "check", "This is NA if the system does not have Bluetooth.
 
       Verify the organization has a policy to turn off Bluetooth when not in use and
       personnel are trained. If it does not, this is a finding."
-  tag fix: "Turn off Bluetooth radios when not in use. Establish an
+  desc "fix", "Turn off Bluetooth radios when not in use. Establish an
       organizational policy for the use of Bluetooth to include training of
       personnel."
 

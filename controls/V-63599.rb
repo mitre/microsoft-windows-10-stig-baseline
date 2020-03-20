@@ -26,7 +26,7 @@ control 'V-63599' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Confirm Credential Guard is running on domain-joined systems.
+  desc "check", "Confirm Credential Guard is running on domain-joined systems.
 
       For standalone systems, this is NA.
 
@@ -72,7 +72,7 @@ control 'V-63599' do
 
       NOTE:  The severity level for the requirement will be upgraded to CAT I
       starting January 2020."
-  tag fix: "Virtualization based security, including Credential Guard,
+  desc "fix", "Virtualization based security, including Credential Guard,
       currently cannot be implemented in virtual desktop implementations (VDI) due to
       specific supporting requirements including a TPM, UEFI with Secure Boot, and
       the capability to run the Hyper-V feature within the virtual desktop.

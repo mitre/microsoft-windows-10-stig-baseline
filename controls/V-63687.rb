@@ -29,7 +29,7 @@ control 'V-63687' do
   tag responsibility: nil
   tag ia_controls: nil
   
-  tag check: "This is the default configuration for this setting (10 logons to
+  desc "check", "This is the default configuration for this setting (10 logons to
         cache).
 
         If the following registry value does not exist or is not configured as
@@ -46,7 +46,7 @@ control 'V-63687' do
         This setting only applies to domain-joined systems, however, it is configured
         by default on all systems."
   
-  tag fix: "This is the default configuration for this setting (10 logons to
+  desc "fix", "This is the default configuration for this setting (10 logons to
         cache).
 
         Configure the policy value for Computer Configuration >> Windows Settings >>

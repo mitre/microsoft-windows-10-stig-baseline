@@ -29,7 +29,7 @@ control 'V-63409' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
         Run \"gpedit.msc\".
 
         Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -38,7 +38,7 @@ control 'V-63409' do
         If the \"Account lockout threshold\" is \"0\" or more than #{input('max_pass_lockout')} attempts,
         this is a finding."
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
         Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
         \"Account lockout threshold\" to #{input('max_pass_lockout')} or less invalid logon attempts
         (excluding \"0\" which is unacceptable)."

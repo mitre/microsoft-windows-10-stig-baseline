@@ -37,7 +37,7 @@ control 'V-63343' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify DoD approved HBSS software is installed, configured, and
+  desc "check", "Verify DoD approved HBSS software is installed, configured, and
         properly operating. Ask the operator to document the HBSS software installation
         and configuration.
 
@@ -45,7 +45,7 @@ control 'V-63343' do
         installed HBSS or if the HBSS software is not properly configured, maintained,
         or used, this is a finding."
 
-  tag fix: "Install DoD approved HBSS software and ensure it is operating
+  desc "fix", "Install DoD approved HBSS software and ensure it is operating
         continuously."
 
   describe "A manual review is required to ensure the operating system employs automated mechanisms to determine the

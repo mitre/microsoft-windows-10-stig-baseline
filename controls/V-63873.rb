@@ -34,7 +34,7 @@ control 'V-63873' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This requirement is applicable to domain-joined systems, for
+  desc "check", "This requirement is applicable to domain-joined systems, for
       standalone systems this is NA.
 
       Verify the effective setting in Local Group Policy Editor.
@@ -49,7 +49,7 @@ control 'V-63873' do
       Domain Systems Only:
       Enterprise Admin Group
       Domain Admin Group"
-  tag fix: "This requirement is applicable to domain-joined systems, for
+  desc "fix", "This requirement is applicable to domain-joined systems, for
       standalone systems this is NA.
 
       Configure the policy value for Computer Configuration >> Windows Settings >>

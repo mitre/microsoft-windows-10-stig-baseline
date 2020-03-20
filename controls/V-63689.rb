@@ -25,7 +25,7 @@ control 'V-63689' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "The default behavior is for data execution prevention to be
+  desc "check", "The default behavior is for data execution prevention to be
       turned on for file explorer.
 
       If the registry value name below does not exist, this is not a finding.
@@ -41,7 +41,7 @@ control 'V-63689' do
 
       Value Type: REG_DWORD
       Value: 0 (or if the Value Name does not exist)"
-  tag fix: "The default behavior is for data execution prevention to be turned
+  desc "fix", "The default behavior is for data execution prevention to be turned
       on for file explorer.
 
       If this needs to be corrected, configure the policy value for Computer

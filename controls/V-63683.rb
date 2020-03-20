@@ -33,7 +33,7 @@ control 'V-63683' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding.
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -49,7 +49,7 @@ control 'V-63683' do
       to \"Enhanced\" to support Windows Analytics. V-82145 must also be configured
       to limit the Enhanced diagnostic data to the minimum required by Windows
       Analytics. This registry value will then be 0x00000002 (2)."
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Data Collection and Preview
       Builds >> \"Allow Telemetry\" to \"Enabled\" with \"0 - Security [Enterprise
       Only]\" or \"1 - Basic\" selected in \"Options:\".

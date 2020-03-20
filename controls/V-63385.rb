@@ -24,14 +24,14 @@ control 'V-63385' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "The \"Telnet Client\" is not installed by default.  Verify it has
+  desc "check", "The \"Telnet Client\" is not installed by default.  Verify it has
         not been installed.
 
         Navigate to the Windows\\System32 directory.
 
         If the \"telnet\" application exists, this is a finding."
 
-  tag fix: "Uninstall \"Telnet Client\" from the system.
+  desc "fix", "Uninstall \"Telnet Client\" from the system.
 
         Run \"Programs and Features\".
         Select \"Turn Windows Features on or off\".

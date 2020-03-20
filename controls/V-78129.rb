@@ -41,7 +41,7 @@ control 'V-78129' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Determine whether administrative accounts are prevented from
+  desc "check", "Determine whether administrative accounts are prevented from
       using applications that access the Internet, such as web browsers, or with
       potential Internet sources, such as email, except as necessary for local
       service administration.
@@ -62,7 +62,7 @@ control 'V-78129' do
       applications that access the Internet or with potential Internet sources, this
       is a finding."
 
-  tag fix: "Establish and enforce a policy that prohibits administrative
+  desc "fix", "Establish and enforce a policy that prohibits administrative
       accounts from using applications that access the Internet, such as web
       browsers, or with potential Internet sources, such as email. Define specific
       exceptions for local service administration. These exceptions may include

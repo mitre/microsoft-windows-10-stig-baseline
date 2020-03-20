@@ -26,7 +26,7 @@ control 'V-63329' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "The default behavior is for Internet Explorer to warn users and
+  desc "check", "The default behavior is for Internet Explorer to warn users and
         select whether to allow or refuse installation when a web-based program
         attempts to install software on the system.
 
@@ -44,7 +44,7 @@ control 'V-63329' do
         Value Type: REG_DWORD
         Value: 0 (or if the Value Name does not exist)"
 
-  tag fix: "The default behavior is for Internet Explorer to warn users and
+  desc "fix", "The default behavior is for Internet Explorer to warn users and
         select whether to allow or refuse installation when a web-based program
         attempts to install software on the system.
 

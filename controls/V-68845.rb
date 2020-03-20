@@ -24,14 +24,14 @@ control 'V-68845' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the DEP configuration.
+  desc "check", "Verify the DEP configuration.
       Open a command prompt (cmd.exe) or PowerShell with elevated privileges (Run as
       administrator).
       Enter \"BCDEdit /enum {current}\". (If using PowerShell \"{current}\" must be
       enclosed in quotes.)
       If the value for \"nx\" is not \"OptOut\", this is a finding.
       (The more restrictive configuration of \"AlwaysOn\" would not be a finding.)"
-  tag fix: "Configure DEP to at least OptOut.
+  desc "fix", "Configure DEP to at least OptOut.
 
       Note: Suspend BitLocker before making changes to the DEP configuration.
 

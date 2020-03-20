@@ -30,14 +30,14 @@ control 'V-94861' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
         configured as specified, this is a finding.
 
         Value Name: MinimumPIN
         Type: REG_DWORD
         Value: 0x0000000#{input('bitlocker_pin_len')} (#{input('bitlocker_pin_len')}) or greater"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
         Administrative Templates >> Windows Components >> BitLocker Drive Encryption >>
         Operating System Drives \"Configure minimum PIN length for startup\" to
         \"Enabled\" with \"Minimum characters:\" set to #{input('bitlocker_pin_len')} or greater."

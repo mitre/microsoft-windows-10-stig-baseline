@@ -25,7 +25,7 @@ control 'V-88203' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the organization is using a DoD instance of OneDrive, verify
+  desc "check", "If the organization is using a DoD instance of OneDrive, verify
       synchronizing is only allowed to the organization's DoD instance.
 
       If the organization does not have an instance of OneDrive, verify this is
@@ -45,7 +45,7 @@ control 'V-88203' do
 
       If the organization does not have an instance of OneDrive the Value Name and
       Value must be 1111-2222-3333-4444, if not this is a finding."
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> OneDrive >> \"Allow syncing OneDrive accounts for
       only specific organizations\", with the Tenant GUID of the organization's DoD
       instance in the format 1111-2222-3333-4444.

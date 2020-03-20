@@ -25,7 +25,7 @@ control 'V-63393' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Search all drives for *.p12 and *.pfx files.
+  desc "check", "Search all drives for *.p12 and *.pfx files.
 
         If any files with these extensions exist, this is a finding.
 
@@ -35,7 +35,7 @@ control 'V-63393' do
         are not certificate installation files. Removal of non-certificate installation
         files from systems is not required. These must be documented with the ISSO."
 
-  tag fix: "Remove any certificate installation files (*.p12 and *.pfx) found
+  desc "fix", "Remove any certificate installation files (*.p12 and *.pfx) found
         on a system.
 
         Note: This does not apply to server-based applications that have a requirement

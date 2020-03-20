@@ -27,7 +27,7 @@ control 'V-63717' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Virtual desktop implementations currently may not support the use
+  desc "check", "Virtual desktop implementations currently may not support the use
       of TPMs. For virtual desktop implementations where the virtual desktop instance
       is deleted or refreshed upon logoff, this is NA.
 
@@ -42,7 +42,7 @@ control 'V-63717' do
       Type: REG_DWORD
       Value: 1"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Windows Hello for Business >>
       \"Use a hardware security device\" to \"Enabled\".
 

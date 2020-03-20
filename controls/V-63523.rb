@@ -26,7 +26,7 @@ control 'V-63523' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the system is configured to send audit records directly to an
+  desc "check", "If the system is configured to send audit records directly to an
       audit server, this is NA. This must be documented with the ISSO.
 
       If the following registry value does not exist or is not configured as
@@ -40,7 +40,7 @@ control 'V-63523' do
       Value Type: REG_DWORD
       Value: 0x000fa000 (1024000) (or greater)"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Event Log Service >> Security
       >> \"Specify the maximum log file size (KB)\" to \"Enabled\" with a \"Maximum
       Log Size (KB)\" of \"1024000\" or greater.

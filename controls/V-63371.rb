@@ -24,13 +24,13 @@ control 'V-63371' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Run \"Computer Management\".
+  desc "check", "Run \"Computer Management\".
         Navigate to System Tools >> Local Users and Groups >> Users.
         Double click each active account.
 
         If \"Password never expires\" is selected for any account, this is a finding."
 
-  tag fix: "Configure all passwords to expire.
+  desc "fix", "Configure all passwords to expire.
         Run \"Computer Management\".
         Navigate to System Tools >> Local Users and Groups >> Users.
         Double click each active account.

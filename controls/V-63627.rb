@@ -28,7 +28,7 @@ control 'V-63627' do
   tag responsibility: nil
   tag ia_controls: nil
   
-  tag check: "This requirement is applicable to domain-joined systems, for
+  desc "check", "This requirement is applicable to domain-joined systems, for
         standalone systems this is NA.
 
         The default behavior for \"Support device authentication using certificate\" is
@@ -48,7 +48,7 @@ control 'V-63627' do
         Value Type:  REG_DWORD
         Value:  1 (or if the Value Name does not exist)"
 
-  tag fix: "This requirement is applicable to domain-joined systems, for
+  desc "fix", "This requirement is applicable to domain-joined systems, for
         standalone systems this is NA.
 
         The default behavior for \"Support device authentication using certificate\" is

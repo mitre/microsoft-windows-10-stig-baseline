@@ -22,13 +22,13 @@ control "V-72765" do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This is NA if the system does not have Bluetooth.
+  desc "check", "This is NA if the system does not have Bluetooth.
 
       Verify the Bluetooth radio is turned off unless approved by the organization.
       If it is not, this is a finding.
 
       Approval must be documented with the ISSO."
-  tag fix: "Turn off Bluetooth radios not organizationally approved. Establish
+  desc "fix", "Turn off Bluetooth radios not organizationally approved. Establish
     an organizational policy for the use of Bluetooth."
 
 if(sys_info).manufacturer != "VMware, Inc."

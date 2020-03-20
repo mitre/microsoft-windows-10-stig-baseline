@@ -25,7 +25,7 @@ control 'V-77085' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Some older systems may not have UEFI firmware. This is currently
+  desc "check", "Some older systems may not have UEFI firmware. This is currently
       a CAT III; it will be raised in severity at a future date when broad support of
       Windows 10 hardware and firmware requirements are expected to be met. Devices
       that have UEFI firmware must have Secure Boot enabled.
@@ -37,7 +37,7 @@ control 'V-77085' do
 
       Under \"System Summary\", if \"Secure Boot State\" does not display \"On\",
       this is finding."
-  tag fix: 'Enable Secure Boot in the system firmware.'
+  desc "fix", 'Enable Secure Boot in the system firmware.'
 
   script = <<~EOH
     $status = Confirm-SecureBootUEFI

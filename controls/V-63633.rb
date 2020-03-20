@@ -25,7 +25,7 @@ control 'V-63633' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "This requirement is applicable to domain-joined systems, for
+  desc "check", "This requirement is applicable to domain-joined systems, for
       standalone systems this is NA.
 
       If the following registry value does not exist or is not configured as
@@ -39,7 +39,7 @@ control 'V-63633' do
       Value Type: REG_DWORD
       Value: 0"
 
-  tag fix: "This requirement is applicable to domain-joined systems, for
+  desc "fix", "This requirement is applicable to domain-joined systems, for
       standalone systems this is NA.
 
       Configure the policy value for Computer Configuration >> Administrative

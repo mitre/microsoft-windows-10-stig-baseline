@@ -26,7 +26,7 @@ control 'V-63519' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the system is configured to send audit records directly to an
+  desc "check", "If the system is configured to send audit records directly to an
       audit server, this is NA.  This must be documented with the ISSO.
 
       If the following registry value does not exist or is not configured as
@@ -41,7 +41,7 @@ control 'V-63519' do
       Value Type:  REG_DWORD
       Value:  0x00008000 (32768) (or greater)"
 
-  tag fix: "If the system is configured to send audit records directly to an
+  desc "fix", "If the system is configured to send audit records directly to an
       audit server, this is NA.  This must be documented with the ISSO.
 
       Configure the policy value for Computer Configuration >> Administrative

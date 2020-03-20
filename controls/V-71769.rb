@@ -26,7 +26,7 @@ control 'V-71769' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Windows 10 v1507 LTSB version does not include this setting, it
+  desc "check", "Windows 10 v1507 LTSB version does not include this setting, it
           is NA for those systems.
 
           If the following registry value does not exist or is not configured as
@@ -40,7 +40,7 @@ control 'V-71769' do
           Value Type: REG_SZ
           Value: O:BAG:BAD:(A;;RC;;;BA)"
   
-  tag fix: "Navigate to the policy Computer Configuration >> Windows Settings
+  desc "fix", "Navigate to the policy Computer Configuration >> Windows Settings
           >> Security Settings >> Local Policies >> Security Options >> \"Network access:
           Restrict clients allowed to make remote calls to SAM\".
 

@@ -33,7 +33,7 @@ control 'V-63451' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Security Option \"Audit: Force audit policy subcategory settings
+  desc "check", "Security Option \"Audit: Force audit policy subcategory settings
       (Windows Vista or later) to override audit policy category settings\" must be
       set to \"Enabled\" (WN10-SO-000030) for the detailed auditing subcategories to
       be effective.
@@ -47,7 +47,7 @@ control 'V-63451' do
 
       Detailed Tracking >> Plug and Play Events - Success"
 
-  tag fix: "Computer Configuration >> Windows Settings >> Advanced Audit Policy
+  desc "fix", "Computer Configuration >> Windows Settings >> Advanced Audit Policy
       Configuration >> System Audit Policies >> Detailed Tracking >> \"Audit PNP
       Activity\" with \"Success\" selected."
 

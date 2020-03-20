@@ -25,13 +25,13 @@ control 'V-63351' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify an anti-virus solution is installed on the system. The
+  desc "check", "Verify an anti-virus solution is installed on the system. The
         anti-virus solution may be bundled with an approved host-based security
         solution.
 
         If there is no anti-virus solution installed on the system, this is a finding."
 
-  tag fix: 'Install an anti-virus solution on the system.'
+  desc "fix", 'Install an anti-virus solution on the system.'
 
   describe.one do
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\DesktopProtection\szProductVer') do

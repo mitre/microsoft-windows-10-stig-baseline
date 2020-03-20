@@ -26,7 +26,7 @@ control 'V-63659' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Windows 10 LTSC\\B versions do not support the Microsoft Store
+  desc "check", "Windows 10 LTSC\\B versions do not support the Microsoft Store
       and modern apps; this is NA for those systems.
 
       If the following registry value does not exist or is not configured as
@@ -41,7 +41,7 @@ control 'V-63659' do
       Value Type: REG_DWORD
       Value: 0x00000001 (1)"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> App Runtime >> \"Allow
       Microsoft accounts to be optional\" to \"Enabled\"."
 

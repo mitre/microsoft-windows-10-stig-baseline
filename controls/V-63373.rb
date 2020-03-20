@@ -25,7 +25,7 @@ control 'V-63373' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "The default file system permissions are adequate when the
+  desc "check", "The default file system permissions are adequate when the
         Security Option \"Network access: Let Everyone permissions apply to anonymous
         users\" is set to \"Disabled\" (WN10-SO-000160).
 
@@ -134,7 +134,7 @@ control 'V-63373' do
         PACKAGES:(OI)(CI)(IO)(GR,GE)
         Successfully processed 1 files; Failed processing 0 files"
 
-  tag fix: "Maintain the default file system permissions and configure the
+  desc "fix", "Maintain the default file system permissions and configure the
         Security Option: \"Network access: Let everyone permissions apply to anonymous
         users\" to \"Disabled\" (WN10-SO-000160)."
 

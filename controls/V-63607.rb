@@ -28,7 +28,7 @@ control 'V-63607' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "The default behavior is for Early Launch Antimalware - Boot-Start
+  desc "check", "The default behavior is for Early Launch Antimalware - Boot-Start
       Driver Initialization policy is to enforce \"Good, unknown and bad but
       critical\" (preventing \"bad\").
 
@@ -50,7 +50,7 @@ control 'V-63607' do
       3 - Good, unknown and bad but critical
       7 - All (which includes \"Bad\" and would be a finding)"
 
-  tag fix: "The default behavior is for Early Launch Antimalware - Boot-Start
+  desc "fix", "The default behavior is for Early Launch Antimalware - Boot-Start
       Driver Initialization policy is to enforce \"Good, unknown and bad but
       critical\" (preventing \"bad\").
 

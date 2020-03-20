@@ -26,7 +26,7 @@ control 'V-63811' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -41,7 +41,7 @@ control 'V-63811' do
       digitally encrypted or signed protocols with servers that do not support these
       algorithms.  Both the browser and web server must be configured to use TLS
       otherwise the browser will not be able to connect to a secure site."
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> Security Options >> \"System
       cryptography: Use FIPS compliant algorithms for encryption, hashing, and
       signing\" to \"Enabled\"."

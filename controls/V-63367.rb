@@ -25,7 +25,7 @@ control 'V-63367' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Run \"Computer Management\".
+  desc "check", "Run \"Computer Management\".
         Navigate to System Tools >> Local Users and Groups >> Users.
 
         If local users other than the accounts listed below exist on a workstation in a
@@ -41,7 +41,7 @@ control 'V-63367' do
         All of the built-in accounts may not exist on a system, depending on the
         Windows 10 version."
 
-  tag fix: "Limit local user accounts on domain-joined systems.  Remove any
+  desc "fix", "Limit local user accounts on domain-joined systems.  Remove any
         unauthorized local accounts."
 
   admin_script = <<-EOH

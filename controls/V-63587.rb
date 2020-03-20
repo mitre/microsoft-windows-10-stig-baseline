@@ -28,7 +28,7 @@ control 'V-63587' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify the DoD Interoperability cross-certificates are installed
+  desc "check", "Verify the DoD Interoperability cross-certificates are installed
       on unclassified systems as Untrusted Certificates.
 
       Run \"PowerShell\" as an administrator.
@@ -101,7 +101,7 @@ control 'V-63587' do
       Thumbprint: AC06108CA348CC03B53795C64BF84403C1DBD341
       Valid to: Saturday, January 22, 2022"
 
-  tag fix: "Install the DoD Interoperability Root CA cross-certificates on
+  desc "fix", "Install the DoD Interoperability Root CA cross-certificates on
       unclassified systems.
 
       Issued To - Issued By - Thumbprint

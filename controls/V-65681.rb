@@ -27,7 +27,7 @@ control 'V-65681' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -62,7 +62,7 @@ control 'V-65681' do
       Value Type: REG_DWORD
       Value: 0x00000000 (0) - Off
       0x00000001 (1) - LAN"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Delivery Optimization >>
       \"Download Mode\" to \"Enabled\" with any option except \"Internet\" selected.
 

@@ -23,7 +23,7 @@ control 'V-63841' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "The default behavior is for Windows to mark file attachments with
+  desc "check", "The default behavior is for Windows to mark file attachments with
       their zone information.
 
       If the registry Value Name below does not exist, this is not a finding.
@@ -40,7 +40,7 @@ control 'V-63841' do
 
       Value Type: REG_DWORD
       Value: 0x00000002 (2) (or if the Value Name does not exist)"
-  tag fix: "The default behavior is for Windows to mark file attachments with
+  desc "fix", "The default behavior is for Windows to mark file attachments with
       their zone information.
 
       If this needs to be corrected, configure the policy value for User

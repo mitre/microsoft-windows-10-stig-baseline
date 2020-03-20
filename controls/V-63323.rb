@@ -29,7 +29,7 @@ control 'V-63323' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify domain-joined systems have a TPM enabled and ready for use.
+  desc "check", "Verify domain-joined systems have a TPM enabled and ready for use.
 
         For standalone systems, this is NA.
 
@@ -53,7 +53,7 @@ control 'V-63323' do
         NOTE:  The severity level for the requirement will be upgraded to CAT II
         starting January 2020."
 
-  tag fix: "For standalone systems, this is NA.
+  desc "fix", "For standalone systems, this is NA.
 
         Virtualization based security, including Credential Guard, currently cannot be
         implemented in virtual desktop implementations (VDI) due to specific supporting

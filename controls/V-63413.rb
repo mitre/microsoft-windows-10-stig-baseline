@@ -28,7 +28,7 @@ control 'V-63413' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
       Run \"gpedit.msc\".
 
       Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -37,7 +37,7 @@ control 'V-63413' do
       If the \"Reset account lockout counter after\" value is less than #{input('pass_lock_time')}
       minutes, this is a finding."
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
       \"Reset account lockout counter after\" to #{input('pass_lock_time')} minutes."
 

@@ -30,7 +30,7 @@ control 'V-82145' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This setting requires v1709 or later of Windows 10; it is NA for
+  desc "check", "This setting requires v1709 or later of Windows 10; it is NA for
       prior versions.
 
       If \"Enhanced\" level is enabled for telemetry, this must be configured. If
@@ -46,7 +46,7 @@ control 'V-82145' do
 
       Type: REG_DWORD
       Value: 0x00000001 (1)"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Data Collection and Preview
       Builds >> \"Limit Enhanced diagnostic data to the minimum required by Windows
       Analytics\" to \"Enabled\" with \"Enable Windows Analytics collection\"

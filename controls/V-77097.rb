@@ -26,7 +26,7 @@ control 'V-77097' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This is NA prior to v1709 of Windows 10.
+  desc "check", "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
 
@@ -43,7 +43,7 @@ control 'V-77097' do
       Values that would not be a finding include:
       ON
       NOTSET (Default configuration)"
-  tag fix: "Ensure Exploit Protection system-level mitigation, \"Control flow
+  desc "fix", "Ensure Exploit Protection system-level mitigation, \"Control flow
       guard (CFG)\", is turned on. The default configuration in Exploit Protection is
       \"On by default\" which meets this requirement.
 

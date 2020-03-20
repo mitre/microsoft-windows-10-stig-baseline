@@ -24,14 +24,14 @@ control 'V-63381' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "\"SNMP\" is not installed by default.  Verify it has not been
+  desc "check", "\"SNMP\" is not installed by default.  Verify it has not been
         installed.
 
         Navigate to the Windows\\System32 directory.
 
         If the \"SNMP\" application exists, this is a finding."
 
-  tag fix: "Uninstall \"Simple Network Management Protocol (SNMP)\" from the
+  desc "fix", "Uninstall \"Simple Network Management Protocol (SNMP)\" from the
         system.
 
         Run \"Programs and Features\".

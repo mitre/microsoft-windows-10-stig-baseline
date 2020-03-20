@@ -25,7 +25,7 @@ control 'V-68849' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This is applicable to Windows 10 prior to v1709.
+  desc "check", "This is applicable to Windows 10 prior to v1709.
 
       Verify SEHOP is turned on.
 
@@ -39,7 +39,7 @@ control 'V-68849' do
 
       Value Type: REG_DWORD
       Value: 0x00000000 (0)"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> MS Security Guide >> \"Enable Structured Exception
       Handling Overwrite Protection (SEHOP)\" to \"Enabled\".
 

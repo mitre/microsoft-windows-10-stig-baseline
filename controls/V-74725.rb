@@ -30,7 +30,7 @@ control 'V-74725' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Different methods are available to disable SMBv1 on Windows 10,
+  desc "check", "Different methods are available to disable SMBv1 on Windows 10,
       if V-70639 is configured, this is NA.
 
       If the following registry value is not configured as specified, this is a
@@ -43,7 +43,7 @@ control 'V-74725' do
 
       Type: REG_DWORD
       Value: 0x00000004 (4)"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> MS Security Guide >> \"Configure SMBv1 client
       driver\" to \"Enabled\" with \"Disable driver (recommended)\" selected for
       \"Configure MrxSmb10 driver\".

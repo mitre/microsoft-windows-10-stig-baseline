@@ -44,7 +44,7 @@ control 'V-63879' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
 
       Run \"gpedit.msc\".
 
@@ -72,7 +72,7 @@ control 'V-63879' do
 
       Note: \"Local account\" is a built-in security group used to assign user rights
       and permissions to all local accounts."
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
       \"Deny log on through Remote Desktop Services\" to include the following.
 

@@ -29,7 +29,7 @@ control 'V-63595' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Confirm Virtualization Based Security is enabled and running with
+  desc "check", "Confirm Virtualization Based Security is enabled and running with
         Secure Boot or Secure Boot and DMA Protection.
 
         For those devices that support virtualization based security (VBS) features,
@@ -100,7 +100,7 @@ control 'V-63595' do
         NOTE:  The severity level for the requirement will be upgraded to CAT II
         starting January 2020."
 
-  tag fix: "Virtualization based security, including Credential Guard,
+  desc "fix", "Virtualization based security, including Credential Guard,
         currently cannot be implemented in virtual desktop implementations (VDI) due to
         specific supporting requirements including a TPM, UEFI with Secure Boot, and
         the capability to run the Hyper-V feature within the virtual desktop.

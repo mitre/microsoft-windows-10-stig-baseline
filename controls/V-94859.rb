@@ -28,7 +28,7 @@ control 'V-94859' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding.
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -56,12 +56,12 @@ control 'V-94859' do
       BitLocker network unlock may be used in conjunction with a BitLocker PIN. See
       the article below regarding information about network unlock."
 
-  tag fix: "Configure the policy value for Computer Configuration >>
-      Administrative Templates >> Windows Components >> BitLocker Drive Encryption >>
-      Operating System Drives \"Require additional authentication at startup\" to
-      \"Enabled\" with \"Configure TPM Startup PIN:\" set to \"Require startup PIN
-      with TPM\" or with \"Configure TPM startup key and PIN:\" set to \"Require
-      startup key and PIN with TPM\"."
+  desc "fix", "Configure the policy value for Computer Configuration >>
+       Administrative Templates >> Windows Components >> BitLocker Drive Encryption >>
+       Operating System Drives \"Require additional authentication at startup\" to
+       \"Enabled\" with \"Configure TPM Startup PIN:\" set to \"Require startup PIN
+       with TPM\" or with \"Configure TPM startup key and PIN:\" set to \"Require
+       startup key and PIN with TPM\"."
 
   ref 'https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-how-to-enable-network-unlock'
 
