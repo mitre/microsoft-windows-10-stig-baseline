@@ -49,7 +49,7 @@ control 'V-74413' do
    end
   
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002') do
-      its('NistP384') { should be_in EccCurves }
-      its('NistP256') { should be_in EccCurves }
+      its('NistP384') { should be_in 'EccCurves' }
+      its('NistP256') { should be_in 'EccCurves' }
     end
 end
