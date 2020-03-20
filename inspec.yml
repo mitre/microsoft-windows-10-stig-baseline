@@ -11,7 +11,7 @@ inputs:
   - name: domain_sid
     desc: "This is the domain sid, to get this value run in command wmic group get Name,SID | FINDSTR /C:"Domain Users"
     type: string
-    value: '3561952647-5207400-2818715555'
+    value: "3561952647-5207400-2818715555"
 
   - name: bitlocker_pin_len
     desc: "The minimum length for the BitLocker Pin [6]"
