@@ -97,7 +97,8 @@ control 'V-63871' do
   else
     #get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
     #get_domain_sid = command('wmic group get Name,SID | FINDSTR /C:"Domain Users"').stdout.strip
-    domain_sid = '3561952647-5207400-2818715555'
+    #domain_sid = '3561952647-5207400-2818715555'
+    domain_sid = input('domain_sid')
     describe security_policy do
       its('SeDenyNetworkLogonRight') { should include "S-1-5-21-#{domain_sid}-519" }
     end
