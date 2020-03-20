@@ -72,8 +72,8 @@ control 'V-63577' do
     end
   else
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
-      it { should have_property x }
-      its('\\\\*\\NETLOGON') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
+      it { should have_property '\\\\\\\\*\\\\NETLOGON' }
+      its('\\\\\\\\*\\\\NETLOGON') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
     end
   end
 end
