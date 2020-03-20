@@ -22,7 +22,7 @@ platforms:
 verifier:
   name: inspec
   inspec_tests:
-    - path: .
+    - git: https://github.com/mitre/microsoft-windows-10-stig-baseline.git
   reporter:
     - cli
     - json:%{platform}_%{suite}_results.json
