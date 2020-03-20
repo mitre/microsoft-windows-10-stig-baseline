@@ -60,7 +60,7 @@ control 'V-63577' do
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
   x = '\\\\*\\NETLOGON'
-  x.gsub("\\","\\\\\\\\")
+  y = x.gsub("\\","\\\\\\\\")
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
     it { should have_property '\\\\*\\SYSVOL' }
     its('\\\\*\\SYSVOL') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
@@ -73,7 +73,7 @@ control 'V-63577' do
     end
   else
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
-      it { should have_property x }
+      it { should have_property y }
       its('\\\\*\\NETLOGON') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
     end
   end
