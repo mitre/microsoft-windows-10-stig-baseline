@@ -10,17 +10,17 @@ version: 1.19
 inputs:
   - name: bitlocker_pin_len'
     desc: "The minimum length for the BitLocker Pin [6]"
-    type: Number
+    type: numeric
     value: 6
 
   - name: min_pass_len
     desc: "Sets the minimum length of passwords [14]"
-    type: Number
+    type: numeric
     value: 14
 
   - name: enable_pass_complexity
     desc: "If windows should enforce password complexity (0/1) [1]"
-    type: Number
+    type: numeric
     value: 1
 
   - name: min_pass_age
@@ -29,27 +29,27 @@ inputs:
 
   - name: max_pass_age
     desc: "Sets the maximum age for a password [60]"
-    type: Number
+    type: numeric
     value: 60
 
   - name: pass_lock_time
     desc: "Sets the number of min before a session is locked out [15]"
-    type: Number
+    type: numeric
     value: 15
 
   - name: pass_hist_size
     desc: "Number of passwords remembered in the password history [24]"
-    type: Number
+    type: numeric
     value: 24
 
   - name: max_pass_lockout
     desc: "Account lockout threshold is recommended to be 3 or less invalid logon attempts [3]"
-    type: Number
+    type: numeric
     value: 3
 
   - name: max_inactive_days'
     desc: "Max number of days an account is allowed to be inactive [35]"
-    type: Number
+    type: numeric
     value: 35
 
   - name: is_unclassified_system
