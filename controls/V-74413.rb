@@ -46,9 +46,10 @@ control 'V-74413' do
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002') do
     it { should have_property 'EccCurves' }
-  end
+   end
   
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002') do
-      its('EccCurves') { should be_in '["NistP384", "NistP256"]' }
+      its('EccCurves') { should be_in '["NistP384"]' }
+      its('EccCurves') { should be_in '["NistP256"]' }
     end
 end
