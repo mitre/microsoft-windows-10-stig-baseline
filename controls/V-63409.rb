@@ -47,6 +47,6 @@ control 'V-63409' do
     its('LockoutBadCount') { should be <= input('max_pass_lockout') }
   end
   describe security_policy do
-    ts('LockoutBadCount') { should be_positive }
+    its('LockoutBadCount') { should be_positive }
   end
 end
