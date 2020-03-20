@@ -106,7 +106,7 @@ control 'V-63871' do
     #domain_sid = get_domain_sid[50..79]
     script_1 = script.stdout.strip
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{script}519" }
+      its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{script_1}519" }
     end
     describe security_policy do
       its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}512" }
