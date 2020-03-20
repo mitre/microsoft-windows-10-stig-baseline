@@ -2,13 +2,13 @@
 
 control 'V-63319' do
   title "Domain-joined systems must use Windows 10 Enterprise Edition 64-bit
-version."
+        version."
   desc  "Features such as Credential Guard use virtualization based security to
-protect information that could be used in credential theft attacks if
-compromised. There are a number of system requirements that must be met in
-order for Credential Guard to be configured and enabled properly.
-Virtualization based security and Credential Guard are only available with
-Windows 10 Enterprise 64-bit version."
+        protect information that could be used in credential theft attacks if
+        compromised. There are a number of system requirements that must be met in
+        order for Credential Guard to be configured and enabled properly.
+        Virtualization based security and Credential Guard are only available with
+        Windows 10 Enterprise 64-bit version."
   impact 0.5
   tag severity: 'medium'
   tag gtitle: 'WN10-00-000005'
@@ -28,18 +28,20 @@ Windows 10 Enterprise 64-bit version."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+
   tag check: "Verify domain-joined systems are using Windows 10 Enterprise
-Edition 64-bit version.
+        Edition 64-bit version.
 
-For standalone systems, this is NA.
+        For standalone systems, this is NA.
 
-Open \"Settings\".
+        Open \"Settings\".
 
-Select \"System\", then \"About\".
+        Select \"System\", then \"About\".
 
-If \"Edition\" is not \"Windows 10 Enterprise\", this is a finding.
+        If \"Edition\" is not \"Windows 10 Enterprise\", this is a finding.
 
-If \"System type\" is not \"64-bit operating system…\", this is a finding."
+        If \"System type\" is not \"64-bit operating system…\", this is a finding."
+
   tag fix: 'Use Windows 10 Enterprise 64-bit version for domain-joined systems.'
 
   describe os.arch do

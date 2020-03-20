@@ -1,16 +1,18 @@
-control "V-63389" do
-  title "The TFTP Client must not be installed on the system."
+# frozen_string_literal: true
+
+control 'V-63389' do
+  title 'The TFTP Client must not be installed on the system.'
   desc  "Some protocols and services do not support required security features,
-such as encrypting passwords or traffic."
+        such as encrypting passwords or traffic."
   impact 0.5
-  tag severity: "medium"
-  tag gtitle: "WN10-00-000120"
-  tag gid: "V-63389"
-  tag rid: "SV-77879r1_rule"
-  tag stig_id: "WN10-00-000120"
-  tag fix_id: "F-69313r1_fix"
-  tag cci: ["CCI-000382"]
-  tag nist: ["CM-7 b", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-00-000120'
+  tag gid: 'V-63389'
+  tag rid: 'SV-77879r1_rule'
+  tag stig_id: 'WN10-00-000120'
+  tag fix_id: 'F-69313r1_fix'
+  tag cci: ['CCI-000382']
+  tag nist: ['CM-7 b', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -21,21 +23,22 @@ such as encrypting passwords or traffic."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+
   tag check: "The \"TFTP Client\" is not installed by default.  Verify it has
-not been installed.
+        not been installed.
 
-Navigate to the Windows\\System32 directory.
+        Navigate to the Windows\\System32 directory.
 
-If the \"TFTP\" application exists, this is a finding."
+        If the \"TFTP\" application exists, this is a finding."
+
   tag fix: "Uninstall \"TFTP Client\" from the system.
 
-Run \"Programs and Features\".
-Select \"Turn Windows Features on or off\".
+        Run \"Programs and Features\".
+        Select \"Turn Windows Features on or off\".
 
-De-select \"TFTP Client\"."
+        De-select \"TFTP Client\"."
 
-describe windows_feature('TFTP Client') do
+  describe windows_feature('TFTP Client') do
     it { should_not be_installed }
-  end  
+  end
 end
-

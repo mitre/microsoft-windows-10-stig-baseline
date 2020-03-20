@@ -1,20 +1,22 @@
-control "V-63623" do
-  title "Printing over HTTP must be prevented."
+# frozen_string_literal: true
+
+control 'V-63623' do
+  title 'Printing over HTTP must be prevented.'
   desc  "Some features may communicate with the vendor, sending system
-information or downloading data or components for the feature.  Turning off
-this capability will prevent potentially sensitive information from being sent
-outside the enterprise and uncontrolled updates to the system.  This setting
-prevents the client computer from printing over HTTP, which allows the computer
-to print to printers on the intranet as well as the Internet."
+        information or downloading data or components for the feature.  Turning off
+        this capability will prevent potentially sensitive information from being sent
+        outside the enterprise and uncontrolled updates to the system.  This setting
+        prevents the client computer from printing over HTTP, which allows the computer
+        to print to printers on the intranet as well as the Internet."
   impact 0.5
-  tag severity: "medium"
-  tag gtitle: "WN10-CC-000110"
-  tag gid: "V-63623"
-  tag rid: "SV-78113r1_rule"
-  tag stig_id: "WN10-CC-000110"
-  tag fix_id: "F-69553r1_fix"
-  tag cci: ["CCI-000381"]
-  tag nist: ["CM-7 a", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-CC-000110'
+  tag gid: 'V-63623'
+  tag rid: 'SV-78113r1_rule'
+  tag stig_id: 'WN10-CC-000110'
+  tag fix_id: 'F-69553r1_fix'
+  tag cci: ['CCI-000381']
+  tag nist: ['CM-7 a', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -25,16 +27,18 @@ to print to printers on the intranet as well as the Internet."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+
   tag check: "If the following registry value does not exist or is not
-configured as specified, this is a finding:
+      configured as specified, this is a finding:
 
-Registry Hive: HKEY_LOCAL_MACHINE
-Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Printers\\
+      Registry Hive: HKEY_LOCAL_MACHINE
+      Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Printers\\
 
-Value Name: DisableHTTPPrinting
+      Value Name: DisableHTTPPrinting
 
-Value Type: REG_DWORD
-Value: 1"
+      Value Type: REG_DWORD
+      Value: 1"
+
   tag fix: "Configure the policy value for Computer Configuration >>
 Administrative Templates >> System >> Internet Communication Management >>
 Internet Communication settings >> \"Turn off printing over HTTP\" to
@@ -45,4 +49,3 @@ Internet Communication settings >> \"Turn off printing over HTTP\" to
     its('DisableHTTPPrinting') { should cmp 1 }
   end
 end
-

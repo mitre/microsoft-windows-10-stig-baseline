@@ -2,9 +2,9 @@
 
 control 'V-63347' do
   title "The Windows Remote Management (WinRM) service must not use Basic
-authentication."
+        authentication."
   desc  "Basic authentication uses plain text passwords that could be used to
-compromise a system."
+        compromise a system."
   impact 0.7
   tag severity: 'high'
   tag gtitle: 'WN10-CC-000345'
@@ -24,19 +24,21 @@ compromise a system."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+
   desc 'check', "If the following registry value does not exist or is not
-configured as specified, this is a finding:
+        configured as specified, this is a finding:
 
-Registry Hive: HKEY_LOCAL_MACHINE
-Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Service\\
+        Registry Hive: HKEY_LOCAL_MACHINE
+        Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Service\\
 
-Value Name: AllowBasic
+        Value Name: AllowBasic
 
-Value Type: REG_DWORD
-Value: 0"
+        Value Type: REG_DWORD
+        Value: 0"
+
   desc 'fix', "Configure the policy value for Computer Configuration >>
-Administrative Templates >> Windows Components >> Windows Remote Management
-(WinRM) >> WinRM Service >> \"Allow Basic authentication\" to \"Disabled\"."
+        Administrative Templates >> Windows Components >> Windows Remote Management
+        (WinRM) >> WinRM Service >> \"Allow Basic authentication\" to \"Disabled\"."
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WinRM\Service') do
     it { should have_property 'AllowBasic' }

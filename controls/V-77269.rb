@@ -1,5 +1,7 @@
-control "V-77269" do
-  only_if("This Control is required for unclassified systems.") { input('is_unclassified_system') == 'true' }
+# frozen_string_literal: true
+
+control 'V-77269' do
+  only_if('This Control is required for unclassified systems.') { input('is_unclassified_system') == 'true' }
   title "Exploit Protection mitigations in Windows 10 must be configured for
 wordpad.exe."
   desc  "Exploit protection in Windows 10 provides a means of enabling
@@ -7,14 +9,14 @@ additional mitigations against potential threats at the system and application
 level. Without these additional application protections, Windows 10 may be
 subject to various exploits."
   impact 0.5
-  tag severity: "medium"
-  tag gtitle: "WN10-EP-000300"
-  tag gid: "V-77269"
-  tag rid: "SV-91965r3_rule"
-  tag stig_id: "WN10-EP-000300"
-  tag fix_id: "F-84515r4_fix"
-  tag cci: ["CCI-000366"]
-  tag nist: ["CM-6 b", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-EP-000300'
+  tag gid: 'V-77269'
+  tag rid: 'SV-91965r3_rule'
+  tag stig_id: 'WN10-EP-000300'
+  tag fix_id: 'F-84515r4_fix'
+  tag cci: ['CCI-000366']
+  tag nist: ['CM-6 b', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -74,91 +76,90 @@ Administrative Settings >> Windows Components >> Windows Defender Exploit Guard
 configured to \"Enabled\" with file name and location defined under
 \"Options:\".  It is recommended the file be in a read-only network location."
 
-dep_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_dep_enable = $convert_out_json.Dep | Select Enable
-$result_dep_enable = $select_object_dep_enable.Enable
-write-output $result_dep_enable 
-EOH
+  dep_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_dep_enable = $convert_out_json.Dep | Select Enable
+    $result_dep_enable = $select_object_dep_enable.Enable
+    write-output $result_dep_enable
+  EOH
 
-payload_enexpaddrfil_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enexportaddrfil = $convert_out_json.Payload | Select EnableExportAddressFilter
-$result_payload_enexportaddrfil = $select_object_payload_enexportaddrfil.EnableExportAddressFilter
-write-output $result_payload_enexportaddrfil
-EOH
+  payload_enexpaddrfil_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enexportaddrfil = $convert_out_json.Payload | Select EnableExportAddressFilter
+    $result_payload_enexportaddrfil = $select_object_payload_enexportaddrfil.EnableExportAddressFilter
+    write-output $result_payload_enexportaddrfil
+  EOH
 
-payload_enexpaddrfilplus_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enexpaddrfilplus = $convert_out_json.Payload | Select EnableExportAddressFilterPlus
-$result_payload_enexpaddrfilplus = $select_object_payload_enexpaddrfilplus.EnableExportAddressFilterPlus
-write-output $result_payload_enexpaddrfilplus
-EOH
+  payload_enexpaddrfilplus_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enexpaddrfilplus = $convert_out_json.Payload | Select EnableExportAddressFilterPlus
+    $result_payload_enexpaddrfilplus = $select_object_payload_enexpaddrfilplus.EnableExportAddressFilterPlus
+    write-output $result_payload_enexpaddrfilplus
+  EOH
 
-payload_enimpaddrfil_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enimpaddrfil = $convert_out_json.Payload | Select EnableImportAddressFilter
-$result_payload_enimpaddrfil = $select_object_payload_enimpaddrfil.EnableImportAddressFilter
-write-output $result_payload_enimpaddrfil
-EOH
+  payload_enimpaddrfil_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enimpaddrfil = $convert_out_json.Payload | Select EnableImportAddressFilter
+    $result_payload_enimpaddrfil = $select_object_payload_enimpaddrfil.EnableImportAddressFilter
+    write-output $result_payload_enimpaddrfil
+  EOH
 
-payload_enropstacpiv_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enropstacpiv = $convert_out_json.Payload | Select EnableRopStackPivot
-$result_payload_enropstacpiv = $select_object_payload_enropstacpiv.EnableRopStackPivot
-write-output $result_payload_enropstacpiv
-EOH
+  payload_enropstacpiv_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enropstacpiv = $convert_out_json.Payload | Select EnableRopStackPivot
+    $result_payload_enropstacpiv = $select_object_payload_enropstacpiv.EnableRopStackPivot
+    write-output $result_payload_enropstacpiv
+  EOH
 
-payload_enropcalleche_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enropcalleche = $convert_out_json.Payload | Select EnableRopCallerCheck
-$result_payload_enropcalleche = $select_object_payload_enropcalleche.EnableRopCallerCheck
-write-output $result_payload_enropcalleche
-EOH
+  payload_enropcalleche_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enropcalleche = $convert_out_json.Payload | Select EnableRopCallerCheck
+    $result_payload_enropcalleche = $select_object_payload_enropcalleche.EnableRopCallerCheck
+    write-output $result_payload_enropcalleche
+  EOH
 
-payload_enropsimexec_script = <<-EOH
-$convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
-$convert_out_json = ConvertFrom-Json -InputObject $convert_json
-$select_object_payload_enropsimexec = $convert_out_json.Payload | Select EnableRopSimExec
-$result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
-write-output $result_payload_enropsimexec
-EOH
+  payload_enropsimexec_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_payload_enropsimexec = $convert_out_json.Payload | Select EnableRopSimExec
+    $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
+    write-output $result_payload_enropsimexec
+  EOH
 
-if (registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= "1709" )
-  describe.one do
-    describe powershell(dep_script) do
-      its('strip') { should_not eq "2" }
+  if registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= '1709'
+    describe.one do
+      describe powershell(dep_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enexpaddrfil_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enexpaddrfilplus_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enimpaddrfil_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enropstacpiv_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enropcalleche_script) do
+        its('strip') { should_not eq '2' }
+      end
+      describe powershell(payload_enropsimexec_script) do
+        its('strip') { should_not eq '2' }
+      end
     end
-    describe powershell(payload_enexpaddrfil_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enexpaddrfilplus_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enimpaddrfil_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enropstacpiv_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enropcalleche_script) do
-      its('strip') { should_not eq "2" }
-    end
-    describe powershell(payload_enropsimexec_script) do
-      its('strip') { should_not eq "2" }
+  else
+    impact 0.0
+    describe 'This STIG does not apply to Prior Versions before 1709.' do
+      skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   end
-else
-  impact 0.0
-  describe "This STIG does not apply to Prior Versions before 1709." do
-    skip "'his STIG does not apply to Prior Versions before 1709.'
-  end
- end 
 end
-
