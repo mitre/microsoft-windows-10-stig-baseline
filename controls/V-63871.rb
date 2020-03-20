@@ -91,7 +91,7 @@ control 'V-63871' do
   script = <<-EOH
         $get_domain_sid = wmic group get Name,SID | FINDSTR /C:"Domain Users
         $domain_sid = $get_domain_sid[50..79]
-        write-output $domain_sid.stdout
+        write-output $domain_sid
         EOH
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
