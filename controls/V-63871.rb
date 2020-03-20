@@ -104,8 +104,5 @@ control 'V-63871' do
     describe security_policy do
       its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}512" }
     end
-    describe security_policy do
-      its('SeDenyNetworkLogonRight') { should include 'Guests' }
-    end
   end
 end
