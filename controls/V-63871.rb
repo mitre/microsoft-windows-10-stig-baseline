@@ -104,7 +104,7 @@ control 'V-63871' do
       its('SeDenyNetworkLogonRight') { should include "S-1-5-21-#{domain_sid}512" }
     end
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should include 'S-1-5-32-546' }
+      its('SeDenyNetworkLogonRight') { should include 'Guest' }
     end
   end
 end
