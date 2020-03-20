@@ -88,6 +88,12 @@ control 'V-63871' do
         Note: \"Local account\" is a built-in security group used to assign user rights
         and permissions to all local accounts."
 
+  script = <<-EOH
+        $get_domain_sid = wmic group get Name,SID | FINDSTR /C:"Domain Users
+        $domain_sid = get_domain_sid[50..79]
+        write-output $domain_sid
+        EOH
+
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
   if is_domain == 'WORKGROUP'
@@ -96,10 +102,10 @@ control 'V-63871' do
     end
   else
     #get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
-    get_domain_sid = command('wmic group get Name,SID | FINDSTR /C:"Domain Users"').stdout.strip
-    domain_sid = get_domain_sid[50..79]
+    #get_domain_sid = command('wmic group get Name,SID | FINDSTR /C:"Domain Users"').stdout.strip
+    #domain_sid = get_domain_sid[50..79]
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}519" }
+      its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{script}519" }
     end
     describe security_policy do
       its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}512" }
