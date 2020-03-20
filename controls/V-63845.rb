@@ -59,18 +59,7 @@ control 'V-63845' do
         Administrators
         Remote Desktop Users"
 
-  describe.one do
     describe security_policy do
-      its('SeNetworkLogonRight') { should be eq ['S-1-5-32-544', 'S-1-5-32-555'] }
+      its('SeNetworkLogonRight') { should eq ['S-1-5-32-544', 'S-1-5-32-555'] }
     end
-    describe security_policy do
-      its('SeNetworkLogonRight') { should be eq ['S-1-5-32-544'] }
-    end
-    describe security_policy do
-      its('SeNetworkLogonRight') { should be eq ['S-1-5-32-555'] }
-    end
-    describe security_policy do
-      its('SeNetworkLogonRight') { should be eq [] }
-    end
-  end
 end
