@@ -44,12 +44,7 @@ control 'V-63857' do
 
       Administrators"
 
-  describe.one do
     describe security_policy do
       its('SeCreatePagefilePrivilege') { should be eq ['S-1-5-32-544'] }
     end
-    describe security_policy do
-      its('SeCreatePagefilePrivilege') { should be eq [] }
-    end
-  end
 end
