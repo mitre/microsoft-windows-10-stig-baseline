@@ -24,14 +24,14 @@ control 'V-63389' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "The \"TFTP Client\" is not installed by default.  Verify it has
+  desc "check", "The \"TFTP Client\" is not installed by default.  Verify it has
         not been installed.
 
         Navigate to the Windows\\System32 directory.
 
         If the \"TFTP\" application exists, this is a finding."
 
-  tag fix: "Uninstall \"TFTP Client\" from the system.
+  desc "fix", "Uninstall \"TFTP Client\" from the system.
 
         Run \"Programs and Features\".
         Select \"Turn Windows Features on or off\".

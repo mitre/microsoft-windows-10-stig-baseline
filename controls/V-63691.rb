@@ -24,7 +24,7 @@ control 'V-63691' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "The default behavior is for File Explorer heap termination on
+  desc "check", "The default behavior is for File Explorer heap termination on
       corruption to be enabled.
 
       If the registry Value Name below does not exist, this is not a finding.
@@ -40,7 +40,7 @@ control 'V-63691' do
 
       Value Type: REG_DWORD
       Value: 0x00000000 (0) (or if the Value Name does not exist)"
-  tag fix: "The default behavior is for File Explorer heap termination on
+  desc "fix", "The default behavior is for File Explorer heap termination on
       corruption to be enabled.
 
       If this needs to be corrected, configure the policy value for Computer

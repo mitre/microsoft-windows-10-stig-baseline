@@ -29,7 +29,7 @@ control 'V-63319' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify domain-joined systems are using Windows 10 Enterprise
+  desc "check", "Verify domain-joined systems are using Windows 10 Enterprise
         Edition 64-bit version.
 
         For standalone systems, this is NA.
@@ -42,7 +42,7 @@ control 'V-63319' do
 
         If \"System type\" is not \"64-bit operating system…\", this is a finding."
 
-  tag fix: 'Use Windows 10 Enterprise 64-bit version for domain-joined systems.'
+  desc "fix", 'Use Windows 10 Enterprise 64-bit version for domain-joined systems.'
 
   describe os.arch do
     it { should eq 'x86_64' }

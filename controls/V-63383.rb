@@ -24,14 +24,14 @@ control 'V-63383' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "\"Simple TCP/IP Services\" is not installed by default.  Verify
+  desc "check", "\"Simple TCP/IP Services\" is not installed by default.  Verify
         it has not been installed.
 
         Run \"Services.msc\".
 
         If \"Simple TCP/IP Services\" is listed, this is a finding."
 
-  tag fix: "Uninstall \"Simple TCPIP Services (i.e. echo, daytime etc)\" from
+  desc "fix", "Uninstall \"Simple TCPIP Services (i.e. echo, daytime etc)\" from
         the system.
 
         Run \"Programs and Features\".

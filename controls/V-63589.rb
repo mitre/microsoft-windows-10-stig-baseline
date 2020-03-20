@@ -28,7 +28,7 @@ control 'V-63589' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify the US DoD CCEB Interoperability Root CA cross-certificate
+  desc "check", "Verify the US DoD CCEB Interoperability Root CA cross-certificate
       is installed on unclassified systems as an Untrusted Certificate.
 
       Run \"PowerShell\" as an administrator.
@@ -88,7 +88,7 @@ control 'V-63589' do
       Thumbprint: 929BF3196896994C0A201DF4A5B71F603FEFBF2E
       Valid: Friday, September 27, 2019"
 
-  tag fix: "Install the US DoD CCEB Interoperability Root CA cross-certificate
+  desc "fix", "Install the US DoD CCEB Interoperability Root CA cross-certificate
       on unclassified systems.
 
       Issued To - Issued By - Thumbprint

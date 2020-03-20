@@ -31,7 +31,7 @@ control 'V-63479' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Security Option \"Audit: Force audit policy subcategory settings
+  desc "check", "Security Option \"Audit: Force audit policy subcategory settings
       (Windows Vista or later) to override audit policy category settings\" must be
       set to \"Enabled\" (WN10-SO-000030) for the detailed auditing subcategories to
       be effective.
@@ -45,7 +45,7 @@ control 'V-63479' do
 
       Policy Change >> Audit Policy Change - Success"
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Advanced Audit Policy Configuration >> System
       Audit Policies >> Policy Change >> \"Audit Audit Policy Change\" with
       \"Success\" selected."

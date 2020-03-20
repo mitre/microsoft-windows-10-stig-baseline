@@ -25,7 +25,7 @@ control 'V-63681' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -43,7 +43,7 @@ control 'V-63681' do
       If a site-defined title is used, it can in no case contravene or modify the
       language of the banner text required in WN10-SO-000075."
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> Security Options >>
       \"Interactive logon: Message title for users attempting to log on\" to \"DoD
       Notice and Consent Banner\", \"US Department of Defense Warning Statement\", or

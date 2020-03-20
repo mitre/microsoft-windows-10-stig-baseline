@@ -24,14 +24,14 @@ control 'V-72769' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This is NA if the system does not have Bluetooth.
+  desc "check", "This is NA if the system does not have Bluetooth.
 
       Search for \"Bluetooth\".
       View Bluetooth Settings.
       Select \"More Bluetooth Options\"
       If \"Alert me when a new Bluetooth device wants to connect\" is not checked,
       this is a finding."
-  tag fix: "Configure Bluetooth to notify users if devices attempt to connect.
+  desc "fix", "Configure Bluetooth to notify users if devices attempt to connect.
       View Bluetooth Settings.
       Ensure \"Alert me when a new Bluetooth device wants to connect\" is checked."
 

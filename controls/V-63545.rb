@@ -24,7 +24,7 @@ control 'V-63545' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the device does not have a camera, this is NA.
+  desc "check", "If the device does not have a camera, this is NA.
 
       If the following registry value does not exist or is not configured as
       specified, this is a finding.
@@ -37,7 +37,7 @@ control 'V-63545' do
       Value Type: REG_DWORD
       Value: 1"
 
-  tag fix: "If the device does not have a camera, this is NA.
+  desc "fix", "If the device does not have a camera, this is NA.
 
       Configure the policy value for Computer Configuration >> Administrative
       Templates >> Control Panel >> Personalization >> \"Prevent enabling lock screen

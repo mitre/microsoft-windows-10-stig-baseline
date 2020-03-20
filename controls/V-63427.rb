@@ -25,7 +25,7 @@ control 'V-63427' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
       Run \"gpedit.msc\".
 
       Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -37,7 +37,7 @@ control 'V-63427' do
       If the site is using a password filter that requires this setting be set to
       \"Disabled\" for the filter to be used, this would not be considered a finding."
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Account Policies >> Password Policy >>
       \"Password must meet complexity requirements\" to \"Enabled\"."
 

@@ -33,7 +33,7 @@ control 'V-63597' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the system is not a member of a domain, this is NA.
+  desc "check", "If the system is not a member of a domain, this is NA.
 
       If the following registry value does not exist or is not configured as
       specified, this is a finding:
@@ -46,7 +46,7 @@ control 'V-63597' do
       Value Type: REG_DWORD
       Value: 0x00000000 (0)"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> MS Security Guide >> \"Apply UAC restrictions to
       local accounts on network logons\" to \"Enabled\".
 

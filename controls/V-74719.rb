@@ -25,13 +25,13 @@ control 'V-74719' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Run \"Services.msc\".
+  desc "check", "Run \"Services.msc\".
 
       Locate the \"Secondary Logon\" service.
 
       If the \"Startup Type\" is not \"Disabled\" or the \"Status\" is \"Running\",
       this is a finding."
-  tag fix: 'Configure the "Secondary Logon" service "Startup Type" to "Disabled".'
+  desc "fix", 'Configure the "Secondary Logon" service "Startup Type" to "Disabled".'
 
   describe.one do
     describe service('Secondary Logon') do

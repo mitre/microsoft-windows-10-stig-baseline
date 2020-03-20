@@ -24,7 +24,7 @@ control 'V-63677' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Windows 10 v1507 LTSB version does not include this setting; it
+  desc "check", "Windows 10 v1507 LTSB version does not include this setting; it
       is NA for those systems.
 
       If the following registry value does not exist or is not configured as
@@ -38,7 +38,7 @@ control 'V-63677' do
       Value Type: REG_DWORD
       Value: 0x00000001 (1)"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Biometrics >> Facial Features
       >> \"Configure enhanced anti-spoofing\" to \"Enabled\".
 

@@ -26,7 +26,7 @@ control 'V-63377' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "IIS is not installed by default.  Verify it has not been
+  desc "check", "IIS is not installed by default.  Verify it has not been
         installed on the system.
 
         Run \"Programs and Features\".
@@ -39,7 +39,7 @@ control 'V-63377' do
         needs be documented with the ISSO.  In addition, any applicable requirements
         from the IIS STIG must be addressed."
 
-  tag fix: "Uninstall \"Internet Information Services\" or \"Internet
+  desc "fix", "Uninstall \"Internet Information Services\" or \"Internet
         Information Services Hostable Web Core\" from the system."
 
   describe windows_feature('Internet Information Services') do

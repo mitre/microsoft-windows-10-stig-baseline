@@ -25,7 +25,7 @@ control 'V-72329' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry values do not exist or are not
+  desc "check", "If the following registry values do not exist or are not
       configured as specified, this is a finding.
       The policy configures the same Value Name, Type and Value under four different
       registry paths.
@@ -45,7 +45,7 @@ control 'V-72329' do
 
       Type:  REG_DWORD
       Value:  0x00001000 (4096)"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> MS Security Guide >> \"Remove \"Run as Different
       User\" from context menus\" to \"Enabled\".
 

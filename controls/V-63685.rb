@@ -26,7 +26,7 @@ control 'V-63685' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "This is applicable to unclassified systems, for other systems
+  desc "check", "This is applicable to unclassified systems, for other systems
       this is NA.
 
       If the following registry values do not exist or are not configured as
@@ -70,7 +70,7 @@ control 'V-63685' do
       Value Type: REG_DWORD
       Value: 0x00000002 (2)"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> File Explorer >> \"Configure
       Windows Defender SmartScreen\" to \"Enabled\" with \"Warn and prevent bypass\"
       selected.

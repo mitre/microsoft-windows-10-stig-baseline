@@ -32,7 +32,7 @@ control 'V-63345' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "This is applicable to unclassified systems; for other systems
+  desc "check", "This is applicable to unclassified systems; for other systems
         this is NA.
 
         Verify the operating system employs a deny-all, permit-by-exception policy to
@@ -64,7 +64,7 @@ control 'V-63345' do
 
         https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm"
 
-  tag fix: "Configure an application whitelisting program to employ a deny-all,
+  desc "fix", "Configure an application whitelisting program to employ a deny-all,
         permit-by-exception policy to allow the execution of authorized software
         programs.
 

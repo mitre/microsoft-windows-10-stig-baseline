@@ -29,7 +29,7 @@ control 'V-63581' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "The default behavior for \"Minimize the number of simultaneous
+  desc "check", "The default behavior for \"Minimize the number of simultaneous
       connections to the Internet or a Windows Domain\" is \"Enabled\".
 
       If the registry value name below does not exist, this is not a finding.
@@ -46,7 +46,7 @@ control 'V-63581' do
       Value Type: REG_DWORD
       Value: 1 (or if the Value Name does not exist)"
 
-  tag fix: "The default behavior for \"Minimize the number of simultaneous
+  desc "fix", "The default behavior for \"Minimize the number of simultaneous
       connections to the Internet or a Windows Domain\" is \"Enabled\".
 
       If this needs to be corrected, configure the policy value for Computer

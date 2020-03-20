@@ -27,7 +27,7 @@ control 'V-63403' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify firewall exceptions to inbound connections on domain
+  desc "check", "Verify firewall exceptions to inbound connections on domain
       workstations include only authorized remote management hosts.
 
       If allowed inbound exceptions are not limited to authorized remote management
@@ -44,7 +44,7 @@ control 'V-63403' do
 
       If a third-party firewall is used, ensure comparable settings are in place."
 
-  tag fix: "Configure firewall exceptions to inbound connections on domain
+  desc "fix", "Configure firewall exceptions to inbound connections on domain
       workstations to include only authorized remote management hosts.
 
       Configure only inbound connection exceptions for authorized remote management

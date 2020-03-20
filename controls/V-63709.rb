@@ -24,7 +24,7 @@ control 'V-63709' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Windows 10 LTSC\\B versions do not include Microsoft Edge, this
+  desc "check", "Windows 10 LTSC\\B versions do not include Microsoft Edge, this
       is NA for those systems.
 
       If the following registry value does not exist or is not configured as
@@ -37,7 +37,7 @@ control 'V-63709' do
 
       Type: REG_SZ
       Value: no"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Microsoft Edge >> \"Configure
       Password Manager\" to \"Disabled\"."
 

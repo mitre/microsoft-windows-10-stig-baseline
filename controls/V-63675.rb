@@ -28,7 +28,7 @@ control 'V-63675' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -66,7 +66,7 @@ control 'V-63675' do
       communications and work product are private and confidential.  See User
       Agreement for details."
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> Security Options >>
       \"Interactive logon: Message text for users attempting to log on\" to the
       following.

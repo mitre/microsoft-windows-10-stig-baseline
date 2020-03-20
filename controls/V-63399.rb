@@ -24,14 +24,14 @@ control 'V-63399' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Determine if a host-based firewall is installed and enabled on
+  desc "check", "Determine if a host-based firewall is installed and enabled on
       the system.  If a host-based firewall is not installed and enabled on the
         system, this is a finding.
 
         The configuration requirements will be determined by the applicable firewall
         STIG."
 
-  tag fix: 'Install and enable a host-based firewall on the system.'
+  desc "fix", 'Install and enable a host-based firewall on the system.'
 
   describe 'A host-based firewall must be installed and enabled on the system' do
     skip 'is a manual check'

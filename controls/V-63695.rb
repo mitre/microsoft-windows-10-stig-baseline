@@ -25,7 +25,7 @@ control 'V-63695' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "The default behavior is for shell protected mode to be turned on
+  desc "check", "The default behavior is for shell protected mode to be turned on
       for file explorer.
 
       If the registry value name below does not exist, this is not a finding.
@@ -43,7 +43,7 @@ control 'V-63695' do
       Value Type: REG_DWORD
       Value: 0 (or if the Value Name does not exist)"
 
-  tag fix: "The default behavior is for shell protected mode to be turned on
+  desc "fix", "The default behavior is for shell protected mode to be turned on
       for file explorer.
 
       If this needs to be corrected, configure the policy value for Computer

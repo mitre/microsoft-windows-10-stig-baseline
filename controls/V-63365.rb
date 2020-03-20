@@ -28,7 +28,7 @@ control 'V-63365' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If a hosted hypervisor (Hyper-V, VMware Workstation, etc.) is
+  desc "check", "If a hosted hypervisor (Hyper-V, VMware Workstation, etc.) is
         installed on the system, verify only authorized user accounts are allowed to
         run virtual machines.
 
@@ -51,7 +51,7 @@ control 'V-63365' do
         the ISSM/ISSO. Accounts nested within group accounts must be documented as
         individual accounts and not the group accounts."
 
-  tag fix: "For Hyper-V, remove any unauthorized groups or user accounts from
+  desc "fix", "For Hyper-V, remove any unauthorized groups or user accounts from
         the \"Hyper-V Administrators\" group.
 
         For hosted hypervisors other than Hyper-V, restrict access to create or run

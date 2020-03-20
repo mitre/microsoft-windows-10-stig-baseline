@@ -25,7 +25,7 @@ control 'V-63591' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This is NA as of v1803 of Windows 10; Wi-Fi sense is no longer
+  desc "check", "This is NA as of v1803 of Windows 10; Wi-Fi sense is no longer
       available.
 
       If the following registry value does not exist or is not configured as
@@ -38,7 +38,7 @@ control 'V-63591' do
 
       Type: REG_DWORD
       Value: 0x00000000 (0)"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Network >> WLAN Service >> WLAN Settings>> \"Allow
       Windows to automatically connect to suggested open hotspots, to networks shared
       by contacts, and to hotspots offering paid services\" to \"Disabled\".

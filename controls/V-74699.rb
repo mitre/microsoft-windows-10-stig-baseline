@@ -28,7 +28,7 @@ control 'V-74699' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This is NA for Windows 10 LTSC\\B versions 1507 and 1607.
+  desc "check", "This is NA for Windows 10 LTSC\\B versions 1507 and 1607.
 
       If the following registry value does not exist or is not configured as
       specified, this is a finding.
@@ -40,7 +40,7 @@ control 'V-74699' do
 
       Type: REG_DWORD
       Value: 0x00000001 (1)"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> System >> Credentials Delegation >> \"Remote host
       allows delegation of non-exportable credentials\" to \"Enabled\"."
 

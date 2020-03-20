@@ -26,7 +26,7 @@ control 'V-82139' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This setting is applicable starting with v1809 of Windows 10; it
+  desc "check", "This setting is applicable starting with v1809 of Windows 10; it
       is NA for prior versions.
 
       Windows 10 LTSC\\B versions do not include Microsoft Edge; this is NA for those
@@ -44,7 +44,7 @@ control 'V-82139' do
       Type: REG_DWORD
       Value: 0x00000001 (1)"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Microsoft Edge >> \"Prevent
       certificate error overrides\" to \"Enabled\"."
 

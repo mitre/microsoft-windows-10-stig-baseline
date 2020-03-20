@@ -35,7 +35,7 @@ control 'V-63349' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Run \"winver.exe\".
+  desc "check", "Run \"winver.exe\".
 
         If the \"About Windows\" dialog box does not display:
 
@@ -63,7 +63,7 @@ control 'V-63349' do
         v1607 (Build 14393)
         v1809 (Build 17763)"
 
-  tag fix: "Update systems on the Semi-Annual Channel to \"Microsoft Windows
+  desc "fix", "Update systems on the Semi-Annual Channel to \"Microsoft Windows
         Version 1703 (OS Build 15063.0)\" or greater.
 
         It is recommended systems be upgraded to the most recently released version.

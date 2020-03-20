@@ -24,7 +24,7 @@ control 'V-63747' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "The default behavior is for the Windows RSS platform to not use
+  desc "check", "The default behavior is for the Windows RSS platform to not use
         Basic authentication over HTTP connections.
 
         If the registry value name below does not exist, this is not a finding.
@@ -41,7 +41,7 @@ control 'V-63747' do
         Value Type: REG_DWORD
         Value: 0 (or if the Value Name does not exist)"
       
-  tag fix: "The default behavior is for the Windows RSS platform to not use
+  desc "fix", "The default behavior is for the Windows RSS platform to not use
         Basic authentication over HTTP connections.
 
         If this needs to be corrected, configure the policy value for Computer

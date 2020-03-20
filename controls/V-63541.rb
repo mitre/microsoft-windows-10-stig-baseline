@@ -29,7 +29,7 @@ control 'V-63541' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify the permissions on the System event log (System.evtx).
+  desc "check", "Verify the permissions on the System event log (System.evtx).
       Standard user accounts or groups must not have access. The default permissions
       listed below satisfy this requirement.
 
@@ -46,7 +46,7 @@ control 'V-63541' do
       NOTE: If \"APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES\" has
       Special Permissions, this would not be a finding."
 
-  tag fix: "Ensure the permissions on the System event log (System.evtx) are
+  desc "fix", "Ensure the permissions on the System event log (System.evtx) are
       configured to prevent standard user accounts or groups from having access. The
       default permissions listed below satisfy this requirement.
 

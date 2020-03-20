@@ -26,7 +26,7 @@ control 'V-63359' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Run \"PowerShell\".
+  desc "check", "Run \"PowerShell\".
         Copy the lines below to the PowerShell window and enter.
 
         \"([ADSI]('WinNT://{0}' -f $env:COMPUTERNAME)).Children | Where {
@@ -58,7 +58,7 @@ control 'V-63359' do
         Inactive accounts that have been reviewed and deemed to be required must be
         documented with the ISSO."
 
-  tag fix: "Regularly review local accounts and verify their necessity.
+  desc "fix", "Regularly review local accounts and verify their necessity.
         Disable or delete any active accounts that have not been used in
         the last #{input('max_inactive_days')} days."
 

@@ -26,7 +26,7 @@ control 'V-63405' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
 Run \"gpedit.msc\".
 
 Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -37,7 +37,7 @@ If the \"Account lockout duration\" is less than #{input('pass_lock_time')} minu
 
 Configuring this to \"0\", requiring an administrator to unlock the account, is
 more restrictive and is not a finding."
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
 Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
 \"Account lockout duration\" to #{input('pass_lock_time')} minutes or greater.
 

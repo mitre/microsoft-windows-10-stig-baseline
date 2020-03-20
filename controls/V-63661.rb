@@ -27,7 +27,7 @@ control 'V-63661' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "This is the default configuration for this setting (30 days).
+  desc "check", "This is the default configuration for this setting (30 days).
 
       If the following registry value does not exist or is not configured as
       specified, this is a finding:
@@ -40,7 +40,7 @@ control 'V-63661' do
       Value Type: REG_DWORD
       Value: 0x0000001e (30)  (or less, excluding 0)"
 
-  tag fix: "This is the default configuration for this setting (30 days).
+  desc "fix", "This is the default configuration for this setting (30 days).
 
       Configure the policy value for Computer Configuration >> Windows Settings >>
       Security Settings >> Local Policies >> Security Options >> \"Domain member:

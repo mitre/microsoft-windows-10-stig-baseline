@@ -27,7 +27,7 @@ control 'V-63577' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "This requirement is applicable to domain-joined systems, for
+  desc "check", "This requirement is applicable to domain-joined systems, for
       standalone systems this is NA.
 
       If the following registry values do not exist or are not configured as
@@ -47,7 +47,7 @@ control 'V-63577' do
 
       Additional entries would not be a finding."
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Network >> Network Provider >> \"Hardened UNC
       Paths\" to \"Enabled\" with at least the following configured in \"Hardened UNC
       Paths:\" (click the \"Show\" button to display).

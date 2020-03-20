@@ -25,7 +25,7 @@ control 'V-77223' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "This is NA prior to v1709 of Windows 10.
+  desc "check", "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
 
@@ -55,7 +55,7 @@ control 'V-77223' do
       required status of \"ON\" are listed here. If the PowerShell command does not
       produce results, ensure the letter case of the filename within the command
       syntax matches the letter case of the actual filename on the system."
-  tag fix: "Ensure the following mitigations are turned \"ON\" for java.exe,
+  desc "fix", "Ensure the following mitigations are turned \"ON\" for java.exe,
       javaw.exe, and javaws.exe:
 
       DEP:

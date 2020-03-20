@@ -29,7 +29,7 @@ control 'V-63927' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
       Run \"gpedit.msc\".
 
       Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -42,7 +42,7 @@ control 'V-63927' do
 
       If the organization has an \"Auditors\" group the assignment of this group to
       the user right would not be a finding."
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
       \"Manage auditing and security log\" to only include the following groups or
       accounts:

@@ -28,7 +28,7 @@ control 'V-63363' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Run \"Computer Management\".
+  desc "check", "Run \"Computer Management\".
         Navigate to System Tools >> Local Users and Groups >> Groups.
         Review the members of the Backup Operators group.
 
@@ -40,7 +40,7 @@ control 'V-63363' do
         If the group contains any standard user accounts used for performing normal
         user tasks, this is a finding."
 
-  tag fix: "Create separate accounts for backup operations for users with this
+  desc "fix", "Create separate accounts for backup operations for users with this
         privilege."
 
   backup_operators = input('backup_operators')

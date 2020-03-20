@@ -39,7 +39,7 @@ control 'V-63361' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Run \"Computer Management\".
+  desc "check", "Run \"Computer Management\".
         Navigate to System Tools >> Local Users and Groups >> Groups.
         Review the members of the Administrators group.
         Only the appropriate administrator groups or accounts responsible for
@@ -56,7 +56,7 @@ control 'V-63361' do
         The built-in Administrator account or other required administrative accounts
         would not be a finding."
 
-  tag fix: "Configure the system to include only administrator groups or
+  desc "fix", "Configure the system to include only administrator groups or
         accounts that are responsible for the system in the local Administrators group.
 
         For domain-joined workstations, the Domain Admins group must be replaced by a

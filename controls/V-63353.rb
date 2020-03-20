@@ -23,7 +23,7 @@ control "V-63353" do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Run \"Computer Management\".
+  desc "check", "Run \"Computer Management\".
         Navigate to Storage >> Disk Management.
 
         If the \"File System\" column does not indicate \"NTFS\" for each volume
@@ -32,7 +32,7 @@ control "V-63353" do
         This does not apply to system partitions such the Recovery and EFI System
         Partition."
 
-  tag fix: "Format all local volumes to use NTFS."
+  desc "fix", "Format all local volumes to use NTFS."
 
 get_volumes = command("wmic logicaldisk get FileSystem | findstr /r /v '^$' |Findstr /v 'FileSystem'").stdout.strip.split("\r\n")
 

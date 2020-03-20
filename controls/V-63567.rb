@@ -30,7 +30,7 @@ control 'V-63567' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive:  HKEY_LOCAL_MACHINE
@@ -41,7 +41,7 @@ control 'V-63567' do
       Value Type:  REG_DWORD
       Value:  1"
 
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> MSS (Legacy) >> \"MSS: (NoNameReleaseOnDemand)
       Allow the computer to ignore NetBIOS name release requests except from WINS
       servers\" to \"Enabled\".

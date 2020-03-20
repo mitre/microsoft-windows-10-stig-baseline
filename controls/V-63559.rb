@@ -26,7 +26,7 @@ control 'V-63559' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -36,7 +36,7 @@ control 'V-63559' do
 
       Value Type: REG_DWORD
       Value: 2"
-  tag fix: "Configure the policy value for Computer Configuration >>
+  desc "fix", "Configure the policy value for Computer Configuration >>
       Administrative Templates >> MSS (Legacy) >> \"MSS: (DisableIPSourceRouting) IP
       source routing protection level (protects against packet spoofing)\" to
       \"Highest protection, source routing is completely disabled\".

@@ -28,7 +28,7 @@ control 'V-63357' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Non system-created shares should not typically exist on
+  desc "check", "Non system-created shares should not typically exist on
         workstations.
 
         If only system-created shares exist on the system this is NA.
@@ -53,7 +53,7 @@ control 'V-63357' do
         If the NTFS permissions have not been reconfigured to restrict permissions to
         the specific groups or accounts that require access, this is a finding."
 
-  tag fix: "If a non system-created share is required on a system, configure
+  desc "fix", "If a non system-created share is required on a system, configure
         the share and NTFS permissions to limit access to the specific groups or
         accounts that require it.
 

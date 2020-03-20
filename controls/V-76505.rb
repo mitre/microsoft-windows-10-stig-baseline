@@ -27,7 +27,7 @@ control 'V-76505' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Review the effective User Rights setting in Local Group Policy
+  desc "check", "Review the effective User Rights setting in Local Group Policy
       Editor.
       Run \"gpedit.msc\".
 
@@ -40,7 +40,7 @@ control 'V-76505' do
 
       If any unresolved SIDs exist and are not for currently valid accounts or
       groups, this is a finding."
-  tag fix: "Remove any unresolved SIDs found in User Rights assignments and
+  desc "fix", "Remove any unresolved SIDs found in User Rights assignments and
       determined to not be for currently valid accounts or groups by removing the
       accounts or groups from the appropriate group policy."
 

@@ -33,7 +33,7 @@ control 'V-63457' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Security Option \"Audit: Force audit policy subcategory settings
+  desc "check", "Security Option \"Audit: Force audit policy subcategory settings
       (Windows Vista or later) to override audit policy category settings\" must be
       set to \"Enabled\" (WN10-SO-000030) for the detailed auditing subcategories to
       be effective.
@@ -47,7 +47,7 @@ control 'V-63457' do
 
       Logon/Logoff >> Group Membership - Success"
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Advanced Audit Policy Configuration >> System Audit Policies >>
       Logon/Logoff >> \"Audit Group Membership\" with \"Success\" selected."
 

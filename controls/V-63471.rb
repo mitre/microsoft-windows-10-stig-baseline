@@ -33,7 +33,7 @@ control 'V-63471' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Security Option \"Audit: Force audit policy subcategory settings
+  desc "check", "Security Option \"Audit: Force audit policy subcategory settings
       (Windows Vista or later) to override audit policy category settings\" must be
       set to \"Enabled\" (WN10-SO-000030) for the detailed auditing subcategories to
       be effective.
@@ -53,7 +53,7 @@ control 'V-63471' do
       with the ISSO to include mitigations such as monitoring or restricting any
       actual removable storage connected to the VM."
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Advanced Audit Policy Configuration >> System
       Audit Policies >> Object Access >> \"Audit Removable Storage\" with \"Failure\"
       selected."

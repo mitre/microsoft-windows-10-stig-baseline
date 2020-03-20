@@ -26,7 +26,7 @@ control 'V-63423' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
       Run \"gpedit.msc\".
 
       Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -35,7 +35,7 @@ control 'V-63423' do
       If the value for the \"Minimum password length,\" is less than #{input('min_pass_len')}
       characters, this is a finding."
 
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Account Policies >> Password Policy >>
       \"Minimum password length\" to #{input('min_pass_len')} characters."
 

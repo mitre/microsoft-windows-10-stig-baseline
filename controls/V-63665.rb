@@ -22,7 +22,7 @@ control "V-63665" do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
+  desc "check", "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -35,7 +35,7 @@ control "V-63665" do
 
       Warning: This setting may prevent a system from being joined to a domain if not
       configured consistently between systems."
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> Security Options >> \"Domain
       member: Require strong (Windows 2000 or Later) session key\" to \"Enabled\"."
 

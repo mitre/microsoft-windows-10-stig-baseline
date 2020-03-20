@@ -24,7 +24,7 @@ control 'V-63739' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the effective setting in Local Group Policy Editor.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
       Run \"gpedit.msc\".
 
       Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -32,7 +32,7 @@ control 'V-63739' do
 
       If the value for \"Network access: Allow anonymous SID/Name translation\" is
       not set to \"Disabled\", this is a finding."
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> Security Options >>
       \"Network access: Allow anonymous SID/Name translation\" to \"Disabled\"."
 
