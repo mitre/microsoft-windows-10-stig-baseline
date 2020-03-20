@@ -59,6 +59,6 @@ control 'V-63687' do
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon') do
     it { should have_property 'CachedLogonsCount' }
-    its('CachedLogonsCount') { should be <= 10 }
+    its('CachedLogonsCount') { should cmp <= 10 }
   end
 end
