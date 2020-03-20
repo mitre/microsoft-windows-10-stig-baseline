@@ -60,23 +60,19 @@ control 'V-63873' do
       Enterprise Admin Group
       Domain Admin Group"
 
-  get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
-  domain_sid = get_domain_sid[9..40]
+  #get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
+  #domain_sid = get_domain_sid[9..40]
 
   # TODO: Review https://stackoverflow.com/questions/45651721/in-powershell-how-do-i-determine-if-a-domain-joined-computer-is-connected-to-th
   # To see if this will give us OUR NA case
   # if (is_standalone)
   # describe NA
   # else
-  describe.one do
+  domain_sid = input('domain_sid')
     describe security_policy do
       its('SeDenyBatchLogonRight') { should include "S-1-21-#{domain_sid}-512" }
     end
     describe security_policy do
       its('SeDenyBatchLogonRight') { should include "S-1-21-#{domain_sid}-519" }
     end
-    describe security_policy do
-      its('SeDenyBatchLogonRight') { should eq [] }
-    end
-  end
 end
