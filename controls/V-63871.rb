@@ -95,9 +95,9 @@ control 'V-63871' do
       its('SeDenyNetworkLogonRight') { should include 'S-1-5-32-546' }
     end
   else
-    get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
-    #get_domain_sid = command('wmic group where name="Domain Users" get sid').stdout.strip
-    domain_sid = get_domain_sid[9..40]
+    #get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
+    get_domain_sid = command('wmic group get Name,SID | FINDSTR /C:"Domain Users"').stdout.strip
+    domain_sid = get_domain_sid[50..79]
     describe security_policy do
       its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}519" }
     end
