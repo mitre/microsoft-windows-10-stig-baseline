@@ -1,20 +1,22 @@
-control "V-63587" do
+# frozen_string_literal: true
+
+control 'V-63587' do
   title "The DoD Interoperability Root CA cross-certificates must be installed
-in the Untrusted Certificates Store on unclassified systems."
+        in the Untrusted Certificates Store on unclassified systems."
   desc  "To ensure users do not experience denial of service when performing
-certificate-based authentication to DoD websites due to the system chaining to
-a root other than DoD Root CAs, the DoD Interoperability Root CA
-cross-certificates must be installed in the Untrusted Certificate Store. This
-requirement only applies to unclassified systems."
+        certificate-based authentication to DoD websites due to the system chaining to
+        a root other than DoD Root CAs, the DoD Interoperability Root CA
+        cross-certificates must be installed in the Untrusted Certificate Store. This
+        requirement only applies to unclassified systems."
   impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-PK-000015"
-  tag gid: "V-63587"
-  tag rid: "SV-78077r5_rule"
-  tag stig_id: "WN10-PK-000015"
-  tag fix_id: "F-98441r3_fix"
-  tag cci: ["CCI-000185", "CCI-002470"]
-  tag nist: ["IA-5 (2) (a)", "SC-23 (5)", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-PK-000015'
+  tag gid: 'V-63587'
+  tag rid: 'SV-78077r5_rule'
+  tag stig_id: 'WN10-PK-000015'
+  tag fix_id: 'F-98441r3_fix'
+  tag cci: %w[CCI-000185 CCI-002470]
+  tag nist: ['IA-5 (2) (a)', 'SC-23 (5)', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -25,87 +27,104 @@ requirement only applies to unclassified systems."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the DoD Interoperability cross-certificates are installed
-on unclassified systems as Untrusted Certificates.
 
-Run \"PowerShell\" as an administrator.
+  desc "check", "Verify the DoD Interoperability cross-certificates are installed
+      on unclassified systems as Untrusted Certificates.
 
-Execute the following command:
+      Run \"PowerShell\" as an administrator.
 
-Get-ChildItem -Path Cert:Localmachine\\disallowed | Where {$_.Issuer -Like
-\"*DoD Interoperability*\" -and $_.Subject -Like \"*DoD*\"} | FL Subject,
-Issuer, Thumbprint, NotAfter
+      Execute the following command:
 
-If the following certificate \"Subject\", \"Issuer\", and \"Thumbprint\",
-information is not displayed, this is finding.
+      Get-ChildItem -Path Cert:Localmachine\\disallowed | Where {$_.Issuer -Like
+      \"*DoD Interoperability*\" -and $_.Subject -Like \"*DoD*\"} | FL Subject,
+      Issuer, Thumbprint, NotAfter
 
-If an expired certificate (\"NotAfter\" date) is not listed in the results,
-this is not a finding.
+      If the following certificate \"Subject\", \"Issuer\", and \"Thumbprint\",
+      information is not displayed, this is finding.
 
-Subject: CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US
-Issuer: CN=DoD Interoperability Root CA 1, OU=PKI, OU=DoD, O=U.S. Government,
-C=US
-Thumbprint: 22BBE981F0694D246CC1472ED2B021DC8540A22F
-NotAfter: 9/6/2019
+      If an expired certificate (\"NotAfter\" date) is not listed in the results,
+      this is not a finding.
 
-Subject: CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US
-Issuer: CN=DoD Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government,
-C=US
-Thumbprint: AC06108CA348CC03B53795C64BF84403C1DBD341
-NotAfter: 1/22/2022
 
-Alternately use the Certificates MMC snap-in:
+      Subject: CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US
+      Issuer: CN=DoD Interoperability Root CA 1, OU=PKI, OU=DoD, O=U.S. Government,
+      C=US
+      Thumbprint: 22BBE981F0694D246CC1472ED2B021DC8540A22F
+      NotAfter: 9/6/2019
 
-Run \"MMC\".
+      Subject: CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US
+      Issuer: CN=DoD Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government,
+      C=US
+      Thumbprint: AC06108CA348CC03B53795C64BF84403C1DBD341
+      NotAfter: 1/22/2022
 
-Select \"File\", \"Add/Remove Snap-in\".
+      Alternately use the Certificates MMC snap-in:
 
-Select \"Certificates\", click \"Add\".
+      Run \"MMC\".
 
-Select \"Computer account\", click \"Next\".
+      Select \"File\", \"Add/Remove Snap-in\".
 
-Select \"Local computer: (the computer this console is running on)\", click
-\"Finish\".
+      Select \"Certificates\", click \"Add\".
 
-Click \"OK\".
+      Select \"Computer account\", click \"Next\".
 
-Expand \"Certificates\" and navigate to \"Untrusted Certificates >>
-Certificates\".
+      Select \"Local computer: (the computer this console is running on)\", click
+      \"Finish\".
 
-For each certificate with \"DoD Root CA…\" under \"Issued To\" and \"DoD
-Interoperability Root CA…\" under \"Issued By\":
+      Click \"OK\".
 
-Right-click on the certificate and select \"Open\".
+      Expand \"Certificates\" and navigate to \"Untrusted Certificates >>
+      Certificates\".
 
-Select the \"Details\" Tab.
+      For each certificate with \"DoD Root CA…\" under \"Issued To\" and \"DoD
+      Interoperability Root CA…\" under \"Issued By\":
 
-Scroll to the bottom and select \"Thumbprint\".
+      Right-click on the certificate and select \"Open\".
 
-If the certificates below are not listed or the value for the \"Thumbprint\"
-field is not as noted, this is a finding.
+      Select the \"Details\" Tab.
 
-If an expired certificate (\"Valid to\" date) is not listed in the results,
-this is not a finding.
+      Scroll to the bottom and select \"Thumbprint\".
 
-Issued To: DoD Root CA 2
-Issued By: DoD Interoperability Root CA 1
-Thumbprint: 22BBE981F0694D246CC1472ED2B021DC8540A22F
-Valid to: Friday, September 6, 2019
+      If the certificates below are not listed or the value for the \"Thumbprint\"
+      field is not as noted, this is a finding.
 
-Issued To: DoD Root CA 3
-Issued By: DoD Interoperability Root CA 2
-Thumbprint: AC06108CA348CC03B53795C64BF84403C1DBD341
-Valid to: Saturday, January 22, 2022"
-  tag fix: "Install the DoD Interoperability Root CA cross-certificates on
-unclassified systems.
+      If an expired certificate (\"Valid to\" date) is not listed in the results,
+      this is not a finding.
 
-Issued To - Issued By - Thumbprint
-DoD Root CA 2 - DoD Interoperability Root CA 1 -
-22BBE981F0694D246CC1472ED2B021DC8540A22F
-DoD Root CA 3 - DoD Interoperability Root CA 2 -
-AC06108CA348CC03B53795C64BF84403C1DBD341
+      Issued To: DoD Root CA 2
+      Issued By: DoD Interoperability Root CA 1
+      Thumbprint: 22BBE981F0694D246CC1472ED2B021DC8540A22F
+      Valid to: Friday, September 6, 2019
 
-The certificates can be installed using the InstallRoot tool. The tool and user
-guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+      Issued To: DoD Root CA 3
+      Issued By: DoD Interoperability Root CA 2
+      Thumbprint: AC06108CA348CC03B53795C64BF84403C1DBD341
+      Valid to: Saturday, January 22, 2022"
+
+  desc "fix", "Install the DoD Interoperability Root CA cross-certificates on
+      unclassified systems.
+
+      Issued To - Issued By - Thumbprint
+      DoD Root CA 2 - DoD Interoperability Root CA 1 -
+      22BBE981F0694D246CC1472ED2B021DC8540A22F
+      DoD Root CA 3 - DoD Interoperability Root CA 2 -
+      AC06108CA348CC03B53795C64BF84403C1DBD341
+
+      The certificates can be installed using the InstallRoot tool. The tool and user
+      guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+
+  dod_certificates = JSON.parse(input('dod_certificates').to_json)
+
+  if input('is_unclassified_system') == 'false'
+    impact 0.0
+    describe 'This Control is Not Applicable to classified systems.' do
+      skip 'This Control is Not Applicable to classified systems.'
+    end
+  else
+    query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Issuer -Like "*US DoD CCEB Interoperability*" -and $_.Subject -Like "*DoD Interoperability*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    describe 'The DoD Interoperability Root CA cross-certificates installed' do
+      subject { query.params }
+      it { should be_in dod_certificates }
+    end
+  end
 end
-

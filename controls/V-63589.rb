@@ -1,20 +1,22 @@
-control "V-63589" do
+# frozen_string_literal: true
+
+control 'V-63589' do
   title "The US DoD CCEB Interoperability Root CA cross-certificates must be
-installed in the Untrusted Certificates Store on unclassified systems."
+        installed in the Untrusted Certificates Store on unclassified systems."
   desc  "To ensure users do not experience denial of service when performing
-certificate-based authentication to DoD websites due to the system chaining to
-a root other than DoD Root CAs, the US DoD CCEB Interoperability Root CA
-cross-certificates must be installed in the Untrusted Certificate Store. This
-requirement only applies to unclassified systems."
+        certificate-based authentication to DoD websites due to the system chaining to
+        a root other than DoD Root CAs, the US DoD CCEB Interoperability Root CA
+        cross-certificates must be installed in the Untrusted Certificate Store. This
+        requirement only applies to unclassified systems."
   impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-PK-000020"
-  tag gid: "V-63589"
-  tag rid: "SV-78079r4_rule"
-  tag stig_id: "WN10-PK-000020"
-  tag fix_id: "F-98443r3_fix"
-  tag cci: ["CCI-000185", "CCI-002470"]
-  tag nist: ["IA-5 (2) (a)", "SC-23 (5)", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-PK-000020'
+  tag gid: 'V-63589'
+  tag rid: 'SV-78079r4_rule'
+  tag stig_id: 'WN10-PK-000020'
+  tag fix_id: 'F-98443r3_fix'
+  tag cci: %w[CCI-000185 CCI-002470]
+  tag nist: ['IA-5 (2) (a)', 'SC-23 (5)', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -25,73 +27,91 @@ requirement only applies to unclassified systems."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the US DoD CCEB Interoperability Root CA cross-certificate
-is installed on unclassified systems as an Untrusted Certificate.
 
-Run \"PowerShell\" as an administrator.
+  desc "check", "Verify the US DoD CCEB Interoperability Root CA cross-certificate
+      is installed on unclassified systems as an Untrusted Certificate.
 
-Execute the following command:
+      Run \"PowerShell\" as an administrator.
 
-Get-ChildItem -Path Cert:Localmachine\\disallowed | Where Issuer -Like \"*CCEB
-Interoperability*\" | FL Subject, Issuer, Thumbprint, NotAfter
+      Execute the following command:
 
-If the following certificate \"Subject\", \"Issuer\", and \"Thumbprint\",
-information is not displayed, this is finding.
+      Get-ChildItem -Path Cert:Localmachine\\disallowed | Where Issuer -Like \"*CCEB
+      Interoperability*\" | FL Subject, Issuer, Thumbprint, NotAfter
 
-If an expired certificate (\"NotAfter\" date) is not listed in the results,
-this is not a finding.
+      If the following certificate \"Subject\", \"Issuer\", and \"Thumbprint\",
+      information is not displayed, this is finding.
 
-Subject: CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US
-Issuer: CN=US DoD CCEB Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S.
-Government, C=US
-Thumbprint: 929BF3196896994C0A201DF4A5B71F603FEFBF2E
-NotAfter: 9/27/2019
+      If an expired certificate (\"NotAfter\" date) is not listed in the results,
+      this is not a finding.
 
-Alternately use the Certificates MMC snap-in:
+      Subject: CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US
+      Issuer: CN=US DoD CCEB Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S.
+      Government, C=US
+      Thumbprint: 929BF3196896994C0A201DF4A5B71F603FEFBF2E
+      NotAfter: 9/27/2019
 
-Run \"MMC\".
+      Alternately use the Certificates MMC snap-in:
 
-Select \"File\", \"Add/Remove Snap-in\".
+      Run \"MMC\".
 
-Select \"Certificates\", click \"Add\".
+      Select \"File\", \"Add/Remove Snap-in\".
 
-Select \"Computer account\", click \"Next\".
+      Select \"Certificates\", click \"Add\".
 
-Select \"Local computer: (the computer this console is running on)\", click
-\"Finish\".
+      Select \"Computer account\", click \"Next\".
 
-Click \"OK\".
+      Select \"Local computer: (the computer this console is running on)\", click
+      \"Finish\".
 
-Expand \"Certificates\" and navigate to \"Untrusted Certificates >>
-Certificates\".
+      Click \"OK\".
 
-For each certificate with \"US DoD CCEB Interoperability Root CA …\" under
-\"Issued By\":
+      Expand \"Certificates\" and navigate to \"Untrusted Certificates >>
+      Certificates\".
 
-Right-click on the certificate and select \"Open\".
+      For each certificate with \"US DoD CCEB Interoperability Root CA …\" under
+      \"Issued By\":
 
-Select the \"Details\" tab.
+      Right-click on the certificate and select \"Open\".
 
-Scroll to the bottom and select \"Thumbprint\".
+      Select the \"Details\" tab.
 
-If the certificate below is not listed or the value for the \"Thumbprint\"
-field is not as noted, this is a finding.
+      Scroll to the bottom and select \"Thumbprint\".
 
-If an expired certificate (\"Valid to\" date) is not listed in the results,
-this is not a finding.
+      If the certificate below is not listed or the value for the \"Thumbprint\"
+      field is not as noted, this is a finding.
 
-Issued To: DoD Root CA 3
-Issuer by: US DoD CCEB Interoperability Root CA 2
-Thumbprint: 929BF3196896994C0A201DF4A5B71F603FEFBF2E
-Valid: Friday, September 27, 2019"
-  tag fix: "Install the US DoD CCEB Interoperability Root CA cross-certificate
-on unclassified systems.
+      If an expired certificate (\"Valid to\" date) is not listed in the results,
+      this is not a finding.
 
-Issued To - Issued By - Thumbprint
-DoD Root CA 3 - US DoD CCEB Interoperability Root CA 2 -
-929BF3196896994C0A201DF4A5B71F603FEFBF2E
+      Issued To: DoD Root CA 3
+      Issuer by: US DoD CCEB Interoperability Root CA 2
+      Thumbprint: 929BF3196896994C0A201DF4A5B71F603FEFBF2E
+      Valid: Friday, September 27, 2019"
 
-The certificates can be installed using the InstallRoot tool. The tool and user
-guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+  desc "fix", "Install the US DoD CCEB Interoperability Root CA cross-certificate
+      on unclassified systems.
+
+      Issued To - Issued By - Thumbprint
+      DoD Root CA 3 - US DoD CCEB Interoperability Root CA 2 -
+      929BF3196896994C0A201DF4A5B71F603FEFBF2E
+
+      The certificates can be installed using the InstallRoot tool. The tool and user
+      guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+
+  ref 'http://iase.disa.mil/pki-pke/Pages/tools.aspx'
+
+  dod_cceb_certificates = JSON.parse(input('dod_cceb_certificates').to_json)
+
+  if input('is_unclassified_system') == 'false'
+    impact 0.0
+    describe 'This Control is Not Applicable to classified systems.' do
+      skip 'This Control is Not Applicable to classified systems.'
+    end
+  else
+    query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Issuer -Like "*US DoD CCEB Interoperability*" -and $_.Subject -Like "*DoD*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    describe 'The DoD CCEB Interoperability CA cross-certificates installed' do
+      subject { query.params }
+      it { should be_in dod_cceb_certificates }
+    end
+  end
 end
-

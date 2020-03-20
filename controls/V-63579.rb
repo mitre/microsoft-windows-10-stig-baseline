@@ -1,19 +1,21 @@
-control "V-63579" do
+# frozen_string_literal: true
+
+control 'V-63579' do
   title "The DoD Root CA certificates must be installed in the Trusted Root
-Store."
+        Store."
   desc  "To ensure secure DoD websites and DoD-signed code are properly
-validated, the system must trust the DoD Root Certificate Authorities (CAs).
-The DoD root certificates will ensure that the trust chain is established for
-server certificates issued from the DoD CAs."
+        validated, the system must trust the DoD Root Certificate Authorities (CAs).
+        The DoD root certificates will ensure that the trust chain is established for
+        server certificates issued from the DoD CAs."
   impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-PK-000005"
-  tag gid: "V-63579"
-  tag rid: "SV-78069r4_rule"
-  tag stig_id: "WN10-PK-000005"
-  tag fix_id: "F-87307r1_fix"
-  tag cci: ["CCI-000185", "CCI-002470"]
-  tag nist: ["IA-5 (2) (a)", "SC-23 (5)", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-PK-000005'
+  tag gid: 'V-63579'
+  tag rid: 'SV-78069r4_rule'
+  tag stig_id: 'WN10-PK-000005'
+  tag fix_id: 'F-87307r1_fix'
+  tag cci: %w[CCI-000185 CCI-002470]
+  tag nist: ['IA-5 (2) (a)', 'SC-23 (5)', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -24,95 +26,104 @@ server certificates issued from the DoD CAs."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the DoD Root CA certificates are installed as Trusted Root
-Certification Authorities.
 
-The certificates and thumbprints referenced below apply to unclassified
-systems; see PKE documentation for other networks.
+  desc "check", "Verify the DoD Root CA certificates are installed as Trusted Root
+      Certification Authorities.
 
-Run \"PowerShell\" as an administrator.
+      The certificates and thumbprints referenced below apply to unclassified
+      systems; see PKE documentation for other networks.
 
-Execute the following command:
+      Run \"PowerShell\" as an administrator.
 
-Get-ChildItem -Path Cert:Localmachine\
-oot | Where Subject -Like \"*DoD*\" | FL Subject, Thumbprint, NotAfter
+      Execute the following command:
 
-If the following certificate \"Subject\" and \"Thumbprint\" information is not
-displayed, this is finding.
+      Get-ChildItem -Path Cert:Localmachine\
+      oot | Where Subject -Like \"*DoD*\" | FL Subject, Thumbprint, NotAfter
 
-If an expired certificate (\"NotAfter\" date) is not listed in the results,
-this is not a finding.
+      If the following certificate \"Subject\" and \"Thumbprint\" information is not
+      displayed, this is finding.
 
-Subject: CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US
-Thumbprint: 8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561
-NotAfter: 12/5/2029
+      If an expired certificate (\"NotAfter\" date) is not listed in the results,
+      this is not a finding.
 
-Subject: CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US
-Thumbprint: D73CA91102A2204A36459ED32213B467D7CE97FB
-NotAfter: 12/30/2029
+      Subject: CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US
+      Thumbprint: 8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561
+      NotAfter: 12/5/2029
 
-Subject: CN=DoD Root CA 4, OU=PKI, OU=DoD, O=U.S. Government, C=US
-Thumbprint: B8269F25DBD937ECAFD4C35A9838571723F2D026
-NotAfter: 7/25/2032
+      Subject: CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US
+      Thumbprint: D73CA91102A2204A36459ED32213B467D7CE97FB
+      NotAfter: 12/30/2029
 
-Subject: CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US
-Thumbprint: 4ECB5CC3095670454DA1CBD410FC921F46B8564B
-NotAfter: 6/14/2041
+      Subject: CN=DoD Root CA 4, OU=PKI, OU=DoD, O=U.S. Government, C=US
+      Thumbprint: B8269F25DBD937ECAFD4C35A9838571723F2D026
+      NotAfter: 7/25/2032
 
-Alternately use the Certificates MMC snap-in:
+      Subject: CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US
+      Thumbprint: 4ECB5CC3095670454DA1CBD410FC921F46B8564B
+      NotAfter: 6/14/2041
 
-Run \"MMC\".
+      Alternately use the Certificates MMC snap-in:
 
-Select \"File\", \"Add/Remove Snap-in\".
+      Run \"MMC\".
 
-Select \"Certificates\", click \"Add\".
+      Select \"File\", \"Add/Remove Snap-in\".
 
-Select \"Computer account\", click \"Next\".
+      Select \"Certificates\", click \"Add\".
 
-Select \"Local computer: (the computer this console is running on)\", click
-\"Finish\".
+      Select \"Computer account\", click \"Next\".
 
-Click \"OK\".
+      Select \"Local computer: (the computer this console is running on)\", click
+      \"Finish\".
 
-Expand \"Certificates\" and navigate to \"Trusted Root Certification
-Authorities >> Certificates\".
+      Click \"OK\".
 
-For each of the DoD Root CA certificates noted below:
+      Expand \"Certificates\" and navigate to \"Trusted Root Certification
+      Authorities >> Certificates\".
 
-Right-click on the certificate and select \"Open\".
+      For each of the DoD Root CA certificates noted below:
 
-Select the \"Details\" Tab.
+      Right-click on the certificate and select \"Open\".
 
-Scroll to the bottom and select \"Thumbprint\".
+      Select the \"Details\" Tab.
 
-If the DoD Root CA certificates below are not listed or the value for the
-\"Thumbprint\" field is not as noted, this is a finding.
+      Scroll to the bottom and select \"Thumbprint\".
 
-If an expired certificate (\"Valid to\" date) is not listed in the results,
-this is not a finding.
+      If the DoD Root CA certificates below are not listed or the value for the
+      \"Thumbprint\" field is not as noted, this is a finding.
 
-DoD Root CA 2
-Thumbprint: 8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561
-Valid to: Wednesday, December 5, 2029
+      If an expired certificate (\"Valid to\" date) is not listed in the results,
+      this is not a finding.
 
-DoD Root CA 3
-Thumbprint: D73CA91102A2204A36459ED32213B467D7CE97FB
-Valid to: Sunday, December 30, 2029
+      DoD Root CA 2
+      Thumbprint: 8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561
+      Valid to: Wednesday, December 5, 2029
 
-DoD Root CA 4
-Thumbprint: B8269F25DBD937ECAFD4C35A9838571723F2D026
-Valid to: Sunday, July 25, 2032
+      DoD Root CA 3
+      Thumbprint: D73CA91102A2204A36459ED32213B467D7CE97FB
+      Valid to: Sunday, December 30, 2029
 
-DoD Root CA 5
-Thumbprint: 4ECB5CC3095670454DA1CBD410FC921F46B8564B
-Valid to: Friday, June 14, 2041"
-  tag fix: "Install the DoD Root CA certificates.
-DoD Root CA 2
-DoD Root CA 3
-DoD Root CA 4
-DoD Root CA 5
+      DoD Root CA 4
+      Thumbprint: B8269F25DBD937ECAFD4C35A9838571723F2D026
+      Valid to: Sunday, July 25, 2032
 
-The InstallRoot tool is available on IASE at
-http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+      DoD Root CA 5
+      Thumbprint: 4ECB5CC3095670454DA1CBD410FC921F46B8564B
+      Valid to: Friday, June 14, 2041"
+
+  desc "fix", "Install the DoD Root CA certificates.
+      DoD Root CA 2
+      DoD Root CA 3
+      DoD Root CA 4
+      DoD Root CA 5
+
+      The InstallRoot tool is available on IASE at
+      http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+
+  dod_certificates = JSON.parse(input('dod_trusted_certificates').to_json)
+  query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*DoD Root*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+
+  describe 'The DoD Interoperability Root CA cross-certificates installed' do
+    subject { query.params }
+    it { should be_in dod_certificates }
+  end
 end
-

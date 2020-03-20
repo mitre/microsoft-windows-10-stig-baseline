@@ -1,14 +1,14 @@
 control "V-63821" do
-  title "User Account Control must automatically deny elevation requests for
-standard users."
+  title "User Account Control must automatically deny elevation requests for 
+        standard users."
   desc  "User Account Control (UAC) is a security mechanism for limiting the
-elevation of privileges, including administrative accounts, unless authorized.
-Denying elevation requests from standard user accounts requires tasks that need
-elevation to be initiated by accounts with administrative privileges.  This
-ensures correct accounts are used on the system for privileged tasks to help
-mitigate credential theft."
+        elevation of privileges, including administrative accounts, unless authorized.
+        Denying elevation requests from standard user accounts requires tasks that need
+        elevation to be initiated by accounts with administrative privileges.  This
+        ensures correct accounts are used on the system for privileged tasks to help
+        mitigate credential theft."
   impact 0.5
-  tag severity: nil
+  tag severity: "medium"
   tag gtitle: "WN10-SO-000255"
   tag gid: "V-63821"
   tag rid: "SV-78311r1_rule"
@@ -26,20 +26,25 @@ mitigate credential theft."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
-configured as specified, this is a finding:
+  desc "check", "If the following registry value does not exist or is not
+      configured as specified, this is a finding:
 
-Registry Hive: HKEY_LOCAL_MACHINE
-Registry Path:
-\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\
+      Registry Hive: HKEY_LOCAL_MACHINE
+      Registry Path:
+      \\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\
 
-Value Name: ConsentPromptBehaviorUser
+      Value Name: ConsentPromptBehaviorUser
 
-Value Type: REG_DWORD
-Value: 0"
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
-Settings >> Security Settings >> Local Policies >> Security Options >> \"User
-Account Control: Behavior of the elevation prompt for standard users\" to
-\"Automatically deny elevation requests\"."
+      Value Type: REG_DWORD
+      Value: 0"
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
+      Settings >> Security Settings >> Local Policies >> Security Options >> \"User
+      Account Control: Behavior of the elevation prompt for standard users\" to
+      \"Automatically deny elevation requests\"."
+
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System') do
+    it { should have_property 'ConsentPromptBehaviorUser' }
+    its('ConsentPromptBehaviorUser') { should cmp 0 }
+  end
 end
 
