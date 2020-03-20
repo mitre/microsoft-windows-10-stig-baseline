@@ -92,7 +92,7 @@ control 'V-63871' do
 
   if is_domain == 'WORKGROUP'
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should include 'S-1-5-32-546' }
+      its('SeDenyNetworkLogonRight') { should include 'Guests' }
     end
   else
     #get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
