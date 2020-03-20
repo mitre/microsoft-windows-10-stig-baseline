@@ -8,7 +8,7 @@ summary: "The Windows 10 Security Technical Implementation Guide (STIG) is publi
 version: 1.19
 
 inputs:
-  - name: bitlocker_pin_len'
+  - name: bitlocker_pin_len
     desc: "The minimum length for the BitLocker Pin [6]"
     type: numeric
     value: 6

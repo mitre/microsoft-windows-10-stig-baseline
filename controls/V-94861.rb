@@ -47,5 +47,3 @@ control 'V-94861' do
     its('MinimumPIN') { should be >= input('bitlocker_pin_len') }
   end
 end
-
-bitlocker_pin_len
