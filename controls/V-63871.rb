@@ -103,7 +103,7 @@ control 'V-63871' do
       its('SeDenyNetworkLogonRight') { should include "S-1-5-21-#{domain_sid}-519" }
     end
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}512" }
+      its('SeDenyNetworkLogonRight') { should include "S-1-5-21-#{domain_sid}512" }
     end
   end
 end
