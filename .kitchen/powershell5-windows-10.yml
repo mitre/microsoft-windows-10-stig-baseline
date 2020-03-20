@@ -1,8 +1,0 @@
----
-hostname: 127.0.0.1
-port: '55985'
-username: vagrant
-password: vagrant
-rdp_port: '3389'
-last_action: verify
-last_error: Kitchen::ActionFailed
