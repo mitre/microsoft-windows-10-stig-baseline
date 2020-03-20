@@ -1,16 +1,18 @@
-control "V-63385" do
-  title "The Telnet Client must not be installed on the system."
+# frozen_string_literal: true
+
+control 'V-63385' do
+  title 'The Telnet Client must not be installed on the system.'
   desc  "Some protocols and services do not support required security features,
-such as encrypting passwords or traffic."
+        such as encrypting passwords or traffic."
   impact 0.5
-  tag severity: "medium"
-  tag gtitle: "WN10-00-000115"
-  tag gid: "V-63385"
-  tag rid: "SV-77875r1_rule"
-  tag stig_id: "WN10-00-000115"
-  tag fix_id: "F-69307r1_fix"
-  tag cci: ["CCI-000382"]
-  tag nist: ["CM-7 b", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-00-000115'
+  tag gid: 'V-63385'
+  tag rid: 'SV-77875r1_rule'
+  tag stig_id: 'WN10-00-000115'
+  tag fix_id: 'F-69307r1_fix'
+  tag cci: ['CCI-000382']
+  tag nist: ['CM-7 b', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -21,21 +23,22 @@ such as encrypting passwords or traffic."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+
   tag check: "The \"Telnet Client\" is not installed by default.  Verify it has
-not been installed.
+        not been installed.
 
-Navigate to the Windows\\System32 directory.
+        Navigate to the Windows\\System32 directory.
 
-If the \"telnet\" application exists, this is a finding."
+        If the \"telnet\" application exists, this is a finding."
+
   tag fix: "Uninstall \"Telnet Client\" from the system.
 
-Run \"Programs and Features\".
-Select \"Turn Windows Features on or off\".
+        Run \"Programs and Features\".
+        Select \"Turn Windows Features on or off\".
 
-De-select \"Telnet Client\"."
+        De-select \"Telnet Client\"."
 
   describe windows_feature('Telnet Client') do
     it { should_not be_installed }
-  end  
+  end
 end
-

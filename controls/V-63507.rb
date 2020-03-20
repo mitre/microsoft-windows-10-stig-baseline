@@ -1,16 +1,15 @@
 control "V-63507" do
   title "The system must be configured to audit System - Security State Change
-successes."
+        successes."
   desc  "Maintaining an audit trail of system activity logs can help identify
-configuration errors, troubleshoot service disruptions, and analyze compromises
-that have occurred, as well as detect attacks.  Audit logs are necessary to
-provide a trail of evidence in case the system or network is compromised.
-Collecting this data is essential for analyzing the security of information
-assets and detecting signs of suspicious and unexpected behavior.
+        configuration errors, troubleshoot service disruptions, and analyze compromises
+        that have occurred, as well as detect attacks.  Audit logs are necessary to
+        provide a trail of evidence in case the system or network is compromised.
+        Collecting this data is essential for analyzing the security of information
+        assets and detecting signs of suspicious and unexpected behavior.
 
-    Security State Change records events related to changes in the security
-state, such as startup and shutdown of the system.
-  "
+        Security State Change records events related to changes in the security
+        state, such as startup and shutdown of the system."
   impact 0.5
   tag severity: "medium"
   tag gtitle: "WN10-AU-000140"
@@ -30,23 +29,25 @@ state, such as startup and shutdown of the system.
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+
   tag check: "Security Option \"Audit: Force audit policy subcategory settings
-(Windows Vista or later) to override audit policy category settings\" must be
-set to \"Enabled\" (WN10-SO-000030) for the detailed auditing subcategories to
-be effective.
+      (Windows Vista or later) to override audit policy category settings\" must be
+      set to \"Enabled\" (WN10-SO-000030) for the detailed auditing subcategories to
+      be effective.
 
-Use the AuditPol tool to review the current Audit Policy configuration:
-Open a Command Prompt with elevated privileges (\"Run as Administrator\").
-Enter \"AuditPol /get /category:*\".
+      Use the AuditPol tool to review the current Audit Policy configuration:
+      Open a Command Prompt with elevated privileges (\"Run as Administrator\").
+      Enter \"AuditPol /get /category:*\".
 
-Compare the AuditPol settings with the following.  If the system does not audit
-the following, this is a finding:
+      Compare the AuditPol settings with the following.  If the system does not audit
+      the following, this is a finding:
 
-System >> Security State Change - Success"
+      System >> Security State Change - Success"
+
   tag fix: "Configure the policy value for Computer Configuration >> Windows
-Settings >> Security Settings >> Advanced Audit Policy Configuration >> System
-Audit Policies >> System >> \"Audit Security State Change\" with \"Success\"
-selected."
+      Settings >> Security Settings >> Advanced Audit Policy Configuration >> System
+      Audit Policies >> System >> \"Audit Security State Change\" with \"Success\"
+      selected."
 
    describe.one do
     describe audit_policy do
@@ -57,4 +58,3 @@ selected."
     end
   end  
 end
-

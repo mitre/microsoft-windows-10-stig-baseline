@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 control 'V-77269' do
+  only_if('This Control is required for unclassified systems.') { input('is_unclassified_system') == 'true' }
   title "Exploit Protection mitigations in Windows 10 must be configured for
-        wordpad.exe."
+         wordpad.exe."
   desc  "Exploit protection in Windows 10 provides a means of enabling
         additional mitigations against potential threats at the system and application
         level. Without these additional application protections, Windows 10 may be
@@ -28,52 +29,53 @@ control 'V-77269' do
   tag ia_controls: nil
   tag check: "This is NA prior to v1709 of Windows 10.
 
-      This is applicable to unclassified systems, for other systems this is NA.
+        This is applicable to unclassified systems, for other systems this is NA.
 
-      Run \"Windows PowerShell\" with elevated privileges (run as administrator).
+        Run \"Windows PowerShell\" with elevated privileges (run as administrator).
 
-      Enter \"Get-ProcessMitigation -Name wordpad.exe\".
-      (Get-ProcessMitigation can be run without the -Name parameter to get a list of
-      all application mitigations configured.)
+        Enter \"Get-ProcessMitigation -Name wordpad.exe\".
+        (Get-ProcessMitigation can be run without the -Name parameter to get a list of
+        all application mitigations configured.)
 
-      If the following mitigations do not have a status of \"ON\", this is a finding:
+        If the following mitigations do not have a status of \"ON\", this is a finding:
 
-      DEP:
-      Enable: ON
+        DEP:
+        Enable: ON
 
-      Payload:
-      EnableExportAddressFilter: ON
-      EnableExportAddressFilterPlus: ON
-      EnableImportAddressFilter: ON
-      EnableRopStackPivot: ON
-      EnableRopCallerCheck: ON
-      EnableRopSimExec: ON
+        Payload:
+        EnableExportAddressFilter: ON
+        EnableExportAddressFilterPlus: ON
+        EnableImportAddressFilter: ON
+        EnableRopStackPivot: ON
+        EnableRopCallerCheck: ON
+        EnableRopSimExec: ON
 
-      The PowerShell command produces a list of mitigations; only those with a
-      required status of \"ON\" are listed here. If the PowerShell command does not
-      produce results, ensure the letter case of the filename within the command
-      syntax matches the letter case of the actual filename on the system."
-
+        The PowerShell command produces a list of mitigations; only those with a
+        required status of \"ON\" are listed here. If the PowerShell command does not
+        produce results, ensure the letter case of the filename within the command
+        syntax matches the letter case of the actual filename on the system."
+  
   tag fix: "Ensure the following mitigations are turned \"ON\" for wordpad.exe:
-      DEP:
-      Enable: ON
 
-      Payload:
-      EnableExportAddressFilter: ON
-      EnableExportAddressFilterPlus: ON
-      EnableImportAddressFilter: ON
-      EnableRopStackPivot: ON
-      EnableRopCallerCheck: ON
-      EnableRopSimExec: ON
+        DEP:
+        Enable: ON
 
-      Application mitigations defined in the STIG are configured by a DoD EP XML file
-      included with the Windows 10 STIG package in the \"Supporting Files\" folder.
+        Payload:
+        EnableExportAddressFilter: ON
+        EnableExportAddressFilterPlus: ON
+        EnableImportAddressFilter: ON
+        EnableRopStackPivot: ON
+        EnableRopCallerCheck: ON
+        EnableRopSimExec: ON
 
-      The XML file is applied with the group policy setting Computer Configuration >>
-      Administrative Settings >> Windows Components >> Windows Defender Exploit Guard
-      >> Exploit Protection >> \"Use a common set of exploit protection settings\"
-      configured to \"Enabled\" with file name and location defined under
-      \"Options:\".  It is recommended the file be in a read-only network location."
+        Application mitigations defined in the STIG are configured by a DoD EP XML file
+        included with the Windows 10 STIG package in the \"Supporting Files\" folder.
+
+        The XML file is applied with the group policy setting Computer Configuration >>
+        Administrative Settings >> Windows Components >> Windows Defender Exploit Guard
+        >> Exploit Protection >> \"Use a common set of exploit protection settings\"
+        configured to \"Enabled\" with file name and location defined under
+        \"Options:\".  It is recommended the file be in a read-only network location."
 
   dep_script = <<~EOH
     $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
@@ -131,17 +133,7 @@ control 'V-77269' do
     write-output $result_payload_enropsimexec
   EOH
 
-  if input('is_unclassified_system') == 'false' || nil
-    impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
-    end
-  elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId < '1709'
-    impact 0.0
-    describe 'This STIG does not apply to Prior Versions before 1709.' do
-      skip 'This STIG does not apply to Prior Versions before 1709.'
-    end
-  else
+  if registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= '1709'
     describe.one do
       describe powershell(dep_script) do
         its('strip') { should_not eq '2' }
@@ -164,6 +156,11 @@ control 'V-77269' do
       describe powershell(payload_enropsimexec_script) do
         its('strip') { should_not eq '2' }
       end
+    end
+  else
+    impact 0.0
+    describe 'This STIG does not apply to Prior Versions before 1709.' do
+      skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   end
 end

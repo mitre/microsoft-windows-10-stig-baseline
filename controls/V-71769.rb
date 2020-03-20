@@ -25,36 +25,38 @@ control 'V-71769' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+
   tag check: "Windows 10 v1507 LTSB version does not include this setting, it
-      is NA for those systems.
+          is NA for those systems.
 
-      If the following registry value does not exist or is not configured as
-      specified, this is a finding:
+          If the following registry value does not exist or is not configured as
+          specified, this is a finding:
 
-      Registry Hive: HKEY_LOCAL_MACHINE
-      Registry Path: \\SYSTEM\\CurrentControlSet\\Control\\Lsa\\
+          Registry Hive: HKEY_LOCAL_MACHINE
+          Registry Path: \\SYSTEM\\CurrentControlSet\\Control\\Lsa\\
 
-      Value Name: RestrictRemoteSAM
+          Value Name: RestrictRemoteSAM
 
-      Value Type: REG_SZ
-      Value: O:BAG:BAD:(A;;RC;;;BA)"
+          Value Type: REG_SZ
+          Value: O:BAG:BAD:(A;;RC;;;BA)"
+  
   tag fix: "Navigate to the policy Computer Configuration >> Windows Settings
-      >> Security Settings >> Local Policies >> Security Options >> \"Network access:
-      Restrict clients allowed to make remote calls to SAM\".
+          >> Security Settings >> Local Policies >> Security Options >> \"Network access:
+          Restrict clients allowed to make remote calls to SAM\".
 
-      Select \"Edit Security\" to configure the \"Security descriptor:\".
+          Select \"Edit Security\" to configure the \"Security descriptor:\".
 
-      Add \"Administrators\" in \"Group or user names:\" if it is not already listed
-      (this is the default).
+          Add \"Administrators\" in \"Group or user names:\" if it is not already listed
+          (this is the default).
 
-      Select \"Administrators\" in \"Group or user names:\".
+          Select \"Administrators\" in \"Group or user names:\".
 
-      Select \"Allow\" for \"Remote Access\" in \"Permissions for \"Administrators\".
+          Select \"Allow\" for \"Remote Access\" in \"Permissions for \"Administrators\".
 
-      Click \"OK\".
+          Click \"OK\".
 
-      The \"Security descriptor:\" must be populated with \"O:BAG:BAD:(A;;RC;;;BA)
-      for the policy to be enforced."
+          The \"Security descriptor:\" must be populated with \"O:BAG:BAD:(A;;RC;;;BA)
+          for the policy to be enforced."
 
   if registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId != '1507'
     describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa') do

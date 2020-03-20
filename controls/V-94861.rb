@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 control 'V-94861' do
-  title "Windows 10 systems must use a BitLocker PIN with a minimum length of 6
+  title "Windows 10 systems must use a BitLocker PIN with a minimum length of #{input('bitlocker_pin_len')}
         digits for pre-boot authentication."
   desc  "If data at rest is unencrypted, it is vulnerable to disclosure. Even
         if the operating system enforces permissions on data access, an adversary can
@@ -31,19 +31,19 @@ control 'V-94861' do
   tag ia_controls: nil
 
   tag check: "If the following registry value does not exist or is not
-      configured as specified, this is a finding.
+        configured as specified, this is a finding.
 
-      Value Name: MinimumPIN
-      Type: REG_DWORD
-      Value: 0x00000006 (6) or greater"
+        Value Name: MinimumPIN
+        Type: REG_DWORD
+        Value: 0x0000000#{input('bitlocker_pin_len')} (#{input('bitlocker_pin_len')}) or greater"
 
   tag fix: "Configure the policy value for Computer Configuration >>
-      Administrative Templates >> Windows Components >> BitLocker Drive Encryption >>
-      Operating System Drives \"Configure minimum PIN length for startup\" to
-      \"Enabled\" with \"Minimum characters:\" set to \"6\" or greater."
+        Administrative Templates >> Windows Components >> BitLocker Drive Encryption >>
+        Operating System Drives \"Configure minimum PIN length for startup\" to
+        \"Enabled\" with \"Minimum characters:\" set to #{input('bitlocker_pin_len')} or greater."
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Bitlocker') do
     it { should have_property 'MinimumPIN' }
-    its('MinimumPIN') { should be >= 6 }
+    its('MinimumPIN') { should be >= input('bitlocker_pin_len') }
   end
 end

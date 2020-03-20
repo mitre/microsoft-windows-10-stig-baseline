@@ -1,22 +1,24 @@
-control "V-63855" do
-  title "The Change the system time user right must only be assigned to
-Administrators and Local Service."
-  desc  "Inappropriate granting of user rights can provide system,
-administrative, and other high level capabilities.
+# frozen_string_literal: true
 
-    Accounts with the \"Change the system time\" user right can change the
-system time, which can impact authentication, as well as affect time stamps on
-event log entries.
-  "
+control 'V-63855' do
+  title "The Change the system time user right must only be assigned to
+        Administrators and Local Service."
+  desc  "Inappropriate granting of user rights can provide system,
+        administrative, and other high level capabilities.
+
+        Accounts with the \"Change the system time\" user right can change the
+        system time, which can impact authentication, as well as affect time stamps on
+        event log entries."
+
   impact 0.5
-  tag severity: "medium"
-  tag gtitle: "WN10-UR-000035"
-  tag gid: "V-63855"
-  tag rid: "SV-78345r1_rule"
-  tag stig_id: "WN10-UR-000035"
-  tag fix_id: "F-69783r1_fix"
-  tag cci: ["CCI-002235"]
-  tag nist: ["AC-6 (10)", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-UR-000035'
+  tag gid: 'V-63855'
+  tag rid: 'SV-78345r1_rule'
+  tag stig_id: 'WN10-UR-000035'
+  tag fix_id: 'F-69783r1_fix'
+  tag cci: ['CCI-002235']
+  tag nist: ['AC-6 (10)', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -27,26 +29,27 @@ event log entries.
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+
   tag check: "Verify the effective setting in Local Group Policy Editor.
-Run \"gpedit.msc\".
+      Run \"gpedit.msc\".
 
-Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
->> Security Settings >> Local Policies >> User Rights Assignment.
+      Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
+      >> Security Settings >> Local Policies >> User Rights Assignment.
 
-If any groups or accounts other than the following are granted the \"Change the
-system time\" user right, this is a finding:
+      If any groups or accounts other than the following are granted the \"Change the
+      system time\" user right, this is a finding:
 
-Administrators
-LOCAL SERVICE"
+      Administrators
+      LOCAL SERVICE"
+
   tag fix: "Configure the policy value for Computer Configuration >> Windows
-Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
-\"Change the system time\" to only include the following groups or accounts:
+      Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
+      \"Change the system time\" to only include the following groups or accounts:
 
-Administrators
-LOCAL SERVICE"
+      Administrators
+      LOCAL SERVICE"
 
     describe security_policy do
       its('SeSystemtimePrivilege') { should be_in ['S-1-5-32-544', 'S-1-5-19'] }
     end
 end
-

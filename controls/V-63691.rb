@@ -1,17 +1,19 @@
-control "V-63691" do
+# frozen_string_literal: true
+
+control 'V-63691' do
   title "Turning off File Explorer heap termination on corruption must be
-disabled."
+        disabled."
   desc  "Legacy plug-in applications may continue to function when a File
-Explorer session has become corrupt.  Disabling this feature will prevent this."
+        Explorer session has become corrupt.  Disabling this feature will prevent this."
   impact 0.3
-  tag severity: "low"
-  tag gtitle: "WN10-CC-000220"
-  tag gid: "V-63691"
-  tag rid: "SV-78181r3_rule"
-  tag stig_id: "WN10-CC-000220"
-  tag fix_id: "F-78109r3_fix"
-  tag cci: ["CCI-002385"]
-  tag nist: ["SC-5", "Rev_4"]
+  tag severity: 'low'
+  tag gtitle: 'WN10-CC-000220'
+  tag gid: 'V-63691'
+  tag rid: 'SV-78181r3_rule'
+  tag stig_id: 'WN10-CC-000220'
+  tag fix_id: 'F-78109r3_fix'
+  tag cci: ['CCI-002385']
+  tag nist: %w[SC-5 Rev_4]
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -23,28 +25,28 @@ Explorer session has become corrupt.  Disabling this feature will prevent this."
   tag responsibility: nil
   tag ia_controls: nil
   tag check: "The default behavior is for File Explorer heap termination on
-corruption to be enabled.
+      corruption to be enabled.
 
-If the registry Value Name below does not exist, this is not a finding.
+      If the registry Value Name below does not exist, this is not a finding.
 
-If it exists and is configured with a value of \"0\", this is not a finding.
+      If it exists and is configured with a value of \"0\", this is not a finding.
 
-If it exists and is configured with a value of \"1\", this is a finding.
+      If it exists and is configured with a value of \"1\", this is a finding.
 
-Registry Hive: HKEY_LOCAL_MACHINE
-Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer\\
+      Registry Hive: HKEY_LOCAL_MACHINE
+      Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer\\
 
-Value Name: NoHeapTerminationOnCorruption
+      Value Name: NoHeapTerminationOnCorruption
 
-Value Type: REG_DWORD
-Value: 0x00000000 (0) (or if the Value Name does not exist)"
+      Value Type: REG_DWORD
+      Value: 0x00000000 (0) (or if the Value Name does not exist)"
   tag fix: "The default behavior is for File Explorer heap termination on
-corruption to be enabled.
+      corruption to be enabled.
 
-If this needs to be corrected, configure the policy value for Computer
-Configuration >> Administrative Templates >> Windows Components >> File
-Explorer >> \"Turn off heap termination on corruption\" to \"Not Configured\"
-or \"Disabled\"."
+      If this needs to be corrected, configure the policy value for Computer
+      Configuration >> Administrative Templates >> Windows Components >> File
+      Explorer >> \"Turn off heap termination on corruption\" to \"Not Configured\"
+      or \"Disabled\"."
 
   describe.one do
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer') do
@@ -56,4 +58,3 @@ or \"Disabled\"."
     end
   end
 end
-
