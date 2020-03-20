@@ -59,22 +59,22 @@ control 'V-63577' do
       Value: RequireMutualAuthentication=1, RequireIntegrity=1"
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
-  x = '\\\\*\\NETLOGON'
-  y = x.gsub("\\","\\\\\\\\")
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
-    it { should have_property '\\\\*\\SYSVOL' }
-    its('\\\\*\\SYSVOL') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
-  end
+  keyvalue_netlogon = '\\\\*\\NETLOGON'
+  keyvalue_sysvol = '\\\\*\\SYSVOL'
 
   if is_domain == 'WORKGROUP'
     impact 0.0
     describe 'The system is not a member of a domain, control is NA' do
       skip 'The system is not a member of a domain, control is NA'
     end
-  else
+  elsif
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
-      it { should have_property y }
-      its('\\\\*\\NETLOGON') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
+      it { should have_property keyvalue_sysvol.gsub("\\","\\\\\\\\") }
+      its((keyvalue_sysvol.gsub("\\","\\\\\\\\")) { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
+    end
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
+      it { should have_property keyvalue_netlogon.gsub("\\","\\\\\\\\") }
+      its((keyvalue_netlogon.gsub("\\","\\\\\\\\")) { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
     end
   end
 end
