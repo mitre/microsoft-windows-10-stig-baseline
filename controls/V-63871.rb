@@ -99,13 +99,13 @@ control 'V-63871' do
     get_domain_sid = command('wmic group where name="Domain Users" get sid').stdout.strip
     domain_sid = get_domain_sid[9..40]
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}519" }
+      its('SeDenyNetworkLogonRight') { should cmp 'S-1-5-21-'"#{domain_sid}"'519' }
     end
     describe security_policy do
       its('SeDenyNetworkLogonRight') { should cmp "S-1-5-21-#{domain_sid}512" }
     end
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should cmp 'Guest' }
+      its('SeDenyNetworkLogonRight') { should include 'Guest' }
     end
   end
 end
