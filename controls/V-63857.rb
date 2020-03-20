@@ -45,6 +45,6 @@ control 'V-63857' do
       Administrators"
 
     describe security_policy do
-      its('SeCreatePagefilePrivilege') { should be eq ['S-1-5-32-544'] }
+      its('SeCreatePagefilePrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
