@@ -1,17 +1,19 @@
-control "V-63629" do
+# frozen_string_literal: true
+
+control 'V-63629' do
   title "The network selection user interface (UI) must not be displayed on the
-logon screen."
+        logon screen."
   desc  "Enabling interaction with the network selection UI allows users to
-change connections to available networks without signing into Windows."
+        change connections to available networks without signing into Windows."
   impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-CC-000120"
-  tag gid: "V-63629"
-  tag rid: "SV-78119r1_rule"
-  tag stig_id: "WN10-CC-000120"
-  tag fix_id: "F-69559r1_fix"
-  tag cci: ["CCI-000381"]
-  tag nist: ["CM-7 a", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-CC-000120'
+  tag gid: 'V-63629'
+  tag rid: 'SV-78119r1_rule'
+  tag stig_id: 'WN10-CC-000120'
+  tag fix_id: 'F-69559r1_fix'
+  tag cci: ['CCI-000381']
+  tag nist: ['CM-7 a', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -22,18 +24,24 @@ change connections to available networks without signing into Windows."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
-configured as specified, this is a finding.
+  
+  desc "check", "If the following registry value does not exist or is not
+      configured as specified, this is a finding.
 
-Registry Hive: HKEY_LOCAL_MACHINE
-Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\
+      Registry Hive: HKEY_LOCAL_MACHINE
+      Registry Path: \\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\
 
-Value Name: DontDisplayNetworkSelectionUI
+      Value Name: DontDisplayNetworkSelectionUI
 
-Value Type: REG_DWORD
-Value: 1"
-  tag fix: "Configure the policy value for Computer Configuration >>
-Administrative Templates >> System >> Logon >> \"Do not display network
-selection UI\" to \"Enabled\"."
+      Value Type: REG_DWORD
+      Value: 1"
+
+  desc "fix", "Configure the policy value for Computer Configuration >>
+      Administrative Templates >> System >> Logon >> \"Do not display network
+      selection UI\" to \"Enabled\"."
+
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System') do
+    it { should have_property 'DontDisplayNetworkSelectionUI' }
+    its('DontDisplayNetworkSelectionUI') { should cmp 1 }
+  end
 end
-

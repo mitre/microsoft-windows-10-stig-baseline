@@ -1,19 +1,20 @@
-control "V-74413" do
-  title "Windows 10 must be configured to prioritize ECC Curves with longer key
-lengths first."
+# frozen_string_literal: true
+
+control 'V-74413' do
+  title 'Windows 10 must be configured to prioritize ECC Curves with longer key lengths first.'
   desc  "Use of weak or untested encryption algorithms undermines the purposes
-of utilizing encryption to protect data. By default Windows uses ECC curves
-with shorter key lengths first.  Requiring ECC curves with longer key lengths
-to be prioritized first helps ensure more secure algorithms are used."
+        of utilizing encryption to protect data. By default Windows uses ECC curves
+        with shorter key lengths first.  Requiring ECC curves with longer key lengths
+        to be prioritized first helps ensure more secure algorithms are used."
   impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-CC-000052"
-  tag gid: "V-74413"
-  tag rid: "SV-89087r2_rule"
-  tag stig_id: "WN10-CC-000052"
-  tag fix_id: "F-80955r1_fix"
-  tag cci: ["CCI-000803"]
-  tag nist: ["IA-7", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-CC-000052'
+  tag gid: 'V-74413'
+  tag rid: 'SV-89087r2_rule'
+  tag stig_id: 'WN10-CC-000052'
+  tag fix_id: 'F-80955r1_fix'
+  tag cci: ['CCI-000803']
+  tag nist: %w[IA-7 Rev_4]
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -24,23 +25,31 @@ to be prioritized first helps ensure more secure algorithms are used."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "If the following registry value does not exist or is not
-configured as specified, this is a finding.
+  desc "check", "If the following registry value does not exist or is not
+      configured as specified, this is a finding.
 
-Registry Hive: HKEY_LOCAL_MACHINE
-Registry Path:
-\\SOFTWARE\\Policies\\Microsoft\\Cryptography\\Configuration\\SSL\\00010002\\
+      Registry Hive: HKEY_LOCAL_MACHINE
+      Registry Path:
+      \\SOFTWARE\\Policies\\Microsoft\\Cryptography\\Configuration\\SSL\\00010002\\
 
-Value Name: EccCurves
+      Value Name: EccCurves
 
-Value Type: REG_MULTI_SZ
-Value: NistP384 NistP256"
-  tag fix: "Configure the policy value for Computer Configuration >>
-Administrative Templates >> Network >> SSL Configuration Settings >> \"ECC
-Curve Order\" to \"Enabled\" with \"ECC Curve Order:\" including the following
-in the order listed:
+      Value Type: REG_MULTI_SZ
+      Value: NistP384 NistP256"
+  desc "fix", "Configure the policy value for Computer Configuration >>
+      Administrative Templates >> Network >> SSL Configuration Settings >> \"ECC
+      Curve Order\" to \"Enabled\" with \"ECC Curve Order:\" including the following
+      in the order listed:
 
-NistP384
-NistP256"
+      NistP384
+      NistP256"
+
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002') do
+    it { should have_property 'EccCurves' }
+   end
+  
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002') do
+      its('EccCurves') { should include 'NistP384' }
+      its('EccCurves') { should include 'NistP256' }
+    end
 end
-

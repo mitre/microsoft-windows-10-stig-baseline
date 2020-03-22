@@ -1,10 +1,10 @@
 control "V-63353" do
   title "Local volumes must be formatted using NTFS."
   desc  "The ability to set access permissions and auditing is critical to
-maintaining the security and proper access controls of a system.  To support
-this, volumes must be formatted using the NTFS file system."
+        maintaining the security and proper access controls of a system.  To support
+        this, volumes must be formatted using the NTFS file system."
   impact 0.7
-  tag severity: nil
+  tag severity: "high"
   tag gtitle: "WN10-00-000050"
   tag gid: "V-63353"
   tag rid: "SV-77843r2_rule"
@@ -22,14 +22,38 @@ this, volumes must be formatted using the NTFS file system."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Run \"Computer Management\".
-Navigate to Storage >> Disk Management.
 
-If the \"File System\" column does not indicate \"NTFS\" for each volume
-assigned a drive letter, this is a finding.
+  desc "check", "Run \"Computer Management\".
+        Navigate to Storage >> Disk Management.
 
-This does not apply to system partitions such the Recovery and EFI System
-Partition."
-  tag fix: "Format all local volumes to use NTFS."
+        If the \"File System\" column does not indicate \"NTFS\" for each volume
+        assigned a drive letter, this is a finding.
+
+        This does not apply to system partitions such the Recovery and EFI System
+        Partition."
+
+  desc "fix", "Format all local volumes to use NTFS."
+
+get_volumes = command("wmic logicaldisk get FileSystem | findstr /r /v '^$' |Findstr /v 'FileSystem'").stdout.strip.split("\r\n")
+
+  if get_volumes.empty?
+    impact 0.0
+    describe 'There are no local volumes' do
+      skip 'This control is not applicable'
+    end
+  else
+    get_volumes.each do |volume|
+      volumes = volume.strip
+      describe.one do
+        describe 'The format local volumes' do
+          subject { volumes }
+          it { should eq 'NTFS' }
+        end
+        describe 'The format local volumes' do
+          subject { volumes }
+          it { should eq 'ReFS' }
+        end
+      end
+    end
+  end
 end
-

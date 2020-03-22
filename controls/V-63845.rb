@@ -1,21 +1,22 @@
-control "V-63845" do
-  title "The Access this computer from the network user right must only be
-assigned to the Administrators and Remote Desktop Users groups."
-  desc  "Inappropriate granting of user rights can provide system,
-administrative, and other high level capabilities.
+# frozen_string_literal: true
 
-    Accounts with the \"Access this computer from the network\" user right may
-access resources on the system, and must be limited to those that require it.
-  "
+control 'V-63845' do
+  title "The Access this computer from the network user right must only be
+        assigned to the Administrators and Remote Desktop Users groups."
+  desc  "Inappropriate granting of user rights can provide system,
+        administrative, and other high level capabilities.
+
+        Accounts with the \"Access this computer from the network\" user right may
+        access resources on the system, and must be limited to those that require it."
   impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-UR-000010"
-  tag gid: "V-63845"
-  tag rid: "SV-78335r3_rule"
-  tag stig_id: "WN10-UR-000010"
-  tag fix_id: "F-81289r1_fix"
-  tag cci: ["CCI-000213"]
-  tag nist: ["AC-3", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-UR-000010'
+  tag gid: 'V-63845'
+  tag rid: 'SV-78335r3_rule'
+  tag stig_id: 'WN10-UR-000010'
+  tag fix_id: 'F-81289r1_fix'
+  tag cci: ['CCI-000213']
+  tag nist: %w[AC-3 Rev_4]
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -26,34 +27,39 @@ access resources on the system, and must be limited to those that require it.
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the effective setting in Local Group Policy Editor.
-Run \"gpedit.msc\".
 
-Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
->> Security Settings >> Local Policies >> User Rights Assignment.
+  desc "check", "Verify the effective setting in Local Group Policy Editor.
+        Run \"gpedit.msc\".
 
-If any groups or accounts other than the following are granted the \"Access
-this computer from the network\" user right, this is a finding:
+        Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
+        >> Security Settings >> Local Policies >> User Rights Assignment.
 
-Administrators
-Remote Desktop Users
+        If any groups or accounts other than the following are granted the \"Access
+        this computer from the network\" user right, this is a finding:
 
-If a domain application account such as for a management tool requires this
-user right, this would not be a finding.
+        Administrators
+        Remote Desktop Users
 
-Vendor documentation must support the requirement for having the user right.
+        If a domain application account such as for a management tool requires this
+        user right, this would not be a finding.
 
-The requirement must be documented with the ISSO.
+        Vendor documentation must support the requirement for having the user right.
 
-The application account, managed at the domain level, must meet requirements
-for application account passwords, such as length and frequency of changes as
-defined in the Windows server STIGs."
-  tag fix: "Configure the policy value for Computer Configuration >> Windows
-Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
-\"Access this computer from the network\" to only include the following groups
-or accounts:
+        The requirement must be documented with the ISSO.
 
-Administrators
-Remote Desktop Users"
+        The application account, managed at the domain level, must meet requirements
+        for application account passwords, such as length and frequency of changes as
+        defined in the Windows server STIGs."
+
+  desc "fix", "Configure the policy value for Computer Configuration >> Windows
+        Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
+        \"Access this computer from the network\" to only include the following groups
+        or accounts:
+
+        Administrators
+        Remote Desktop Users"
+
+    describe security_policy do
+      its('SeNetworkLogonRight') { should eq ['S-1-5-32-544', 'S-1-5-32-555'] }
+    end
 end
-

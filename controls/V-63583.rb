@@ -1,20 +1,22 @@
-control "V-63583" do
+# frozen_string_literal: true
+
+control 'V-63583' do
   title "The External Root CA certificates must be installed in the Trusted
-Root Store on unclassified systems."
+        Root Store on unclassified systems."
   desc  "To ensure secure websites protected with External Certificate
-Authority (ECA) server certificates are properly validated, the system must
-trust the ECA Root CAs. The ECA root certificates will ensure the trust chain
-is established for server certificates issued from the External CAs. This
-requirement only applies to unclassified systems."
+        Authority (ECA) server certificates are properly validated, the system must
+        trust the ECA Root CAs. The ECA root certificates will ensure the trust chain
+        is established for server certificates issued from the External CAs. This
+        requirement only applies to unclassified systems."
   impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-PK-000010"
-  tag gid: "V-63583"
-  tag rid: "SV-78073r3_rule"
-  tag stig_id: "WN10-PK-000010"
-  tag fix_id: "F-76981r2_fix"
-  tag cci: ["CCI-000185"]
-  tag nist: ["IA-5 (2) (a)", "Rev_4"]
+  tag severity: 'medium'
+  tag gtitle: 'WN10-PK-000010'
+  tag gid: 'V-63583'
+  tag rid: 'SV-78073r3_rule'
+  tag stig_id: 'WN10-PK-000010'
+  tag fix_id: 'F-76981r2_fix'
+  tag cci: ['CCI-000185']
+  tag nist: ['IA-5 (2) (a)', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
@@ -25,74 +27,83 @@ requirement only applies to unclassified systems."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  tag check: "Verify the ECA Root CA certificates are installed on unclassified
-systems as Trusted Root Certification Authorities.
 
-Run \"PowerShell\" as an administrator.
+  desc "check", "Verify the ECA Root CA certificates are installed on unclassified
+      systems as Trusted Root Certification Authorities.
 
-Execute the following command:
+      Run \"PowerShell\" as an administrator.
 
-Get-ChildItem -Path Cert:Localmachine\
-oot | Where Subject -Like \"*ECA*\" | FL Subject, Thumbprint, NotAfter
+      Execute the following command:
 
-If the following certificate \"Subject\" and \"Thumbprint\" information is not
-displayed, this is finding.
+      Get-ChildItem -Path Cert:Localmachine\
+      oot | Where Subject -Like \"*ECA*\" | FL Subject, Thumbprint, NotAfter
 
-If an expired certificate (\"NotAfter\" date) is not listed in the results,
-this is not a finding.
+      If the following certificate \"Subject\" and \"Thumbprint\" information is not
+      displayed, this is finding.
 
-Subject: CN=ECA Root CA 2, OU=ECA, O=U.S. Government, C=US
-Thumbprint: C313F919A6ED4E0E8451AFA930FB419A20F181E4
-NotAfter: 3/30/2028
+      If an expired certificate (\"NotAfter\" date) is not listed in the results,
+      this is not a finding.
 
-Subject: CN=ECA Root CA 4, OU=ECA, O=U.S. Government, C=US
-Thumbprint: 73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582
-NotAfter: 12/30/2029
+      Subject: CN=ECA Root CA 2, OU=ECA, O=U.S. Government, C=US
+      Thumbprint: C313F919A6ED4E0E8451AFA930FB419A20F181E4
+      NotAfter: 3/30/2028
 
-Alternately use the Certificates MMC snap-in:
+      Subject: CN=ECA Root CA 4, OU=ECA, O=U.S. Government, C=US
+      Thumbprint: 73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582
+      NotAfter: 12/30/2029
 
-Run \"MMC\".
+      Alternately use the Certificates MMC snap-in:
 
-Select \"File\", \"Add/Remove Snap-in\".
+      Run \"MMC\".
 
-Select \"Certificates\", click \"Add\".
+      Select \"File\", \"Add/Remove Snap-in\".
 
-Select \"Computer account\", click \"Next\".
+      Select \"Certificates\", click \"Add\".
 
-Select \"Local computer: (the computer this console is running on)\", click
-\"Finish\".
+      Select \"Computer account\", click \"Next\".
 
-Click \"OK\".
+      Select \"Local computer: (the computer this console is running on)\", click
+      \"Finish\".
 
-Expand \"Certificates\" and navigate to \"Trusted Root Certification
-Authorities >> Certificates\".
+      Click \"OK\".
 
-For each of the ECA Root CA certificates noted below:
+      Expand \"Certificates\" and navigate to \"Trusted Root Certification
+      Authorities >> Certificates\".
 
-Right-click on the certificate and select \"Open\".
+      For each of the ECA Root CA certificates noted below:
 
-Select the \"Details\" Tab.
+      Right-click on the certificate and select \"Open\".
 
-Scroll to the bottom and select \"Thumbprint\".
+      Select the \"Details\" Tab.
 
-If the ECA Root CA certificates below are not listed or the value for the
-\"Thumbprint\" field is not as noted, this is a finding.
+      Scroll to the bottom and select \"Thumbprint\".
 
-If an expired certificate (\"Valid to\" date) is not listed in the results,
-this is not a finding.
+      If the ECA Root CA certificates below are not listed or the value for the
+      \"Thumbprint\" field is not as noted, this is a finding.
 
-ECA Root CA 2
-Thumbprint: C313F919A6ED4E0E8451AFA930FB419A20F181E4
-Valid to: Thursday, March 30, 2028
+      If an expired certificate (\"Valid to\" date) is not listed in the results,
+      this is not a finding.
 
-ECA Root CA 4
-Thumbprint: 73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582
-Valid to: Sunday, December 30, 2029"
-  tag fix: "Install the ECA Root CA certificates on unclassified systems.
-ECA Root CA 2
-ECA Root CA 4
+      ECA Root CA 2
+      Thumbprint: C313F919A6ED4E0E8451AFA930FB419A20F181E4
+      Valid to: Thursday, March 30, 2028
 
-The InstallRoot tool is available on IASE at
-http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+      ECA Root CA 4
+      Thumbprint: 73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582
+      Valid to: Sunday, December 30, 2029"
+
+  desc "fix", "Install the ECA Root CA certificates on unclassified systems.
+      ECA Root CA 2
+      ECA Root CA 4
+
+      The InstallRoot tool is available on IASE at
+      http://iase.disa.mil/pki-pke/Pages/tools.aspx."
+
+  dod_eca_certificates = JSON.parse(input('dod_eca_certificates').to_json)
+
+  query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*ECA*"} | Select Subject, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+  describe 'The ECA Root CA certificates cross-certificates installed' do
+    subject { query.params }
+    it { should be_in dod_eca_certificates }
+  end
 end
-
