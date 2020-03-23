@@ -63,7 +63,7 @@ control 'V-63541' do
   system_root = get_system_root[11..get_system_root.length]
   systemroot = system_root.strip
 
-  describe directory("#{systemroot}\\SYSTEM32\\WINEVT\\LOGS\\Security.evtx") do
+  describe file("#{systemroot}\\SYSTEM32\\WINEVT\\LOGS\\Security.evtx") do
     #it { should be_allowed('full-control', by_user: 'NT SERVICE\\EventLog') }
     #it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
     #it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
