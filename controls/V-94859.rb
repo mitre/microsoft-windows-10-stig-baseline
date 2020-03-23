@@ -67,8 +67,8 @@ control 'V-94859' do
 
   if sys_info.manufacturer == "VMware, Inc."
     impact 0.0
-    describe 'This is a VDI System; This System is NA for Control V-94861.' do
-     skip 'This is a VDI System; This System is NA for Control V-94861'
+    describe 'This is a VDI System; This System is NA for Control V-94859' do
+     skip 'This is a VDI System; This System is NA for Control V-94859'
     end
   else
   describe.one do
