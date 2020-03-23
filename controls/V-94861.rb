@@ -42,8 +42,15 @@ control 'V-94861' do
         Operating System Drives \"Configure minimum PIN length for startup\" to
         \"Enabled\" with \"Minimum characters:\" set to #{input('bitlocker_pin_len')} or greater."
 
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Bitlocker') do
-    it { should have_property 'MinimumPIN' }
-    its('MinimumPIN') { should be >= input('bitlocker_pin_len') }
+   if sys_info.manufacturer == "VMware, Inc."
+      impact 0.0
+      describe 'This is a VDI System; This System is NA for Control V-94861.' do
+       skip 'This is a VDI System; This System is NA for Control V-94861'
+      end
+   else
+      describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Bitlocker') do
+       it { should have_property 'MinimumPIN' }
+       its('MinimumPIN') { should be >= input('bitlocker_pin_len') }
   end
+ end
 end

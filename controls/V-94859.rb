@@ -65,6 +65,12 @@ control 'V-94859' do
 
   ref 'https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-how-to-enable-network-unlock'
 
+  if sys_info.manufacturer == "VMware, Inc."
+    impact 0.0
+    describe 'This is a VDI System; This System is NA for Control V-94861.' do
+     skip 'This is a VDI System; This System is NA for Control V-94861'
+    end
+  else
   describe.one do
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FVE') do
       it { should have_property 'UseAdvancedStartup' }
