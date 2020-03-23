@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 control 'V-63701' do
-  only_if('This Control is required for unclassified systems.') { input('is_unclassified_system') == 'true' }
   title "Users must not be allowed to ignore Windows Defender SmartScreen
         filter warnings for unverified files in Microsoft Edge."
   desc  "The Windows Defender SmartScreen filter in Microsoft Edge provides
@@ -53,8 +52,10 @@ Windows 10 includes duplicate policies for this setting. It can also be
 configured under Computer Configuration >> Administrative Templates >> Windows
 Components >> Windows Defender SmartScreen >> Microsoft Edge."
 
+ if input('is_unclassified_system') == 'true'
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter') do
     it { should have_property 'PreventOverrideAppRepUnknown' }
     its('PreventOverrideAppRepUnknown') { should cmp 1 }
   end
+ end
 end

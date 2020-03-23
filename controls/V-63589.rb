@@ -102,7 +102,7 @@ control 'V-63589' do
 
   dod_cceb_certificates = JSON.parse(input('dod_cceb_certificates').to_json)
 
-  if input('is_unclassified_system') == 'false'
+  if input('is_unclassified_system') == 'true'
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'

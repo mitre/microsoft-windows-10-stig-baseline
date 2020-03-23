@@ -80,7 +80,7 @@ control 'V-63345' do
 
         https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm"
 
-  if input('is_unclassified_system') == 'false'
+  if input('is_unclassified_system') == 'true'
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'

@@ -164,7 +164,7 @@ control 'V-77213' do
     write-output $result_childprocess_disallchilprocre
   EOH
 
-  if input('is_unclassified_system') == 'false' || nil
+  if input('is_unclassified_system') == 'true' || nil
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'

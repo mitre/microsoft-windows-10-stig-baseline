@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 control 'V-77269' do
-  only_if('This Control is required for unclassified systems.') { input('is_unclassified_system') == 'true' }
   title "Exploit Protection mitigations in Windows 10 must be configured for
          wordpad.exe."
   desc  "Exploit protection in Windows 10 provides a means of enabling
@@ -132,8 +131,18 @@ control 'V-77269' do
     $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
     write-output $result_payload_enropsimexec
   EOH
-
-  if registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= '1709'
+  
+  if input('is_unclassified_system') == 'true' || nil
+    impact 0.0
+    describe 'This Control is Not Applicable to classified systems.' do
+      skip 'This Control is Not Applicable to classified systems.'
+    end
+  elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= '1709'
+    impact 0.0
+    describe 'This STIG does not apply to Prior Versions before 1709.' do
+      skip 'This STIG does not apply to Prior Versions before 1709.'
+    end
+  else
     describe.one do
       describe powershell(dep_script) do
         its('strip') { should_not eq '2' }
@@ -156,11 +165,6 @@ control 'V-77269' do
       describe powershell(payload_enropsimexec_script) do
         its('strip') { should_not eq '2' }
       end
-    end
-  else
-    impact 0.0
-    describe 'This STIG does not apply to Prior Versions before 1709.' do
-      skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   end
 end

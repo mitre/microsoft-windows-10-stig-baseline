@@ -52,7 +52,7 @@ control 'V-63699' do
       configured under Computer Configuration >> Administrative Templates >> Windows
       Components >> Windows Defender SmartScreen >> Microsoft Edge."
 
-  if input('is_unclassified_system') == 'false'
+  if input('is_unclassified_system') == 'true'
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'

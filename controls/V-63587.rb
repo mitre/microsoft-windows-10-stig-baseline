@@ -115,7 +115,7 @@ control 'V-63587' do
 
   dod_certificates = JSON.parse(input('dod_certificates').to_json)
 
-  if input('is_unclassified_system') == 'false'
+  if input('is_unclassified_system') == 'true'
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'
