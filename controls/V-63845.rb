@@ -60,6 +60,6 @@ control 'V-63845' do
         Remote Desktop Users"
 
     describe security_policy do
-      its('SeNetworkLogonRight') { should eq 'S-1-5-32-544', 'S-1-5-32-555' }
+      its('SeNetworkLogonRight') { should eq ['S-1-5-32-544', 'S-1-5-32-555'] }
     end
 end
