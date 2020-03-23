@@ -67,14 +67,5 @@ control 'V-63537' do
     it { should be_allowed('full-control', by_user: 'NT SERVICE\\EventLog') }
     it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
     it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
-    it { should be_readable.by_user('NT SERVICE\\EventLog') }
-    it { should be_writable.by_user('NT SERVICE\\EventLog') }
-    it { should be_executable.by_user('NT SERVICE\\EventLog') }
-    it { should be_readable.by_user('NT AUTHORITY\\SYSTEM') }
-    it { should be_writable.by_user('NT AUTHORITY\\SYSTEM') }
-    it { should be_executable.by_user('NT AUTHORITY\\SYSTEM') }
-    it { should be_readable.by_user('BUILTIN\\Administrators') }
-    it { should be_writable.by_user('BUILTIN\\Administrators') }
-    it { should be_executable.by_user('BUILTIN\\Administrators') }
   end
 end
