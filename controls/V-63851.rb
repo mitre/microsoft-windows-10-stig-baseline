@@ -46,6 +46,6 @@ control 'V-63851' do
       Users"
 
     describe security_policy do
-      its('SeInteractiveLogonRight') { should eq ['S-1-5-32-544', 'S-1-5-32-545'] }
+      its('SeInteractiveLogonRight') { should be_in ['S-1-5-32-544', 'S-1-5-32-545'] }
     end
 end
