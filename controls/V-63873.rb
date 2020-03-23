@@ -69,10 +69,11 @@ control 'V-63873' do
   # describe NA
   # else
   domain_sid = input('domain_sid')
+
     describe security_policy do
-      its('SeDenyBatchLogonRight') { should include "S-1-21-#{domain_sid}-512" }
+      its('SeDenyBatchLogonRight') { should be_in "S-1-21-#{domain_sid}-512" }
     end
     describe security_policy do
-      its('SeDenyBatchLogonRight') { should include "S-1-21-#{domain_sid}-519" }
+      its('SeDenyBatchLogonRight') { should be_in "S-1-21-#{domain_sid}-519" }
     end
 end
