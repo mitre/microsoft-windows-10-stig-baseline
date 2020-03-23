@@ -146,9 +146,9 @@ control 'V-63373' do
   end
   describe file('c:\\program files') do
     it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('Modify', by_user: 'NT AUTHORITY\\SYSTEM') }
+    it { should be_allowed('modify', by_user: 'NT AUTHORITY\\SYSTEM') }
     it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
-    it { should be_allowed('Modify', by_user: 'BUILTIN\\Administrators') }
+    it { should be_allowed('modify', by_user: 'BUILTIN\\Administrators') }
     it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
     it { should be_allowed('execute', by_user: 'BUILTIN\\Users') }
   end
