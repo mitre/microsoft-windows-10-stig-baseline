@@ -50,6 +50,6 @@ control 'V-63865' do
       Administrators"
 
     describe security_policy do
-      its('SeCreateSymbolicLinkPrivilege') { should be_in ['S-1-5-32-544'] }
+      its('SeCreateSymbolicLinkPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
