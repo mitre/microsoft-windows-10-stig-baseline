@@ -88,7 +88,7 @@ control 'V-63871' do
         Note: \"Local account\" is a built-in security group used to assign user rights
         and permissions to all local accounts."
 
-       script = <<-EOH
+        script = <<-EOH
         $get_domain_sid = wmic group get Name,SID | FINDSTR /C:"Domain Users"
         $domain_sid = get_domain_sid[50..79]
         write-output $domain_sid
