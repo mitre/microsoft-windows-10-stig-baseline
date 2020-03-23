@@ -61,7 +61,7 @@ control 'V-63329' do
     end
   else
     describe.one do
-      describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\\Windows\Installer') do
+      describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer') do
         it { should_not have_property 'SafeForScripting' }
       end
       describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer') do
