@@ -53,8 +53,8 @@ control 'V-63841' do
       it { should have_property 'SaveZoneInformation' }
       its('SaveZoneInformation') { should_not be 1 }
     end
-  end
-  describe registry_key('HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments') do
-    it { should_not have_property 'SaveZoneInformation' }
+    describe registry_key('HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments') do
+      it { should_not have_property 'SaveZoneInformation' }
+    end
   end
 end
