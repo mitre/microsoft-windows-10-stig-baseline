@@ -55,20 +55,20 @@ control 'V-74725' do
 
       The system must be restarted for the changes to take effect. "
 
-  if (command('Get-WindowsOptionalFeature -Online | Where FeatureName -eq SMB1Protocol').stdout != "\r\n\r\nFeature Name : SMB1Protocol\r\nState        : Enabled\r\n\r\n\r\n\r\n")
-    impact 0.0
-    describe 'V-70639 is configured, this control is NA' do
-      skip 'V-70639 is configured, this control is NA'
-    end
-   elsif windows_feature('FS-SMB1').installed?
-     describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mrxsmb10') do
-      it { should have_property 'Start' }
-      its('Start') { should cmp 4 }
-    end
-   else
-    impact 0.0
-    describe 'SMBv1 is not installed on this system, therefore this control is not applicable' do
-      skip 'SMBv1 is not installed on this system, therefore this control is not applicable'
-    end
-   end
+  #if (command('Get-WindowsOptionalFeature -Online | Where FeatureName -eq SMB1Protocol').stdout != "\r\n\r\nFeature Name : SMB1Protocol\r\nState        : Enabled\r\n\r\n\r\n\r\n")
+   # impact 0.0
+   # describe 'V-70639 is configured, this control is NA' do
+    #  skip 'V-70639 is configured, this control is NA'
+   # end
+  # elsif windows_feature('FS-SMB1').installed?
+   #  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mrxsmb10') do
+    #  it { should have_property 'Start' }
+    #  its('Start') { should cmp 4 }
+   # end
+  # else
+   # impact 0.0
+   # describe 'SMBv1 is not installed on this system, therefore this control is not applicable' do
+   #  skip 'SMBv1 is not installed on this system, therefore this control is not applicable'
+   # end
+  # end
 end
