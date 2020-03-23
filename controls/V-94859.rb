@@ -85,4 +85,5 @@ control 'V-94859' do
       its('UseTPMKeyPIN') { should cmp 1 }
     end
   end
+ end
 end
