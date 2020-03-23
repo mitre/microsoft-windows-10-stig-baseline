@@ -48,18 +48,7 @@ control 'V-63891' do
       Administrators
       Window Manager\\Window Manager Group"
 
-  describe.one do
     describe security_policy do
-      its('SeIncreaseBasePriorityPrivilege') { should eq ['S-1-5-32-544', 'S-1-5-90-0'] }
+      its('SeIncreaseBasePriorityPrivilege') { should be_in ['S-1-5-32-544', 'S-1-5-90-0'] }
     end
-    describe security_policy do
-      its('SeIncreaseBasePriorityPrivilege') { should eq ['S-1-5-32-544'] }
-    end
-    describe security_policy do
-      its('SeIncreaseBasePriorityPrivilege') { should eq ['S-1-5-90-0'] }
-    end
-    describe security_policy do
-      its('SeIncreaseBasePriorityPrivilege') { should eq [] }
-    end
-  end
 end

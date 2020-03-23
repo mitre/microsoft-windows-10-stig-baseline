@@ -47,12 +47,7 @@ control 'V-63917' do
 
       Administrators"
 
-  describe.one do
     describe security_policy do
       its('SeLoadDriverPrivilege') { should eq ['S-1-5-32-544'] }
     end
-    describe security_policy do
-      its('SeLoadDriverPrivilege') { should eq [] }
-    end
-  end
 end

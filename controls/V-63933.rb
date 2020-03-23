@@ -45,12 +45,7 @@ control 'V-63933' do
 
       Administrators"
 
-  describe.one do
     describe security_policy do
       its('SeManageVolumePrivilege') { should eq ['S-1-5-32-544'] }
     end
-    describe security_policy do
-      its('SeManageVolumePrivilege') { should eq [] }
-    end
-  end
 end
