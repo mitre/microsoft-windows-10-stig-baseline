@@ -184,3 +184,25 @@ inputs:
           "NotAfter": "Friday, June 14, 2041",
         },
       ]
+
+  - name: c_windows_permissions
+    desc: "Permission of the C:\Windows Folder"
+    type: Array
+    value:
+      [
+          NT SERVICE\\TrustedInstaller:(F)
+          NT SERVICE\\TrustedInstaller:(CI)(IO)(F)
+          NT AUTHORITY\\SYSTEM:(M)
+          NT AUTHORITY\\SYSTEM:(OI)(CI)(IO)(F)
+          BUILTIN\\Administrators:(M)
+          BUILTIN\\Administrators:(OI)(CI)(IO)(F)
+          BUILTIN\\Users:(RX)
+          BUILTIN\\Users:(OI)(CI)(IO)(GR,GE)
+          CREATOR OWNER:(OI)(CI)(IO)(F)
+          APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(RX)
+          APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+          APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(RX)
+          APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION
+          PACKAGES:(OI)(CI)(IO)(GR,GE)
+          Successfully processed 1 files; Failed processing 0 files"
+      ]
