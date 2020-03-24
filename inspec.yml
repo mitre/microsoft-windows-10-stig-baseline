@@ -63,22 +63,22 @@ inputs:
     value: "true"
 
   - name: backup_operators
-    type: array
+    type: Array
     description: "List of authorized users in the local Backup Operators Group"
     value: []
 
   - name: administrators
-    type: array
+    type: Array
     description: "List of authorized users in the local Administrators group"
     value: []
 
   - name: hyper_v_admin
-    type: array
+    type: Array
     description: "List of authorized users in the Hyper-V Group"
     value: []
 
   - name: LegalNoticeText
-    type: string
+    type: String
     value:
       "You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
       By using this IS (which includes any device attached to this IS), you consent
@@ -101,7 +101,7 @@ inputs:
       Agreement for details."
 
   - name: LegalNoticeCaption
-    type: string
+    type: String
     value: "DoD Notice and Consent Banner, US Department of Defense Warning Statement, or a site-defined equivalent."
 
   - name: dod_cceb_certificates
