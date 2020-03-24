@@ -162,7 +162,7 @@ control 'V-63373' do
   end
   c_windows_permission = JSON.parse(input('c_windows_permissions').to_json)
 
-  query = json({ command: 'icacls c:\\windows'})
+  query = command('icacls c:\\windows | ConvertTo-Json').stdout.strip
   describe 'The ACL on C:\Windows are set to the right permissions' do
    subject { query.params }
    it { should be_in c_windows_permission }
