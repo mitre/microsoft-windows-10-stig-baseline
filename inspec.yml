@@ -186,7 +186,7 @@ inputs:
       ]
 
   - name: c_windows_permissions
-    desc: "Permission of the C:\Windows Folder"
+    desc: "Permission of the Windows Folder"
     type: Array
     value:
       [
