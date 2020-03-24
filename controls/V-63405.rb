@@ -45,6 +45,8 @@ A value of \"0\" is also acceptable, requiring an administrator to unlock the
 account."
 
 x = input('time')
+
+puts input_object('time').diagnostic_string
   describe.one do
     describe security_policy do
       its('LockoutDuration') { should cmp >= x }
