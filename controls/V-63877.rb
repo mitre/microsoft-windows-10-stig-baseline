@@ -85,7 +85,7 @@ control 'V-63877' do
     #domain_sid = get_domain_sid[9..40]
     domain_sid = input('domain_sid')
     describe security_policy do
-      its('SeDenyInteractiveLogonRight') { should be_in ["S-1-21-#{domain_sid}-512", "S-1-21-#{domain_sid}-519"] }
+      its('SeDenyInteractiveLogonRight') { should be_in ["S-1-21-#{domain_sid}-512", "S-1-21-#{domain_sid}-519", 'S-1-5-32-546'] }
     end
     #describe security_policy do
      # its('SeDenyInteractiveLogonRight') { should be_in "S-1-21-#{domain_sid}-519" }
