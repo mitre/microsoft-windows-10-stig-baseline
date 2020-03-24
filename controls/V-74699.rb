@@ -46,7 +46,7 @@ control 'V-74699' do
 
   releaseID = registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId.to_i
 
-  if releaseID.match?(1607 | 1507) || releaseID < 1507
+  if ( releaseID == 1607 || releaseID <= 1507 )
     impact 0.0
     describe 'This STIG does not apply to Prior Versions before 1507 and 1607.' do
       skip 'This STIG does not apply to Prior Versions before 1507 and 1607.'
