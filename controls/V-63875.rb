@@ -71,7 +71,7 @@ control 'V-63875' do
   # else
   domain_sid = input('domain_sid')
     describe security_policy do
-      its('SeDenyServiceLogonRight') { should be_in"S-1-21-#{domain_sid}-512" }
+      its('SeDenyServiceLogonRight') { should cmp "S-1-21-#{domain_sid}-512" }
     end
     describe security_policy do
       its('SeDenyServiceLogonRight') { should be_in "S-1-21-#{domain_sid}-519" }
