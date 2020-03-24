@@ -44,9 +44,10 @@ Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
 A value of \"0\" is also acceptable, requiring an administrator to unlock the
 account."
 
+x = input('time')
   describe.one do
     describe security_policy do
-      its('LockoutDuration') { should cmp >= input('time') }
+      its('LockoutDuration') { should cmp >= x }
     end
     describe security_policy do
       its('LockoutDuration') { should cmp 0 }
