@@ -161,10 +161,23 @@ control 'V-63373' do
     it { should be_allowed('execute', by_user: 'BUILTIN\\Users') }
   end
   c_windows_permission = JSON.parse(input('c_windows_permissions').to_json)
+  c_permission = JSON.parse(input('c_permissions').to_json)
+  c_program_files_permissions = JSON.parse(input('c_program_files_permissions').to_json)
 
-  query = json({ command: ('icacls c:\\windows | ConvertTo-Json') })
+  query_c_windows = json({ command: ('icacls "c:\\windows" | ConvertTo-Json') })
+  query_c = json({ command: ('icacls "c:\\" | ConvertTo-Json') })
+  query_c_program_files = json({ command: ('icacls "c:\\Program Files" | ConvertTo-Json') })
+
   describe 'The ACL on C:\Windows are set to the right permissions' do
-   subject { query.params }
+   subject { query_c_windows.params }
    it { should be_in c_windows_permission }
-   end 
+  end 
+  describe 'The ACL on C:\ are set to the right permissions' do
+    subject { query_c.params }
+    it { should be_in c_permission }
+  end 
+  describe 'The ACL on C:\Program Files are set to the right permissions' do
+      subject { query_c_program_files.params }
+      it { should be_in c_program_files_permissions }
+  end 
 end
