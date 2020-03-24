@@ -164,7 +164,7 @@ control 'V-63373' do
 
   query = json({ command: 'icacls c:\\windows'})
   describe 'The ACL on C:\Windows are set to the right permissions' do
-   subject {query.params }
+   subject { query.params }
    it { should be_in c_windows_permission }
    end 
 end
