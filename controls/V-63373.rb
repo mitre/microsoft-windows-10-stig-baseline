@@ -138,28 +138,28 @@ control 'V-63373' do
         Security Option: \"Network access: Let everyone permissions apply to anonymous
         users\" to \"Disabled\" (WN10-SO-000160)."
 
-  describe file('c:\\') do
-    it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
-    it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
-    it { should be_allowed('execute', by_user: 'BUILTIN\\Users') }
-  end
-  describe file('c:\\program files') do
-    it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('modify', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('268435456', by_user: 'BUILTIN\\Administrators') }
-    it { should be_allowed('modify', by_user: 'BUILTIN\\Administrators') }
-    it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
-    it { should be_allowed('execute', by_user: 'BUILTIN\\Users') }
-  end
-  describe file('c:\\windows') do
-    it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('modify', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
-    it { should be_allowed('modify', by_user: 'BUILTIN\\Administrators') }
-    it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
-    it { should be_allowed('execute', by_user: 'BUILTIN\\Users') }
-  end
+  #describe file('c:\\') do
+  #  it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
+  #  it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
+   # it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
+  #  it { should be_allowed('execute', by_user: 'BUILTIN\\Users') }
+  #end
+  #describe file('c:\\program files') do
+   # it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
+   # it { should be_allowed('modify', by_user: 'NT AUTHORITY\\SYSTEM') }
+   # it { should be_allowed('268435456', by_user: 'BUILTIN\\Administrators') }
+   # it { should be_allowed('modify', by_user: 'BUILTIN\\Administrators') }
+   # it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
+   # it { should be_allowed('execute', by_user: 'BUILTIN\\Users') }
+ # end
+ # describe file('c:\\windows') do
+   # it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
+   # it { should be_allowed('modify', by_user: 'NT AUTHORITY\\SYSTEM') }
+   # it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
+   # it { should be_allowed('modify', by_user: 'BUILTIN\\Administrators') }
+   # it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
+   # it { should be_allowed('execute', by_user: 'BUILTIN\\Users') }
+  #end
   c_windows_permission = JSON.parse(input('c_windows_permissions').to_json)
   c_permission = JSON.parse(input('c_permissions').to_json)
   c_program_files_permissions = JSON.parse(input('c_program_files_permissions').to_json)
