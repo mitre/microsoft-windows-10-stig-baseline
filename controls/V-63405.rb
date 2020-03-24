@@ -49,7 +49,7 @@ account."
 puts input_object('time').diagnostic_string
   #describe.one do
     describe security_policy do
-      its('LockoutDuration') { should cmp >= input('time') }
+      its('LockoutDuration') { should cmp >= input('pass_lock_time') }
     end
     describe security_policy do
       its('LockoutDuration') { should cmp 0 }
