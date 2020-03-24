@@ -190,7 +190,6 @@ inputs:
     type: Array
     value:
       [
-        {
         "c:\\windows NT SERVICE\\TrustedInstaller:(F)",
  "           NT SERVICE\\TrustedInstaller:(CI)(IO)(F)",
  "           NT AUTHORITY\\SYSTEM:(M)",
@@ -206,5 +205,5 @@ inputs:
  "           APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
  "",
  "Successfully processed 1 files; Failed processing 0 files"
-        }
+        
       ]
