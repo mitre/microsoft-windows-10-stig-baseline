@@ -30,6 +30,7 @@ inputs:
 
   - name: min_pass_age
     desc: "Sets the minimum age for a password [1]"
+    type: Numeric
     value: 1
 
   - name: max_pass_age
@@ -52,7 +53,7 @@ inputs:
     type: Numeric
     value: 3
 
-  - name: max_inactive_days'
+  - name: max_inactive_days
     desc: "Max number of days an account is allowed to be inactive [35]"
     type: Numeric
     value: 35

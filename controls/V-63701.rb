@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 control 'V-63701' do
   title "Users must not be allowed to ignore Windows Defender SmartScreen
@@ -53,6 +52,11 @@ configured under Computer Configuration >> Administrative Templates >> Windows
 Components >> Windows Defender SmartScreen >> Microsoft Edge."
 
  if input('is_unclassified_system') == 'true'
+  impact 0.0
+  describe 'This Control is Not Applicable to classified systems.' do
+    skip 'This Control is Not Applicable to classified systems.'
+  end
+else
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter') do
     it { should have_property 'PreventOverrideAppRepUnknown' }
     its('PreventOverrideAppRepUnknown') { should cmp 1 }

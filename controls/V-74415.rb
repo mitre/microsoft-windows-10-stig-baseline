@@ -44,7 +44,9 @@ prevent the data from automatically being deleted when the browser closes."
       Administrative Templates >> Windows Components >> Microsoft Edge >> \"Allow
       clearing browsing data on exit\" to \"Disabled\"."
 
-  if releaseID.match?(1607 | 1507) || releaseID < 1507
+  releaseID = registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId.to_i
+
+  if ( releaseID == 1607 || releaseID <= 1507 )
     impact 0.0
     describe 'This STIG does not apply to Prior Versions before 1507 and 1607.' do
       skip 'This STIG does not apply to Prior Versions before 1507 and 1607.'

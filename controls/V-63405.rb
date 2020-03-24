@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 control 'V-63405' do
   title "Windows 10 account lockout duration must be configured to #{input('pass_lock_time')} minutes
@@ -44,12 +44,15 @@ Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
 A value of \"0\" is also acceptable, requiring an administrator to unlock the
 account."
 
-  describe.one do
+#x = input('time')
+
+puts input_object('time').diagnostic_string
+  #describe.one do
     describe security_policy do
-      its('LockoutDuration') { should be >= input('pass_lock_time') }
+      its('LockoutDuration') { should cmp >= input('time') }
     end
     describe security_policy do
       its('LockoutDuration') { should cmp 0 }
     end
-  end
+  #end
 end
