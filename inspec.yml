@@ -191,7 +191,7 @@ inputs:
     value:
       [
         {
-          "NT SERVICE\\TrustedInstaller:(F)
+         "NT SERVICE\\TrustedInstaller:(F)
           NT SERVICE\\TrustedInstaller:(CI)(IO)(F)
           NT AUTHORITY\\SYSTEM:(M)
           NT AUTHORITY\\SYSTEM:(OI)(CI)(IO)(F)
