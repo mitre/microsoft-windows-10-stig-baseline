@@ -46,7 +46,7 @@ account."
 
   describe.one do
     describe security_policy do
-      its('LockoutDuration') { should be >= input('time') }
+      its('LockoutDuration') { should cmp >= #{input('time')} }
     end
     describe security_policy do
       its('LockoutDuration') { should cmp 0 }
