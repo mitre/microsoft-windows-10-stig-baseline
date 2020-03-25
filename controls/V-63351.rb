@@ -116,7 +116,7 @@ control 'V-63351' do
 
         check_product = powershell(anti_virus_product_name).stdout
         
-        puts "#{check_product}"
+        puts "Output #{check_product}"
           describe powershell(anti_virus_product_name) do
            its('stdout') { should include input('anti_virus_product') }
           end
