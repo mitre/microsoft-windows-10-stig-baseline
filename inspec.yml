@@ -71,7 +71,7 @@ inputs:
   - name: is_unclassified_system
     description: "Set flag to true if the target system is unclassified"
     type: String
-    value: "true"
+    value: "false"
 
   - name: backup_operators
     type: Array
