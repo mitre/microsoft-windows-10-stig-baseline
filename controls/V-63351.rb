@@ -130,8 +130,8 @@ control 'V-63351' do
           end
         else
           impact 0.0
-           describe 'test' do
-            skip 'test'
+           describe 'Anti-Virus Software is either not installed or on the Approved List' do
+            skip 'Anti-Virus Software is either not installed or on the Approved List'
           end
       end
 
