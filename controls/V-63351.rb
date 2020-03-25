@@ -60,7 +60,7 @@ control 'V-63351' do
         Write-Output $AntiVirusProduct.displayName
         EOH
 
-        puts "Hello #{anti_virus_product_name}"
+        puts "#{anti_virus_product_name}".stdout
 
         describe powershell(anti_virus_product_name) do
           its('stdout') { should be_in input('anti_virus_product') }
