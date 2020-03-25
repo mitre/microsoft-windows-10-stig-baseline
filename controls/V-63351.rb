@@ -125,7 +125,6 @@ control 'V-63351' do
           describe powershell(anti_virus_status) do
             its('strip') { should eq "Enabled" }
           end
-      end
 
   #describe.one do
     #describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\DesktopProtection\szProductVer') do
