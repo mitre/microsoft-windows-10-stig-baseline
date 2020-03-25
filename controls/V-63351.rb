@@ -87,20 +87,43 @@ control 'V-63351' do
         Write-Output $defstatus
         EOH
 
+        anti_virus_status = <<-EOH
+        #script came from: https://www.404techsupport.com/2015/04/27/powershell-script-detect-antivirus-product-and-status/
+
+        $computername=$env:computername
+        $AntiVirusProduct = Get-WmiObject -Namespace root\\SecurityCenter2 -Class AntiVirusProduct  -ComputerName $computername
+
+        #Switch to determine the status of antivirus definitions and real-time protection.
+        #Write-Output $AntiVirusProduct.productState
+        switch ($AntiVirusProduct.productState) {
+          "262144" {$defstatus = "Up to date" ;$rtstatus = "Disabled"}
+          "262160" {$defstatus = "Out of date" ;$rtstatus = "Disabled"}
+          "266240" {$defstatus = "Up to date" ;$rtstatus = "Enabled"}
+          "266256" {$defstatus = "Out of date" ;$rtstatus = "Enabled"}
+          "393216" {$defstatus = "Up to date" ;$rtstatus = "Disabled"}
+          "393232" {$defstatus = "Out of date" ;$rtstatus = "Disabled"}
+          "393488" {$defstatus = "Out of date" ;$rtstatus = "Disabled"}
+          "397312" {$defstatus = "Up to date" ;$rtstatus = "Enabled"}
+          "397328" {$defstatus = "Out of date" ;$rtstatus = "Enabled"}
+          "397584" {$defstatus = "Out of date" ;$rtstatus = "Enabled"}
+          "397568" {$defstatus = "Up to date"; $rtstatus = "Enabled"}
+          "393472" {$defstatus = "Up to date" ;$rtstatus = "Disabled"}
+        default {$defstatus = "Unknown" ;$rtstatus = "Unknown"}
+        }
+
+        Write-Output $rtstatus
+        EOH
+
         check_product = powershell(anti_virus_product_name).stdout
         
-
-        if check_product != 'Mcafee'
-          impact 0.0
-          describe 'Anti-Virus is not on Approved list' do
-           skip 'Anti-Virus is not on Approved list'
-          end
-        else
           describe powershell(anti_virus_product_name) do
            its('stdout') { should include input('anti_virus_product') }
           end
           describe powershell(anti_virus_def_status) do
           its('strip') { should eq "Up to date" }
+          end
+          describe powershell(anti_virus_status) do
+            its('strip') { should eq "Enabled" }
           end
       end
 
