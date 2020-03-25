@@ -137,7 +137,7 @@ control 'V-77269' do
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'
     end
-  elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= '1709'
+  elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId <= '1709'
     impact 0.0
     describe 'This STIG does not apply to Prior Versions before 1709.' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
