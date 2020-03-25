@@ -79,6 +79,8 @@ control 'V-63345' do
         \"Application Whitelisting using Microsoft AppLocker\" at the following link:
 
         https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm"
+        
+  ref "https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm"
 
   if input('is_unclassified_system') == 'true'
     impact 0.0
