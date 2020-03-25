@@ -117,6 +117,8 @@ control 'V-63351' do
         check_product = powershell(anti_virus_product_name).stdout
         
         puts "Output #{check_product}"
+
+        if check_product == 'Windows Defender'
           describe powershell(anti_virus_product_name) do
            its('stdout') { should include input('anti_virus_product') }
           end
@@ -126,6 +128,12 @@ control 'V-63351' do
           describe powershell(anti_virus_status) do
             its('strip') { should eq "Enabled" }
           end
+        else
+          impact 0.0
+           describe 'test'
+            skip 'test'
+        end
+      end
 
   #describe.one do
     #describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\DesktopProtection\szProductVer') do
