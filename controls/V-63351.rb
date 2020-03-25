@@ -62,7 +62,7 @@ control 'V-63351' do
 
 
         describe powershell(anti_virus_product_name) do
-          its('stdout') { should cmp input('anti_virus_product') }
+          its('stdout') { should include input('anti_virus_product') }
         end
 
   #describe.one do
