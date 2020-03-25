@@ -130,9 +130,9 @@ control 'V-63351' do
           end
         else
           impact 0.0
-           describe 'test'
+           describe 'test' do
             skip 'test'
-        end
+          end
       end
 
   #describe.one do
