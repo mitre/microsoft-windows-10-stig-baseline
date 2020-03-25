@@ -91,7 +91,7 @@ control 'V-63351' do
           its('stdout') { should include input('anti_virus_product') }
         end
         describe powershell(anti_virus_def_status) do
-          its('stdout') { should eq "Up to date" }
+          its('strip') { should eq "Up to date" }
         end
 
   #describe.one do
