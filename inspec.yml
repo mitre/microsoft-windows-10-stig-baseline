@@ -8,6 +8,15 @@ summary: "The Windows 10 Security Technical Implementation Guide (STIG) is publi
 version: 1.19
 
 inputs:
+
+  - name: anti_virus_product
+    desc: "This is a list of Approved Anti-Virus Software"
+    type: Array
+    value:
+      [
+        Windows Defender
+      ]
+      
   - name: domain_sid
     desc: "This is the domain sid"
     type: String

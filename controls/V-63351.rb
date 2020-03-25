@@ -33,12 +33,41 @@ control 'V-63351' do
 
   desc "fix", 'Install an anti-virus solution on the system.'
 
-  describe.one do
-    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\DesktopProtection\szProductVer') do
-      it { should exist }
-    end
-    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\Endpoint\AV\ProductVersion') do
-      it { should exist }
-    end
-  end
+  anti_virus_product_name = <<-EOH
+        $computername=$env:computername
+        $AntiVirusProduct = Get-WmiObject -Namespace rootSecurityCenter2 -Class AntiVirusProduct  -ComputerName $computername
+
+        #Switch to determine the status of antivirus definitions and real-time protection.
+        #Write-Output $AntiVirusProduct.productState
+        switch ($AntiVirusProduct.productState) {
+          "262144" {$defstatus = "Up to date" ;$rtstatus = "Disabled"}
+          "262160" {$defstatus = "Out of date" ;$rtstatus = "Disabled"}
+          "266240" {$defstatus = "Up to date" ;$rtstatus = "Enabled"}
+          "266256" {$defstatus = "Out of date" ;$rtstatus = "Enabled"}
+          "393216" {$defstatus = "Up to date" ;$rtstatus = "Disabled"}
+          "393232" {$defstatus = "Out of date" ;$rtstatus = "Disabled"}
+          "393488" {$defstatus = "Out of date" ;$rtstatus = "Disabled"}
+          "397312" {$defstatus = "Up to date" ;$rtstatus = "Enabled"}
+          "397328" {$defstatus = "Out of date" ;$rtstatus = "Enabled"}
+          "397584" {$defstatus = "Out of date" ;$rtstatus = "Enabled"}
+          "397568" {$defstatus = "Up to date"; $rtstatus = "Enabled"}
+          "393472" {$defstatus = "Up to date" ;$rtstatus = "Disabled"}
+        default {$defstatus = "Unknown" ;$rtstatus = "Unknown"}
+        }
+
+        Write-Output $AntiVirusProduct.displayName
+        EOH
+
+        describe powershell(anti_virus_product_name) do
+          its('stdout') { should be_in input('anti_virus_product') }
+        end
+
+  #describe.one do
+    #describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\DesktopProtection\szProductVer') do
+      #it { should exist }
+    #end
+    #describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\Endpoint\AV\ProductVersion') do
+    #  it { should exist }
+    #end
+  #end
 end
