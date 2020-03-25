@@ -58,8 +58,9 @@ control 'V-63351' do
         Write-Output $AntiVirusProduct.displayName
         EOH
 
-        puts input_object('time').diagnostic_string
-        describe powershell(anti_virus_product) do
+        puts input_object('anti_virus_product').diagnostic_string
+        
+        describe powershell(anti_virus_product_name) do
           its('stdout') { should be_in input('anti_virus_product') }
         end
 
