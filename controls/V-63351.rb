@@ -35,7 +35,7 @@ control 'V-63351' do
 
   anti_virus_product_name = <<-EOH
         #script came from: https://www.404techsupport.com/2015/04/27/powershell-script-detect-antivirus-product-and-status/
-        
+
         $computername=$env:computername
         $AntiVirusProduct = Get-WmiObject -Namespace rootSecurityCenter2 -Class AntiVirusProduct  -ComputerName $computername
 
@@ -60,7 +60,7 @@ control 'V-63351' do
         Write-Output $AntiVirusProduct.displayName
         EOH
 
-        puts input_object('anti_virus_product').diagnostic_string
+        puts "Hello #{anti_virus_product_name}"
 
         describe powershell(anti_virus_product_name) do
           its('stdout') { should be_in input('anti_virus_product') }
