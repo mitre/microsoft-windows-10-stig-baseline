@@ -114,11 +114,11 @@ control 'V-63351' do
         Write-Output $rtstatus
         EOH
 
-        check_product = powershell(anti_virus_product_name).stdout
+        check_product = powershell(anti_virus_product_name).stdout.strip
         
         puts "Output #{check_product}"
 
-        if check_product == ("Windows Defender")
+        if check_product == "Windows Defender"
           describe powershell(anti_virus_product_name) do
            its('stdout') { should include input('anti_virus_product') }
           end
