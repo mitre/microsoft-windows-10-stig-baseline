@@ -15,8 +15,11 @@ inputs:
     value:
       [
         Windows Defender
+        McAfee Host Intrusion Prevention 
+        McAfee Endpoint Security 
+        McAfee Agent
       ]
-      
+
   - name: domain_sid
     desc: "This is the domain sid"
     type: String
