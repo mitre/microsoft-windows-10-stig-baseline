@@ -121,12 +121,12 @@ control 'V-63351' do
             it { should be_in input('av_approved_software') }
           end
           describe "The anti-virus software is enabled on the system" do
-            subject { powershell(anti_virus_status) }
-            its('strip') { should eq "Enabled" }
+            subject { powershell(anti_virus_status).strip }
+            it { should cmp "Enabled" }
           end
           describe "The anti-virus signature definitions are up to date" do
-            subject { powershell(anti_virus_def_status) }
-            its('strip') { should eq "Up to date" }
+            subject { powershell(anti_virus_def_status).strip }
+            it { should cmp "Up to date" }
           end
 
   #describe.one do
