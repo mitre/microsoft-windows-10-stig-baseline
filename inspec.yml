@@ -9,16 +9,14 @@ version: 1.19
 
 inputs:
 
-  - name: anti_virus_product
+  - name: av_approved_software
     desc: "This is a list of Approved Anti-Virus Software"
     type: Array
     value:
-      [
-        Windows Defender
-        McAfee Host Intrusion Prevention 
-        McAfee Endpoint Security 
-        McAfee Agent
-      ]
+      - Windows Defender
+      - McAfee Host Intrusion Prevention 
+      - McAfee Endpoint Security 
+      - McAfee Agent
 
   - name: domain_sid
     desc: "This is the domain sid"

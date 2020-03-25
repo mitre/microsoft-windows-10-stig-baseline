@@ -115,25 +115,19 @@ control 'V-63351' do
         EOH
 
         check_product = powershell(anti_virus_product_name).stdout.strip
-        
-        puts "Output #{check_product}"
-
-        if check_product == input('anti_virus_product')
-          describe powershell(anti_virus_product_name) do
-           its('stdout') { should include input('anti_virus_product') }
+    
+          describe "The installed anti-virus: #{check_product} is on the Approved Sofware List" do
+            subject { check_product }
+            it { should be_in input('av_approved_software') }
           end
-          describe powershell(anti_virus_def_status) do
-          its('strip') { should eq "Up to date" }
-          end
-          describe powershell(anti_virus_status) do
+          describe "The anti-virus software is enabled on the system" do
+            subject { powershell(anti_virus_status) }
             its('strip') { should eq "Enabled" }
           end
-        else
-          impact 0.0
-           describe 'Anti-Virus Software is either not installed or on the Approved List' do
-            skip 'Anti-Virus Software is either not installed or on the Approved List'
+          describe "The anti-virus signature definitions are up to date" do
+            subject { powershell(anti_virus_def_status) }
+            its('strip') { should eq "Up to date" }
           end
-      end
 
   #describe.one do
     #describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\DesktopProtection\szProductVer') do
