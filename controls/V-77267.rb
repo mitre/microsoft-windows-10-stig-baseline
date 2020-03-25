@@ -26,7 +26,7 @@ subject to various exploits."
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "This is NA prior to v1709 of Windows 10.
+  desc 'check', "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
 
@@ -51,7 +51,7 @@ subject to various exploits."
       produce results, ensure the letter case of the filename within the command
       syntax matches the letter case of the actual filename on the system."
 
-  desc "fix", "Ensure the following mitigations are turned \"ON\" for wmplayer.exe:
+  desc 'fix', "Ensure the following mitigations are turned \"ON\" for wmplayer.exe:
 
       DEP:
       Enable: ON
