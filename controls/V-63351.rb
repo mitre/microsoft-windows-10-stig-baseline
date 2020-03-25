@@ -91,9 +91,9 @@ control 'V-63351' do
           its('stdout') { should include input('anti_virus_product') }
         end
         describe powershell(anti_virus_def_status) do
-          its('stdout') { should eq "Up to Date" }
+          its('stdout') { should eq "Up to date" }
         end
-        
+
   #describe.one do
     #describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\DesktopProtection\szProductVer') do
       #it { should exist }
