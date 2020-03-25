@@ -37,7 +37,7 @@ control 'V-63351' do
         #script came from: https://www.404techsupport.com/2015/04/27/powershell-script-detect-antivirus-product-and-status/
 
         $computername=$env:computername
-        $AntiVirusProduct = Get-WmiObject -Namespace root\SecurityCenter2 -Class AntiVirusProduct  -ComputerName $computername
+        $AntiVirusProduct = Get-WmiObject -Namespace root\\SecurityCenter2 -Class AntiVirusProduct  -ComputerName $computername
 
         #Switch to determine the status of antivirus definitions and real-time protection.
         #Write-Output $AntiVirusProduct.productState
