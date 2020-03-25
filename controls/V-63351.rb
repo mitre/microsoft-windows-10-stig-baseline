@@ -87,13 +87,19 @@ control 'V-63351' do
         Write-Output $defstatus
         EOH
 
+        if anti_virus_product_name == input('anti_virus_product')
         describe powershell(anti_virus_product_name) do
           its('stdout') { should include input('anti_virus_product') }
         end
         describe powershell(anti_virus_def_status) do
           its('strip') { should eq "Up to date" }
         end
-
+        else
+         impact 0.0
+          describe 'Anti-Virus is not on Approved list' do
+           skip 'Anti-Virus is not on Approved list'
+          end
+        end
   #describe.one do
     #describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\McAfee\DesktopProtection\szProductVer') do
       #it { should exist }
