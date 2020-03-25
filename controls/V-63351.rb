@@ -118,7 +118,7 @@ control 'V-63351' do
         
         puts "Output #{check_product}"
 
-        if check_product == "Mcafee"
+        if check_product == input('anti_virus_product')
           describe powershell(anti_virus_product_name) do
            its('stdout') { should include input('anti_virus_product') }
           end
