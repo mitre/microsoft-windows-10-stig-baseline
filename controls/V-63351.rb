@@ -90,7 +90,7 @@ control 'V-63351' do
         check_product = powershell(anti_virus_product_name).stdout
         
 
-        if check_product != input('anti_virus_product')
+        if check_product != 'Mcafee'
           impact 0.0
           describe 'Anti-Virus is not on Approved list' do
            skip 'Anti-Virus is not on Approved list'
