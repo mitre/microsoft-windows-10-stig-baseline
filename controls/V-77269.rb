@@ -143,31 +143,31 @@ control 'V-77269' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'DEP is required to be enabled on Word Pad' do
+    describe 'DEP is required to be enabled on Microsoft Office Word' do
       subject { powershell(dep_script).strip }
       it { should_not eq '2' }
     end
-    describe 'Payload Enable Export Address Filter is required to be enabled on Word Pad' do
+    describe 'Payload Enable Export Address Filter is required to be enabled on Microsoft Office Word' do
       subject { powershell(payload_enexpaddrfil_script).strip }
       it { should_not eq '2' }
     end
-    describe 'Payload Enable Export Address Filter Plus is required to be enabled on Word Pad' do
+    describe 'Payload Enable Export Address Filter Plus is required to be enabled on Microsoft Office Word' do
       subject { powershell(payload_enexpaddrfilplus_script).strip }
       it { should_not eq '2' }
     end
-    describe 'Payload Enable Import Address Filter is required to be enabled on Word Pad' do
+    describe 'Payload Enable Import Address Filter is required to be enabled on Microsoft Office Word' do
       subject { powershell(payload_enimpaddrfil_script).strip }
       it { should_not eq '2' }
     end
-    describe 'Payload Enable Rop Stack Pivot is required to be enabled on Word Pad' do
+    describe 'Payload Enable Rop Stack Pivot is required to be enabled on Microsoft Office Word' do
       subject { powershell(payload_enropstacpiv_script).strip }
       it { should_not eq '2' }
     end
-    describe 'Payload Enable Rop Caller Check is required to be enabled on Word Pad' do
+    describe 'Payload Enable Rop Caller Check is required to be enabled on Microsoft Office Word' do
       subject { powershell(payload_enropcalleche_script).strip }
       it { should_not eq '2' }
     end
-    describe 'Payload Enable Rop Sim Exec is required to be enabled on Word Pad' do
+    describe 'Payload Enable Rop Sim Exec is required to be enabled on Microsoft Office Word' do
       subject { powershell(payload_enropsimexec_script).strip }
       it { should_not eq '2' }
     end

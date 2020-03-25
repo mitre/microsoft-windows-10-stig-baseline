@@ -71,7 +71,7 @@ subject to various exploits."
       \"Options:\".  It is recommended the file be in a read-only network location."
 
   dep_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wmplayer.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_dep_enable = $convert_out_json.Dep | Select Enable
     $result_dep_enable = $select_object_dep_enable.Enable
@@ -79,7 +79,7 @@ subject to various exploits."
   EOH
 
   payload_enropstacpiv_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wmplayer.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enropstacpiv = $convert_out_json.Payload | Select EnableRopStackPivot
     $result_payload_enropstacpiv = $select_object_payload_enropstacpiv.EnableRopStackPivot
@@ -87,7 +87,7 @@ subject to various exploits."
   EOH
 
   payload_enropcalleche_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wmplayer.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enropcalleche = $convert_out_json.Payload | Select EnableRopCallerCheck
     $result_payload_enropcalleche = $select_object_payload_enropcalleche.EnableRopCallerCheck
@@ -95,14 +95,14 @@ subject to various exploits."
   EOH
 
   payload_enropsimexec_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wmplayer.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enropsimexec = $convert_out_json.Payload | Select EnableRopSimExec
     $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
     write-output $result_payload_enropsimexec
   EOH
 
-  if input('is_unclassified_system') == 'true' || nil
+  if input('is_unclassified_system') == 'false' || nil
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'
@@ -113,19 +113,21 @@ subject to various exploits."
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe.one do
-      describe powershell(dep_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropstacpiv_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropcalleche_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropsimexec_script) do
-        its('strip') { should_not eq '2' }
-      end
+    describe 'DEP is required to be enabled on Windows Media Player' do
+      subject { powershell(dep_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Stack Pivot is required to be enabled on Windows Media Player' do
+      subject { powershell(payload_enropstacpiv_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Caller Check is required to be enabled on Windows Media Player' do
+      subject { powershell(payload_enropcalleche_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Sim Exec is required to be enabled on Windows Media Player' do
+      subject { powershell(payload_enropsimexec_script).strip }
+      it { should_not eq '2' }
     end
   end
 end
