@@ -132,7 +132,7 @@ control 'V-77269' do
     write-output $result_payload_enropsimexec
   EOH
 
-  if input('is_unclassified_system') == 'true' || nil
+  if input('is_unclassified_system') == 'false' || nil
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'
