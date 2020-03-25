@@ -87,7 +87,8 @@ control 'V-63351' do
         Write-Output $defstatus
         EOH
 
-        if powershell(anti_virus_product_name) == input('anti_virus_product')
+        check_product = powershell(anti_virus_product_name).stdout
+        if check_product == input('anti_virus_product')
         describe powershell(anti_virus_product_name) do
           its('stdout') { should include input('anti_virus_product') }
         end
