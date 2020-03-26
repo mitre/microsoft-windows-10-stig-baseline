@@ -12,11 +12,11 @@ Latest versions and installation options are available at the InSpec site.
 
 ## Required Inputs **_prior_** to running the profile
 
-- `is_unclassified_system (String) ('true' or 'false') [true]
+- sensitive_system (String) ('true' or 'false') [false]
 
 ## Contribution
 
-Please feel free to submit a PR or Issue on the board. To get an idea of our style and best practices, please see our inspec training at:
+Please feel free to submit a PR or Issue on the board. To get an idea of our style and best practices, please see our InSpec training at:
 
 - https://mitre-inspec-developer.netlify.com/
 - https://mitre-inspec-advanced-developer.netlify.com/
