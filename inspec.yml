@@ -232,3 +232,14 @@ inputs:
  "                 APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
  "",
  "Successfully processed 1 files; Failed processing 0 files"]
+
+   - name: reg_software_perms
+     desc: 'The required Registry Software Permission Setting'
+     type: Array
+     value:
+        - "CREATOR OWNER Allow FullControl"
+        - "NT AUTHORITY\\SYSTEM Allow FullControl"
+        - "BUILTIN\\Administrators Allow FullControl"
+        - "BUILTIN\\Users Allow ReadKey"
+        - "APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES Allow ReadKey"
+        - "S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow ReadKey"

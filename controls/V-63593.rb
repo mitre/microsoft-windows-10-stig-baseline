@@ -114,15 +114,26 @@ control 'V-63593' do
   # Adding Read permission for Security for Administrators to allow for read of key permissions
 
   hklm_software = <<-EOH
-  $output = (Get-Acl -Path HKLM:System).AccessToString
+  $output = (Get-Acl -Path HKLM:Software).AccessToString
   write-output $output
   EOH
 
-  software = powershell(hklm_software).stdout.strip
-  puts "information #{software}"
+  # raw powershell output
+  raw_software = powershell(hklm_software).stdout.strip
 
+  # removes leading '\"'
+  software_clean1 = raw_software[1..-1]
+
+  # removes tailing '\"'
+  software_ clean2 = software_clean1[0..-2]
+  
+  # makes an array out of the string 
+  software_clean3 = software_clean2.split('\n') 
+  
+  clean_result = software_clean3.map { |x| x.gsub(%r{\\\\}, "\\") }
+  
   describe 'This is to get permissions on Registry Key HKLM\SOFTWARE' do
-    subject { powershell(hklm_software).stdout.strip }
+    subject { clean_result }
     it { should be_in input('software') }
   end
 
