@@ -174,8 +174,8 @@ inputs:
          :NotAfter: "Wednesday, December 05, 2029"
       
        - :Subject: "CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-         :Thumbprint": "4ECB5CC3095670454DA1CBD410FC921F46B8564B",
-         :NotAfter": "Friday, June 14, 2041"
+         :Thumbprint: "4ECB5CC3095670454DA1CBD410FC921F46B8564B",
+         :NotAfter: "Friday, June 14, 2041"
       
 
   - name: c_windows_permissions
