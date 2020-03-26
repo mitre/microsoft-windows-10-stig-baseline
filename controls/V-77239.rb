@@ -145,10 +145,6 @@ control 'V-77239' do
       subject { powershell(dep_script).strip }
       it { should_not eq '2' }
     end
-    describe 'ASLR Force Relocate Image is required to be enabled on Microsoft Office Picture Manager' do
-      subject { powershell(aslr_forcerelocimage_script).strip }
-      it { should_not eq '2' }
-    end
     describe 'Payload Enable Export Address Filter is required to be enabled on Microsoft Office Picture Manager' do
       subject { powershell(payload_enexpaddrfil_script).strip }
       it { should_not eq '2' }

@@ -27,7 +27,7 @@ control 'V-63579' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "Verify the DoD Root CA certificates are installed as Trusted Root
+  desc 'check', "Verify the DoD Root CA certificates are installed as Trusted Root
       Certification Authorities.
 
       The certificates and thumbprints referenced below apply to unclassified
@@ -110,7 +110,7 @@ control 'V-63579' do
       Thumbprint: 4ECB5CC3095670454DA1CBD410FC921F46B8564B
       Valid to: Friday, June 14, 2041"
 
-  desc "fix", "Install the DoD Root CA certificates.
+  desc 'fix', "Install the DoD Root CA certificates.
       DoD Root CA 2
       DoD Root CA 3
       DoD Root CA 4
