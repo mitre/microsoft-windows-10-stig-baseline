@@ -114,7 +114,7 @@ control 'V-63593' do
   # Adding Read permission for Security for Administrators to allow for read of key permissions
 
   hklm_software = <<-EOH
-  $output = (Get-Acl -Path HKLM:System).AccessToString)
+  $output = (Get-Acl -Path HKLM:System).AccessToString
   write-output $output
   EOH
 
