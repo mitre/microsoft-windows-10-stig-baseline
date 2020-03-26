@@ -134,7 +134,7 @@ inputs:
     value:
       - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US"
         :Issuer: "CN=DoD Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US"
-        :Thumbprint: "2AC06108CA348CC03B53795C64BF84403C1DBD341"
+        :Thumbprint: "AC06108CA348CC03B53795C64BF84403C1DBD341"
         :NotAfter: "Saturday, January 22, 2022"
 
   - name: dod_eca_certificates
@@ -147,7 +147,7 @@ inputs:
 
       - :Subject: "CN=ECA Root CA 4, OU=ECA, O=U.S. Government, C=US"
         :Thumbprint: "73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582"
-        :NoAfter: "Sunday, December 30, 2029"
+        :NotAfter: "Sunday, December 30, 2029"
 
   - name: dod_trusted_certificates
     description: "List of ECA Root CA certificates Certificates"
