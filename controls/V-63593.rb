@@ -118,11 +118,11 @@ control 'V-63593' do
   write-output $output
   EOH
 
-  software = powershell(hklm_software).stdout.strip
+  software = powershell(hklm_software).strip
   puts "information #{software}"
 
   describe 'This is a test of access' do
-    subject { powershell(hklm_software).stdout.strip }
+    subject { powershell(hklm_software).strip }
     it { should cmp input('software') }
   end
 
