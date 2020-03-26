@@ -119,11 +119,11 @@ control 'V-63579' do
       The InstallRoot tool is available on IASE at
       http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
-  dod_certificates = JSON.parse(input('dod_trusted_certificates').to_json)
+  dod_trusted_certificates = JSON.parse(input('dod_trusted_certificates').to_json)
   query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*DoD Root*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
 
   describe 'The DoD Interoperability Root CA cross-certificates installed' do
     subject { query.params }
-    it { should be_in dod_certificates }
+    it { should be_in dod_trusted_certificates }
   end
 end
