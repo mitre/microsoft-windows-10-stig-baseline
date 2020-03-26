@@ -113,10 +113,12 @@ control 'V-63593' do
 
   # Adding Read permission for Security for Administrators to allow for read of key permissions
 
-  describe registry_key('HKEY_LOCAL_MACHINE\SECURITY') do
-    it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('Special', by_user: 'BUILTIN\\Administrators') }
-  end
+  hklm_software = <<-EOH
+  $output = (Get-Acl -Path HKLM:System).AccessToString)
+  write-output $output
+  EOH
+
+  puts "information #{hklm_software}"
 
   # describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
   #  it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
