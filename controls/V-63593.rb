@@ -134,7 +134,7 @@ control 'V-63593' do
   
   describe 'This is to get permissions on Registry Key HKLM\SOFTWARE' do
     subject { clean_result }
-    it { should be_in input('software') }
+    it { should be_in input('reg_software_perms') }
   end
 
   # describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
