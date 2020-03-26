@@ -156,7 +156,7 @@ inputs:
 
   - hame: dod_trusted_certificates
     description: "List of ECA Root CA certificates Certificates"
-    type: Array
+    type: String
     value: [
        {
          "Subject": "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
