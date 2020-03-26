@@ -119,11 +119,11 @@ control 'V-63593' do
   EOH
 
   software = powershell(hklm_software).stdout.strip
-  puts "information #{software}"
+  pp software.inspect
 
   describe 'This is to get permissions on Registry Key HKLM\SOFTWARE' do
     subject { powershell(hklm_software).stdout.strip }
-    it { should be_in input('software') }
+    it { should exist }
   end
 
   # describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
