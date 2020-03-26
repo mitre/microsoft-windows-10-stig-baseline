@@ -25,7 +25,7 @@ control 'V-77209' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "This is NA prior to v1709 of Windows 10.
+  desc 'check', "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
 
@@ -58,7 +58,7 @@ control 'V-77209' do
       required status of \"ON\" are listed here. If the PowerShell command does not
       produce results, ensure the letter case of the filename within the command
       syntax matches the letter case of the actual filename on the system."
-  desc "fix", "Ensure the following mitigations are turned \"ON\" for FLTLDR.EXE:
+  desc 'fix', "Ensure the following mitigations are turned \"ON\" for FLTLDR.EXE:
 
       DEP:
       Enable: ON
@@ -158,7 +158,7 @@ control 'V-77209' do
     write-output $result_childprocess_disallchilprocre
   EOH
 
-  if input('is_unclassified_system') == 'true' || nil
+  if input('is_unclassified_system') == 'false' || nil
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'
@@ -169,34 +169,41 @@ control 'V-77209' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe.one do
-      describe powershell(dep_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(imageload_blockremimagload_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enexpaddrfil_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enexpaddrfilplus_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enimpaddrfil_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropstacpiv_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropcalleche_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropsimexec_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(childprocess_disallchilprocre_script) do
-        its('strip') { should_not eq '2' }
-      end
+    describe 'DEP is required to be enabled on FLTLDR' do
+      subject { powershell(dep_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'ImageLoad Block Remote Image Loads is required to be enabled on FLTLDR' do
+      subject { powershell(imageload_blockremimagload_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Export Address Filter is required to be enabled on FLTLDR' do
+      subject { powershell(payload_enexpaddrfil_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Export Address Filter Plus is required to be enabled on FLTLDR' do
+      subject { powershell(payload_enexpaddrfilplus_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Import Address Filter is required to be enabled on FLTLDR' do
+      subject { powershell(payload_enimpaddrfil_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Stack Pivot is required to be enabled on FLTLDR' do
+      subject { powershell(payload_enropstacpiv_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Caller Check is required to be enabled on FLTLDR' do
+      subject { powershell(payload_enropcalleche_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Sim Exec is required to be enabled on FLTLDR' do
+      subject { powershell(payload_enropsimexec_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'ChildProcess Disallow Child Process Creation is required to be enabled on FLTLDR' do
+      subject { powershell(childprocess_disallchilprocre_script).strip }
+      it { should_not eq '2' }
     end
   end
 end

@@ -28,7 +28,7 @@ control 'V-77095' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "This is NA prior to v1709 of Windows 10.
+  desc 'check', "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
 
@@ -45,7 +45,7 @@ control 'V-77095' do
       Values that would not be a finding include:
       ON
       NOTSET (Default configuration)"
-  desc "fix", "Ensure Exploit Protection system-level mitigation, \"Randomize
+  desc 'fix', "Ensure Exploit Protection system-level mitigation, \"Randomize
       memory allocations (Bottom-Up ASLR)\" is turned on. The default configuration
       in Exploit Protection is \"On by default\" which meets this requirement.
 
@@ -74,7 +74,7 @@ control 'V-77095' do
       configured to \"Enabled\" with file name and location defined under
       \"Options:\". It is recommended the file be in a read-only network location."
 
-  script = <<-EOH
+  aslr_bottomup_script = <<-EOH
   $convert_json = Get-ProcessMitigation -System | ConvertTo-Json
   $convert_out_json = ConvertFrom-Json -InputObject $convert_json
   $select_object = $convert_out_json.Aslr | Select BottomUp
@@ -93,8 +93,9 @@ control 'V-77095' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe powershell(script) do
-      its('strip') { should_not eq '2' }
+    describe 'ALSR BottomUp is required to be enabled on System' do
+      subject { powershell(aslr_bottomup_script).strip }
+      it { should_not eq '2' }
     end
   end
 end
