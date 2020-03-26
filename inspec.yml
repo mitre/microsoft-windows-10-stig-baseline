@@ -155,7 +155,7 @@ inputs:
     value: 
        - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
          :Thumbprint: "D73CA91102A2204A36459ED32213B467D7CE97FB",
-         :NotAfter": "Sunday, December 30, 2029"
+         :NotAfter: "Sunday, December 30, 2029"
   
        - :Subject: "CN=DoD Root CA 4, OU=PKI, OU=DoD, O=U.S. Government, C=US",
          :Thumbprint: "B8269F25DBD937ECAFD4C35A9838571723F2D026",
