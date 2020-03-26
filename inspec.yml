@@ -132,11 +132,6 @@ inputs:
     description: "List of DoD Interoperability Root Certificates"
     type: Array
     value:
-      - :Subject: "CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US"
-        :Issuer: "CN=DoD Interoperability Root CA 1, OU=PKI, OU=DoD, O=U.S. Government, C=US"
-        :Thumbprint: "22BBE981F0694D246CC1472ED2B021DC8540A22F"
-        :NotAfter: "Friday, September 06, 2019"
-
       - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US"
         :Issuer: "CN=DoD Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US"
         :Thumbprint: "2AC06108CA348CC03B53795C64BF84403C1DBD341"
@@ -157,38 +152,31 @@ inputs:
   - hame: dod_trusted_certificates
     description: "List of ECA Root CA certificates Certificates"
     type: Array
-    value: [
-       {
-         "Subject": "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-         "Thumbprint": "D73CA91102A2204A36459ED32213B467D7CE97FB",
-         "NotAfter": "Sunday, December 30, 2029"
-       },
-       {
-         "Subject": "CN=DoD Root CA 4, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-         "Thumbprint": "B8269F25DBD937ECAFD4C35A9838571723F2D026",
-         "NotAfter": "Sunday, July 25, 2032"
-        },
-      {
-        "Subject": "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-        "Thumbprint": "AC06108CA348CC03B53795C64BF84403C1DBD341",
-        "NotAfter": "Saturday, January 22, 2022"
-      },
-      {
-        "Subject": "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-        "Thumbprint": "929BF3196896994C0A201DF4A5B71F603FEFBF2E",
-        "NotAfter": "Friday, September 27, 2019"
-      },
-      {
-        "Subject": "CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-        "Thumbprint": "8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561",
-        "NotAfter": "Wednesday, December 05, 2029"
-      },
-      {
-        "Subject": "CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-        "Thumbprint": "4ECB5CC3095670454DA1CBD410FC921F46B8564B",
-        "NotAfter": "Friday, June 14, 2041"
-      }
-    ]
+    value: 
+       - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
+         :Thumbprint: "D73CA91102A2204A36459ED32213B467D7CE97FB",
+         :NotAfter": "Sunday, December 30, 2029"
+  
+       - :Subject: "CN=DoD Root CA 4, OU=PKI, OU=DoD, O=U.S. Government, C=US",
+         :Thumbprint: "B8269F25DBD937ECAFD4C35A9838571723F2D026",
+         :NotAfter: "Sunday, July 25, 2032"
+        
+       - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
+         :Thumbprint: "AC06108CA348CC03B53795C64BF84403C1DBD341",
+         :NotAfter: "Saturday, January 22, 2022"
+     
+       - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
+         :Thumbprint: "929BF3196896994C0A201DF4A5B71F603FEFBF2E",
+         :NotAfter: "Friday, September 27, 2019"
+     
+       - :Subject: "CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US",
+         :Thumbprint: "8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561",
+         :NotAfter: "Wednesday, December 05, 2029"
+      
+       - :Subject: "CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US",
+         :Thumbprint": "4ECB5CC3095670454DA1CBD410FC921F46B8564B",
+         :NotAfter": "Friday, June 14, 2041"
+      
 
   - name: c_windows_permissions
     desc: "Permission of the Windows Folder"
