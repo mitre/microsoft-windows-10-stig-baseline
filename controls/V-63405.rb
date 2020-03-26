@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 
 control 'V-63405' do
   title "Windows 10 account lockout duration must be configured to #{input('pass_lock_time')} minutes
@@ -26,7 +26,7 @@ control 'V-63405' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "Verify the effective setting in Local Group Policy Editor.
+  desc 'check', "Verify the effective setting in Local Group Policy Editor.
 Run \"gpedit.msc\".
 
 Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings
@@ -37,16 +37,15 @@ If the \"Account lockout duration\" is less than #{input('pass_lock_time')} minu
 
 Configuring this to \"0\", requiring an administrator to unlock the account, is
 more restrictive and is not a finding."
-  desc "fix", "Configure the policy value for Computer Configuration >> Windows
+  desc 'fix', "Configure the policy value for Computer Configuration >> Windows
 Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
 \"Account lockout duration\" to #{input('pass_lock_time')} minutes or greater.
 
 A value of \"0\" is also acceptable, requiring an administrator to unlock the
 account."
 
-pass_lock_time = input('pass_lock_time')
+  pass_lock_time = input('pass_lock_time')
 
-puts input_object('time').diagnostic_string
   describe.one do
     describe security_policy do
       its('LockoutDuration') { should cmp >= pass_lock_time }
