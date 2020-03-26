@@ -26,7 +26,7 @@ control 'V-63593' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "Verify the default registry permissions for the keys note below
+  desc 'check', "Verify the default registry permissions for the keys note below
       of the HKEY_LOCAL_MACHINE hive.
 
       If any non-privileged groups such as Everyone, Users or Authenticated Users
@@ -74,7 +74,7 @@ control 'V-63593' do
 
       If the defaults have not been changed, these are not a finding."
 
-  desc "fix", "Maintain the default permissions for the HKEY_LOCAL_MACHINE
+  desc 'fix', "Maintain the default permissions for the HKEY_LOCAL_MACHINE
       registry hive.
 
       The default permissions of the higher level keys are noted below.
@@ -111,22 +111,29 @@ control 'V-63593' do
 
       S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681"
 
-  describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
+  # Adding Read permission for Security for Administrators to allow for read of key permissions
+
+  describe registry_key('HKEY_LOCAL_MACHINE\SECURITY') do
     it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
     it { should be_allowed('Special', by_user: 'BUILTIN\\Administrators') }
   end
-  describe windows_registry('HKEY_LOCAL_MACHINE\SOFTWARE') do
-    it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
-    it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
-    it { should be_allowed('full-control', by_user: 'BUILTIN\\CREATOR OWNER') }
-    it { should be_allowed('read', by_user: 'APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES') }
-  end
-  describe windows_registry('HKEY_LOCAL_MACHINE\SYSTEM') do
-    it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
-    it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
-    it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
-    it { should be_allowed('full-control', by_user: 'BUILTIN\\CREATOR OWNER') }
-    it { should be_allowed('read', by_user: 'APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES') }
-  end
+
+  # describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
+  #  it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
+  #  it { should be_allowed('Special', by_user: 'BUILTIN\\Administrators') }
+  # end
+  # describe windows_registry('HKEY_LOCAL_MACHINE\SOFTWARE') do
+  #  it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
+  #  it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
+  #   it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
+  #   it { should be_allowed('full-control', by_user: 'BUILTIN\\CREATOR OWNER') }
+  #   it { should be_allowed('read', by_user: 'APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES') }
+  #  end
+  # describe windows_registry('HKEY_LOCAL_MACHINE\SYSTEM') do
+  #    it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
+  #    it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
+  #   it { should be_allowed('read', by_user: 'BUILTIN\\Users') }
+  #   it { should be_allowed('full-control', by_user: 'BUILTIN\\CREATOR OWNER') }
+  #   it { should be_allowed('read', by_user: 'APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES') }
+  # end
 end
