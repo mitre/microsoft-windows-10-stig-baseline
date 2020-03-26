@@ -149,7 +149,7 @@ inputs:
         :Thumbprint: "73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582"
         :NoAfter: "Sunday, December 30, 2029"
 
-  - hame: dod_trusted_certificates
+  - name: dod_trusted_certificates
     description: "List of ECA Root CA certificates Certificates"
     type: Array
     value: 
