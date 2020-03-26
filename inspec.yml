@@ -180,7 +180,7 @@ inputs:
 
   - name: c_windows_permissions
     desc: "Permission of the Windows Folder"
-    type: Array
+    type: String
     value:
      ["c:\\windows NT SERVICE\\TrustedInstaller:(F)",
  "           NT SERVICE\\TrustedInstaller:(CI)(IO)(F)",
