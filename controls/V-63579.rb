@@ -120,7 +120,7 @@ control 'V-63579' do
       http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
   dod_trusted_certificates = JSON.parse(input('dod_trusted_certificates').to_json)
-  query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*DoD Root*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+  query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*DoD Root*"} | Select Subject, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
 
   describe 'The DoD Interoperability Root CA cross-certificates installed' do
     subject { query.params }

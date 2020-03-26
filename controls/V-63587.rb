@@ -113,6 +113,8 @@ control 'V-63587' do
       The certificates can be installed using the InstallRoot tool. The tool and user
       guide are available on IASE at http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
+  # NOTE:  DoD Root CA 2 - DoD Interoperability Root CA 1 - 22BBE981F0694D246CC1472ED2B021DC8540A22F does not exist on Install Root 5.5
+
   dod_certificates = JSON.parse(input('dod_certificates').to_json)
 
   if input('is_unclassified_system') == 'false'
@@ -121,7 +123,7 @@ control 'V-63587' do
       skip 'This Control is Not Applicable to classified systems.'
     end
   else
-    query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Issuer -Like "*US DoD CCEB Interoperability*" -and $_.Subject -Like "*DoD Interoperability*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Issuer -Like "*DoD Interoperability*" -and $_.Subject -Like "*DoD*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
     describe 'The DoD Interoperability Root CA cross-certificates installed' do
       subject { query.params }
       it { should be_in dod_certificates }
