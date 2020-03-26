@@ -121,6 +121,11 @@ control 'V-63593' do
   software = powershell(hklm_software).stdout.strip
   puts "information #{software}"
 
+  describe 'This is a test of access' do
+    subject { powershell(hklm_software).stdout.strip }
+    it { should be_in input('software') }
+  end
+
   # describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
   #  it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
   #  it { should be_allowed('Special', by_user: 'BUILTIN\\Administrators') }
