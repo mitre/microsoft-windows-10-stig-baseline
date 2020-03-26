@@ -123,7 +123,7 @@ control 'V-63593' do
 
   describe 'This is a test of access' do
     subject { powershell(hklm_software).strip }
-    it { should be_in input('software') }
+    it { should include input('software') }
   end
 
   # describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
