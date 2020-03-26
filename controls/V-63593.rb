@@ -118,7 +118,8 @@ control 'V-63593' do
   write-output $output
   EOH
 
-  puts "information #{hklm_software}"
+  software = powershell(hklm_software).stdout.strip
+  puts "information #{software}"
 
   # describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
   #  it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
