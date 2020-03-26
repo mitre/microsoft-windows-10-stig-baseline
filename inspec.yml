@@ -83,7 +83,9 @@ inputs:
     type: Array
     description: "List of authorized users in the local Administrators group"
     value:
-      -
+      - LAB\Domain Admins
+      - LAB\inspectst
+      - localuser
 
   - name: hyper_v_admin
     type: Array
