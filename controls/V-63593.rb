@@ -119,7 +119,7 @@ control 'V-63593' do
   EOH
 
   software = powershell(hklm_software).stdout.strip
-  pp software.inspect
+  pp software.split('/n')
 
   describe 'This is to get permissions on Registry Key HKLM\SOFTWARE' do
     subject { powershell(hklm_software).stdout.strip }
