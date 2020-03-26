@@ -80,7 +80,7 @@ control 'V-77103' do
   write-output $result
   EOH
 
-  if input('is_unclassified_system') == 'true' || nil
+  if input('is_unclassified_system') == 'false' || nil
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'

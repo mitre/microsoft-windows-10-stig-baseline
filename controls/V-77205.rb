@@ -90,7 +90,7 @@ control 'V-77205' do
   write-output $result_aslr_force_relocate_images
   EOH
 
-  if input('is_unclassified_system') == 'true' || nil
+  if input('is_unclassified_system') == 'false' || nil
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'

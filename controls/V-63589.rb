@@ -28,7 +28,7 @@ control 'V-63589' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "Verify the US DoD CCEB Interoperability Root CA cross-certificate
+  desc 'check', "Verify the US DoD CCEB Interoperability Root CA cross-certificate
       is installed on unclassified systems as an Untrusted Certificate.
 
       Run \"PowerShell\" as an administrator.
@@ -88,7 +88,7 @@ control 'V-63589' do
       Thumbprint: 929BF3196896994C0A201DF4A5B71F603FEFBF2E
       Valid: Friday, September 27, 2019"
 
-  desc "fix", "Install the US DoD CCEB Interoperability Root CA cross-certificate
+  desc 'fix', "Install the US DoD CCEB Interoperability Root CA cross-certificate
       on unclassified systems.
 
       Issued To - Issued By - Thumbprint
@@ -102,7 +102,7 @@ control 'V-63589' do
 
   dod_cceb_certificates = JSON.parse(input('dod_cceb_certificates').to_json)
 
-  if input('is_unclassified_system') == 'true'
+  if input('is_unclassified_system') == 'false'
     impact 0.0
     describe 'This Control is Not Applicable to classified systems.' do
       skip 'This Control is Not Applicable to classified systems.'

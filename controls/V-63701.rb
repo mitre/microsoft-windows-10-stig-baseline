@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 control 'V-63701' do
   title "Users must not be allowed to ignore Windows Defender SmartScreen
@@ -26,7 +27,7 @@ control 'V-63701' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "This is applicable to unclassified systems, for other systems
+  desc 'check', "This is applicable to unclassified systems, for other systems
 this is NA.
 
 Windows 10 LTSC\\B versions do not include Microsoft Edge, this is NA for those
@@ -43,7 +44,7 @@ Value Name: PreventOverrideAppRepUnknown
 Type: REG_DWORD
 Value: 0x00000001 (1)"
 
-  desc "fix", "Configure the policy value for Computer Configuration >>
+  desc 'fix', "Configure the policy value for Computer Configuration >>
 Administrative Templates >> Windows Components >> Microsoft Edge >> \"Prevent
 bypassing Windows Defender SmartScreen prompts for files\" to \"Enabled\".
 
@@ -51,15 +52,15 @@ Windows 10 includes duplicate policies for this setting. It can also be
 configured under Computer Configuration >> Administrative Templates >> Windows
 Components >> Windows Defender SmartScreen >> Microsoft Edge."
 
- if input('is_unclassified_system') == 'true'
-  impact 0.0
-  describe 'This Control is Not Applicable to classified systems.' do
-    skip 'This Control is Not Applicable to classified systems.'
+  if input('is_unclassified_system') == 'false'
+    impact 0.0
+    describe 'This Control is Not Applicable to classified systems.' do
+      skip 'This Control is Not Applicable to classified systems.'
+    end
+  else
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter') do
+      it { should have_property 'PreventOverrideAppRepUnknown' }
+      its('PreventOverrideAppRepUnknown') { should cmp 1 }
+    end
   end
-else
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter') do
-    it { should have_property 'PreventOverrideAppRepUnknown' }
-    its('PreventOverrideAppRepUnknown') { should cmp 1 }
-  end
- end
 end
