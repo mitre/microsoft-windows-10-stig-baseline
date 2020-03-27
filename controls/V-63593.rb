@@ -125,13 +125,13 @@ control 'V-63593' do
   software_clean1 = raw_software[1..-1]
 
   # removes tailing '\"'
-  software_ clean2 = software_clean1[0..-2]
-  
+  software_clean2 = software_clean1[0..-2]
+
   # makes an array out of the string 
-  software_clean3 = software_clean2.split('\n') 
-  
-  clean_result = software_clean3.map { |x| x.gsub(%r{\\\\}, "\\") }
-  
+  software_clean3 = software_clean2.split('\n')
+
+  clean_result = software_clean3.map { |x| x.gsub(/\\\\/, '\\') }
+
   describe 'This is to get permissions on Registry Key HKLM\SOFTWARE' do
     subject { clean_result }
     it { should be_in input('reg_software_perms') }
