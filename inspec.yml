@@ -68,8 +68,8 @@ inputs:
     type: Numeric
     value: 35
 
-  - name: is_unclassified_system
-    description: "Set flag to true if the target system is unclassified"
+  - name: sensitive_system
+    description: "Set flag to true if the target system is sensitive"
     type: String
     value: "false"
 
@@ -234,12 +234,31 @@ inputs:
  "Successfully processed 1 files; Failed processing 0 files"]
 
   - name: reg_software_perms
-    desc: 'The required Registry Software Permission Setting'
+    desc: 'The required Registry Software Permission Settings'
     type: Array
     value:
-      - CREATOR OWNER Allow FullControl
-      - NT AUTHORITY\\SYSTEM Allow FullControl
-      - BUILTIN\\Administrators Allow FullControl
-      - BUILTIN\\Users Allow ReadKey
-      - APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES Allow ReadKey
-      - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow ReadKey
+      - CREATOR OWNER Allow  FullControl
+      - NT AUTHORITY\\SYSTEM Allow  FullControl
+      - BUILTIN\\Administrators Allow  FullControl
+      - BUILTIN\\Users Allow  ReadKey
+      - APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES Allow  ReadKey
+      - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
+
+  - name: reg_security_perms
+    desc: 'The required Registry Security Permissions Settings'
+    type: Array
+    value:
+      - NT AUTHORITY\SYSTEM Allow  FullControl
+      - BUILTIN\Administrators Allow  ReadKey, ChangePermissions
+
+  - name: reg_system_perms
+    desc: 'The required Registry System Permissions Settings'
+    type: Array
+    value:
+      - CREATOR OWNER Allow  FullControl
+      - NT AUTHORITY\SYSTEM Allow  FullControl
+      - BUILTIN\Administrators Allow  FullControl
+      - BUILTIN\Users Allow  ReadKey
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadKey
+      - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
+

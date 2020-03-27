@@ -44,6 +44,7 @@ Settings >> Security Settings >> Account Policies >> Account Lockout Policy >>
 A value of \"0\" is also acceptable, requiring an administrator to unlock the
 account."
 
+  # issues has been raised to fix the IF statement for describe.one to allow for inputs
   pass_lock_time = input('pass_lock_time')
 
   describe.one do

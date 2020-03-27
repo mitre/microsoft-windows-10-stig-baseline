@@ -79,10 +79,10 @@ control 'V-77097' do
     write-output $result
   EOH
 
-  if input('is_unclassified_system') == 'false' || nil
+  if input('sensitive_system') == 'true' || nil
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
   elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId < '1709'
     impact 0.0

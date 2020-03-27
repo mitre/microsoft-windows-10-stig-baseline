@@ -34,7 +34,7 @@ control 'V-63873' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "This requirement is applicable to domain-joined systems, for
+  desc 'check', "This requirement is applicable to domain-joined systems, for
       standalone systems this is NA.
 
       Verify the effective setting in Local Group Policy Editor.
@@ -49,7 +49,7 @@ control 'V-63873' do
       Domain Systems Only:
       Enterprise Admin Group
       Domain Admin Group"
-  desc "fix", "This requirement is applicable to domain-joined systems, for
+  desc 'fix', "This requirement is applicable to domain-joined systems, for
       standalone systems this is NA.
 
       Configure the policy value for Computer Configuration >> Windows Settings >>
@@ -60,20 +60,17 @@ control 'V-63873' do
       Enterprise Admin Group
       Domain Admin Group"
 
-  #get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
-  #domain_sid = get_domain_sid[9..40]
+  is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
-  # TODO: Review https://stackoverflow.com/questions/45651721/in-powershell-how-do-i-determine-if-a-domain-joined-computer-is-connected-to-th
-  # To see if this will give us OUR NA case
-  # if (is_standalone)
-  # describe NA
-  # else
-  domain_sid = input('domain_sid')
-
+  if is_domain == 'WORKGROUP'
+    impact 0.0
+    describe 'This requirement is applicable to domain-joined systems, for standalone systems this is NA' do
+      skip 'This requirement is applicable to domain-joined systems, for standalone systems this is NA'
+    end
+  else
+    domain_sid = input('domain_sid')
     describe security_policy do
       its('SeDenyBatchLogonRight') { should be_in ["S-1-21-#{domain_sid}-512", "S-1-21-#{domain_sid}-519"] }
     end
-    #describe security_policy do
-      #its('SeDenyBatchLogonRight') { should be_in "S-1-21-#{domain_sid}-519" }
-    #end
+ end
 end

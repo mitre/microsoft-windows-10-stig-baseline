@@ -117,14 +117,14 @@ control 'V-63587' do
 
   dod_certificates = JSON.parse(input('dod_certificates').to_json)
 
-  if input('is_unclassified_system') == 'false'
+  if input('is_sensitive_system') == 'true'
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
   else
     query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Issuer -Like "*DoD Interoperability*" -and $_.Subject -Like "*DoD*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
-    describe 'The DoD Interoperability Root CA cross-certificates installed' do
+    describe 'The DoD Interoperability Root CA cross-certificates are installed' do
       subject { query.params }
       it { should be_in dod_certificates }
     end

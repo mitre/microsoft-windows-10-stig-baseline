@@ -90,10 +90,10 @@ control 'V-63685' do
       SmartScreen\" to \"Enabled\" with \"Require approval from an administrator
       before running downloaded unknown software\" selected."
 
-  if input('is_unclassified_system') == 'false'
+  if input('sensitive_system') == 'true'
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
   else
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System') do
