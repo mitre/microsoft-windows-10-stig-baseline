@@ -126,7 +126,7 @@ control 'V-63593' do
 
   # removes tailing '\"'
   software_clean2 = software_clean1[0..-2]
-
+  require 'pry'; binding.pry
   # makes an array out of the string 
   software_clean3 = software_clean2.split('\n')
 
