@@ -128,7 +128,7 @@ control 'V-63593' do
   software_ clean2 = software_clean1[0..-2]
   
   # makes an array out of the string 
-  software_clean3 = software_clean2.split('\n') 
+  software_clean3 = software_clean2.split('\n') 
   
   clean_result = software_clean3.map { |x| x.gsub(%r{\\\\}, "\\") }
   
