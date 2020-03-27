@@ -122,15 +122,17 @@ control 'V-63593' do
   raw_software = powershell(hklm_software).stdout.strip
 
   # removes leading '\"'
-  software_clean1 = raw_software[1..-1]
+  # software_clean1 = raw_software[1..-1]
 
   # removes tailing '\"'
-  software_clean2 = software_clean1[0..-2]
-  require 'pry'; binding.pry
+  # software_clean2 = software_clean1[0..-2]
+  # require 'pry'; binding.pry
   # makes an array out of the string 
-  software_clean3 = software_clean2.split('\n')
+  # software_clean3 = software_clean2.split('\n')
 
-  clean_result = software_clean3.map { |x| x.gsub(/\\\\/, '\\') }
+  # clean_result = software_clean3.map { |x| x.gsub(/\\\\/, '\\') }
+
+  clean_result = raw_software.lines.collect(&:strip)
 
   describe 'This is to get permissions on Registry Key HKLM\SOFTWARE' do
     subject { clean_result }
