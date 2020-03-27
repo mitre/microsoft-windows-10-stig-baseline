@@ -118,9 +118,19 @@ control 'V-63593' do
   write-output $output
   EOH
 
+  hklm_security = <<-EOH
+  $output = (Get-Acl -Path HKLM:Security.AccessToString
+  write-output $output
+  EOH
+
+  hklm_system = <<-EOH
+  $output = (Get-Acl -Path HKLM:System).AccessToString
+  write-output $output
+  EOH
   # raw powershell output
   raw_software = powershell(hklm_software).stdout.strip
-
+  raw_security = powershell(hklm_security).stdout.strip
+  raw_system = powershell(hklm_system).stdout.strip
   # removes leading '\"'
   # software_clean1 = raw_software[1..-1]
 
@@ -132,13 +142,24 @@ control 'V-63593' do
 
   # clean_result = software_clean3.map { |x| x.gsub(/\\\\/, '\\') }
 
-  clean_result = raw_software.lines.collect(&:strip)
+  clean_result_software = raw_software.lines.collect(&:strip)
+  clean_result_security = raw_security.lines.collect(&:strip)
+  clean_result_system = raw_system.lines.collect(&:strip)
 
   describe 'This is to get permissions on Registry Key HKLM\SOFTWARE' do
-    subject { clean_result }
+    subject { clean_result_software }
     it { should be_in input('reg_software_perms') }
   end
 
+  describe 'This is to get permissions on Registry Key HKLM\SECURITY' do
+    subject { clean_result_security }
+    it { should be_in input('reg_security_perms') }
+  end
+
+  describe 'This is to get permissions on Registry Key HKLM\SYSTEM' do
+    subject { clean_result_system }
+    it { should be_in input('reg_system_perms') }
+  end
   # describe windows_registry('HKEY_LOCAL_MACHINE\SECURITY') do
   #  it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
   #  it { should be_allowed('Special', by_user: 'BUILTIN\\Administrators') }
