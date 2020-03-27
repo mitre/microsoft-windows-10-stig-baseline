@@ -13,10 +13,10 @@ inputs:
     desc: "This is a list of Approved Anti-Virus Software"
     type: Array
     value:
-      - Windows Defender
-      - McAfee Host Intrusion Prevention
-      - McAfee Endpoint Security
-      - McAfee Agent
+      - "Windows Defender"
+      - "McAfee Host Intrusion Prevention"
+      - "McAfee Endpoint Security"
+      - "McAfee Agent"
 
   - name: domain_sid
     desc: "This is the domain sid"
