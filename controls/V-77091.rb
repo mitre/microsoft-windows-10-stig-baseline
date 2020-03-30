@@ -26,6 +26,7 @@ control 'V-77091' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
+  
   desc 'check', "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
@@ -43,6 +44,7 @@ control 'V-77091' do
       Values that would not be a finding include:
       ON
       NOTSET (Default configuration)"
+
   desc 'fix', "Ensure Exploit Protection system-level mitigation, \"Data Execution
       Prevention (DEP)\", is turned on.  The default configuration in Exploit
       Protection is \"On by default\" which meets this requirement.

@@ -1,0 +1,15 @@
+---
+sensitive_system: "false"
+domain_sid: "xxxxxxxxxx-xxxxxxx-xxxxxxxxxx"
+
+backup_operators:
+  - user1
+  - user2
+
+  administrators:
+  - user1
+  - user2
+
+hyper_v_admin:
+  - user1
+  - user2
