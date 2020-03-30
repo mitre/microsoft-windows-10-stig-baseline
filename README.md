@@ -25,6 +25,7 @@ The profile _will_ run without updating these values but you will get the _best_
 - backup_operators (NULL) - add your usernames as needed
 - administrators (NULL) - add your usernames as needed
 - hyper_v_admin (NULL) - add your usernames as needed
+- av_approved_software(List of AV Software) - add your AV Software Product to this list
 
 ## Using your `input` data with the profile
 
