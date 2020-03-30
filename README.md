@@ -100,6 +100,11 @@ Please feel free to submit a PR or Issue on the board. To get an idea of our sty
 - https://mitre-inspec-developer.netlify.com/
 - https://mitre-inspec-advanced-developer.netlify.com/
 
+## Useful References
+
+- <https://lonesysadmin.net/2017/08/10/fix-winrm-client-issues/>
+- <https://www.hurryupandwait.io/blog/understanding-and-troubleshooting-winrm-connection-and-authentication-a-thrill-seekers-guide-to-adventure>
+
 ### NOTICE
 
 © 2019 The MITRE Corporation.
