@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63593' do
   title "Default permissions for the HKEY_LOCAL_MACHINE registry hive must be

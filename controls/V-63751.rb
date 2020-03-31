@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63751' do
   title 'Indexing of encrypted files must be turned off.'

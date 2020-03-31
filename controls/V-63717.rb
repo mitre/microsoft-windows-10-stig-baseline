@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63717' do
   title "The use of a hardware security device with Windows Hello for Business

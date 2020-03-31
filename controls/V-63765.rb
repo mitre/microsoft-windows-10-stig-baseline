@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63765' do
   title 'NTLM must be prevented from falling back to a Null session.'

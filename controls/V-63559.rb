@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63559' do
   title 'The system must be configured to prevent IP source routing.'

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63859' do
   title "The Create a token object user right must not be assigned to any

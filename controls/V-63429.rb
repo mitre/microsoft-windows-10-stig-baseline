@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63429' do
   title 'Reversible password encryption must be disabled.'

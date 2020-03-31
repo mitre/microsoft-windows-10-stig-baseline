@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63399' do
   title 'A host-based firewall must be installed and enabled on the system.'
@@ -33,31 +33,30 @@ control 'V-63399' do
 
   desc "fix", 'Install and enable a host-based firewall on the system.'
  
-   query_domain = json({ command: "Get-WmiObject -NameSpace 'root\\standardcimv2' -Class MSFT_NetFirewallProfile | Where {$_.Name -Like 'Domain' } | Select Enabled | ConvertTo-Json" })
-   query_private = json({ command: "Get-WmiObject -NameSpace 'root\\standardcimv2' -Class MSFT_NetFirewallProfile | Where {$_.Name -Like 'Private' } | Select Enabled | ConvertTo-Json" })
-   query_public = json({ command: "Get-WmiObject -NameSpace 'root\\standardcimv2' -Class MSFT_NetFirewallProfile | Where {$_.Name -Like 'Public' } | Select Enabled | ConvertTo-Json" })
+  query_domain = json({ command: "Get-WmiObject -NameSpace 'root\\standardcimv2' -Class MSFT_NetFirewallProfile | Where {$_.Name -Like 'Domain' } | Select Enabled | ConvertTo-Json" })
+  query_private = json({ command: "Get-WmiObject -NameSpace 'root\\standardcimv2' -Class MSFT_NetFirewallProfile | Where {$_.Name -Like 'Private' } | Select Enabled | ConvertTo-Json" })
+  query_public = json({ command: "Get-WmiObject -NameSpace 'root\\standardcimv2' -Class MSFT_NetFirewallProfile | Where {$_.Name -Like 'Public' } | Select Enabled | ConvertTo-Json" })
   
-    describe.one do
-     describe 'Windows Firewall should be Enabled' do
+  describe.one do
+    describe 'Windows Firewall should be Enabled' do
       subject { query_public.params["Enabled"] }
-      it 'The Public host-based firewall' do
-      failure_message = "is not Enabled"
-      expect(subject).to eql(1), failure_message
+        it 'The Public host-based firewall' do
+        failure_message = "is not Enabled"
+        expect(subject).to eql(1), failure_message
       end
-     end
-     describe 'Windows Firewall should be Enabled' do
-     subject { query_private.params["Enabled"] }
-     it 'The Private host-based firewall' do
-     failure_message = "is not enabled"
-     expect(subject).to eql(1), failure_message
-     end
     end
     describe 'Windows Firewall should be Enabled' do
-     subject { query_domain.params["Enabled"] }
-     it 'The Domain host-based firewall' do
-     failure_message = "is not Enabled"
-     expect(subject).to eql(1), failure_message
-     end
+      subject { query_private.params["Enabled"] }
+        it 'The Private host-based firewall' do
+        failure_message = "is not enabled"
+        expect(subject).to eql(1), failure_message
+      end
+    end
+    describe 'Windows Firewall should be Enabled' do
+      subject { query_domain.params["Enabled"] }
+        it 'The Domain host-based firewall' do
+        failure_message = "is not Enabled"   
+        expect(subject).to eql(1), failure_message
     end
   end
 end

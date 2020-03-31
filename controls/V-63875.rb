@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63875' do
   title "The Deny log on as a service user right on Windows 10 domain-joined

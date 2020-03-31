@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77191' do
   title 'Exploit Protection mitigations in Windows 10 must be configured for AcroRd32.exe.'

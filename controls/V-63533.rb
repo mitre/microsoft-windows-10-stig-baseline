@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63533' do
   title "Windows 10 permissions for the Application event log must prevent

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63669' do
   title "The machine inactivity limit must be set to 15 minutes, locking the

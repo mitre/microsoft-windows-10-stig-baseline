@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63853' do
   title "The Back up files and directories user right must only be assigned to

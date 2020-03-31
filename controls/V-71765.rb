@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-71765' do
   title 'Internet connection sharing must be disabled.'

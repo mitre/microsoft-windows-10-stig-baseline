@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63847' do
   title "The Act as part of the operating system user right must not be

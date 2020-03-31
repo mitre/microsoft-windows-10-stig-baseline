@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63691' do
   title "Turning off File Explorer heap termination on corruption must be

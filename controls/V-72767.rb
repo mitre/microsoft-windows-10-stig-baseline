@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-72767' do
   title 'Bluetooth must be turned off when not in use.'

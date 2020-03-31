@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63763' do
   title "Services using Local System that use Negotiate when reverting to NTLM

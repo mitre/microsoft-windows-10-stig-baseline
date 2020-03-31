@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63653' do
   title 'The computer account password must not be prevented from being reset.'

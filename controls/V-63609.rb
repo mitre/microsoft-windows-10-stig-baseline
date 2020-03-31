@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63609' do
   title "Group Policy objects must be reprocessed even if they have not

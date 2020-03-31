@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63869' do
   title "The Debug programs user right must only be assigned to the

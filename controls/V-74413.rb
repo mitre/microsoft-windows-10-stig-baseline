@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-74413' do
   title 'Windows 10 must be configured to prioritize ECC Curves with longer key lengths first.'

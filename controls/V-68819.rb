@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-68819' do
   title 'PowerShell script block logging must be enabled on Windows 10.'

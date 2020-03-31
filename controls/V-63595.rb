@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63595' do
   title "Virtualization Based Security must be enabled on Windows 10 with the

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63617' do
   title "Local accounts with blank passwords must be restricted to prevent

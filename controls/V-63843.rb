@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63843' do
   title "The Access Credential Manager as a trusted caller user right must not

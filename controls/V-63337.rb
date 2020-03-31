@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63337' do
   title "Windows 10 information systems must use BitLocker to encrypt all disks

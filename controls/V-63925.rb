@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63925' do
   title "The Lock pages in memory user right must not be assigned to any groups

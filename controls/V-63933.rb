@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63933' do
   title "The Perform volume maintenance tasks user right must only be assigned

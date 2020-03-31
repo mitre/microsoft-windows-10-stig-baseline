@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63359' do
   title "Unused accounts must be disabled or removed from the system after

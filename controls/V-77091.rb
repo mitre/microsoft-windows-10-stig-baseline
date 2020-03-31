@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77091' do
   title 'Windows 10 Exploit Protection system-level mitigation, Data Execution Prevention (DEP), must be on.'

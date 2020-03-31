@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63663' do
   title "The Application Compatibility Program Inventory must be prevented from

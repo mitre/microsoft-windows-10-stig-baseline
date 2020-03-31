@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63615' do
   title 'Downloading print driver packages over HTTP must be prevented.'

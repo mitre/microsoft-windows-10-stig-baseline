@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-72769' do
   title 'The system must notify the user when a Bluetooth device attempts to connect.'

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63357' do
   title "Non system-created file shares on a system must limit access to groups

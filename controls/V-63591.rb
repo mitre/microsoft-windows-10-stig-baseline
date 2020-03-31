@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63591' do
   title 'Wi-Fi Sense must be disabled.'

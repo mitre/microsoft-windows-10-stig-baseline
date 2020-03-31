@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63371' do
   title 'Accounts must be configured to require password expiration.'

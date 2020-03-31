@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63879' do
   title "The Deny log on through Remote Desktop Services user right on Windows

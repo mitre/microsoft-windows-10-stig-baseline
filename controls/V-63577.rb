@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63577' do
   title "Hardened UNC Paths must be defined to require mutual authentication

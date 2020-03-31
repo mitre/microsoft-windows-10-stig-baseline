@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-72329' do
   title 'Run as different user must be removed from context menus.'

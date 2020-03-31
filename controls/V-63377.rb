@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63377' do
   title "Internet Information System (IIS) or its subcomponents must not be

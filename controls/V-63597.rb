@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63597' do
   title "Local administrator accounts must have their privileged token filtered

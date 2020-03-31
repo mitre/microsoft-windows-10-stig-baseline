@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77085' do
   title 'Secure Boot must be enabled on Windows 10 systems.'

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63927' do
   title "The Manage auditing and security log user right must only be assigned

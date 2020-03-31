@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63335' do
   title "The Windows Remote Management (WinRM) client must not use Basic

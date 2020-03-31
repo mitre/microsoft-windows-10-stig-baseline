@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63579' do
   title "The DoD Root CA certificates must be installed in the Trusted Root

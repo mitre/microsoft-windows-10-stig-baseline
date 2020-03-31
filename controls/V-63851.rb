@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63851' do
   title 'The Allow log on locally user right must only be assigned to the Administrators and Users groups.'

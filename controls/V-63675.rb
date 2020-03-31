@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63675' do
   title "The required legal notice must be configured to display before console

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63423' do
   title 'Passwords must, at a minimum, be 14 characters.'

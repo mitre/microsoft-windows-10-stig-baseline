@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63857' do
   title "The Create a pagefile user right must only be assigned to the

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63841' do
   title 'Zone information must be preserved when saving attachments.'

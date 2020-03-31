@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63891' do
   title "The Increase scheduling priority user right on Windows 10 must only be

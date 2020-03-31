@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-88203' do
   title "OneDrive must only allow synchronizing of accounts for DoD

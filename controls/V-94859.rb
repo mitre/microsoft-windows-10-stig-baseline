@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-94859' do
   title "Windows 10 systems must use a BitLocker PIN for pre-boot

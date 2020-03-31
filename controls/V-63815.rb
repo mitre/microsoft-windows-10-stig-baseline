@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63815' do
   title 'The default permissions of global system objects must be increased.'

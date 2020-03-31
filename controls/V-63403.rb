@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63403' do
   title "Inbound exceptions to the firewall on Windows 10 domain workstations

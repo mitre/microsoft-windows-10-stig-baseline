@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63745' do
   title 'Anonymous enumeration of SAM accounts must not be allowed.'

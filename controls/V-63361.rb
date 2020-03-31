@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63361' do
   title "Only accounts responsible for the administration of a system must have
