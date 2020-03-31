@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-72767' do
   title 'Bluetooth must be turned off when not in use.'
@@ -43,3 +43,4 @@ control 'V-72767' do
     end
   end
 end
+

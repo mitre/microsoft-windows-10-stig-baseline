@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63933' do
   title "The Perform volume maintenance tasks user right must only be assigned
@@ -49,3 +49,4 @@ control 'V-63933' do
       its('SeManageVolumePrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

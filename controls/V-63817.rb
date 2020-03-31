@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63817' do
   title "User Account Control approval mode for the built-in Administrator must
@@ -47,3 +47,4 @@ control 'V-63817' do
     its('FilterAdministratorToken') { should cmp 1 }
   end
 end
+

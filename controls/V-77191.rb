@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-77191' do
   title 'Exploit Protection mitigations in Windows 10 must be configured for AcroRd32.exe.'
@@ -203,3 +203,4 @@ control 'V-77191' do
     end
    end
 end
+

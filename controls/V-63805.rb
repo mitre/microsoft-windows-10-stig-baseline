@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63805' do
   title "The system must be configured to meet the minimum session security
@@ -46,3 +46,4 @@ control 'V-63805' do
     its('NTLMMinClientSec') { should cmp 537_395_200 }
   end
 end
+

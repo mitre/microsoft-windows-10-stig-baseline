@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63579' do
   title "The DoD Root CA certificates must be installed in the Trusted Root
@@ -127,3 +127,4 @@ control 'V-63579' do
     it { should be_in dod_trusted_certificates }
   end
 end
+

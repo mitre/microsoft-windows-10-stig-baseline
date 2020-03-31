@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-71763' do
   title 'WDigest Authentication must be disabled.'
@@ -52,3 +52,4 @@ control 'V-71763' do
     its('UseLogonCredential') { should cmp 0 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63797' do
   title "The system must be configured to prevent the storage of the LAN
@@ -46,3 +46,4 @@ control 'V-63797' do
     its('NoLMHash') { should cmp 1 }
   end
 end
+

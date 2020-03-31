@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63733' do
   title "Remote Desktop Services must always prompt a client for passwords upon
@@ -47,3 +47,4 @@ control 'V-63733' do
     its('fPromptForPassword') { should cmp 1 }
   end
 end
+

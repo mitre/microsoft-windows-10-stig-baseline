@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63385' do
   title 'The Telnet Client must not be installed on the system.'
@@ -42,3 +42,4 @@ control 'V-63385' do
     it { should_not be_installed }
   end
 end
+

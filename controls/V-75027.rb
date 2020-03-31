@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-75027' do
   title 'Windows 10 must be configured to audit Object Access - File Share failures.'
@@ -61,3 +61,4 @@ control 'V-75027' do
     end
   end
 end
+

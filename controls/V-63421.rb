@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63421' do
   title 'The minimum password age must be configured to at least 1 day.'
@@ -43,3 +43,4 @@ control 'V-63421' do
     its('MinimumPasswordAge') { should be >= input('min_pass_age') }
   end
 end
+

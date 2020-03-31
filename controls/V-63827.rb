@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63827' do
   title "User Account Control must only elevate UIAccess applications that are
@@ -48,3 +48,4 @@ control 'V-63827' do
     its('EnableSecureUIAPaths') { should cmp 1 }
   end
 end
+

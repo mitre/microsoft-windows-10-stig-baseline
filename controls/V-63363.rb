@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63363' do
   title "Only accounts responsible for the backup operations must be members of
@@ -58,3 +58,4 @@ control 'V-63363' do
     end
   end
 end
+

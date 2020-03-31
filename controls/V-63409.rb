@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63409' do
   title "The number of allowed bad logon attempts must be configured to
@@ -50,3 +50,4 @@ control 'V-63409' do
     its('LockoutBadCount') { should be_positive }
   end
 end
+

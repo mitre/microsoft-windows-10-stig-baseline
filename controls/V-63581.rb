@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63581' do
   title "Simultaneous connections to the Internet or a Windows domain must be
@@ -72,3 +72,4 @@ control 'V-63581' do
     end
   end
 end
+

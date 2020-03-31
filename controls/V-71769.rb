@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-71769' do
   title "Remote calls to the Security Account Manager (SAM) must be restricted
@@ -70,3 +70,4 @@ control 'V-71769' do
     end
   end
 end
+

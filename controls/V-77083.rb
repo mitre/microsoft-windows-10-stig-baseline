@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-77083' do
   title "Windows 10 systems must have Unified Extensible Firmware Interface
@@ -49,3 +49,4 @@ control 'V-77083' do
     end
  end
 end
+

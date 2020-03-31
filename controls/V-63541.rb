@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63541' do
   title "Windows 10 permissions for the System event log must prevent access by
@@ -69,3 +69,4 @@ control 'V-63541' do
     it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }
   end
 end
+

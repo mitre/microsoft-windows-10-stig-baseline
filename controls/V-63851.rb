@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63851' do
   title 'The Allow log on locally user right must only be assigned to the Administrators and Users groups.'
@@ -49,3 +49,4 @@ control 'V-63851' do
       its('SeInteractiveLogonRight') { should be_in ['S-1-5-32-544', 'S-1-5-32-545'] }
     end
 end
+

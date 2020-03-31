@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63371' do
   title 'Accounts must be configured to require password expiration.'
@@ -41,3 +41,4 @@ control 'V-63371' do
     its('stdout') { should eq '' }
   end
 end
+

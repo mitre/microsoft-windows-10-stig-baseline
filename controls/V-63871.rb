@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63871' do
   title "The Deny access to this computer from the network user right on
@@ -101,3 +101,4 @@ control 'V-63871' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63853' do
   title "The Back up files and directories user right must only be assigned to
@@ -52,3 +52,4 @@ control 'V-63853' do
       its('SeBackupPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

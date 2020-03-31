@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63339' do
   title "The Windows Remote Management (WinRM) client must not allow
@@ -46,3 +46,4 @@ control 'V-63339' do
     its('AllowUnencryptedTraffic') { should cmp 0 }
   end
 end
+

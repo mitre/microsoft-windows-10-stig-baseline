@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-88203' do
   title "OneDrive must only allow synchronizing of accounts for DoD
@@ -64,3 +64,4 @@ control 'V-88203' do
     its('1111-2222-3333-4444') { should cmp '1111 - 2222 - 3333 - 4444' }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-77195' do
   title 'Exploit Protection mitigations in Windows 10 must be configured for chrome.exe.'
@@ -83,3 +83,4 @@ control 'V-77195' do
     end
   end
 end
+

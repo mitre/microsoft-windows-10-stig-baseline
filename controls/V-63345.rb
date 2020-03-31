@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63345' do
   title "The operating system must employ a deny-all, permit-by-exception
@@ -93,3 +93,4 @@ control 'V-63345' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63607' do
   title "Early Launch Antimalware, Boot-Start Driver Initialization Policy must
@@ -69,3 +69,4 @@ control 'V-63607' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63449' do
   title "The system must be configured to audit Account Management - User
@@ -63,3 +63,4 @@ control 'V-63449' do
     end
   end
 end
+

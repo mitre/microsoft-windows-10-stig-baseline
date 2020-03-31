@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63713' do
   title "The Windows Defender SmartScreen filter for Microsoft Edge must be
@@ -64,3 +64,4 @@ control 'V-63713' do
     end
   end
 end
+

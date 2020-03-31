@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63689' do
   title 'Explorer Data Execution Prevention must be enabled.'
@@ -59,3 +59,4 @@ control 'V-63689' do
     end
   end
 end
+

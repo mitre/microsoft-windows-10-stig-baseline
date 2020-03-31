@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-70637' do
   title 'The Windows PowerShell 2.0 feature must be disabled on the system.'
@@ -71,3 +71,4 @@ control 'V-70637' do
     end
   end
 end
+

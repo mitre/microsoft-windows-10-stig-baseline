@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63677' do
   title "Enhanced anti-spoofing for facial recognition must be enabled on
@@ -57,3 +57,4 @@ control 'V-63677' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63329' do
   title "Users must be notified if a web-based program attempts to install
@@ -62,3 +62,4 @@ control 'V-63329' do
       end
     end
 end
+

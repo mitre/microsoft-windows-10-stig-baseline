@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63661' do
   title "The maximum age for machine account passwords must be configured to 30
@@ -52,3 +52,4 @@ control 'V-63661' do
     its('MaximumPasswordAge') { should be <= 30 }
   end
 end
+

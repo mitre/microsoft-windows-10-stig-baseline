@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63759' do
   title 'Anonymous access to Named Pipes and Shares must be restricted.'
@@ -46,3 +46,4 @@ control 'V-63759' do
     its('RestrictNullSessAccess') { should cmp 1 }
   end
 end
+

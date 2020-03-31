@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63831' do
   title "User Account Control must virtualize file and registry write failures
@@ -47,3 +47,4 @@ control 'V-63831' do
     its('EnableVirtualization') { should cmp 1 }
   end
 end
+

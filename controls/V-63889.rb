@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63889' do
   title "The Impersonate a client after authentication user right must only be
@@ -58,3 +58,4 @@ control 'V-63889' do
       its('SeAuditPrivilege') { should be_in ['S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6'] }
     end
 end
+

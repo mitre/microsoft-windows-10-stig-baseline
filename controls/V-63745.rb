@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63745' do
   title 'Anonymous enumeration of SAM accounts must not be allowed.'
@@ -44,3 +44,4 @@ control 'V-63745' do
     its('RestrictAnonymousSAM') { should cmp 1 }
   end
 end
+

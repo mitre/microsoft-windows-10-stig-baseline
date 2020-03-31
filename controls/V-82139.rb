@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-82139' do
   title "Windows 10 must be configured to prevent certificate error overrides
@@ -60,3 +60,4 @@ control 'V-82139' do
     end
   end
 end
+

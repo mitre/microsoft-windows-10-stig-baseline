@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63321' do
   title 'Users must be prevented from changing installation options.'
@@ -45,3 +45,4 @@ control 'V-63321' do
     its('EnableUserControl') { should cmp 0 }
   end
 end
+

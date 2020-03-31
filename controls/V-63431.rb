@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63431' do
   title "The system must be configured to audit Account Logon - Credential
@@ -61,3 +61,4 @@ control 'V-63431' do
     end
   end
 end
+

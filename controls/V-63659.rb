@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63659' do
   title "The setting to allow Microsoft accounts to be optional for modern
@@ -50,3 +50,4 @@ control 'V-63659' do
     its('MSAOptional') { should cmp 1 }
   end
 end
+

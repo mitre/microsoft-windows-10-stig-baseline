@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63737' do
   title "The Remote Desktop Session Host must require secure RPC
@@ -49,3 +49,4 @@ control 'V-63737' do
     its('fEncryptRPCTraffic') { should cmp 1 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63811' do
   title "The system must be configured to use FIPS-compliant algorithms for
@@ -51,3 +51,4 @@ control 'V-63811' do
     its('Enabled') { should cmp 1 }
   end
 end
+

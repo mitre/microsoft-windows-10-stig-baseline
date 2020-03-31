@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63651' do
   title 'Solicited Remote Assistance must not be allowed.'
@@ -48,3 +48,4 @@ control 'V-63651' do
     its('fAllowToGetHelp') { should cmp 0 }
   end
 end
+

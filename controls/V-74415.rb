@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-74415' do
   title "Windows 10 must be configured to prevent Microsoft Edge browser data
@@ -58,3 +58,4 @@ prevent the data from automatically being deleted when the browser closes."
     end
   end
 end
+

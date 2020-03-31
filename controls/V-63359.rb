@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63359' do
   title "Unused accounts must be disabled or removed from the system after
@@ -136,3 +136,4 @@ control 'V-63359' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63593' do
   title "Default permissions for the HKEY_LOCAL_MACHINE registry hive must be
@@ -153,3 +153,4 @@ control 'V-63593' do
     it { should be_in input('reg_system_perms') }
   end
 end
+

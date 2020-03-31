@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63389' do
   title 'The TFTP Client must not be installed on the system.'
@@ -42,3 +42,4 @@ control 'V-63389' do
     it { should_not be_installed }
   end
 end
+

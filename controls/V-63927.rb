@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63927' do
   title "The Manage auditing and security log user right must only be assigned
@@ -53,3 +53,4 @@ control 'V-63927' do
       its('SeSecurityPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

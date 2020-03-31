@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63857' do
   title "The Create a pagefile user right must only be assigned to the
@@ -48,3 +48,4 @@ control 'V-63857' do
       its('SeCreatePagefilePrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

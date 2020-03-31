@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63829' do
   title "User Account Control must run all administrators in Admin Approval
@@ -46,3 +46,4 @@ control 'V-63829' do
     its('EnableLUAs') { should cmp 1 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63671' do
   title "The default autorun behavior must be configured to prevent autorun
@@ -47,3 +47,4 @@ control 'V-63671' do
     its('NoAutorun') { should cmp 1 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63325' do
   title "The Windows Installer Always install with elevated privileges must be
@@ -46,3 +46,4 @@ control 'V-63325' do
     its('AlwaysInstallElevated') { should cmp 0 }
   end
 end
+

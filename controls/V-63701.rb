@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63701' do
   title "Users must not be allowed to ignore Windows Defender SmartScreen
@@ -64,3 +64,4 @@ Components >> Windows Defender SmartScreen >> Microsoft Edge."
     end
   end
 end
+

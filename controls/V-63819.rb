@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63819' do
   title "User Account Control must, at minimum, prompt administrators for
@@ -49,3 +49,4 @@ control 'V-63819' do
     its('ConsentPromptBehaviorAdmin') { should cmp 2 }
   end
 end
+

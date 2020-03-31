@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63429' do
   title 'Reversible password encryption must be disabled.'
@@ -42,3 +42,4 @@ control 'V-63429' do
     its('ClearTextPassword') { should eq 0 }
   end
 end
+

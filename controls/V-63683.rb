@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63683' do
   title 'Windows Telemetry must not be configured to Full.'
@@ -74,3 +74,4 @@ control 'V-63683' do
     end
   end
 end
+

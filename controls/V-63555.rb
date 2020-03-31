@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63555' do
   title 'IPv6 source routing must be configured to highest protection.'
@@ -50,3 +50,4 @@ control 'V-63555' do
     its('DisableIPSourceRouting') { should cmp 2 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63881' do
   title "The Enable computer and user accounts to be trusted for delegation
@@ -45,3 +45,4 @@ control 'V-63881' do
     its('SeEnableDelegationPrivilege') { should eq [] }
   end
 end
+

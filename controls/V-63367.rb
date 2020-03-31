@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63367' do
   title 'Standard local user accounts must not exist on a system in a domain.'
@@ -89,3 +89,4 @@ control 'V-63367' do
     it { should_not eq 'True' }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63855' do
   title "The Change the system time user right must only be assigned to
@@ -53,3 +53,4 @@ control 'V-63855' do
       its('SeSystemtimePrivilege') { should be_in ['S-1-5-32-544', 'S-1-5-19'] }
     end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-68817' do
   title 'Command line data must be included in process creation events.'
@@ -51,3 +51,4 @@ control 'V-68817' do
     its('ProcessCreationIncludeCmdLine_Enabled') { should cmp 1 }
   end
 end
+

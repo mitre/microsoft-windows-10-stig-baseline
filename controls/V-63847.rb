@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63847' do
   title "The Act as part of the operating system user right must not be
@@ -47,3 +47,4 @@ control 'V-63847' do
     its('SeTcbPrivilege') { should eq [] }
   end
 end
+

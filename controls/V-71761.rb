@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-71761' do
   title "The system must be configured to audit Policy Change - Authorization
@@ -58,3 +58,4 @@ control 'V-71761' do
     end
   end
 end
+

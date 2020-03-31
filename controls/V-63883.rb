@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63883' do
   title "The Force shutdown from a remote system user right must only be
@@ -50,3 +50,4 @@ control 'V-63883' do
       its('SeRemoteShutdownPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

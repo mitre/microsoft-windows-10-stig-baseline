@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-76505' do
   title 'Orphaned security identifiers (SIDs) must be removed from user rights on Windows 10.'
@@ -48,3 +48,4 @@ control 'V-76505' do
     skip 'A manual review is required to ensure orphaned security identifiers (SIDs) are removed from user rights on Windows 2012 / 2012 R2'
   end
 end
+

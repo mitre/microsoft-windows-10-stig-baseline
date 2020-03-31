@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63709' do
   title 'The password manager function in the Edge browser must be disabled.'
@@ -46,3 +46,4 @@ control 'V-63709' do
     its('FormSuggest Passwords') { should cmp 'no' }
   end
 end
+

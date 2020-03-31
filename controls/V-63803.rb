@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63803' do
   title "The system must be configured to the required LDAP client signing
@@ -45,3 +45,4 @@ control 'V-63803' do
     its('LDAPClientIntegrity') { should cmp 1 }
   end
 end
+

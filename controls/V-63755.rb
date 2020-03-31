@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63755' do
   title "The system must be configured to prevent anonymous users from having
@@ -46,3 +46,4 @@ control 'V-63755' do
     its('EveryoneIncludesAnonymous') { should cmp 0 }
   end
 end
+

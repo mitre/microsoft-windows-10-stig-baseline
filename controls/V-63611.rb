@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63611' do
   title 'The built-in guest account must be disabled.'
@@ -43,3 +43,4 @@ control 'V-63611' do
     its('EnableGuestAccount') { should cmp 0 }
   end
 end
+

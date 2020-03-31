@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63845' do
   title "The Access this computer from the network user right must only be
@@ -63,3 +63,4 @@ control 'V-63845' do
       its('SeNetworkLogonRight') { should be_in ['S-1-5-32-544', 'S-1-5-32-555'] }
     end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63621' do
   title "Web publishing and online ordering wizards must be prevented from
@@ -51,3 +51,4 @@ control 'V-63621' do
     its('NoWebServices') { should cmp 1 }
   end
 end
+

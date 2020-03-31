@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 control "V-63353" do
   title "Local volumes must be formatted using NTFS."
   desc  "The ability to set access permissions and auditing is critical to
@@ -57,3 +58,4 @@ get_volumes = command("wmic logicaldisk get FileSystem | findstr /r /v '^$' |Fin
     end
   end
 end
+

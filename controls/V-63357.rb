@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63357' do
   title "Non system-created file shares on a system must limit access to groups
@@ -91,3 +91,4 @@ control 'V-63357' do
     end
   end
 end
+

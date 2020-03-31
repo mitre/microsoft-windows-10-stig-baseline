@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63591' do
   title 'Wi-Fi Sense must be disabled.'
@@ -59,3 +59,4 @@ control 'V-63591' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63801' do
   title "The LanMan authentication level must be set to send NTLMv2 response
@@ -48,3 +48,4 @@ control 'V-63801' do
     its('LmCompatibilityLevel') { should cmp 5 }
   end
 end
+

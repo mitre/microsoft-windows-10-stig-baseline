@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63559' do
   title 'The system must be configured to prevent IP source routing.'
@@ -51,3 +51,4 @@ control 'V-63559' do
     its('DisableIPSourceRouting') { should cmp 2 }
   end
 end
+

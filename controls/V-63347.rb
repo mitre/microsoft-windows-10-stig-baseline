@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63347' do
   title "The Windows Remote Management (WinRM) service must not use Basic
@@ -45,3 +45,4 @@ control 'V-63347' do
     its('AllowBasic') { should cmp 0 }
   end
 end
+

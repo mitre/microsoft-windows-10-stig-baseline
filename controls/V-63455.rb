@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63455' do
   title "The system must be configured to audit Logon/Logoff - Account Lockout
@@ -61,3 +61,4 @@ control 'V-63455' do
     end
   end
 end
+

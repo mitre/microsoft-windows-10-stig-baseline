@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63589' do
   title "The US DoD CCEB Interoperability Root CA cross-certificates must be
@@ -115,3 +115,4 @@ control 'V-63589' do
     end
   end
 end
+

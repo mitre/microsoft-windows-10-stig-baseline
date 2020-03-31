@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63749' do
   title 'Anonymous enumeration of shares must be restricted.'
@@ -45,3 +45,4 @@ control 'V-63749' do
     its('RestrictAnonymous') { should cmp 1 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63825' do
   title "User Account Control must be configured to detect application
@@ -47,3 +47,4 @@ control 'V-63825' do
     its('EnableInstallerDetection') { should cmp 1 }
   end
 end
+

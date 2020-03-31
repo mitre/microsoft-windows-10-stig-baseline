@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63623' do
   title 'Printing over HTTP must be prevented.'
@@ -49,3 +49,4 @@ Internet Communication settings >> \"Turn off printing over HTTP\" to
     its('DisableHTTPPrinting') { should cmp 1 }
   end
 end
+

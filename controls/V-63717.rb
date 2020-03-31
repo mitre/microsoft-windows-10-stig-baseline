@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63717' do
   title "The use of a hardware security device with Windows Hello for Business
@@ -62,3 +62,4 @@ control 'V-63717' do
     end
   end
 end
+

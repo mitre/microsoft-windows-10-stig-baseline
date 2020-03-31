@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63917' do
   title "The Load and unload device drivers user right must only be assigned to
@@ -51,3 +51,4 @@ control 'V-63917' do
       its('SeLoadDriverPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

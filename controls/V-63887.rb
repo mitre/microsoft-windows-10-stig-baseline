@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63887' do
   title "The Generate security audits user right must only be assigned to Local
@@ -52,3 +52,4 @@ control 'V-63887' do
       its('SeAuditPrivilege') { should be_in ['S-1-5-19', 'S-1-5-20'] }
     end
 end
+

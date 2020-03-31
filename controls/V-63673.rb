@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63673' do
   title 'Autoplay must be disabled for all drives.'
@@ -52,3 +52,4 @@ control 'V-63673' do
     its('NoDriveTypeAutoRun') { should cmp 255 }
   end
 end
+

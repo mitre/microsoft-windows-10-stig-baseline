@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63427' do
   title 'The built-in Microsoft password complexity filter must be enabled.'
@@ -45,3 +45,4 @@ control 'V-63427' do
     its('PasswordComplexity') { should eq input('enable_pass_complexity') }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63729' do
   title 'Passwords must not be saved in the Remote Desktop Client.'
@@ -47,3 +47,4 @@ control 'V-63729' do
     its('DisablePasswordSaving') { should cmp 1 }
   end
 end
+

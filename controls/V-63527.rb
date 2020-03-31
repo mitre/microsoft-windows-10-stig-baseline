@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63527' do
   title 'The System event log size must be configured to 32768 KB or greater.'
@@ -52,3 +52,4 @@ control 'V-63527' do
     its('MaxSize') { should be >= 32_768 }
   end
 end
+

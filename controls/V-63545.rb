@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63545' do
   title 'Camera access from the lock screen must be disabled.'
@@ -55,3 +55,4 @@ control 'V-63545' do
     end
   end
 end
+

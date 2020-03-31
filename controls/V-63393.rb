@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63393' do
   title 'Software certificate installation files must be removed from Windows 10.'
@@ -46,3 +46,4 @@ control 'V-63393' do
     its('stdout') { should eq '' }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63609' do
   title "Group Policy objects must be reprocessed even if they have not
@@ -49,3 +49,4 @@ control 'V-63609' do
     its('NoGPOListChanges') { should cmp 0 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63333' do
   title "Automatically signing in the last interactive user after a
@@ -49,3 +49,4 @@ control 'V-63333' do
     its('DisableAutomaticRestartSignOn') { should cmp 1 }
   end
 end
+

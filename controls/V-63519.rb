@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63519' do
   title "The Application event log size must be configured to 32768 KB or
@@ -54,3 +54,4 @@ control 'V-63519' do
     its('MaxSize') { should be >= 32_768 }
   end
 end
+

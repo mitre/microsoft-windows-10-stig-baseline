@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63681' do
   title 'The Windows dialog box title for the legal banner must be configured.'
@@ -65,3 +65,4 @@ control 'V-63681' do
     it { should cmp legal_notice_caption.scan(/[\w().;,!]/).join }
   end
 end
+

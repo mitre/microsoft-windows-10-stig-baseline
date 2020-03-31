@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63351' do
   title 'The Windows 10 system must use an anti-virus program.'
@@ -129,3 +129,4 @@ control 'V-63351' do
     it { should cmp 'Up to date' }
   end
 end
+

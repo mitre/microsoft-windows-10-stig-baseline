@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63473' do
   title "The system must be configured to audit Object Access - Removable
@@ -67,3 +67,4 @@ control 'V-63473' do
     end
   end
 end
+
