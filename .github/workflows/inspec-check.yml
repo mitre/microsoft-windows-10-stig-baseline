@@ -11,7 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     container: chef/chefworkstation
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
       - name: Display the path
         run: echo $PATH
       - name: Get InSpec Version
         run: inspec -v
+      - name: Get PWD
+        run: echo $PWD
+      - name: ls
+        run: ls -alh *.*
