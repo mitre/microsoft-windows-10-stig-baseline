@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63345' do
   title "The operating system must employ a deny-all, permit-by-exception
@@ -32,7 +32,7 @@ control 'V-63345' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "This is applicable to unclassified systems; for other systems
+  desc 'check', "This is applicable to unclassified systems; for other systems
         this is NA.
 
         Verify the operating system employs a deny-all, permit-by-exception policy to
@@ -64,7 +64,7 @@ control 'V-63345' do
 
         https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm"
 
-  desc "fix", "Configure an application whitelisting program to employ a deny-all,
+  desc 'fix', "Configure an application whitelisting program to employ a deny-all,
         permit-by-exception policy to allow the execution of authorized software
         programs.
 
@@ -80,10 +80,12 @@ control 'V-63345' do
 
         https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm"
 
-  if input('is_unclassified_system') == 'false'
+  ref 'https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm'
+
+  if input('sensitive_system') == 'true'
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
   else
     describe 'A manual review is required to ensure the operating system employs a deny-all, permit-by-exception policy to allow the execution of authorized software programs' do

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63933' do
   title "The Perform volume maintenance tasks user right must only be assigned
@@ -45,12 +45,7 @@ control 'V-63933' do
 
       Administrators"
 
-  describe.one do
     describe security_policy do
       its('SeManageVolumePrivilege') { should eq ['S-1-5-32-544'] }
     end
-    describe security_policy do
-      its('SeManageVolumePrivilege') { should eq [] }
-    end
-  end
 end

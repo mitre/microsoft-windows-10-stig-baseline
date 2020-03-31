@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63661' do
   title "The maximum age for machine account passwords must be configured to 30

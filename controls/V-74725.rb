@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-74725' do
   title 'The Server Message Block (SMB) v1 protocol must be disabled on the SMB client.'
@@ -60,15 +60,15 @@ control 'V-74725' do
     describe 'V-70639 is configured, this control is NA' do
       skip 'V-70639 is configured, this control is NA'
     end
-  elsif windows_feature('FS-SMB1').installed?
-    describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mrxsmb10') do
+   elsif windows_feature('FS-SMB1').installed?
+     describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mrxsmb10') do
       it { should have_property 'Start' }
       its('Start') { should cmp 4 }
     end
-  else
+   else
     impact 0.0
     describe 'SMBv1 is not installed on this system, therefore this control is not applicable' do
-      skip 'SMBv1 is not installed on this system, therefore this control is not applicable'
+     skip 'SMBv1 is not installed on this system, therefore this control is not applicable'
     end
-  end
+   end
 end

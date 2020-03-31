@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63381' do
   title "Simple Network Management Protocol (SNMP) must not be installed on the

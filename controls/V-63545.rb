@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63545' do
   title 'Camera access from the lock screen must be disabled.'
@@ -24,7 +24,7 @@ control 'V-63545' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "If the device does not have a camera, this is NA.
+  desc 'check', "If the device does not have a camera, this is NA.
 
       If the following registry value does not exist or is not configured as
       specified, this is a finding.
@@ -37,7 +37,7 @@ control 'V-63545' do
       Value Type: REG_DWORD
       Value: 1"
 
-  desc "fix", "If the device does not have a camera, this is NA.
+  desc 'fix', "If the device does not have a camera, this is NA.
 
       Configure the policy value for Computer Configuration >> Administrative
       Templates >> Control Panel >> Personalization >> \"Prevent enabling lock screen
@@ -45,8 +45,8 @@ control 'V-63545' do
 
   if sys_info.manufacturer == 'VMware, Inc.'
     impact 0.0
-    describe 'This is a VDI System; This System is NA for Control V-77083.' do
-      skip 'This is a VDI System; This System is NA for Control V-77083.'
+    describe 'This is a VDI System; This System is NA for Control V-63545.' do
+      skip 'This is a VDI System; This System is NA for Control V-63545.'
     end
   else
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization') do

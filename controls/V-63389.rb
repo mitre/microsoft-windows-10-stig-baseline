@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63389' do
   title 'The TFTP Client must not be installed on the system.'

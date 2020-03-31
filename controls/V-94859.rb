@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-94859' do
   title "Windows 10 systems must use a BitLocker PIN for pre-boot
@@ -65,6 +65,12 @@ control 'V-94859' do
 
   ref 'https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-how-to-enable-network-unlock'
 
+  if sys_info.manufacturer == "VMware, Inc."
+    impact 0.0
+    describe 'This is a VDI System; This System is NA for Control V-94859' do
+     skip 'This is a VDI System; This System is NA for Control V-94859'
+    end
+  else
   describe.one do
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FVE') do
       it { should have_property 'UseAdvancedStartup' }
@@ -79,4 +85,5 @@ control 'V-94859' do
       its('UseTPMKeyPIN') { should cmp 1 }
     end
   end
+ end
 end

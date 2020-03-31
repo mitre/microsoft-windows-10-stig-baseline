@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77101' do
   title 'Windows 10 Exploit Protection system-level mitigation, Validate exception chains (SEHOP), must be on.'
@@ -27,7 +27,7 @@ control 'V-77101' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "This is NA prior to v1709 of Windows 10.
+  desc 'check', "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
 
@@ -45,7 +45,7 @@ control 'V-77101' do
       ON
       NOTSET (Default configuration)"
 
-  desc "fix", "Ensure Exploit Protection system-level mitigation, \"Validate
+  desc 'fix', "Ensure Exploit Protection system-level mitigation, \"Validate
       exception chains (SEHOP)\", is turned on. The default configuration in Exploit
       Protection is \"On by default\" which meets this requirement.
 
@@ -74,7 +74,7 @@ control 'V-77101' do
       configured to \"Enabled\" with file name and location defined under
       \"Options:\". It is recommended the file be in a read-only network location."
 
-  script = <<~EOH
+  sehop_script = <<~EOH
     $convert_json = Get-ProcessMitigation -System | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object = $convert_out_json.SEHOP | Select Enable
@@ -82,10 +82,10 @@ control 'V-77101' do
     write-output $result
   EOH
 
-  if input('is_unclassified_system') == 'false' || nil
+  if input('sensitive_system') == 'true' || nil
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
   elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId < '1709'
     impact 0.0
@@ -93,8 +93,9 @@ control 'V-77101' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe powershell(script) do
-      its('strip') { should_not eq '2' }
+    describe 'SEHOP is required to be enabled on System' do
+      subject { powershell(sehop_script).strip }
+      it { should_not eq '2' }
     end
   end
 end

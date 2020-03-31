@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63711' do
   title 'Unencrypted passwords must not be sent to third-party SMB Servers.'

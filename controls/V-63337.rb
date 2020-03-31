@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63337' do
   title "Windows 10 information systems must use BitLocker to encrypt all disks
@@ -27,7 +27,7 @@ control 'V-63337' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "Verify all Windows 10 information systems (including SIPRNET)
+  desc 'check', "Verify all Windows 10 information systems (including SIPRNET)
         employ BitLocker for full disk encryption.
 
         If full disk encryption using BitLocker is not implemented, this is a finding.
@@ -44,7 +44,7 @@ control 'V-63337' do
         providing it is configured for full disk encryption and satisfies the pre-boot
         authentication requirements (WN10-00-000031 and WN10-00-000032)."
 
-  desc "fix", "Enable full disk encryption on all information systems (including
+  desc 'fix', "Enable full disk encryption on all information systems (including
         SIPRNET) using BitLocker.
 
         BitLocker, included in Windows, can be enabled in the Control Panel under
@@ -54,7 +54,18 @@ control 'V-63337' do
         providing it is configured for full disk encryption and satisfies the pre-boot
         authentication requirements (WN10-00-000031 and WN10-00-000032)."
 
-  describe 'A manual review is required to ensure the operating system has BitLocker Drive Encryption is installed and enabled' do
-    skip 'A manual review is required to ensure the operating system BitLocker Drive Encryption is installed and enabled'
+  if sys_info.manufacturer == 'VMware, Inc.'
+    impact 0.0
+    describe 'This is a VDI System; This System is NA for Control V-63337.' do
+      skip 'This is a VDI System; This System is NA for Control V-63337.'
+    end
+  else
+    # Code needs to be worked on for Parsing the Output of the Command
+    bitlocker_status = JSON.parse(input('bitlocker_status').to_json)
+    query = json({ command: 'Get-BitlockerVolume | Select ProtectionStatus | ConvertTo-Json' })
+    describe 'Verify all Windows 10 information systems (including SIPRNET) employ BitLocker for full disk encryption.' do
+      subject { query.params }
+      its(['ProtectionStatus']) { should be 0 }
+    end
   end
 end

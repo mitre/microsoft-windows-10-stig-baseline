@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63607' do
   title "Early Launch Antimalware, Boot-Start Driver Initialization Policy must

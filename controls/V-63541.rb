@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63541' do
   title "Windows 10 permissions for the System event log must prevent access by
@@ -63,7 +63,7 @@ control 'V-63541' do
   system_root = get_system_root[11..get_system_root.length]
   systemroot = system_root.strip
 
-  describe windows_registry("#{systemroot}\\SYSTEM32\\WINEVT\\LOGS\\Security.evtx") do
+  describe file("#{systemroot}\\SYSTEM32\\WINEVT\\LOGS\\System.evtx") do
     it { should be_allowed('full-control', by_user: 'NT SERVICE\\EventLog') }
     it { should be_allowed('full-control', by_user: 'NT AUTHORITY\\SYSTEM') }
     it { should be_allowed('full-control', by_user: 'BUILTIN\\Administrators') }

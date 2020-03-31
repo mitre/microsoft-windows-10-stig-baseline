@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63877' do
   title "The Deny log on locally user right on workstations must be configured
@@ -36,7 +36,7 @@ control 'V-63877' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "Verify the effective setting in Local Group Policy Editor.
+  desc 'check', "Verify the effective setting in Local Group Policy Editor.
 
         Run \"gpedit.msc\".
 
@@ -57,8 +57,8 @@ control 'V-63877' do
 
         All Systems:
         Guests Group"
-      
-  desc "fix", "Configure the policy value for Computer Configuration >> Windows
+
+  desc 'fix', "Configure the policy value for Computer Configuration >> Windows
         Settings >> Security Settings >> Local Policies >> User Rights Assignment >>
         \"Deny log on locally\" to include the following.
 
@@ -77,22 +77,13 @@ control 'V-63877' do
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
   if is_domain == 'WORKGROUP'
-    describe.one do
-      describe security_policy do
-        its('SeDenyInteractiveLogonRight') { should eq ['S-1-5-32-546'] }
-      end
-      describe security_policy do
-        its('SeDenyInteractiveLogonRight') { should eq [] }
-      end
+    describe security_policy do
+      its('SeDenyInteractiveLogonRight') { should eq ['S-1-5-32-546'] }
     end
   else
-    get_domain_sid = command('wmic useraccount get sid | FINDSTR /V SID | Select -First 2').stdout.strip
-    domain_sid = get_domain_sid[9..40]
+    domain_sid = input('domain_sid')
     describe security_policy do
-      its('SeDenyInteractiveLogonRight') { should include "S-1-21-#{domain_sid}-512" }
-    end
-    describe security_policy do
-      its('SeDenyInteractiveLogonRight') { should include "S-1-21-#{domain_sid}-519" }
+      its('SeDenyInteractiveLogonRight') { should be_in ["S-1-5-21-#{domain_sid}-512", "S-1-5-21-#{domain_sid}-519"] }
     end
   end
 end

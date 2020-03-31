@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63713' do
   title "The Windows Defender SmartScreen filter for Microsoft Edge must be
@@ -25,7 +25,7 @@ control 'V-63713' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "This is applicable to unclassified systems, for other systems
+  desc 'check', "This is applicable to unclassified systems, for other systems
       this is NA.
 
       Windows 10 LTSC\\B versions do not include Microsoft Edge, this is NA for those
@@ -42,7 +42,7 @@ control 'V-63713' do
       Type: REG_DWORD
       Value: 0x00000001 (1)"
 
-  desc "fix", "Configure the policy value for Computer Configuration >>
+  desc 'fix', "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Microsoft Edge >> \"Configure
       Windows Defender SmartScreen\" to \"Enabled\".
 
@@ -52,16 +52,11 @@ control 'V-63713' do
 
   # TODO: update to include the LTSC B and C installs
 
-  if input('is_unclassified_system') == 'false'
+  if input('sensitive_system') == 'true'
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
-  # elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId < '1609'
-  #   impact 0.0
-  #   describe 'This STIG does not apply to Prior Versions before 1709.' do
-  #     skip 'This STIG does not apply to Prior Versions before 1709.'
-  #   end
   else
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter') do
       it { should have_property 'EnabledV9' }

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63415' do
   title 'The password history must be configured to 24 passwords remembered.'

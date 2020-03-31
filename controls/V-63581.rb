@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63581' do
   title "Simultaneous connections to the Internet or a Windows domain must be

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-65681' do
   title 'Windows Update must not obtain updates from other PCs on the Internet.'

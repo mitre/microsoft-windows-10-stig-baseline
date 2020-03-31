@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63687' do
   title 'Caching of logon credentials must be limited.'
@@ -59,6 +59,6 @@ control 'V-63687' do
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon') do
     it { should have_property 'CachedLogonsCount' }
-    its('CachedLogonsCount') { should be <= 10 }
+    its('CachedLogonsCount') { should cmp <= 10 }
   end
 end

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-75027' do
   title 'Windows 10 must be configured to audit Object Access - File Share failures.'

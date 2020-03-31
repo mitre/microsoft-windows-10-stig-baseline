@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63851' do
   title 'The Allow log on locally user right must only be assigned to the Administrators and Users groups.'
@@ -45,18 +45,7 @@ control 'V-63851' do
       Administrators
       Users"
 
-  describe.one do
     describe security_policy do
-      its('SeInteractiveLogonRight') { should be eq ['S-1-5-32-544', 'S-1-5-32-545'] }
+      its('SeInteractiveLogonRight') { should be_in ['S-1-5-32-544', 'S-1-5-32-545'] }
     end
-    describe security_policy do
-      its('SeInteractiveLogonRight') { should be eq ['S-1-5-32-544'] }
-    end
-    describe security_policy do
-      its('SeInteractiveLogonRight') { should be eq ['S-1-5-32-545'] }
-    end
-    describe security_policy do
-      its('SeInteractiveLogonRight') { should be eq [] }
-    end
-  end
 end

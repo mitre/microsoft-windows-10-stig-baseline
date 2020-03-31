@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63699' do
   title "Users must not be allowed to ignore Windows Defender SmartScreen
@@ -27,7 +27,7 @@ control 'V-63699' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "This is applicable to unclassified systems, for other systems
+  desc 'check', "This is applicable to unclassified systems, for other systems
       this is NA.
 
       Windows 10 LTSC\\B versions do not include Microsoft Edge, this is NA for those
@@ -44,7 +44,7 @@ control 'V-63699' do
       Type: REG_DWORD
       Value: 0x00000001 (1)"
 
-  desc "fix", "Configure the policy value for Computer Configuration >>
+  desc 'fix', "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Windows Components >> Microsoft Edge >> \"Prevent
       bypassing Windows Defender SmartScreen prompts for sites\" to \"Enabled\".
 
@@ -52,10 +52,10 @@ control 'V-63699' do
       configured under Computer Configuration >> Administrative Templates >> Windows
       Components >> Windows Defender SmartScreen >> Microsoft Edge."
 
-  if input('is_unclassified_system') == 'false'
+  if input('sensitive_system') == 'true'
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
   else
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter') do

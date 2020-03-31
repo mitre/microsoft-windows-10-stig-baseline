@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63927' do
   title "The Manage auditing and security log user right must only be assigned
@@ -49,12 +49,7 @@ control 'V-63927' do
 
       Administrators"
 
-  describe.one do
     describe security_policy do
       its('SeSecurityPrivilege') { should eq ['S-1-5-32-544'] }
     end
-    describe security_policy do
-      its('SeSecurityPrivilege') { should eq [] }
-    end
-  end
 end

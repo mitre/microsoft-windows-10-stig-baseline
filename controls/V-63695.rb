@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63695' do
   title 'File Explorer shell protocol must run in protected mode.'

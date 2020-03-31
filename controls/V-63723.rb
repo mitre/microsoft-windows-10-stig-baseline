@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63723' do
   title 'The Windows SMB server must perform SMB packet signing when possible.'

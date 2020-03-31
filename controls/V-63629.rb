@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63629' do
   title "The network selection user interface (UI) must not be displayed on the

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63863' do
   title "The Create permanent shared objects user right must not be assigned to

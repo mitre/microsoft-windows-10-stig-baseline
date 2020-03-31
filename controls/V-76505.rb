@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-76505' do
   title 'Orphaned security identifiers (SIDs) must be removed from user rights on Windows 10.'

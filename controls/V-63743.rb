@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63743' do
   title 'Attachments must be prevented from being downloaded from RSS feeds.'

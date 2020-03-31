@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-74413' do
   title 'Windows 10 must be configured to prioritize ECC Curves with longer key lengths first.'
@@ -46,9 +46,10 @@ control 'V-74413' do
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002') do
     it { should have_property 'EccCurves' }
-  end
+   end
   
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002') do
-      its('EccCurves') { should match '["NistP384", "NistP256"]' }
+      its('EccCurves') { should include 'NistP384' }
+      its('EccCurves') { should include 'NistP256' }
     end
 end

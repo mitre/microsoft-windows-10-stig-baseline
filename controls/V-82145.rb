@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-82145' do
   title "If Enhanced diagnostic data is enabled it must be limited to the

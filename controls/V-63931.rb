@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63931' do
   title "The Modify firmware environment values user right must only be
@@ -45,12 +45,7 @@ control 'V-63931' do
 
       Administrators"
 
-  describe.one do
     describe security_policy do
       its('SeSystemEnvironmentPrivilege') { should eq ['S-1-5-32-544'] }
     end
-    describe security_policy do
-      its('SeSystemEnvironmentPrivilege') { should eq [] }
-    end
-  end
 end

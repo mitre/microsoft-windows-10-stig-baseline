@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63817' do
   title "User Account Control approval mode for the built-in Administrator must

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63579' do
   title "The DoD Root CA certificates must be installed in the Trusted Root
@@ -27,7 +27,7 @@ control 'V-63579' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "Verify the DoD Root CA certificates are installed as Trusted Root
+  desc 'check', "Verify the DoD Root CA certificates are installed as Trusted Root
       Certification Authorities.
 
       The certificates and thumbprints referenced below apply to unclassified
@@ -110,7 +110,7 @@ control 'V-63579' do
       Thumbprint: 4ECB5CC3095670454DA1CBD410FC921F46B8564B
       Valid to: Friday, June 14, 2041"
 
-  desc "fix", "Install the DoD Root CA certificates.
+  desc 'fix', "Install the DoD Root CA certificates.
       DoD Root CA 2
       DoD Root CA 3
       DoD Root CA 4
@@ -119,11 +119,11 @@ control 'V-63579' do
       The InstallRoot tool is available on IASE at
       http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
-  dod_certificates = JSON.parse(input('dod_trusted_certificates').to_json)
-  query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*DoD Root*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+  dod_trusted_certificates = JSON.parse(input('dod_trusted_certificates').to_json)
+  query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*DoD Root*"} | Select Subject, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
 
   describe 'The DoD Interoperability Root CA cross-certificates installed' do
     subject { query.params }
-    it { should be_in dod_certificates }
+    it { should be_in dod_trusted_certificates }
   end
 end

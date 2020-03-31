@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-94719' do
   title "Windows 10 must be configured to prevent Windows apps from being

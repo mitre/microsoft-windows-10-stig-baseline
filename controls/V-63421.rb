@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63421' do
   title 'The minimum password age must be configured to at least 1 day.'

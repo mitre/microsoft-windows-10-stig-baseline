@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63697' do
   title "The Smart Card removal option must be configured to Force Logoff or

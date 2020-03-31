@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63383' do
   title 'Simple TCP/IP Services must not be installed on the system.'

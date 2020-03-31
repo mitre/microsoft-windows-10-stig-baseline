@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-71769' do
   title "Remote calls to the Security Account Manager (SAM) must be restricted

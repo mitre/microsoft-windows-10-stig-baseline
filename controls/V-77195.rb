@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77195' do
   title 'Exploit Protection mitigations in Windows 10 must be configured for chrome.exe.'
@@ -25,7 +25,7 @@ control 'V-77195' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "This is NA prior to v1709 of Windows 10.
+  desc 'check', "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
 
@@ -44,7 +44,7 @@ control 'V-77195' do
       required status of \"ON\" are listed here. If the PowerShell command does not
       produce results, ensure the letter case of the filename within the command
       syntax matches the letter case of the actual filename on the system."
-  desc "fix", "Ensure the following mitigations are turned \"ON\" for chrome.exe:
+  desc 'fix', "Ensure the following mitigations are turned \"ON\" for chrome.exe:
 
       DEP:
       Enable: ON
@@ -66,10 +66,10 @@ control 'V-77195' do
     write-output $result_dep_enable
   EOH
 
-  if input('is_unclassified_system') == 'false' || nil
+  if input('sensitive_system') == 'true' || nil
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
   elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId < '1709'
     impact 0.0
@@ -77,8 +77,9 @@ control 'V-77195' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe powershell(dep_script) do
-      its('strip') { should_not eq '2' }
+    describe 'DEP is required to be enabled on Chrome' do
+      subject { powershell(dep_script).strip }
+      it { should_not eq '2' }
     end
   end
 end

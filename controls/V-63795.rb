@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63795' do
   title "Kerberos encryption types must be configured to prevent the use of DES
@@ -25,7 +25,7 @@ control 'V-63795' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "If the following registry value does not exist or is not
+  desc 'check', "If the following registry value does not exist or is not
       configured as specified, this is a finding:
 
       Registry Hive: HKEY_LOCAL_MACHINE
@@ -36,7 +36,7 @@ control 'V-63795' do
 
       Value Type: REG_DWORD
       Value: 0x7ffffff8 (2147483640)"
-  desc "fix", "Configure the policy value for Computer Configuration >> Windows
+  desc 'fix', "Configure the policy value for Computer Configuration >> Windows
       Settings >> Security Settings >> Local Policies >> Security Options >>
       \"Network security: Configure encryption types allowed for Kerberos\" to
       \"Enabled\" with only the following selected:

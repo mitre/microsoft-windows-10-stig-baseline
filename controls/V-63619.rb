@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63619' do
   title 'The built-in administrator account must be renamed.'

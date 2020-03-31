@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63363' do
   title "Only accounts responsible for the backup operations must be members of

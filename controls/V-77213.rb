@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77213' do
   title 'Exploit Protection mitigations in Windows 10 must be configured for GROOVE.EXE.'
@@ -25,7 +25,7 @@ control 'V-77213' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "This is NA prior to v1709 of Windows 10.
+  desc 'check', "This is NA prior to v1709 of Windows 10.
 
       This is applicable to unclassified systems, for other systems this is NA.
 
@@ -61,7 +61,7 @@ control 'V-77213' do
       required status of \"ON\" are listed here. If the PowerShell command does not
       produce results, ensure the letter case of the filename within the command
       syntax matches the letter case of the actual filename on the system."
-  desc "fix", "Ensure the following mitigations are turned \"ON\" for GROOVE.EXE:
+  desc 'fix', "Ensure the following mitigations are turned \"ON\" for GROOVE.EXE:
 
       DEP:
       Enable: ON
@@ -98,6 +98,14 @@ control 'V-77213' do
     $select_object_dep_enable = $convert_out_json.Dep | Select Enable
     $result_dep_enable = $select_object_dep_enable.Enable
     write-output $result_dep_enable
+  EOH
+
+  aslr_forcerelocimage_script = <<~EOH
+    $convert_json = Get-ProcessMitigation -Name iexplore.exe | ConvertTo-Json
+    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
+    $select_object_aslr_force_relocate_images = $convert_out_json.Aslr | Select ForceRelocateImages
+    $result_aslr_force_relocate_images = $select_object_aslr_force_relocate_images.ForceRelocateImages
+    write-output $result_aslr_force_relocate_images
   EOH
 
   imageload_blockremimagload_script = <<~EOH
@@ -164,10 +172,10 @@ control 'V-77213' do
     write-output $result_childprocess_disallchilprocre
   EOH
 
-  if input('is_unclassified_system') == 'false' || nil
+  if input('sensitive_system') == 'true' || nil
     impact 0.0
-    describe 'This Control is Not Applicable to classified systems.' do
-      skip 'This Control is Not Applicable to classified systems.'
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
   elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId < '1709'
     impact 0.0
@@ -175,34 +183,45 @@ control 'V-77213' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe.one do
-      describe powershell(dep_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(imageload_blockremimagload_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enexpaddrfil_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enexpaddrfilplus_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enimpaddrfil_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropstacpiv_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropcalleche_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropsimexec_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(childprocess_disallchilprocre_script) do
-        its('strip') { should_not eq '2' }
-      end
+    describe 'DEP is required to be enabled on Groove' do
+      subject { powershell(dep_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'ImageLoad Block Remote Image Loads is required to be enabled on Groove' do
+      subject { powershell(imageload_blockremimagload_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'ASLR Force Relocate Image is required to be enabled on Groove' do
+      subject { powershell(aslr_forcerelocimage_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Export Address Filter is required to be enabled on Groove' do
+      subject { powershell(payload_enexpaddrfil_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Export Address Filter Plus is required to be enabled on Groove' do
+      subject { powershell(payload_enexpaddrfilplus_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Import Address Filter is required to be enabled on Groove' do
+      subject { powershell(payload_enimpaddrfil_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Stack Pivot is required to be enabled on Groove' do
+      subject { powershell(payload_enropstacpiv_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Caller Check is required to be enabled on Groove' do
+      subject { powershell(payload_enropcalleche_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Sim Exec is required to be enabled on Groove' do
+      subject { powershell(payload_enropsimexec_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'ChildProcess Disallow Child Process Creation is required to be enabled on Groove' do
+      subject { powershell(childprocess_disallchilprocre_script).strip }
+      it { should_not eq '2' }
     end
   end
 end

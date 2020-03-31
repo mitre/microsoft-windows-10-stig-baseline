@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-72769' do
   title 'The system must notify the user when a Bluetooth device attempts to connect.'
@@ -36,7 +36,9 @@ control 'V-72769' do
       Ensure \"Alert me when a new Bluetooth device wants to connect\" is checked."
 
   if sys_info.manufacturer != 'VMware, Inc.'
-    describe 'Configure Bluetooth to notify users if devices attempt to connect. View Bluetooth Settings. Ensure "Alert me when a new Bluetooth device wants to connect" is checked' do
+    describe 'Configure Bluetooth to notify users if devices attempt to connect.
+              View Bluetooth Settings. Ensure "Alert me when a new Bluetooth device 
+              wants to connect" is checked' do
       skip 'This is NA if the system does not have Bluetooth'
     end
   else
@@ -44,5 +46,5 @@ control 'V-72769' do
     describe 'This is a VDI System; This System is NA for Control V-72769.' do
       skip 'This is a VDI System; This System is NA for Control V-72769.'
     end
-    end
+  end
 end

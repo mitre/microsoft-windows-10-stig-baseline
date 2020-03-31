@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63325' do
   title "The Windows Installer Always install with elevated privileges must be

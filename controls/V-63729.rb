@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63729' do
   title 'Passwords must not be saved in the Remote Desktop Client.'

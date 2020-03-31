@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63621' do
   title "Web publishing and online ordering wizards must be prevented from

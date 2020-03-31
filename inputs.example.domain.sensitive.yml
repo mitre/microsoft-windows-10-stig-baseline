@@ -1,0 +1,6 @@
+---
+sensitive_system: "true"
+
+administrators:
+  - localuser
+  - LAB\inspectst

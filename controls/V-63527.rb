@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63527' do
   title 'The System event log size must be configured to 32768 KB or greater.'

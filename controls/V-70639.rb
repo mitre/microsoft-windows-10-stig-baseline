@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-70639' do
   title 'The Server Message Block (SMB) v1 protocol must be disabled on the system.'

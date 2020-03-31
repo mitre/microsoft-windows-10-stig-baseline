@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63343' do
   title "Windows 10 must employ automated mechanisms to determine the state of

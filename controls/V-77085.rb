@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77085' do
   title 'Secure Boot must be enabled on Windows 10 systems.'
@@ -25,7 +25,7 @@ control 'V-77085' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "Some older systems may not have UEFI firmware. This is currently
+  desc 'check', "Some older systems may not have UEFI firmware. This is currently
       a CAT III; it will be raised in severity at a future date when broad support of
       Windows 10 hardware and firmware requirements are expected to be met. Devices
       that have UEFI firmware must have Secure Boot enabled.
@@ -37,21 +37,22 @@ control 'V-77085' do
 
       Under \"System Summary\", if \"Secure Boot State\" does not display \"On\",
       this is finding."
-  desc "fix", 'Enable Secure Boot in the system firmware.'
+  desc 'fix', 'Enable Secure Boot in the system firmware.'
 
   script = <<~EOH
     $status = Confirm-SecureBootUEFI
     write-output $status
   EOH
 
-  if sys_info.manufacturer != 'VMware, Inc.'
-    describe powershell(script) do
-      its('strip') { should_not eq 'False' }
+  if sys_info.manufacturer != 'VMware, Inc.' || nil
+    describe 'Confirm-Secure Boot UEFI is required to be enabled on System' do
+      subject { powershell(script).strip }
+      it { should_not eq 'False' }
     end
   else
     impact 0.0
-    describe 'This is a VDI System; This System is NA for Control V-63323.' do
-      skip 'This is a VDI System; This System is NA for Control V-63323.'
+    describe 'This is a VDI System; This System is NA for Control V-77085.' do
+      skip 'This is a VDI System; This System is NA for Control V-77085.'
     end
   end
 end

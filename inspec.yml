@@ -1,80 +1,101 @@
+---
 name: Windows_10_STIG
 title: Windows 10 Security Technical Implementation Guide
-maintainer: MITRE InSpec Team
-copyright: MITRE, 2019
-copyright_email: inspec@groups.mitre.org
+maintainer: MITRE SAF Team
+copyright: MITRE, 2020
+copyright_email: saf@groups.mitre.org
 license: Apache-2.0
 summary: "The Windows 10 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil."
 version: 1.19
 
 inputs:
-  - name: bitlocker_pin_len'
+  - name: av_approved_software
+    desc: "This is a list of Approved Anti-Virus Software"
+    type: Array
+    value:
+      - Windows Defender
+      - McAfee Host Intrusion Prevention
+      - McAfee Endpoint Security
+      - McAfee Agent
+      
+  - name: domain_sid
+    desc: "This is the domain sid"
+    type: String
+    value: "3561952647-5207400-2818715555"
+
+  - name: bitlocker_pin_len
     desc: "The minimum length for the BitLocker Pin [6]"
-    type: Number
+    type: Numeric
     value: 6
 
   - name: min_pass_len
     desc: "Sets the minimum length of passwords [14]"
-    type: Number
+    type: Numeric
     value: 14
 
   - name: enable_pass_complexity
     desc: "If windows should enforce password complexity (0/1) [1]"
-    type: Number
+    type: Numeric
     value: 1
 
   - name: min_pass_age
     desc: "Sets the minimum age for a password [1]"
+    type: Numeric
     value: 1
 
   - name: max_pass_age
     desc: "Sets the maximum age for a password [60]"
-    type: Number
+    type: Numeric
     value: 60
 
   - name: pass_lock_time
     desc: "Sets the number of min before a session is locked out [15]"
-    type: Number
+    type: Numeric
     value: 15
 
   - name: pass_hist_size
     desc: "Number of passwords remembered in the password history [24]"
-    type: Number
+    type: Numeric
     value: 24
 
   - name: max_pass_lockout
     desc: "Account lockout threshold is recommended to be 3 or less invalid logon attempts [3]"
-    type: Number
+    type: Numeric
     value: 3
 
-  - name: max_inactive_days'
+  - name: max_inactive_days
     desc: "Max number of days an account is allowed to be inactive [35]"
-    type: Number
+    type: Numeric
     value: 35
 
-  - name: is_unclassified_system
-    description: "Set flag to true if the target system is unclassified"
-    value: "true"
+  - name: sensitive_system
+    description: "Set flag to true if the target system is sensitive"
+    type: String
+    value: "false"
 
   - name: backup_operators
-    type: array
+    type: Array
     description: "List of authorized users in the local Backup Operators Group"
-    value: []
+    value:
+      -
 
   - name: administrators
-    type: array
+    type: Array
     description: "List of authorized users in the local Administrators group"
-    value: []
+    value:
+      -
 
   - name: hyper_v_admin
-    type: array
+    type: Array
     description: "List of authorized users in the Hyper-V Group"
-    value: []
+    value:
+      -
 
   - name: LegalNoticeText
-    type: string
+    type: String
     value:
-      "You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+     "You are accessing a U.S. Government (USG) Information System (IS) that is
+      provided for USG-authorized use only.
       By using this IS (which includes any device attached to this IS), you consent
       to the following conditions:
       -The USG routinely intercepts and monitors communications on this IS for
@@ -95,87 +116,149 @@ inputs:
       Agreement for details."
 
   - name: LegalNoticeCaption
-    type: string
+    type: String
     value: "DoD Notice and Consent Banner, US Department of Defense Warning Statement, or a site-defined equivalent."
 
   - name: dod_cceb_certificates
     description: "List of DoD CCEB Interoperability CA Root Certificates"
     type: Array
     value:
-      [
-        {
-          "Subject": "CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Issuer": "CN=US DoD CCEB Interoperability Root CA 1, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Thumbprint": "DA36FAF56B2F6FBA1604F5BE46D864C9FA013BA3",
-          "NotAfter": "Saturday, March 09, 2019",
-        },
-        {
-          "Subject": "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Issuer": "CN=US DoD CCEB Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Thumbprint": "929BF3196896994C0A201DF4A5B71F603FEFBF2E",
-          "NotAfter": "Friday, September 27, 2019",
-        },
-      ]
+      - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+        :Issuer: "CN=US DoD CCEB Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+        :Thumbprint: "929BF3196896994C0A201DF4A5B71F603FEFBF2E"
+        :NotAfter: "Friday, September 27, 2019"
 
   - name: dod_certificates
     description: "List of DoD Interoperability Root Certificates"
     type: Array
     value:
-      [
-        {
-          "Subject": "CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Issuer": "CN=DoD Interoperability Root CA 1, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Thumbprint": "22BBE981F0694D246CC1472ED2B021DC8540A22F",
-          "NotAfter": "Friday, September 06, 2019",
-        },
-        {
-          "Subject": "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Issuer": "CN=DoD Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Thumbprint": "2AC06108CA348CC03B53795C64BF84403C1DBD341",
-          "NotAfter": "Saturday, January 22, 2022",
-        },
-      ]
+      - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+        :Issuer: "CN=DoD Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+        :Thumbprint: "AC06108CA348CC03B53795C64BF84403C1DBD341"
+        :NotAfter: "Saturday, January 22, 2022"
 
-  - name: eca_certificates
+  - name: dod_eca_certificates
     description: "List of ECA Root CA certificates Certificates"
     type: Array
     value:
-      [
-        {
-          "Subject": "CN=ECA Root CA 2, OU=ECA, O=U.S. Government, C=US",
-          "Thumbprint": "C313F919A6ED4E0E8451AFA930FB419A20F181E4",
-          "NotAfter": "Thursday, March 30, 2028",
-        },
-        {
-          "Subject": "CN=ECA Root CA 4, OU=ECA, O=U.S. Government, C=US",
-          "Thumbprint": "73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582",
-          "NotAfter": "Sunday, December 30, 2029",
-        },
-      ]
+      - :Subject: "CN=ECA Root CA 2, OU=ECA, O=U.S. Government, C=US"
+        :Thumbprint: "C313F919A6ED4E0E8451AFA930FB419A20F181E4"
+        :NotAfter: "Thursday, March 30, 2028"
+
+      - :Subject: "CN=ECA Root CA 4, OU=ECA, O=U.S. Government, C=US"
+        :Thumbprint: "73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582"
+        :NotAfter: "Sunday, December 30, 2029"
 
   - name: dod_trusted_certificates
     description: "List of ECA Root CA certificates Certificates"
     type: Array
+    value: 
+       - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+         :Thumbprint: "D73CA91102A2204A36459ED32213B467D7CE97FB"
+         :NotAfter: "Sunday, December 30, 2029"
+  
+       - :Subject: "CN=DoD Root CA 4, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+         :Thumbprint: "B8269F25DBD937ECAFD4C35A9838571723F2D026"
+         :NotAfter: "Sunday, July 25, 2032"
+        
+       - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+         :Thumbprint: "AC06108CA348CC03B53795C64BF84403C1DBD341"
+         :NotAfter: "Saturday, January 22, 2022"
+     
+       - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+         :Thumbprint: "929BF3196896994C0A201DF4A5B71F603FEFBF2E"
+         :NotAfter: "Friday, September 27, 2019"
+     
+       - :Subject: "CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+         :Thumbprint: "8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561"
+         :NotAfter: "Wednesday, December 05, 2029"
+      
+       - :Subject: "CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US"
+         :Thumbprint: "4ECB5CC3095670454DA1CBD410FC921F46B8564B"
+         :NotAfter: "Friday, June 14, 2041"
+      
+
+  - name: c_windows_permissions
+    desc: "Permission of the Windows Folder"
+    type: Array
     value:
-      [
-        {
-          "Subject": "CN=DoD Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Thumbprint": "8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561",
-          "NotAfter": "Wednesday, December 5, 2029",
-        },
-        {
-          "Subject": "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Thumbprint": "D73CA91102A2204A36459ED32213B467D7CE97FB",
-          "NotAfter": "Sunday, December 30, 2029",
-        },
-        {
-          "Subject": "CN=DoD Root CA 4, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Thumbprint": "B8269F25DBD937ECAFD4C35A9838571723F2D026",
-          "NotAfter": "Wednesday, July 25, 2032",
-        },
-        {
-          "Subject": "CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US",
-          "Thumbprint": "4ECB5CC3095670454DA1CBD410FC921F46B8564B",
-          "NotAfter": "Friday, June 14, 2041",
-        },
-      ]
+     ["c:\\windows NT SERVICE\\TrustedInstaller:(F)",
+ "           NT SERVICE\\TrustedInstaller:(CI)(IO)(F)",
+ "           NT AUTHORITY\\SYSTEM:(M)",
+ "           NT AUTHORITY\\SYSTEM:(OI)(CI)(IO)(F)",
+ "           BUILTIN\\Administrators:(M)",
+ "           BUILTIN\\Administrators:(OI)(CI)(IO)(F)",
+ "           BUILTIN\\Users:(RX)",
+ "           BUILTIN\\Users:(OI)(CI)(IO)(GR,GE)",
+ "           CREATOR OWNER:(OI)(CI)(IO)(F)",
+ "           APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(RX)",
+ "           APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
+ "           APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(RX)",
+ "           APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
+ "",
+ "Successfully processed 1 files; Failed processing 0 files"]
+
+
+
+  - name: c_permissions
+    desc: "Permissions of the C Drive"
+    type: Array
+    value:
+     ["c:\\ BUILTIN\\Administrators:(OI)(CI)(F)",
+ "    NT AUTHORITY\\SYSTEM:(OI)(CI)(F)",
+ "    BUILTIN\\Users:(OI)(CI)(RX)",
+ "    NT AUTHORITY\\Authenticated Users:(OI)(CI)(IO)(M)",
+ "    NT AUTHORITY\\Authenticated Users:(AD)",
+ "    Mandatory Label\\High Mandatory Level:(OI)(NP)(IO)(NW)",
+ "",
+ "Successfully processed 1 files; Failed processing 0 files"]
+
+  - name: c_program_files_permissions
+    desc: 'Permissions on C:\Program Files Folder'
+    type: Array
+    value:
+      ["c:\\Program Files NT SERVICE\\TrustedInstaller:(F)",
+ "                 NT SERVICE\\TrustedInstaller:(CI)(IO)(F)",
+ "                 NT AUTHORITY\\SYSTEM:(M)",
+ "                 NT AUTHORITY\\SYSTEM:(OI)(CI)(IO)(F)",
+ "                 BUILTIN\\Administrators:(M)",
+ "                 BUILTIN\\Administrators:(OI)(CI)(IO)(F)",
+ "                 BUILTIN\\Users:(RX)",
+ "                 BUILTIN\\Users:(OI)(CI)(IO)(GR,GE)",
+ "                 CREATOR OWNER:(OI)(CI)(IO)(F)",
+ "                 APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(RX)",
+ "                 APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
+ "                 APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(RX)",
+ "                 APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
+ "",
+ "Successfully processed 1 files; Failed processing 0 files"]
+
+  - name: reg_software_perms
+    desc: 'The required Registry Software Permission Settings'
+    type: Array
+    value:
+      - CREATOR OWNER Allow  FullControl
+      - NT AUTHORITY\SYSTEM Allow  FullControl
+      - BUILTIN\Administrators Allow  FullControl
+      - BUILTIN\Users Allow  ReadKey
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadKey
+      - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
+
+  - name: reg_security_perms
+    desc: 'The required Registry Security Permissions Settings'
+    type: Array
+    value:
+      - NT AUTHORITY\SYSTEM Allow  FullControl
+      - BUILTIN\Administrators Allow  ReadKey, ChangePermissions
+
+  - name: reg_system_perms
+    desc: 'The required Registry System Permissions Settings'
+    type: Array
+    value:
+      - CREATOR OWNER Allow  FullControl
+      - NT AUTHORITY\SYSTEM Allow  FullControl
+      - BUILTIN\Administrators Allow  FullControl
+      - BUILTIN\Users Allow  ReadKey
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadKey
+      - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
+

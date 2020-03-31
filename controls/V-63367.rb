@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63367' do
   title 'Standard local user accounts must not exist on a system in a domain.'
@@ -25,7 +25,7 @@ control 'V-63367' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "Run \"Computer Management\".
+  desc 'check', "Run \"Computer Management\".
         Navigate to System Tools >> Local Users and Groups >> Users.
 
         If local users other than the accounts listed below exist on a workstation in a
@@ -41,11 +41,11 @@ control 'V-63367' do
         All of the built-in accounts may not exist on a system, depending on the
         Windows 10 version."
 
-  desc "fix", "Limit local user accounts on domain-joined systems.  Remove any
+  desc 'fix', "Limit local user accounts on domain-joined systems.  Remove any
         unauthorized local accounts."
 
   admin_script = <<-EOH
-  $convert_json = Get-LocalUser -Name "Administrator" | ConvertTo-Json
+  $convert_json = Get-LocalUser -Name "*Administrator*" | ConvertTo-Json
   $convert_out_json = ConvertFrom-Json -InputObject $convert_json
   $select_object_admin = $convert_out_json.Enabled
   write-output $select_object_admin
@@ -59,31 +59,33 @@ control 'V-63367' do
   EOH
 
   default_account_script = <<-EOH
-  $convert_json = Get-LocalUser -Name "DefaultAccount" | ConvertTo-Json
+  $convert_json = Get-LocalUser -Name "*DefaultAccount*" | ConvertTo-Json
   $convert_out_json = ConvertFrom-Json -InputObject $convert_json
   $select_object_default_account = $convert_out_json.Enabled
   write-output $select_object_default_account
   EOH
 
   wdagutacc_script = <<-EOH
-  $convert_json = Get-LocalUser -Name "WDAGUtilityAccount" | ConvertTo-Json
+  $convert_json = Get-LocalUser -Name "*WDAGUtilityAccount*" | ConvertTo-Json
   $convert_out_json = ConvertFrom-Json -InputObject $convert_json
   $select_object_wdagutacc = $convert_out_json.Enabled
   write-output $select_object_wdagutacc
   EOH
 
-  describe.one do
-    describe powershell(admin_script) do
-      its('strip') { should_not eq 'True' }
-    end
-    describe powershell(guest_script) do
-      its('strip') { should_not eq 'True' }
-    end
-    describe powershell(default_account_script) do
-      its('strip') { should_not eq 'True' }
-    end
-    describe powershell(wdagutacc_script) do
-      its('strip') { should_not eq 'True' }
-    end
+  describe 'Administrator built-in account needs to be disabled as part of security' do
+    subject { powershell(admin_script).strip }
+    it { should_not eq 'True' }
+  end
+  describe 'Guest built-in account needs to be disabled as part of security' do
+    subject { powershell(guest_script).strip }
+    it { should_not eq 'True' }
+  end
+  describe 'Default Account built-in account needs to be disabled as part of security' do
+    subject { powershell(default_account_script).strip }
+    it { should_not eq 'True' }
+  end
+  describe 'WDAGUtilityAccount built-in account needs to be disabled as part of security' do
+    subject { powershell(wdagutacc_script).strip }
+    it { should_not eq 'True' }
   end
 end

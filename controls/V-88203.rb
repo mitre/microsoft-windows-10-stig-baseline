@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-88203' do
   title "OneDrive must only allow synchronizing of accounts for DoD
@@ -61,6 +61,6 @@ control 'V-88203' do
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\OneDrive\AllowTenantList') do
     it { should have_property '1111-2222-3333-4444' }
-    its('1111-2222-3333-4444') { should cmp 1111 - 2222 - 3333 - 4444 }
+    its('1111-2222-3333-4444') { should cmp '1111 - 2222 - 3333 - 4444' }
   end
 end

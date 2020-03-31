@@ -1,7 +1,6 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77269' do
-  only_if('This Control is required for unclassified systems.') { input('is_unclassified_system') == 'true' }
   title "Exploit Protection mitigations in Windows 10 must be configured for
          wordpad.exe."
   desc  "Exploit protection in Windows 10 provides a means of enabling
@@ -27,7 +26,7 @@ control 'V-77269' do
   tag mitigation_controls: nil
   tag responsibility: nil
   tag ia_controls: nil
-  desc "check", "This is NA prior to v1709 of Windows 10.
+  desc 'check', "This is NA prior to v1709 of Windows 10.
 
         This is applicable to unclassified systems, for other systems this is NA.
 
@@ -54,8 +53,8 @@ control 'V-77269' do
         required status of \"ON\" are listed here. If the PowerShell command does not
         produce results, ensure the letter case of the filename within the command
         syntax matches the letter case of the actual filename on the system."
-  
-  desc "fix", "Ensure the following mitigations are turned \"ON\" for wordpad.exe:
+
+  desc 'fix', "Ensure the following mitigations are turned \"ON\" for wordpad.exe:
 
         DEP:
         Enable: ON
@@ -78,7 +77,7 @@ control 'V-77269' do
         \"Options:\".  It is recommended the file be in a read-only network location."
 
   dep_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wordpad.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_dep_enable = $convert_out_json.Dep | Select Enable
     $result_dep_enable = $select_object_dep_enable.Enable
@@ -86,7 +85,7 @@ control 'V-77269' do
   EOH
 
   payload_enexpaddrfil_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wordpad.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enexportaddrfil = $convert_out_json.Payload | Select EnableExportAddressFilter
     $result_payload_enexportaddrfil = $select_object_payload_enexportaddrfil.EnableExportAddressFilter
@@ -94,7 +93,7 @@ control 'V-77269' do
   EOH
 
   payload_enexpaddrfilplus_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wordpad.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enexpaddrfilplus = $convert_out_json.Payload | Select EnableExportAddressFilterPlus
     $result_payload_enexpaddrfilplus = $select_object_payload_enexpaddrfilplus.EnableExportAddressFilterPlus
@@ -102,7 +101,7 @@ control 'V-77269' do
   EOH
 
   payload_enimpaddrfil_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wordpad.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enimpaddrfil = $convert_out_json.Payload | Select EnableImportAddressFilter
     $result_payload_enimpaddrfil = $select_object_payload_enimpaddrfil.EnableImportAddressFilter
@@ -110,7 +109,7 @@ control 'V-77269' do
   EOH
 
   payload_enropstacpiv_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wordpad.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enropstacpiv = $convert_out_json.Payload | Select EnableRopStackPivot
     $result_payload_enropstacpiv = $select_object_payload_enropstacpiv.EnableRopStackPivot
@@ -118,7 +117,7 @@ control 'V-77269' do
   EOH
 
   payload_enropcalleche_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wordpad.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enropcalleche = $convert_out_json.Payload | Select EnableRopCallerCheck
     $result_payload_enropcalleche = $select_object_payload_enropcalleche.EnableRopCallerCheck
@@ -126,41 +125,51 @@ control 'V-77269' do
   EOH
 
   payload_enropsimexec_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name WINWORD.EXE | ConvertTo-Json
+    $convert_json = Get-ProcessMitigation -Name wordpad.exe | ConvertTo-Json
     $convert_out_json = ConvertFrom-Json -InputObject $convert_json
     $select_object_payload_enropsimexec = $convert_out_json.Payload | Select EnableRopSimExec
     $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
     write-output $result_payload_enropsimexec
   EOH
 
-  if registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId >= '1709'
-    describe.one do
-      describe powershell(dep_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enexpaddrfil_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enexpaddrfilplus_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enimpaddrfil_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropstacpiv_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropcalleche_script) do
-        its('strip') { should_not eq '2' }
-      end
-      describe powershell(payload_enropsimexec_script) do
-        its('strip') { should_not eq '2' }
-      end
+  if input('sensitive_system') == 'true' || nil
+    impact 0.0
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
     end
-  else
+  elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ReleaseId <= '1709'
     impact 0.0
     describe 'This STIG does not apply to Prior Versions before 1709.' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
+    end
+  else
+    describe 'DEP is required to be enabled on WordPad' do
+      subject { powershell(dep_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Export Address Filter is required to be enabled on WordPad' do
+      subject { powershell(payload_enexpaddrfil_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Export Address Filter Plus is required to be enabled on WordPad' do
+      subject { powershell(payload_enexpaddrfilplus_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Import Address Filter is required to be enabled on WordPad' do
+      subject { powershell(payload_enimpaddrfil_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Stack Pivot is required to be enabled on WordPad' do
+      subject { powershell(payload_enropstacpiv_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Caller Check is required to be enabled on WordPad' do
+      subject { powershell(payload_enropcalleche_script).strip }
+      it { should_not eq '2' }
+    end
+    describe 'Payload Enable Rop Sim Exec is required to be enabled on WordPad' do
+      subject { powershell(payload_enropsimexec_script).strip }
+      it { should_not eq '2' }
     end
   end
 end

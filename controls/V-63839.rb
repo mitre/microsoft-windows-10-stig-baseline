@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63839' do
   title 'Toast notifications to the lock screen must be turned off.'

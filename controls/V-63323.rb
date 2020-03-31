@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63323' do
   title "Windows 10 domain-joined systems must have a Trusted Platform Module
@@ -71,7 +71,7 @@ control 'V-63323' do
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
-  if sys_info.manufacturer != 'VMware, Inc.'
+  if sys_info.manufacturer == "VMware, Inc."
     impact 0.0
     describe 'This is a VDI System; This System is NA for Control V-63323.' do
       skip 'This is a VDI System; This System is NA for Control V-63323.'

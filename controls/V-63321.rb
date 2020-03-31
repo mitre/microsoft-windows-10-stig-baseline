@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63321' do
   title 'Users must be prevented from changing installation options.'

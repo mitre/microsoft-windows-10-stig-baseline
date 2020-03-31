@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63599' do
   title 'Credential Guard must be running on Windows 10 domain-joined systems.'

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63939' do
   title "The Restore files and directories user right must only be assigned to
@@ -45,12 +45,7 @@ control 'V-63939' do
 
       Administrators"
 
-  describe.one do
     describe security_policy do
       its('SeRestorePrivilege') { should eq ['S-1-5-32-544'] }
     end
-    describe security_policy do
-      its('SeRestorePrivilege') { should eq [] }
-    end
-  end
 end

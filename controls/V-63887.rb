@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63887' do
   title "The Generate security audits user right must only be assigned to Local
@@ -48,18 +48,7 @@ control 'V-63887' do
       LOCAL SERVICE
       NETWORK SERVICE"
 
-  describe.one do
     describe security_policy do
-      its('SeAuditPrivilege') { should eq ['S-1-5-19', 'S-1-5-20'] }
+      its('SeAuditPrivilege') { should be_in ['S-1-5-19', 'S-1-5-20'] }
     end
-    describe security_policy do
-      its('SeAuditPrivilege') { should eq ['S-1-5-19'] }
-    end
-    describe security_policy do
-      its('SeAuditPrivilege') { should eq ['S-1-5-20'] }
-    end
-    describe security_policy do
-      its('SeAuditPrivilege') { should eq [] }
-    end
-  end
 end

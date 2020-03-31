@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-82137' do
   title "The use of personal accounts for OneDrive synchronization must be

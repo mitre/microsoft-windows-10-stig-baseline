@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63577' do
   title "Hardened UNC Paths must be defined to require mutual authentication
@@ -27,7 +27,7 @@ control 'V-63577' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "This requirement is applicable to domain-joined systems, for
+  desc 'check', "This requirement is applicable to domain-joined systems, for
       standalone systems this is NA.
 
       If the following registry values do not exist or are not configured as
@@ -47,7 +47,7 @@ control 'V-63577' do
 
       Additional entries would not be a finding."
 
-  desc "fix", "Configure the policy value for Computer Configuration >>
+  desc 'fix', "Configure the policy value for Computer Configuration >>
       Administrative Templates >> Network >> Network Provider >> \"Hardened UNC
       Paths\" to \"Enabled\" with at least the following configured in \"Hardened UNC
       Paths:\" (click the \"Show\" button to display).
@@ -59,21 +59,22 @@ control 'V-63577' do
       Value: RequireMutualAuthentication=1, RequireIntegrity=1"
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
-
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
-    it { should have_property '\\\\*\\SYSVOL' }
-    its('\\\\*\\SYSVOL') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
-  end
+  keyvalue_netlogon = '\\\\*\\NETLOGON'
+  keyvalue_sysvol = '\\\\*\\SYSVOL'
 
   if is_domain == 'WORKGROUP'
     impact 0.0
     describe 'The system is not a member of a domain, control is NA' do
       skip 'The system is not a member of a domain, control is NA'
     end
-  else
+  elsif
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
-      it { should have_property '\\\\*\\NETLOGON' }
-      its('\\\\*\\NETLOGON') { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1' }
+      it { should have_property keyvalue_sysvol.gsub('\\', '\\\\\\\\') }
+      its (keyvalue_sysvol.gsub('\\', '\\\\\\\\')) { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1'}
+    end
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths') do
+      it { should have_property keyvalue_netlogon.gsub('\\', '\\\\\\\\') }
+      its (keyvalue_netlogon.gsub('\\', '\\\\\\\\')) { should cmp 'RequireMutualAuthentication=1, RequireIntegrity=1'}
     end
   end
 end
