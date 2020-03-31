@@ -1,0 +1,9 @@
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    container: chef/chefworkstation
+    steps:
+      - name: Display the path
+        run: echo $PATH
+      - name: Get InSpec Version
+        run: inspec -v
