@@ -44,15 +44,15 @@ control 'V-77085' do
     write-output $status
   EOH
 
-  if sys_info.manufacturer != 'VMware, Inc.'
+  if sys_info.manufacturer != 'VMware, Inc.' || nil
     describe 'Confirm-Secure Boot UEFI is required to be enabled on System' do
       subject { powershell(script).strip }
-      its { should_not eq 'False' }
+      it { should_not eq 'False' }
     end
   else
     impact 0.0
-    describe 'This is a VDI System; This System is NA for Control V-63323.' do
-      skip 'This is a VDI System; This System is NA for Control V-63323.'
+    describe 'This is a VDI System; This System is NA for Control V-77085.' do
+      skip 'This is a VDI System; This System is NA for Control V-77085.'
     end
   end
 end
