@@ -14,6 +14,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
       - name: Get InSpec Version
-        run: inspec -v
+        run: CHEF_LICENSE=accept inspec -v
       - name: Check the profile
-        run: inspec check .
+        run: CHEF_LICENSE=accept inspec check .
