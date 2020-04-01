@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63795' do
   title "Kerberos encryption types must be configured to prevent the use of DES

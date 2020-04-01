@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63703' do
   title "The Windows SMB client must be configured to always perform SMB packet

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63319' do
   title "Domain-joined systems must use Windows 10 Enterprise Edition 64-bit

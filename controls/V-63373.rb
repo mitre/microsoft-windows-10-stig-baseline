@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63373' do
   title "Permissions for system files and directories must conform to minimum

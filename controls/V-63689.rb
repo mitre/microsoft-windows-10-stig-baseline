@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63689' do
   title 'Explorer Data Execution Prevention must be enabled.'

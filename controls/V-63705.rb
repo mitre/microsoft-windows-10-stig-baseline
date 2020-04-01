@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63705' do
   title 'InPrivate browsing in Microsoft Edge must be disabled.'

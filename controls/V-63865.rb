@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63865' do
   title "The Create symbolic links user right must only be assigned to the

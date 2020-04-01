@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63329' do
   title "Users must be notified if a web-based program attempts to install

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63523' do
   title "The Security event log size must be configured to 1024000 KB or

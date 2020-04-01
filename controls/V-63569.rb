@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63569' do
   title 'Insecure logons to an SMB server must be disabled.'

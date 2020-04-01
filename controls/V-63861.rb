@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63861' do
   title "The Create global objects user right must only be assigned to

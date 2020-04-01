@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-70637' do
   title 'The Windows PowerShell 2.0 feature must be disabled on the system.'

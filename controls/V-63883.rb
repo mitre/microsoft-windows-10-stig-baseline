@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63883' do
   title "The Force shutdown from a remote system user right must only be

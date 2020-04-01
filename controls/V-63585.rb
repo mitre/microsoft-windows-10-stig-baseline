@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63585' do
   title "Connections to non-domain networks when connected to a domain

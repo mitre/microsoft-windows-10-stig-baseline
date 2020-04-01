@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63627' do
   title "Systems must at least attempt device authentication using

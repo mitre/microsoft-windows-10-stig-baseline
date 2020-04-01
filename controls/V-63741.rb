@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63741' do
   title "Remote Desktop Services must be configured with the client connection

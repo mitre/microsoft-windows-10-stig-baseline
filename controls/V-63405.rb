@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63405' do
   title "Windows 10 account lockout duration must be configured to #{input('pass_lock_time')} minutes

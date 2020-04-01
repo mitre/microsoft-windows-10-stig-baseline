@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63633' do
   title 'Local users on domain-joined computers must not be enumerated.'

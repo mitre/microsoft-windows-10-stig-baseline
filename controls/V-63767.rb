@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63767' do
   title 'PKU2U authentication using online identities must be prevented.'

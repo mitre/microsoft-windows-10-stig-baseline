@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63567' do
   title "The system must be configured to ignore NetBIOS name release requests

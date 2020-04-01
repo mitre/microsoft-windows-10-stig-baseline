@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63701' do
   title "Users must not be allowed to ignore Windows Defender SmartScreen

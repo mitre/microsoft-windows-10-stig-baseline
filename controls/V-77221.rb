@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77221' do
   title 'Exploit Protection mitigations in Windows 10 must be configured for INFOPATH.EXE.'

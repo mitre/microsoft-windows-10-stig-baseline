@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63351' do
   title 'The Windows 10 system must use an anti-virus program.'

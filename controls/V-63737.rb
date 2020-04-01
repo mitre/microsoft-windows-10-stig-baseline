@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63737' do
   title "The Remote Desktop Session Host must require secure RPC

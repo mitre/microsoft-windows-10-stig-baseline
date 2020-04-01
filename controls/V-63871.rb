@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63871' do
   title "The Deny access to this computer from the network user right on

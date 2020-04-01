@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63475' do
   title "The system must be configured to audit Policy Change - Audit Policy

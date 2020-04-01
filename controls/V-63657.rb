@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63657' do
   title "Unauthenticated RPC clients must be restricted from connecting to the

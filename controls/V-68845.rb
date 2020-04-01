@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-68845' do
   title 'Data Execution Prevention (DEP) must be configured to at least OptOut.'

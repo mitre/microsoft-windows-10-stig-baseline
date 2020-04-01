@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63801' do
   title "The LanMan authentication level must be set to send NTLMv2 response

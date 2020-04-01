@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63639' do
   title 'Outgoing secure channel traffic must be encrypted or signed.'

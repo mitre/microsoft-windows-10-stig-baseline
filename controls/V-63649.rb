@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63649' do
   title "The user must be prompted for a password on resume from sleep (plugged

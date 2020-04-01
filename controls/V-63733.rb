@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63733' do
   title "Remote Desktop Services must always prompt a client for passwords upon

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63659' do
   title "The setting to allow Microsoft accounts to be optional for modern

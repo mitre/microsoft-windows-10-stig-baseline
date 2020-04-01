@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63889' do
   title "The Impersonate a client after authentication user right must only be

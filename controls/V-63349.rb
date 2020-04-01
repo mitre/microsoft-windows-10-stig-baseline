@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63349' do
   title 'Windows 10 systems must be maintained at a supported servicing level.'

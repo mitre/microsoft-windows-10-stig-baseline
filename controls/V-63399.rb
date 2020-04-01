@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63399' do
   title 'A host-based firewall must be installed and enabled on the system.'

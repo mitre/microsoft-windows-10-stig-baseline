@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63713' do
   title "The Windows Defender SmartScreen filter for Microsoft Edge must be

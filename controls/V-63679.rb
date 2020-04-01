@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63679' do
   title 'Administrator accounts must not be enumerated during elevation.'

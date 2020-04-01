@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63409' do
   title "The number of allowed bad logon attempts must be configured to

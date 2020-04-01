@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63721' do
   title "Windows 10 must be configured to require a minimum pin length of six

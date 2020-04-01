@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63935' do
   title "The Profile single process user right must only be assigned to the

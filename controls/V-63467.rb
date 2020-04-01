@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63467' do
   title 'The system must be configured to audit Logon/Logoff - Logon successes.'

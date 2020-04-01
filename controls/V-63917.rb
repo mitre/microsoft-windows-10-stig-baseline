@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63917' do
   title "The Load and unload device drivers user right must only be assigned to

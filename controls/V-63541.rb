@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63541' do
   title "Windows 10 permissions for the System event log must prevent access by

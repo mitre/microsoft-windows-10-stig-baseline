@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63587' do
   title "The DoD Interoperability Root CA cross-certificates must be installed

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63671' do
   title "The default autorun behavior must be configured to prevent autorun

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63707' do
   title "The Windows SMB client must be enabled to perform SMB packet signing

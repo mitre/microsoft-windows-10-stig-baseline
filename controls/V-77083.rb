@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-77083' do
   title "Windows 10 systems must have Unified Extensible Firmware Interface

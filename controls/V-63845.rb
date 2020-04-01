@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63845' do
   title "The Access this computer from the network user right must only be

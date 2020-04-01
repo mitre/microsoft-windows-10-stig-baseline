@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63873' do
   title "The Deny log on as a batch job user right on domain-joined

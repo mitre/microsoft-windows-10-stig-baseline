@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63887' do
   title "The Generate security audits user right must only be assigned to Local

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63367' do
   title 'Standard local user accounts must not exist on a system in a domain.'

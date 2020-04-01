@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 control 'V-63941' do
   title "The Take ownership of files or other objects user right must only be
