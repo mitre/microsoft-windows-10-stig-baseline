@@ -115,14 +115,13 @@ control 'V-63587' do
 
   # NOTE:  DoD Root CA 2 - DoD Interoperability Root CA 1 - 22BBE981F0694D246CC1472ED2B021DC8540A22F does not exist on Install Root 5.5
 
-  dod_certificates = JSON.parse(input('dod_certificates').to_json)
-
   if input('is_sensitive_system') == 'true'
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
       skip 'This Control is Not Applicable to sensitive systems.'
     end
   else
+    dod_certificates = JSON.parse(input('dod_certificates').to_json)
     query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Issuer -Like "*DoD Interoperability*" -and $_.Subject -Like "*DoD*"} | Select Subject, Issuer, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
     describe 'The DoD Interoperability Root CA cross-certificates are installed' do
       subject { query.params }
