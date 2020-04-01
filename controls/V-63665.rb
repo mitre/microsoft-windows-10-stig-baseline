@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 control "V-63665" do
   title "The system must be configured to require a strong session key."
   desc  "A computer connecting to a domain controller will establish a secure
@@ -44,4 +45,5 @@ control "V-63665" do
     its('RequireStrongKey') { should cmp 1 }
   end
 end
+
 

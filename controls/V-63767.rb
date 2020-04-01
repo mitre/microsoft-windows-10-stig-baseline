@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63767' do
   title 'PKU2U authentication using online identities must be prevented.'
@@ -44,3 +44,4 @@ control 'V-63767' do
     its('AllowOnlineID') { should cmp 0 }
   end
 end
+

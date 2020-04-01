@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63869' do
   title "The Debug programs user right must only be assigned to the
@@ -50,3 +50,4 @@ control 'V-63869' do
       its('SeDebugPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

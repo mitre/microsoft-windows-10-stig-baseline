@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63877' do
   title "The Deny log on locally user right on workstations must be configured
@@ -87,3 +87,4 @@ control 'V-63877' do
     end
   end
 end
+

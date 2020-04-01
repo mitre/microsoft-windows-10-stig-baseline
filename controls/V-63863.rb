@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63863' do
   title "The Create permanent shared objects user right must not be assigned to
@@ -45,3 +45,4 @@ control 'V-63863' do
     its('SeCreatePermanentPrivilege') { should eq [] }
   end
 end
+

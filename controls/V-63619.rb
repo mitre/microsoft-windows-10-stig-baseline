@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63619' do
   title 'The built-in administrator account must be renamed.'
@@ -43,3 +43,4 @@ control 'V-63619' do
     it { should_not exist }
   end
 end
+

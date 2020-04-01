@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63657' do
   title "Unauthenticated RPC clients must be restricted from connecting to the
@@ -45,3 +45,4 @@ control 'V-63657' do
     its('RestrictRemoteClients') { should cmp 1 }
   end
 end
+

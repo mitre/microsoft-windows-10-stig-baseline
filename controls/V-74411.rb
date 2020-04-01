@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-74411' do
   title "Windows 10 must be configured to audit Object Access - Other Object
@@ -62,3 +62,4 @@ control 'V-74411' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63403' do
   title "Inbound exceptions to the firewall on Windows 10 domain workstations
@@ -64,3 +64,4 @@ control 'V-63403' do
     skip 'A manual review of any inbound firewall rules that allow connections'
   end
 end
+

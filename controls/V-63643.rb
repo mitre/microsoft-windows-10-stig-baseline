@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63643' do
   title 'Outgoing secure channel traffic must be encrypted when possible.'
@@ -48,3 +48,4 @@ control 'V-63643' do
     its('SealSecureChannel') { should cmp 1 }
   end
 end
+

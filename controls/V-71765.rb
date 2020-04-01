@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-71765' do
   title 'Internet connection sharing must be disabled.'
@@ -44,3 +44,4 @@ control 'V-71765' do
     its('NC_ShowSharedAccessUI') { should cmp 0 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63337' do
   title "Windows 10 information systems must use BitLocker to encrypt all disks
@@ -69,3 +69,4 @@ control 'V-63337' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63859' do
   title "The Create a token object user right must not be assigned to any
@@ -45,3 +45,4 @@ control 'V-63859' do
     its('SeCreateTokenPrivilege') { should eq [] }
   end
 end
+

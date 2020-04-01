@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63941' do
   title "The Take ownership of files or other objects user right must only be
@@ -44,3 +44,4 @@ control 'V-63941' do
       its('SeTakeOwnershipPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

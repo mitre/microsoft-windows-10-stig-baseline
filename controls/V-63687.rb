@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63687' do
   title 'Caching of logon credentials must be limited.'
@@ -62,3 +62,4 @@ control 'V-63687' do
     its('CachedLogonsCount') { should cmp <= 10 }
   end
 end
+

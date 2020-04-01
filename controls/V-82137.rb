@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-82137' do
   title "The use of personal accounts for OneDrive synchronization must be
@@ -50,3 +50,4 @@ control 'V-82137' do
     its('DisablePersonalSync') { should cmp 1 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-68849' do
   title 'Structured Exception Handling Overwrite Protection (SEHOP) must be enabled.'
@@ -60,3 +60,4 @@ control 'V-68849' do
     end
   end
 end
+

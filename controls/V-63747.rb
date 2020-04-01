@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63747' do
   title 'Basic authentication for RSS feeds over HTTP must not be used.'
@@ -59,3 +59,4 @@ control 'V-63747' do
     end
   end
 end
+

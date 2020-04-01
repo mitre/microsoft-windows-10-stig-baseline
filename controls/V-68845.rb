@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-68845' do
   title 'Data Execution Prevention (DEP) must be configured to at least OptOut.'
@@ -61,3 +61,4 @@ control 'V-68845' do
     its('strip') { should eq 'nx                      OptOut' }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-65681' do
   title 'Windows Update must not obtain updates from other PCs on the Internet.'
@@ -115,3 +115,4 @@ control 'V-65681' do
     end
   end
 end
+

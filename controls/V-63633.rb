@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63633' do
   title 'Local users on domain-joined computers must not be enumerated.'
@@ -60,3 +60,4 @@ control 'V-63633' do
     end
   end
 end
+

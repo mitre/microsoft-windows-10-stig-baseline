@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63627' do
   title "Systems must at least attempt device authentication using
@@ -74,3 +74,4 @@ control 'V-63627' do
     end
   end
 end
+

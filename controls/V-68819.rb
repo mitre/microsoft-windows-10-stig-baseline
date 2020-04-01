@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-68819' do
   title 'PowerShell script block logging must be enabled on Windows 10.'
@@ -51,3 +51,4 @@ control 'V-68819' do
     its('EnableScriptBlockLogging') { should cmp 1 }
   end
 end
+

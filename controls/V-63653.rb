@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63653' do
   title 'The computer account password must not be prevented from being reset.'
@@ -47,3 +47,4 @@ control 'V-63653' do
     its('DisablePasswordChange') { should cmp 0 }
   end
 end
+

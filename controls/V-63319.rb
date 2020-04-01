@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63319' do
   title "Domain-joined systems must use Windows 10 Enterprise Edition 64-bit
@@ -52,3 +52,4 @@ control 'V-63319' do
     it { should eq 'windows_10_enterprise' }
   end
 end
+

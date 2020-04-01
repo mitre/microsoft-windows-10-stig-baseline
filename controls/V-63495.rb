@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63495' do
   title "The system must be configured to audit System - IPSec Driver
@@ -64,3 +64,4 @@ control 'V-63495' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63925' do
   title "The Lock pages in memory user right must not be assigned to any groups
@@ -44,3 +44,4 @@ control 'V-63925' do
     its('SeLockMemoryPrivilege') { should eq [] }
   end
 end
+

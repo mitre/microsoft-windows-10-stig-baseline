@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-78129' do
   title "Administrative accounts must not be used with applications that access
@@ -78,3 +78,4 @@ control 'V-78129' do
    or use of application whitelisting to restrict the use of applications that can access Internet'
   end
 end
+

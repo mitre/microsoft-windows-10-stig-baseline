@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63705' do
   title 'InPrivate browsing in Microsoft Edge must be disabled.'
@@ -47,3 +47,4 @@ control 'V-63705' do
     its('AllowInPrivate') { should cmp 0 }
   end
 end
+

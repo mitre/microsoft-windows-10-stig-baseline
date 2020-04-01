@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63515' do
   title "The system must be configured to audit System - System Integrity
@@ -60,3 +60,4 @@ control 'V-63515' do
     end
   end
 end
+

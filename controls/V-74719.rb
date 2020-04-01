@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-74719' do
   title 'The Secondary Logon service must be disabled on Windows 10.'
@@ -42,3 +42,4 @@ control 'V-74719' do
     end
   end
 end
+

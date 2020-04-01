@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63361' do
   title "Only accounts responsible for the administration of a system must have
@@ -77,3 +77,4 @@ control 'V-63361' do
     end
   end
 end
+

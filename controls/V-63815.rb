@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63815' do
   title 'The default permissions of global system objects must be increased.'
@@ -47,3 +47,4 @@ control 'V-63815' do
     its('ProtectionMode') { should cmp 1 }
   end
 end
+

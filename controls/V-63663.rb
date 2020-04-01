@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63663' do
   title "The Application Compatibility Program Inventory must be prevented from
@@ -48,3 +48,4 @@ control 'V-63663' do
     its('DisableInventory') { should cmp 1 }
   end
 end
+

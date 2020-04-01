@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63563' do
   title "The system must be configured to prevent Internet Control Message
@@ -54,3 +54,4 @@ control 'V-63563' do
     its('EnableICMPRedirect') { should cmp 0 }
   end
 end
+

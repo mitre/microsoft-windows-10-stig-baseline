@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-74417' do
   title 'Windows 10 must be configured to disable Windows Game Recording and Broadcasting.'
@@ -56,3 +56,4 @@ control 'V-74417' do
     end
   end
 end
+

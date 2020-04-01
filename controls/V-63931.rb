@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63931' do
   title "The Modify firmware environment values user right must only be
@@ -49,3 +49,4 @@ control 'V-63931' do
       its('SeSystemEnvironmentPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63891' do
   title "The Increase scheduling priority user right on Windows 10 must only be
@@ -52,3 +52,4 @@ control 'V-63891' do
       its('SeIncreaseBasePriorityPrivilege') { should be_in ['S-1-5-32-544', 'S-1-5-90-0'] }
     end
 end
+

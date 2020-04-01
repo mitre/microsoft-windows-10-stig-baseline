@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63839' do
   title 'Toast notifications to the lock screen must be turned off.'
@@ -44,3 +44,4 @@ control 'V-63839' do
     its('NoToastApplicationNotificationOnLockScreen') { should cmp 1 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63763' do
   title "Services using Local System that use Negotiate when reverting to NTLM
@@ -46,3 +46,4 @@ control 'V-63763' do
     its('UseMachineId') { should cmp 1 }
   end
 end
+

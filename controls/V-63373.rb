@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63373' do
   title "Permissions for system files and directories must conform to minimum
@@ -159,3 +159,4 @@ control 'V-63373' do
     it { should be_in c_program_files_permissions }
   end
 end
+

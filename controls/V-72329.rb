@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-72329' do
   title 'Run as different user must be removed from context menus.'
@@ -73,3 +73,4 @@ control 'V-72329' do
     end
   end
 end
+

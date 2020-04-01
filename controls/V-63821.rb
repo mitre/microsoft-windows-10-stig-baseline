@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 control "V-63821" do
   title "User Account Control must automatically deny elevation requests for 
         standard users."
@@ -47,4 +48,5 @@ control "V-63821" do
     its('ConsentPromptBehaviorUser') { should cmp 0 }
   end
 end
+
 

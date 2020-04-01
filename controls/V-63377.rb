@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63377' do
   title "Internet Information System (IIS) or its subcomponents must not be
@@ -46,3 +46,4 @@ control 'V-63377' do
     it { should_not be_installed }
   end
 end
+

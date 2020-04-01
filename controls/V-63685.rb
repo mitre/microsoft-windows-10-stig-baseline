@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63685' do
   title 'The Windows Defender SmartScreen for Explorer must be enabled.'
@@ -112,3 +112,4 @@ control 'V-63685' do
     end
   end
 end
+

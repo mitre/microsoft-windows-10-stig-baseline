@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63567' do
   title "The system must be configured to ignore NetBIOS name release requests
@@ -56,3 +56,4 @@ control 'V-63567' do
     its('NoNameReleaseOnDemand') { should cmp 1 }
   end
 end
+

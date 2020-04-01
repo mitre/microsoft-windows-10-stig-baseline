@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63423' do
   title 'Passwords must, at a minimum, be 14 characters.'
@@ -43,3 +43,4 @@ control 'V-63423' do
     its('MinimumPasswordLength') { should be >= input('min_pass_len') }
   end
 end
+

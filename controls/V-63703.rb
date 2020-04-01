@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63703' do
   title "The Windows SMB client must be configured to always perform SMB packet
@@ -49,3 +49,4 @@ control 'V-63703' do
     its('RequireSecuritySignature') { should cmp 1 }
   end
 end
+

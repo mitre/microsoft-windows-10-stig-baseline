@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-77231' do
   title 'Exploit Protection mitigations in Windows 10 must be configured for MSACCESS.EXE.'
@@ -189,3 +189,4 @@ control 'V-77231' do
     end
   end
 end
+

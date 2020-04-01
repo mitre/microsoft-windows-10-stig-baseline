@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63875' do
   title "The Deny log on as a service user right on Windows 10 domain-joined
@@ -76,3 +76,4 @@ control 'V-63875' do
     end
   end
 end
+

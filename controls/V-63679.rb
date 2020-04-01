@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63679' do
   title 'Administrator accounts must not be enumerated during elevation.'
@@ -47,3 +47,4 @@ control 'V-63679' do
     its('EnumerateAdministrators') { should cmp 0 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63841' do
   title 'Zone information must be preserved when saving attachments.'
@@ -58,3 +58,4 @@ control 'V-63841' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63587' do
   title "The DoD Interoperability Root CA cross-certificates must be installed
@@ -129,3 +129,4 @@ control 'V-63587' do
     end
   end
 end
+

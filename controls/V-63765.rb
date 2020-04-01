@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63765' do
   title 'NTLM must be prevented from falling back to a Null session.'
@@ -42,3 +42,4 @@ control 'V-63765' do
     its('allownullsessionfallback') { should cmp 0 }
   end
 end
+

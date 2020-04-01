@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63577' do
   title "Hardened UNC Paths must be defined to require mutual authentication
@@ -78,3 +78,4 @@ control 'V-63577' do
     end
   end
 end
+

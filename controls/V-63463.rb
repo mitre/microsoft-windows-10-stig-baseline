@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63463' do
   title 'The system must be configured to audit Logon/Logoff - Logon failures.'
@@ -60,3 +60,4 @@ control 'V-63463' do
     end
   end
 end
+

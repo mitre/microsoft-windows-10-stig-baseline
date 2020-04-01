@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 control "V-71771" do
   title "Microsoft consumer experiences must be turned off."
   desc  "Microsoft consumer experiences provides suggestions and notifications
@@ -53,4 +54,5 @@ else
   end 
  end
 end
+
 

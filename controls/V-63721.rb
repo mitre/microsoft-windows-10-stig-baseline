@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63721' do
   title "Windows 10 must be configured to require a minimum pin length of six
@@ -57,3 +57,4 @@ control 'V-63721' do
     its('MinimumPINLength') { should be >= 6 }
   end
 end
+

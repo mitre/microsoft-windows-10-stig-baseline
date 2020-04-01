@@ -1,0 +1,19 @@
+name: InSpec Check
+
+on:
+  push:
+    # branches to consider in the event; optional, defaults to all
+    branches:
+      - master
+
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    container: chef/chefworkstation
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Get InSpec Version
+        run: CHEF_LICENSE=accept inspec -v
+      - name: Check the profile
+        run: CHEF_LICENSE=accept inspec check .

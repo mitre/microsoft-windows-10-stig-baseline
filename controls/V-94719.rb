@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-94719' do
   title "Windows 10 must be configured to prevent Windows apps from being
@@ -78,3 +78,4 @@ control 'V-94719' do
     end
   end
 end
+

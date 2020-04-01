@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63595' do
   title "Virtualization Based Security must be enabled on Windows 10 with the
@@ -140,3 +140,4 @@ control 'V-63595' do
     end
   end
 end
+

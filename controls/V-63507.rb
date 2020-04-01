@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 control "V-63507" do
   title "The system must be configured to audit System - Security State Change
         successes."
@@ -58,3 +59,4 @@ control "V-63507" do
     end
   end  
 end
+

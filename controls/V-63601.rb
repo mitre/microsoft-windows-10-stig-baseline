@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63601' do
   title 'The built-in administrator account must be disabled.'
@@ -40,3 +40,4 @@ control 'V-63601' do
     its('EnableAdminAccount') { should cmp 0 }
   end
 end
+

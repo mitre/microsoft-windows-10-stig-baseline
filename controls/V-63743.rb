@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63743' do
   title 'Attachments must be prevented from being downloaded from RSS feeds.'
@@ -42,3 +42,4 @@ control 'V-63743' do
     its('DisableEnclosureDownload') { should cmp 1 }
   end
 end
+

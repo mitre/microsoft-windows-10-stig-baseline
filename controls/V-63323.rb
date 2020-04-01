@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63323' do
   title "Windows 10 domain-joined systems must have a Trusted Platform Module
@@ -94,3 +94,4 @@ control 'V-63323' do
     end
   end
 end
+

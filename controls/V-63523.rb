@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63523' do
   title "The Security event log size must be configured to 1024000 KB or
@@ -53,3 +53,4 @@ control 'V-63523' do
     its('MaxSize') { should be >= 1_024_000 }
   end
 end
+

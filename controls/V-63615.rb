@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63615' do
   title 'Downloading print driver packages over HTTP must be prevented.'
@@ -48,3 +48,4 @@ control 'V-63615' do
     its('DisableWebPnPDownload') { should cmp 1 }
   end
 end
+

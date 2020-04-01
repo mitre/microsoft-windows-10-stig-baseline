@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63695' do
   title 'File Explorer shell protocol must run in protected mode.'
@@ -61,3 +61,4 @@ control 'V-63695' do
     end
   end
 end
+

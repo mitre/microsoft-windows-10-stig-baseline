@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-72769' do
   title 'The system must notify the user when a Bluetooth device attempts to connect.'
@@ -48,3 +48,4 @@ control 'V-72769' do
     end
   end
 end
+

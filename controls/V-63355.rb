@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63355' do
   title 'Alternate operating systems must not be permitted on the same system.'
@@ -40,3 +40,4 @@ control 'V-63355' do
     its('stdout') { should eq "description             Windows 10\r\n" }
   end
 end
+

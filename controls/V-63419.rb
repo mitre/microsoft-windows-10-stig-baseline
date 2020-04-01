@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63419' do
   title 'The maximum password age must be configured to 60 days or less.'
@@ -48,3 +48,4 @@ control 'V-63419' do
     its('MaximumPasswordAge') { should be_positive }
   end
 end
+

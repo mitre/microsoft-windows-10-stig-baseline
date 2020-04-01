@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # copyright: 2015, Vulcano Security GmbH
 
 require 'shellwords'
@@ -326,3 +327,4 @@ require 'shellwords'
     end
   end
 # end
+

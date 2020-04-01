@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63383' do
   title 'Simple TCP/IP Services must not be installed on the system.'
@@ -42,3 +42,4 @@ control 'V-63383' do
     it { should_not be_installed }
   end
 end
+

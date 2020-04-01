@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63365' do
   title "Only authorized user accounts must be allowed to create or run virtual
@@ -71,3 +71,4 @@ control 'V-63365' do
     end
   end
 end
+

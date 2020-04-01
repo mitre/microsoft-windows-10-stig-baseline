@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63675' do
   title "The required legal notice must be configured to display before console
@@ -111,3 +111,4 @@ control 'V-63675' do
     it { should cmp legal_notice_text.scan(/[\w().;,!]/).join }
   end
 end
+

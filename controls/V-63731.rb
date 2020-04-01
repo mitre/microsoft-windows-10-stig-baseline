@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63731' do
   title "Local drives must be prevented from sharing with Remote Desktop
@@ -46,3 +46,4 @@ control 'V-63731' do
     its('fDisableCdm') { should cmp 1 }
   end
 end
+

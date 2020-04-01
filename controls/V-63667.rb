@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 control "V-63667" do
   title "Autoplay must be turned off for non-volume devices."
   desc  "Allowing autoplay to execute may introduce malicious code to a system.
@@ -43,4 +44,5 @@ control "V-63667" do
     its('NoAutoplayfornonVolume') { should cmp 1 }
   end
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 control "V-72765" do
   title "Bluetooth must be turned off unless approved by the organization."
   desc  "If not configured properly, Bluetooth may allow rogue devices to
@@ -42,4 +43,5 @@ else
    end
   end
 end
+
 

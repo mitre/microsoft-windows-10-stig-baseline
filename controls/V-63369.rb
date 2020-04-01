@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63369' do
   title "The Windows Remote Management (WinRM) service must not allow
@@ -43,3 +43,4 @@ configured as specified, this is a finding:
     its('AllowUnencryptedTraffic') { should cmp 0 }
   end
 end
+

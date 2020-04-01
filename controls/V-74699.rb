@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-74699' do
   title "Windows 10 must be configured to enable Remote host allows delegation
@@ -58,3 +58,4 @@ control 'V-74699' do
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63341' do
   title "The Windows Remote Management (WinRM) client must not use Digest
@@ -45,3 +45,4 @@ control 'V-63341' do
     its('AllowDigest') { should cmp 0 }
   end
 end
+

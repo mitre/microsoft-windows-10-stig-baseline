@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63583' do
   title "The External Root CA certificates must be installed in the Trusted
@@ -113,3 +113,4 @@ control 'V-63583' do
     end
    end
 end
+

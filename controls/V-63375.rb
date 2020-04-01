@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63375' do
   title "The Windows Remote Management (WinRM) service must not store RunAs
@@ -44,3 +44,4 @@ control 'V-63375' do
     its('DisableRunAs') { should cmp 1 }
   end
 end
+

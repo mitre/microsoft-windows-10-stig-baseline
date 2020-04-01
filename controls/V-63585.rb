@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63585' do
   title "Connections to non-domain networks when connected to a domain
@@ -47,3 +47,4 @@ control 'V-63585' do
     its('fBlockNonDomain') { should cmp 1 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-77097' do
   title 'Windows 10 Exploit Protection system-level mitigation, Control flow guard (CFG), must be on.'
@@ -96,3 +96,4 @@ control 'V-77097' do
     end
   end
 end
+

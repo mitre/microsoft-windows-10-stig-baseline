@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63865' do
   title "The Create symbolic links user right must only be assigned to the
@@ -53,3 +53,4 @@ control 'V-63865' do
       its('SeCreateSymbolicLinkPrivilege') { should eq ['S-1-5-32-544'] }
     end
 end
+

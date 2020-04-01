@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63415' do
   title 'The password history must be configured to 24 passwords remembered.'
@@ -45,3 +45,4 @@ control 'V-63415' do
     its('PasswordHistorySize') { should be >= input('pass_hist_size') }
   end
 end
+

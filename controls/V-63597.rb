@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63597' do
   title "Local administrator accounts must have their privileged token filtered
@@ -69,3 +69,4 @@ control 'V-63597' do
     end
   end
 end
+

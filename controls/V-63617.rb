@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63617' do
   title "Local accounts with blank passwords must be restricted to prevent
@@ -49,3 +49,4 @@ control 'V-63617' do
     its('LimitBlankPasswordUse') { should cmp 1 }
   end
 end
+

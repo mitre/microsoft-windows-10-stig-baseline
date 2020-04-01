@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-77103' do
   title 'Windows 10 Exploit Protection system-level mitigation, Validate heap integrity, must be on.'
@@ -97,3 +97,4 @@ control 'V-77103' do
     end
   end
 end
+

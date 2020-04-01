@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63697' do
   title "The Smart Card removal option must be configured to Force Logoff or
@@ -59,3 +59,4 @@ control 'V-63697' do
     end
   end
 end
+

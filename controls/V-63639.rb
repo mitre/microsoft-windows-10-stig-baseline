@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63639' do
   title 'Outgoing secure channel traffic must be encrypted or signed.'
@@ -47,3 +47,4 @@ control 'V-63639' do
     its('RequireSignOrSeal') { should cmp 1 }
   end
 end
+

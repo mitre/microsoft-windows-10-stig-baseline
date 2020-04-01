@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63861' do
   title "The Create global objects user right must only be assigned to
@@ -55,3 +55,4 @@ control 'V-63861' do
       its('SeCreateGlobalPrivilege') { should be_in ['S-1-5-32-544', 'S-1-5-19', 'S-1-5-20', 'S-1-5-6'] }
     end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-74723' do
   title 'The Server Message Block (SMB) v1 protocol must be disabled on the SMB server.'
@@ -72,3 +72,4 @@ control 'V-74723' do
     end
   end
 end
+

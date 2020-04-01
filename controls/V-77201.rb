@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-77201' do
   title 'Exploit Protection mitigations in Windows 10 must be configured for EXCEL.EXE.'
@@ -189,3 +189,4 @@ control 'V-77201' do
     end
   end
 end
+

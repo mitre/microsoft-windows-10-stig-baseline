@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63795' do
   title "Kerberos encryption types must be configured to prevent the use of DES
@@ -50,3 +50,4 @@ control 'V-63795' do
     its('SupportedEncryptionTypes') { should cmp 2_147_483_640 }
   end
 end
+

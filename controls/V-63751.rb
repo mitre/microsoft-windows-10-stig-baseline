@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63751' do
   title 'Indexing of encrypted files must be turned off.'
@@ -42,3 +42,4 @@ control 'V-63751' do
     its('AllowIndexingEncryptedStoresOrItems') { should cmp 0 }
   end
 end
+

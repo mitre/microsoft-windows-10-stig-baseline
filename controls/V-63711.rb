@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63711' do
   title 'Unencrypted passwords must not be sent to third-party SMB Servers.'
@@ -47,3 +47,4 @@ control 'V-63711' do
     its('EnablePlainTextPassword') { should cmp 0 }
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63413' do
   title "The period of time before the bad logon counter is reset must be
@@ -45,3 +45,4 @@ control 'V-63413' do
     its('ResetLockoutCount') { should be >= input('pass_lock_time') }
   end
 end
+

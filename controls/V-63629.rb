@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63629' do
   title "The network selection user interface (UI) must not be displayed on the
@@ -45,3 +45,4 @@ control 'V-63629' do
     its('DontDisplayNetworkSelectionUI') { should cmp 1 }
   end
 end
+

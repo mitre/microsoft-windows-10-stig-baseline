@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-63645' do
   title "Users must be prompted for a password on resume from sleep (on
@@ -47,3 +47,4 @@ control 'V-63645' do
     its('DCSettingIndex') { should cmp 1 }
   end
 end
+

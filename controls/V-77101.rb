@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-77101' do
   title 'Windows 10 Exploit Protection system-level mitigation, Validate exception chains (SEHOP), must be on.'
@@ -99,3 +99,4 @@ control 'V-77101' do
     end
   end
 end
+

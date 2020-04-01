@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 control 'V-70639' do
   title 'The Server Message Block (SMB) v1 protocol must be disabled on the system.'
@@ -65,3 +65,4 @@ control 'V-70639' do
     its('stdout') { should_not eq "\r\n\r\nFeature Name : SMB1Protocol\r\nState        : Enabled\r\n\r\n\r\n\r\n" }
   end
 end
+
