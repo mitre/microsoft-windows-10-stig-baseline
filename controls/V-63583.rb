@@ -28,7 +28,7 @@ control 'V-63583' do
   tag responsibility: nil
   tag ia_controls: nil
 
-  desc "check", "Verify the ECA Root CA certificates are installed on unclassified
+  desc 'check', "Verify the ECA Root CA certificates are installed on unclassified
       systems as Trusted Root Certification Authorities.
 
       Run \"PowerShell\" as an administrator.
@@ -92,19 +92,25 @@ control 'V-63583' do
       Thumbprint: 73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582
       Valid to: Sunday, December 30, 2029"
 
-  desc "fix", "Install the ECA Root CA certificates on unclassified systems.
+  desc 'fix', "Install the ECA Root CA certificates on unclassified systems.
       ECA Root CA 2
       ECA Root CA 4
 
       The InstallRoot tool is available on IASE at
       http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
-  dod_eca_certificates = JSON.parse(input('dod_eca_certificates').to_json)
-
-  query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\disallowed | Where {$_.Subject -Like "*ECA*"} | Select Subject, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
-  describe 'The ECA Root CA certificates cross-certificates installed' do
-    subject { query.params }
-    it { should be_in dod_eca_certificates }
-  end
+  if input('is_sensitive_system') == 'true'
+    impact 0.0
+    describe 'This Control is Not Applicable to sensitive systems.' do
+      skip 'This Control is Not Applicable to sensitive systems.'
+    end
+  else
+    dod_eca_certificates = JSON.parse(input('dod_eca_certificates').to_json)
+    query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\root | Where {$_.Subject -Like "*ECA*"} | Select Subject, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    describe 'The ECA Root CA certificates cross-certificates installed' do
+      subject { query.params }
+      it { should be_in dod_eca_certificates }
+    end
+   end
 end
 
