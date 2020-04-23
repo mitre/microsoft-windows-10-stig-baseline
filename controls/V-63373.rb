@@ -138,25 +138,460 @@ control 'V-63373' do
         Security Option: \"Network access: Let everyone permissions apply to anonymous
         users\" to \"Disabled\" (WN10-SO-000160)."
 
-  c_windows_permission = JSON.parse(input('c_windows_permissions').to_json)
-  c_permission = JSON.parse(input('c_permissions').to_json)
-  c_program_files_permissions = JSON.parse(input('c_program_files_permissions').to_json)
+ c_paths = [
+    "C:\\"
+  ]
 
-  query_c_windows = json({ command: 'icacls "c:\\windows" | ConvertTo-Json' })
-  query_c = json({ command: 'icacls "c:\\" | ConvertTo-Json' })
-  query_c_program_files = json({ command: 'icacls "c:\\Program Files" | ConvertTo-Json' })
+  c_paths.each do |path|
+    acl_rules = json(command: "(Get-ACL -Path '#{path}').Access | ConvertTo-CSV | ConvertFrom-CSV | ConvertTo-JSON").params
 
-  describe 'The ACL on C:\Windows are set to the right permissions' do
-    subject { query_c_windows.params }
-    it { should be_in c_windows_permission }
+    ##Checks C:\\ Folder Permissions
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "AppendData" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\Authenticated Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "-536805376" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\Authenticated Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\SYSTEM" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Administrators" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "ReadAndExecute, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
   end
-  describe 'The ACL on C:\ are set to the right permissions' do
-    subject { query_c.params }
-    it { should be_in c_permission }
+    ##Checks C:\\Program Files Folder Permissions   
+  program_files_paths = [
+    "C:\\Program Files"
+  ]
+
+  program_files_paths.each do |path|
+    acl_rules = json(command: "(Get-ACL -Path '#{path}').Access | ConvertTo-CSV | ConvertFrom-CSV | ConvertTo-JSON").params
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "268435456" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "CREATOR OWNER" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "268435456" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\SYSTEM" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "Modify, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\SYSTEM" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "268435456" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Administrators" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+     describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "Modify, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Administrators" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "-1610612736" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "ReadAndExecute, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "268435456" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT SERVICE\\TrustedInstaller" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT SERVICE\\TrustedInstaller" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "ReadAndExecute, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "-1610612736" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+     describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "ReadAndExecute, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "-1610612736" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
   end
-  describe 'The ACL on C:\Program Files are set to the right permissions' do
-    subject { query_c_program_files.params }
-    it { should be_in c_program_files_permissions }
+
+    ##Checks C:\\Windows Folder Permissions
+   windows_paths = [
+    "C:\\Windows"
+   ]
+    windows_paths.each do |path|
+    acl_rules = json(command: "(Get-ACL -Path '#{path}').Access | ConvertTo-CSV | ConvertFrom-CSV | ConvertTo-JSON").params
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "268435456" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "CREATOR OWNER" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "268435456" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\SYSTEM" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "Modify, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\SYSTEM" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "268435456" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Administrators" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "Modify, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Administrators" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "-1610612736" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "ReadAndExecute, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "268435456" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT SERVICE\\TrustedInstaller" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT SERVICE\\TrustedInstaller" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "ReadAndExecute, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "-1610612736" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "ReadAndExecute, Synchronize" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "None" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['FileSystemRights']) { should cmp "-1610612736" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit, ObjectInherit" }
+          its(['PropagationFlags']) { should cmp "InheritOnly" }
+        end
+      end
+    end
   end
 end
-
