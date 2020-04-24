@@ -86,7 +86,7 @@ control 'V-77101' do
     end
   else
    sehop = json( command: 'Get-ProcessMitigation -System | Select SEHOP | ConvertTo-Json').params
-     describe 'ControlFlowGuard is required to be enabled on System' do
+     describe 'SEHOP is required to be enabled on System' do
        subject { sehop }
        its(['Enable']) { should_not eq '2' }
     end
