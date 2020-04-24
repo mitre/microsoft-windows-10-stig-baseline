@@ -102,10 +102,10 @@ control 'V-77209' do
         subject { dep_enable }
         its(['Enable']) { should_not eq '2' }
        end
-      imageload = json( command: 'Get-ProcessMitigation -Name FLTLDR.EXE | Select Aslr | ConvertTo-Json').params
-       describe 'Alsr Force Relocate Images are required to be enabled on FLTLDR' do
+      imageload = json( command: 'Get-ProcessMitigation -Name FLTLDR.EXE | Select ImageLoad | ConvertTo-Json').params
+       describe 'ImageLoad Block Remote Image Loads are required to be enabled on FLTLDR' do
         subject { imageload }
-        its(['ForceRelocateImages']) { should_not eq '2' }
+        its(['BlockRemoteImageLoads']) { should_not eq '2' }
        end
       payload = json( command: 'Get-ProcessMitigation -Name FLTLDR.EXE | Select Payload | ConvertTo-Json').params
        describe 'Payload Enable Export Address Filter, Payload Enable Export Address Filter Plus, EnableImportAddressFilter, EnableRopStackPivot, EnableRopCallerCheck, and EnableRopSimExec are required to be enabled on FLTLDR' do

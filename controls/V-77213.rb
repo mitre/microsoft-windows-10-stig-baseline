@@ -92,86 +92,6 @@ control 'V-77213' do
       configured to \"Enabled\" with file name and location defined under
       \"Options:\".  It is recommended the file be in a read-only network location."
 
-  dep_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_dep_enable = $convert_out_json.Dep | Select Enable
-    $result_dep_enable = $select_object_dep_enable.Enable
-    write-output $result_dep_enable
-  EOH
-
-  aslr_forcerelocimage_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name iexplore.exe | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_aslr_force_relocate_images = $convert_out_json.Aslr | Select ForceRelocateImages
-    $result_aslr_force_relocate_images = $select_object_aslr_force_relocate_images.ForceRelocateImages
-    write-output $result_aslr_force_relocate_images
-  EOH
-
-  imageload_blockremimagload_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_imageload_blockremimagload = $convert_out_json.Imageload | Select BlockRemoteImageLoads
-    $result_imageload_blockremimagload = $select_object_imageload_blockremimagload.BlockRemoteImageLoads
-    write-output $result_imageload_blockremimagload
-  EOH
-
-  payload_enexpaddrfil_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enexportaddrfil = $convert_out_json.Payload | Select EnableExportAddressFilter
-    $result_payload_enexportaddrfil = $select_object_payload_enexportaddrfil.EnableExportAddressFilter
-    write-output $result_payload_enexportaddrfil
-  EOH
-
-  payload_enexpaddrfilplus_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enexpaddrfilplus = $convert_out_json.Payload | Select EnableExportAddressFilterPlus
-    $result_payload_enexpaddrfilplus = $select_object_payload_enexpaddrfilplus.EnableExportAddressFilterPlus
-    write-output $result_payload_enexpaddrfilplus
-  EOH
-
-  payload_enimpaddrfil_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enimpaddrfil = $convert_out_json.Payload | Select EnableImportAddressFilter
-    $result_payload_enimpaddrfil = $select_object_payload_enimpaddrfil.EnableImportAddressFilter
-    write-output $result_payload_enimpaddrfil
-  EOH
-
-  payload_enropstacpiv_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enropstacpiv = $convert_out_json.Payload | Select EnableRopStackPivot
-    $result_payload_enropstacpiv = $select_object_payload_enropstacpiv.EnableRopStackPivot
-    write-output $result_payload_enropstacpiv
-  EOH
-
-  payload_enropcalleche_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enropcalleche = $convert_out_json.Payload | Select EnableRopCallerCheck
-    $result_payload_enropcalleche = $select_object_payload_enropcalleche.EnableRopCallerCheck
-    write-output $result_payload_enropcalleche
-  EOH
-
-  payload_enropsimexec_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enropsimexec = $convert_out_json.Payload | Select EnableRopSimExec
-    $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
-    write-output $result_payload_enropsimexec
-  EOH
-
-  childprocess_disallchilprocre_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name GROOVE.EXE | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_childprocess_disallchilprocre = $convert_out_json.ChildProcess | Select DisallowChildProcessCreation
-    $result_childprocess_disallchilprocre = $select_object_childprocess_disallchilprocre.DisallowChildProcessCreation
-    write-output $result_childprocess_disallchilprocre
-  EOH
-
   if input('sensitive_system') == 'true' || nil
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
@@ -183,46 +103,35 @@ control 'V-77213' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'DEP is required to be enabled on Groove' do
-      subject { powershell(dep_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'ImageLoad Block Remote Image Loads is required to be enabled on Groove' do
-      subject { powershell(imageload_blockremimagload_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'ASLR Force Relocate Image is required to be enabled on Groove' do
-      subject { powershell(aslr_forcerelocimage_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Export Address Filter is required to be enabled on Groove' do
-      subject { powershell(payload_enexpaddrfil_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Export Address Filter Plus is required to be enabled on Groove' do
-      subject { powershell(payload_enexpaddrfilplus_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Import Address Filter is required to be enabled on Groove' do
-      subject { powershell(payload_enimpaddrfil_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Rop Stack Pivot is required to be enabled on Groove' do
-      subject { powershell(payload_enropstacpiv_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Rop Caller Check is required to be enabled on Groove' do
-      subject { powershell(payload_enropcalleche_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Rop Sim Exec is required to be enabled on Groove' do
-      subject { powershell(payload_enropsimexec_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'ChildProcess Disallow Child Process Creation is required to be enabled on Groove' do
-      subject { powershell(childprocess_disallchilprocre_script).strip }
-      it { should_not eq '2' }
-    end
-  end
+    dep_enable = json( command: 'Get-ProcessMitigation -Name GROOVE.EXE | Select DEP | ConvertTo-Json').params
+       describe 'DEP is required to be enabled on Groove' do
+        subject { dep_enable }
+        its(['Enable']) { should_not eq '2' }
+       end
+    aslr = json( command: 'Get-ProcessMitigation -Name GROOVE.exe | Select Aslr | ConvertTo-Json').params
+       describe 'Alsr BottomUp and Force Relocate Images are required to be enabled on Groove' do
+        subject { aslr }
+        its(['ForceRelocateImages']) { should_not eq '2' }
+       end
+    imageload = json( command: 'Get-ProcessMitigation -Name GROOVE.EXE | Select ImageLoad | ConvertTo-Json').params
+       describe 'ImageLoad Block Remote Image Loads are required to be enabled on Groove' do
+        subject { imageload }
+        its(['BlockRemoteImageLoads']) { should_not eq '2' }
+       end
+    payload = json( command: 'Get-ProcessMitigation -Name GROOVE.EXE | Select Payload | ConvertTo-Json').params
+       describe 'Payload Enable Export Address Filter, Payload Enable Export Address Filter Plus, EnableImportAddressFilter, EnableRopStackPivot, EnableRopCallerCheck, and EnableRopSimExec are required to be enabled on Groove' do
+        subject { payload }
+        its(['EnableExportAddressFilter']) { should_not eq '2' }
+        its(['EnableExportAddressFilterPlus']) { should_not eq '2' }
+        its(['EnableImportAddressFilter']) { should_not eq '2' }
+        its(['EnableRopStackPivot']) { should_not eq '2' }
+        its(['EnableRopCallerCheck']) { should_not eq '2' }
+        its(['EnableRopSimExec']) { should_not eq '2' }
+       end
+    child_process = json( command: 'Get-ProcessMitigation -Name GROOVE.EXE | Select ChildProcess | ConvertTo-Json').params
+       describe 'Disallow Child Process Creation is required to be enabled on Groove' do
+        subject { child_process }
+        its(['DisallowChildProcessCreation']) { should_not eq '2' }
+       end
+   end
 end
-
