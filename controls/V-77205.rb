@@ -38,7 +38,7 @@ control 'V-77205' do
       If the following mitigations do not have a status of \"ON\", this is a finding:
 
       DEP:
-      Enable: ON
+      Override DEP: False
 
       ASLR:
       BottomUp: ON
@@ -51,7 +51,7 @@ control 'V-77205' do
   desc 'fix', "Ensure the following mitigations are turned \"ON\" for firefox.exe:
 
       DEP:
-      Enable: ON
+      Override DEP: False
 
       ASLR:
       BottomUp: ON
@@ -77,10 +77,10 @@ control 'V-77205' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    dep_enable = json( command: 'Get-ProcessMitigation -Name firefox.exe | Select DEP | ConvertTo-Json').params
-      describe 'DEP is required to be enabled on Firefox' do
-       subject { dep_enable }
-       its(['Enable']) { should_not eq '2' }
+    dep = json( command: 'Get-ProcessMitigation -Name firefox.exe | Select DEP | ConvertTo-Json').params
+      describe 'OverRide DEP is required to be enabled on Firefox' do
+       subject { dep }
+       its(['OverrideDEP']) { should_not eq 'true' }
       end
 
     aslr = json( command: 'Get-ProcessMitigation -Name firefox.exe | Select Aslr | ConvertTo-Json').params

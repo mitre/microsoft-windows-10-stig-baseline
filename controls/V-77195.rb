@@ -69,10 +69,10 @@ control 'V-77195' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    dep_override = json( command: 'Get-ProcessMitigation -Name chrome.exe | Select DEP | ConvertTo-Json').params
-      describe 'DEP is required to be enabled on Chrome' do
-       subject { dep_override }
-       its(['OverrideDEP']) { should_not eq 'True' }
+    dep = json( command: 'Get-ProcessMitigation -Name chrome.exe | Select DEP | ConvertTo-Json').params
+      describe 'OverRide DEP is required to be false on Chrome' do
+       subject { dep }
+       its(['OverrideDEP']) { should_not eq 'true' }
      end
   end
 end

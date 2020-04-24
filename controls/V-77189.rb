@@ -38,19 +38,18 @@ control 'V-77189' do
       If the following mitigations do not have a status of \"ON\", this is a finding:
 
       DEP:
-      Enable: ON
+      OverrideDEP: False
 
       ASLR:
-      BottomUp: ON
       ForceRelocateImages: ON
 
       Payload:
-      EnableExportAddressFilter: ON
-      EnableExportAddressFilterPlus: ON
-      EnableImportAddressFilter: ON
-      EnableRopStackPivot: ON
-      EnableRopCallerCheck: ON
-      EnableRopSimExec: ON
+      OverrideEnableExportAddressFilter: False
+      OverrideEnableExportAddressFilterPlus: False
+      OverrideEnableImportAddressFilter: False
+      OverrideEnableRopStackPivot: False
+      OverrideEnableRopCallerCheck: False
+      OverrideEnableRopSimExec: False  
 
       The PowerShell command produces a list of mitigations; only those with a
       required status of \"ON\" are listed here. If the PowerShell command does not
@@ -59,19 +58,18 @@ control 'V-77189' do
   desc 'fix', "Ensure the following mitigations are turned \"ON\" for Acrobat.exe:
 
       DEP:
-      Enable: ON
+      OverrideDEP: False
 
       ASLR:
-      BottomUp: ON
       ForceRelocateImages: ON
 
       Payload:
-      EnableExportAddressFilter: ON
-      EnableExportAddressFilterPlus: ON
-      EnableImportAddressFilter: ON
-      EnableRopStackPivot: ON
-      EnableRopCallerCheck: ON
-      EnableRopSimExec: ON
+     OverrideEnableExportAddressFilter: False
+     OverrideEnableExportAddressFilterPlus: False
+     OverrideEnableImportAddressFilter: False
+     OverrideEnableRopStackPivot: False
+     OverrideEnableRopCallerCheck: False
+     OverrideEnableRopSimExec: False   
 
       Application mitigations defined in the STIG are configured by a DoD EP XML file
       included with the Windows 10 STIG package in the \"Supporting Files\" folder.
@@ -93,31 +91,25 @@ control 'V-77189' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-
-    dep_enable = json( command: 'Get-ProcessMitigation -Name Acrobat.exe | Select DEP | ConvertTo-Json').params
-      describe 'DEP is required to be enabled on Acrobat' do
-       subject { dep_enable }
-       its(['Enable']) { should_not eq '2' }
+    dep = json( command: 'Get-ProcessMitigation -Name Acrobat.exe | Select DEP | ConvertTo-Json').params
+      describe 'OverRide DEP is required to be false on Acrobat' do
+       subject { dep }
+       its(['OverrideDEP']) { should_not eq 'true' }
      end
-
      aslr = json( command: 'Get-ProcessMitigation -Name Acrobat.exe | Select Aslr | ConvertTo-Json').params
      describe 'Alsr BottomUp and Force Relocate Images are required to be enabled on Acrobat' do
        subject { aslr }
-       its(['BottomUp']) { should_not eq '2' }
        its(['ForceRelocateImages']) { should_not eq '2' }
      end
-
      payload = json( command: 'Get-ProcessMitigation -Name Acrobat.exe | Select Payload | ConvertTo-Json').params
-     describe 'Payload Enable Export Address Filter, Payload Enable Export Address Filter Plus, EnableImportAddressFilter, EnableRopStackPivot, EnableRopCallerCheck, and EnableRopSimExec are required to be enabled on Acrobat' do
+     describe 'Override Payload Enable Export Address Filter, Override Payload Enable Export Address Filter Plus, Override EnableImportAddressFilter, Override EnableRopStackPivot, Override EnableRopCallerCheck, and Override EnableRopSimExec are required to be false on Acrobat' do
        subject { payload }
-       its(['EnableExportAddressFilter']) { should_not eq '2' }
-       its(['EnableExportAddressFilterPlus']) { should_not eq '2' }
-       its(['EnableImportAddressFilter']) { should_not eq '2' }
-       its(['EnableRopStackPivot']) { should_not eq '2' }
-       its(['EnableRopCallerCheck']) { should_not eq '2' }
-       its(['EnableRopSimExec']) { should_not eq '2' }
+       its(['OverrideEnableExportAddressFilter']) { should_not eq 'true' }
+       its(['OverrideEnableExportAddressFilterPlus']) { should_not eq 'true' }
+       its(['OverrideEnableImportAddressFilter']) { should_not eq 'true' }
+       its(['OverrideEnableRopStackPivot']) { should_not eq 'true' }
+       its(['OverrideEnableRopCallerCheck']) { should_not eq 'true' }
+       its(['OverrideEnableRopSimExec']) { should_not eq 'true' }
      end
   end
 end
-
-    
