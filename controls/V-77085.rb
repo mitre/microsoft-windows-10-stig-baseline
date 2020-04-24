@@ -39,14 +39,11 @@ control 'V-77085' do
       this is finding."
   desc 'fix', 'Enable Secure Boot in the system firmware.'
 
-  script = <<~EOH
-    $status = Confirm-SecureBootUEFI
-    write-output $status
-  EOH
 
+  uefi_boot = json( command: 'Confirm-SecureBootUEFI | ConvertTo-Json').params
   if sys_info.manufacturer != 'VMware, Inc.' || nil
     describe 'Confirm-Secure Boot UEFI is required to be enabled on System' do
-      subject { powershell(script).strip }
+      subject { uefi_boot }
       it { should_not eq 'False' }
     end
   else
