@@ -138,19 +138,18 @@ control 'V-63373' do
         Security Option: \"Network access: Let everyone permissions apply to anonymous
         users\" to \"Disabled\" (WN10-SO-000160)."
 
- c_paths = [
+ c_path = [
     "C:\\"
   ]
 
-  c_paths.each do |path|
+  c_path.each do |path|
     acl_rules = json(command: "(Get-ACL -Path '#{path}').Access | ConvertTo-CSV | ConvertFrom-CSV | ConvertTo-JSON").params
-
     ##Checks C:\\ Folder Permissions
     describe.one do
       acl_rules.each do |acl_rule|
         describe "The '#{path}' folder\'s access rule property:" do
           subject { acl_rule }
-          its(['FileSystemRights']) { should cmp "AppendData" }
+          its(['FileSystemRights']) { should cmp "AppendData, Synchronize" }
           its(['AccessControlType']) { should cmp "Allow" }
           its(['IdentityReference']) { should cmp "NT AUTHORITY\\Authenticated Users" }
           its(['IsInherited']) { should cmp "False" }
@@ -164,7 +163,7 @@ control 'V-63373' do
       acl_rules.each do |acl_rule|
         describe "The '#{path}' folder\'s access rule property:" do
           subject { acl_rule }
-          its(['FileSystemRights']) { should cmp "-536805376" }
+          its(['FileSystemRights']) { should cmp "Modify, Synchronize" }
           its(['AccessControlType']) { should cmp "Allow" }
           its(['IdentityReference']) { should cmp "NT AUTHORITY\\Authenticated Users" }
           its(['IsInherited']) { should cmp "False" }
@@ -216,12 +215,13 @@ control 'V-63373' do
       end
     end
   end
+
     ##Checks C:\\Program Files Folder Permissions   
-  program_files_paths = [
+  program_files_path = [
     "C:\\Program Files"
   ]
 
-  program_files_paths.each do |path|
+  program_files_path.each do |path|
     acl_rules = json(command: "(Get-ACL -Path '#{path}').Access | ConvertTo-CSV | ConvertFrom-CSV | ConvertTo-JSON").params
     describe.one do
       acl_rules.each do |acl_rule|
@@ -407,10 +407,10 @@ control 'V-63373' do
   end
 
     ##Checks C:\\Windows Folder Permissions
-   windows_paths = [
+   windows_path = [
     "C:\\Windows"
    ]
-    windows_paths.each do |path|
+    windows_path.each do |path|
     acl_rules = json(command: "(Get-ACL -Path '#{path}').Access | ConvertTo-CSV | ConvertFrom-CSV | ConvertTo-JSON").params
     describe.one do
       acl_rules.each do |acl_rule|

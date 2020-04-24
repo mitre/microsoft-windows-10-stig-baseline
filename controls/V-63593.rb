@@ -112,45 +112,222 @@ control 'V-63593' do
       S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681"
 
   # Adding Read permission for Security for Administrators to allow for read of key permissions
+  
+software_path = [
+    "HKLM:Software"
+  ]
 
-  hklm_software = <<-EOH
-  $output = (Get-Acl -Path HKLM:Software).AccessToString
-  write-output $output
-  EOH
+ software_path.each do |path|
+  acl_rules = json( command: "(Get-ACL -Path '#{path}').Access | ConvertTo-Csv | ConvertFrom-Csv | ConvertTo-Json").params
 
-  hklm_security = <<-EOH
-  $output = (Get-Acl -Path HKLM:Security.AccessToString
-  write-output $output
-  EOH
+  #Permissions on HKLM:Software
+  describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "CREATOR OWNER" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
 
-  hklm_system = <<-EOH
-  $output = (Get-Acl -Path HKLM:System).AccessToString
-  write-output $output
-  EOH
+  describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\SYSTEM" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
 
-  # raw powershell output
-  raw_software = powershell(hklm_software).stdout.strip
-  raw_security = powershell(hklm_security).stdout.strip
-  raw_system = powershell(hklm_system).stdout.strip
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Administrators" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
 
-  # clean results cleans up the extra line breaks
-  clean_result_software = raw_software.lines.collect(&:strip)
-  clean_result_security = raw_security.lines.collect(&:strip)
-  clean_result_system = raw_system.lines.collect(&:strip)
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "ReadKey" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
 
-  describe 'Verify the default registry permissions for the keys note below of the HKEY_LOCAL_MACHINE\Software Hive' do
-    subject { clean_result_software }
-    it { should be_in input('reg_software_perms') }
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "ReadKey" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+     describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "ReadKey" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
   end
+    #Permissions for HKLM:Security
+    security_path = [
+    "HKLM:Security"
+    ]
 
-  describe 'Verify the default registry permissions for the keys note below of the HKEY_LOCAL_MACHINE\Security Hive' do
-    subject { clean_result_security }
-    it { should be_in input('reg_security_perms') }
+   security_path.each do |path|
+    acl_rules = json( command: "(Get-ACL -Path '#{path}').Access | ConvertTo-Csv | ConvertFrom-Csv | ConvertTo-Json").params
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\SYSTEM" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "ReadKey, ChangePermissions" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Administrators" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
   end
+  #Permissions for HKLM:System   
+  system_path = [
+    "HKLM:System"
+    ]
 
-  describe 'Verify the default registry permissions for the keys note below of the HKEY_LOCAL_MACHINE\System Hive' do
-    subject { clean_result_system }
-    it { should be_in input('reg_system_perms') }
-  end
+   system_path.each do |path|
+    acl_rules = json( command: "(Get-ACL -Path '#{path}').Access | ConvertTo-Csv | ConvertFrom-Csv | ConvertTo-Json").params
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "CREATOR OWNER" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "NT AUTHORITY\\SYSTEM" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "FullControl" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Administrators" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "ReadKey" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "BUILTIN\\Users" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "ReadKey" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
+
+    describe.one do
+      acl_rules.each do |acl_rule|
+        describe "The '#{path}' folder\'s access rule property:" do
+          subject { acl_rule }
+          its(['RegistryRights']) { should cmp "ReadKey" }
+          its(['AccessControlType']) { should cmp "Allow" }
+          its(['IdentityReference']) { should cmp "S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681" }
+          its(['IsInherited']) { should cmp "False" }
+          its(['InheritanceFlags']) { should cmp "ContainerInherit" }
+          its(['PropagationFlags']) { should cmp "None" }
+        end
+      end
+    end
 end
-
