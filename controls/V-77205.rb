@@ -66,30 +66,6 @@ control 'V-77205' do
       configured to \"Enabled\" with file name and location defined under
       \"Options:\". It is recommended the file be in a read-only network location."
 
-  dep_script = <<-EOH
-  $convert_json = Get-ProcessMitigation -Name firefox.exe | ConvertTo-Json
-  $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-  $select_object_dep_enable = $convert_out_json.Dep | Select Enable
-  $result_dep_enable = $select_object_dep_enable.Enable
-  write-output $result_dep_enable
-  EOH
-
-  aslr_bottomup_script = <<-EOH
-  $convert_json = Get-ProcessMitigation -Name firefox.exe | ConvertTo-Json
-  $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-  $select_object_aslr_bottomup = $convert_out_json.Aslr | Select BottomUp
-  $result_aslr_bottomup = $select_object_aslr_bottomup.BottomUp
-  write-output $result_aslr_bottomup
-  EOH
-
-  aslr_forcerelocimage_script = <<-EOH
-  $convert_json = Get-ProcessMitigation -Name firefox.exe | ConvertTo-Json
-  $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-  $select_object_aslr_force_relocate_images = $convert_out_json.Aslr | Select ForceRelocateImages
-  $result_aslr_force_relocate_images = $select_object_aslr_force_relocate_images.ForceRelocateImages
-  write-output $result_aslr_force_relocate_images
-  EOH
-
   if input('sensitive_system') == 'true' || nil
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
@@ -101,18 +77,17 @@ control 'V-77205' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'DEP is required to be enabled on FireFox' do
-      subject { powershell(dep_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'ALSR BottomUp is required to be enabled on FireFox' do
-      subject { powershell(aslr_bottomup_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'ASLR Force Relocate Image is required to be enabled on FireFox' do
-      subject { powershell(aslr_forcerelocimage_script).strip }
-      it { should_not eq '2' }
-    end
+    dep_enable = json( command: 'Get-ProcessMitigation -Name firefox.exe | Select DEP | ConvertTo-Json').params
+      describe 'DEP is required to be enabled on Firefox' do
+       subject { dep_enable }
+       its(['Enable']) { should_not eq '2' }
+      end
+
+    aslr = json( command: 'Get-ProcessMitigation -Name firefox.exe | Select Aslr | ConvertTo-Json').params
+      describe 'Alsr BottomUp and Force Relocate Images are required to be enabled on Firefox' do
+       subject { aslr }
+       its(['BottomUp']) { should_not eq '2' }
+       its(['ForceRelocateImages']) { should_not eq '2' }
+      end
   end
 end
-
