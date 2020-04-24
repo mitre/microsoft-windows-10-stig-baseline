@@ -74,14 +74,6 @@ control 'V-77095' do
       configured to \"Enabled\" with file name and location defined under
       \"Options:\". It is recommended the file be in a read-only network location."
 
-  aslr_bottomup_script = <<-EOH
-  $convert_json = Get-ProcessMitigation -System | ConvertTo-Json
-  $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-  $select_object = $convert_out_json.Aslr | Select BottomUp
-  $result = $select_object.BottomUp
-  write-output $result
-  EOH
-
   if input('sensitive_system') == 'true' || nil
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
@@ -93,10 +85,12 @@ control 'V-77095' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'ALSR BottomUp is required to be enabled on System' do
-      subject { powershell(aslr_bottomup_script).strip }
-      it { should_not eq '2' }
-    end
+    aslr = json( command: 'Get-ProcessMitigation -System | Select Aslr | ConvertTo-Json').params
+     describe 'Alsr BottomUp is required to be enabled on System' do
+       subject { aslr }
+       its(['BottomUp']) { should_not eq '2' }
+     end
   end
 end
+
 
