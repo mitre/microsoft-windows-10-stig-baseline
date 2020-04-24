@@ -51,14 +51,10 @@ control 'V-68845' do
       Applications that are opted out are configured in the window below the
       selection \"Turn on DEP for all programs and services except those I select:\"."
 
-  script = <<-EOH
-  $convert_json = bcdedit /enum "{current}" | FindStr "nx" | ConvertTo-Json
-  $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-  write-output $convert_out_json
-  EOH
-
-  describe powershell(script) do
-    its('strip') { should eq 'nx                      OptOut' }
+ bcdedit = json(command: 'bcdedit /enum "{current}" | FindStr "nx" | ConvertTo-Json').params
+  describe 'Verify the DEP configuration' do
+    subject { bcdedit }
+    it { should eq 'nx                      OptOut' }
   end
 end
 
