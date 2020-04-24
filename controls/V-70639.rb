@@ -65,8 +65,11 @@ control 'V-70639' do
     impact 0.0
     desc 'This control is not applicable, as controls V-74725 is configured'
   else
-  describe command('Get-WindowsOptionalFeature -Online | Where FeatureName -eq SMB1Protocol') do
-    its('stdout') { should_not eq "\r\n\r\nFeature Name : SMB1Protocol\r\nState        : Enabled\r\n\r\n\r\n\r\n" }
+    smb1protocol = json( command: 'Get-WindowsOptionalFeature -Online | Where FeatureName -eq SMB1Protocol | ConvertTo-Csv | ConvertFrom-Csv | ConvertTo-Json').params
+     describe 'Feature Name SMB1Protocol should not be Enabled' do
+      subject { smb1protocol }
+      its(['State']) { should_not eq "Enabled" }
+     end
   end
- end
 end
+
