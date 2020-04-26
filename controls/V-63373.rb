@@ -141,20 +141,20 @@ control 'V-63373' do
   #Gets C Folder Permissions on Desktop
   c_permissions = json( command: "icacls 'c:\\' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\ ", '') }
     describe "c:\\ permissions are set correctly on folder structure" do
-      subject { c_permissions.eql? input('c_folder_permissions') }}
-      it { should cmp "true"}
+      subject { c_permissions.eql? input('c_folder_permissions') }
+      it { should cmp "true" }
     end
   #Gets Windows Folder Permissions on Desktop
   windows_permissions = json( command: "icacls 'c:\\windows' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\windows ", '') }
     describe "c:\\Windows permissions are set correctly on folder structure" do
       subject { windows_permissions.eql? input('c_windows_folder_permissions') }
-      it { should cmp "true"}
+      it { should cmp "true" }
     end
   #Gets Program Files Folder Permissions on Desktop
   program_files_permissions = json( command: "icacls 'c:\\Program Files' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\Program Files ", '') }
     describe "c:\\Program Files permissions are set correctly on folder structure" do
       subject { program_files_permissions.eql? input('c_program_files_folder_permissions') }
-      it { should cmp "true"}
+      it { should eq true }
     end
 end
 
