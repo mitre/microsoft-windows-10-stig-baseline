@@ -205,4 +205,50 @@ inputs:
       - BUILTIN\Users Allow  ReadKey
       - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadKey
       - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
+  
+  - name: c_folder_permissions
+    desc: 'Default Permissions for C:\ Folder on OS'
+    type: Array
+    value:
+      - NT AUTHORITY\\Authenticated Users:(S,AD)
+      - NT AUTHORITY\\Authenticated Users:(OI)(CI)(IO)(M)
+      - NT AUTHORITY\\SYSTEM:(OI)(CI)(F)
+      - BUILTIN\\Administrators:(OI)(CI)(F)
+      - BUILTIN\\Users:(OI)(CI)(RX)
+      - Mandatory Label\\High Mandatory Level:(OI)(NP)(IO)(NW)
+  
+  - name: c_windows_folder_permissions
+    desc: 'Default Permissions for C:\Windows Folder on OS'
+    type: Array
+    value:
+      - NT SERVICE\\TrustedInstaller:(F)
+      - NT SERVICE\\TrustedInstaller:(CI)(IO)(F)
+      - NT AUTHORITY\\SYSTEM:(M)
+      - NT AUTHORITY\\SYSTEM:(OI)(CI)(IO)(F)
+      - BUILTIN\\Administrators:(M)
+      - BUILTIN\\Administrators:(OI)(CI)(IO)(F)
+      - BUILTIN\\Users:(RX)
+      - BUILTIN\\Users:(OI)(CI)(IO)(GR,GE)
+      - CREATOR OWNER:(OI)(CI)(IO)(F)
+      - APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+      - APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
 
+  - name: c_program_files_folder_permissions_folder_permissions
+    desc: 'Default Permissions for C:\Windows Folder on OS'
+    type: Array
+    value:
+      - NT SERVICE\\TrustedInstaller:(F)
+      - NT SERVICE\\TrustedInstaller:(CI)(IO)(F)
+      - NT AUTHORITY\\SYSTEM:(M)
+      - NT AUTHORITY\\SYSTEM:(OI)(CI)(IO)(F)
+      - BUILTIN\\Administrators:(M)
+      - BUILTIN\\Administrators:(OI)(CI)(IO)(F)
+      - BUILTIN\\Users:(RX)
+      - BUILTIN\\Users:(OI)(CI)(IO)(GR,GE)
+      - CREATOR OWNER:(OI)(CI)(IO)(F)
+      - APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+      - APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
