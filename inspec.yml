@@ -210,12 +210,12 @@ inputs:
     desc: 'Default Permissions for C:\ Folder on OS'
     type: Array
     value:
-      - "NT AUTHORITY\\Authenticated Users:(S,AD)",
-      - "NT AUTHORITY\\Authenticated Users:(OI)(CI)(IO)(M)",
-      - "NT AUTHORITY\\SYSTEM:(OI)(CI)(F)",
-      - "BUILTIN\\Administrators:(OI)(CI)(F)",
-      - "BUILTIN\\Users:(OI)(CI)(RX)",
-      - "Mandatory Label\\High Mandatory Level:(OI)(NP)(IO)(NW)"
+      - NT AUTHORITY\\Authenticated Users:(S,AD)
+      - NT AUTHORITY\\Authenticated Users:(OI)(CI)(IO)(M)
+      - NT AUTHORITY\\SYSTEM:(OI)(CI)(F)
+      - BUILTIN\\Administrators:(OI)(CI)(F)
+      - BUILTIN\\Users:(OI)(CI)(RX)
+      - Mandatory Label\\High Mandatory Level:(OI)(NP)(IO)(NW)
   
   - name: c_windows_folder_permissions
     desc: 'Default Permissions for C:\Windows Folder on OS'
