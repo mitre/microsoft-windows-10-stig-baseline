@@ -140,9 +140,6 @@ control 'V-63373' do
 
   #Gets C Folder Permissions on Desktop
   c_permissions = json( command: "icacls 'c:\\' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\ ", '') }
-  puts c_permissions
-  puts input('c_folder_permissions')
-  puts c_permissions.eql? input('c_folder_permissions')
     describe "c:\\ permissions are set correctly on folder structure" do
       subject { c_permissions.eql? input('c_folder_permissions') }
       it { should eq true }
