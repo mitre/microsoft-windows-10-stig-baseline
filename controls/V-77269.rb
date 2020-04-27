@@ -105,6 +105,3 @@ control 'V-77269' do
        end
   end
 end
-
-wordpad.exe 
-WordPad
