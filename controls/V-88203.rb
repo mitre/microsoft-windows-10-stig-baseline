@@ -61,7 +61,7 @@ control 'V-88203' do
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\OneDrive\AllowTenantList') do
     it { should have_property input('onedrive_tenant_guid') }
-    its(input('onedrive_tenant_guid') { should cmp input('onedrive_tenant_guid') }
+    its(input('onedrive_tenant_guid')) { should cmp input('onedrive_tenant_guid') }
   end
 end
 
