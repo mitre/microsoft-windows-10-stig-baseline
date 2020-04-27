@@ -115,5 +115,3 @@ control 'V-77243' do
        end 
   end
 end
-OUTLOOK.EXE
-Microsoft Office Outlook
