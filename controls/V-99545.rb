@@ -44,12 +44,12 @@ Windows Settings >> Security Settings >> Advanced Audit Policy Configuration >>
 System Audit Policies >> Object Access >> “Detailed File Share\" with
 \"Failure\" selected."
  
-  de
+  describe.one do
     describe audit_policy do
       its('Detailed File Share') { should eq 'Failure' }
     end
     describe audit_policy do
       its('Detailed File Share') { should eq 'Success and Failure' }
     end
+  end
 end
-
