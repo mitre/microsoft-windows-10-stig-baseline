@@ -14,12 +14,18 @@ assets and detecting signs of suspicious and unexpected behavior.
 Agent policy changes, changes in Windows Filtering Platform filter, status on
 Security policy settings updates for local Group Policy settings, Central
 Access Policy changes, and detailed troubleshooting events for Cryptographic
-Next Generation (CNG) operations.
-
-  "
+Next Generation (CNG) operations."
+  impact 0.5
+  tag severity: nil
+  tag gtitle: "WN10-AU-000550"
+  tag gid: "V-99551"
+  tag rid: "SV-108655r1_rule"
+  tag stig_id: "WN10-AU-000550"
+  tag fix_id: "F-105235r1_fix"
+  tag cci: ["CCI-000130"]
+  tag nist: ["AU-3", "Rev_4"]
   desc  "rationale", ""
-  desc  "check", "
-    Security Option \"Audit: Force audit policy subcategory settings (Windows
+  desc  "check", "Security Option \"Audit: Force audit policy subcategory settings (Windows
 Vista or later) to override audit policy category settings\" must be set to
 \"Enabled\" (WN10-SO-000030) for the detailed auditing subcategories to be
 effective.
@@ -31,21 +37,19 @@ effective.
     Compare the AuditPol settings with the following. If the system does not
 audit the following, this is a finding:
 
-    Policy Change  >> Other Policy Change Events - Success
-
-  "
+    Policy Change  >> Other Policy Change Events - Success"
   desc  "fix", "Configure the policy value for Computer Configuration >>
 Windows Settings >> Security Settings >> Advanced Audit Policy Configuration >>
 System Audit Policies >> Policy Change>> \"Audit Other Policy Change Events\"
 with \"Success\" selected."
-  impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-AU-000550"
-  tag gid: "V-99551"
-  tag rid: "SV-108655r1_rule"
-  tag stig_id: "WN10-AU-000550"
-  tag fix_id: "F-105235r1_fix"
-  tag cci: ["CCI-000130"]
-  tag nist: ["AU-3", "Rev_4"]
+ 
+  describe.one do
+    describe audit_policy do
+      its('Other Policy Change Events') { should eq 'Success' }
+    end
+    describe audit_policy do
+      its('Other Policy Change Events') { should eq 'Success and Failure' }
+    end
+  end
 end
 

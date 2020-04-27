@@ -12,12 +12,18 @@ assets and detecting signs of suspicious and unexpected behavior.
 
     Audit Other Logon/Logoff Events determines whether Windows generates audit
 events for other logon or logoff events. Logon events are essential to
-understanding user activity and detecting potential attacks.
-
-  "
+understanding user activity and detecting potential attacks."
+  impact 0.5
+  tag severity: nil
+  tag gtitle: "WN10-AU-000565"
+  tag gid: "V-99541"
+  tag rid: "SV-108645r1_rule"
+  tag stig_id: "WN10-AU-000565"
+  tag fix_id: "F-105225r1_fix"
+  tag cci: ["CCI-000130"]
+  tag nist: ["AU-3", "Rev_4"]
   desc  "rationale", ""
-  desc  "check", "
-    Security Option \"Audit: Force audit policy subcategory settings (Windows
+  desc  "check", "Security Option \"Audit: Force audit policy subcategory settings (Windows
 Vista or later) to override audit policy category settings\" must be set to
 \"Enabled\" (WN10-SO-000030) for the detailed auditing subcategories to be
 effective.
@@ -29,21 +35,19 @@ effective.
     Compare the AuditPol settings with the following. If the system does not
 audit the following, this is a finding:
 
-    Logon/Logoff  >> Other Logon/Logoff Events - Failure
-
-  "
+    Logon/Logoff  >> Other Logon/Logoff Events - Failure"
   desc  "fix", "Configure the policy value for Computer Configuration >>
 Windows Settings >> Security Settings >> Advanced Audit Policy Configuration >>
 System Audit Policies >> Logon/Logoff >> \"Audit Other Logon/Logoff Events\"
 with \"Failure\" selected."
-  impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-AU-000565"
-  tag gid: "V-99541"
-  tag rid: "SV-108645r1_rule"
-  tag stig_id: "WN10-AU-000565"
-  tag fix_id: "F-105225r1_fix"
-  tag cci: ["CCI-000130"]
-  tag nist: ["AU-3", "Rev_4"]
+  
+  describe.one do
+    describe audit_policy do
+      its('Other Logon/Logoff Events') { should eq 'Failure' }
+    end
+    describe audit_policy do
+      its('Other Logon/Logoff Events') { should eq 'Success and Failure' }
+    end
+  end
 end
 

@@ -14,9 +14,16 @@ assets and detecting signs of suspicious and unexpected behavior.
 Agent policy changes, changes in Windows Filtering Platform filter, status on
 Security policy settings updates for local Group Policy settings, Central
 Access Policy changes, and detailed troubleshooting events for Cryptographic
-Next Generation (CNG) operations.
-
-  "
+Next Generation (CNG) operations."
+  impact 0.5
+  tag severity: nil
+  tag gtitle: "WN10-AU-000555"
+  tag gid: "V-99553"
+  tag rid: "SV-108657r1_rule"
+  tag stig_id: "WN10-AU-000555"
+  tag fix_id: "F-105237r1_fix"
+  tag cci: ["CCI-000130"]
+  tag nist: ["AU-3", "Rev_4"]
   desc  "rationale", ""
   desc  "check", "
     Security Option \"Audit: Force audit policy subcategory settings (Windows
@@ -31,21 +38,19 @@ effective.
     Compare the AuditPol settings with the following. If the system does not
 audit the following, this is a finding:
 
-    Policy Change  >> Other Policy Change Events - Failure
-
-  "
+    Policy Change  >> Other Policy Change Events - Failure"
   desc  "fix", "Configure the policy value for Computer Configuration >>
 Windows Settings >> Security Settings >> Advanced Audit Policy Configuration >>
 System Audit Policies >> Policy Change>> \"Audit Other Policy Change Events\"
 with \"Failure\" selected."
-  impact 0.5
-  tag severity: nil
-  tag gtitle: "WN10-AU-000555"
-  tag gid: "V-99553"
-  tag rid: "SV-108657r1_rule"
-  tag stig_id: "WN10-AU-000555"
-  tag fix_id: "F-105237r1_fix"
-  tag cci: ["CCI-000130"]
-  tag nist: ["AU-3", "Rev_4"]
+  
+  describe.one do
+    describe audit_policy do
+      its('Other Policy Change Events') { should eq 'Failure' }
+    end
+    describe audit_policy do
+      its('Other Policy Change Events') { should eq 'Success and Failure' }
+    end
+  end
 end
 

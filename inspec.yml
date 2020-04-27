@@ -258,3 +258,9 @@ inputs:
     desc: 'This is the OneDrive GUID for the Organization'
     type: String
     value: "1111-2222-3333-4444"
+
+  - name: local_administrator
+    desc: 'List of Local Accounts on Desktop that are Administrators'
+    type: Array
+    value:
+      -
