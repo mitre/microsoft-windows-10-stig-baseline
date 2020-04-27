@@ -48,8 +48,8 @@ System Audit Policies >> Object Access >> “Detailed File Share\" with
     describe audit_policy do
       its('Detailed File Share') { should eq 'Failure' }
     end
-    describe audit_policy do
-      its('Detailed File Share') { should eq 'Success and Failure' }
-    end
+    #describe audit_policy do
+     # its('Detailed File Share') { should eq 'Success and Failure' }
+    #end
   end
 end
