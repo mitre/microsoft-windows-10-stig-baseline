@@ -17,11 +17,6 @@ inputs:
       - McAfee Host Intrusion Prevention
       - McAfee Endpoint Security
       - McAfee Agent
-      
-  - name: domain_sid
-    desc: "This is the domain sid"
-    type: String
-    value: "3561952647-5207400-2818715555"
 
   - name: bitlocker_pin_len
     desc: "The minimum length for the BitLocker Pin [6]"
