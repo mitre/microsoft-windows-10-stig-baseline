@@ -142,9 +142,9 @@ control 'V-63373' do
   c_permission = JSON.parse(input('c_permissions').to_json)
   c_program_files_permissions = JSON.parse(input('c_program_files_permissions').to_json)
 
-  query_c_windows = json({ command: 'icacls "c:\\windows" | ConvertTo-Json' })
-  query_c = json({ command: 'icacls "c:\\" | ConvertTo-Json' })
-  query_c_program_files = json({ command: 'icacls "c:\\Program Files" | ConvertTo-Json' })
+  query_c_windows = json({ command: 'icacls "c:\\windows" | ConvertTo-Json' }).params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\windows ", '') }
+  query_c = json( command: "icacls 'C:\\' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("C:\\ ", '') }
+  query_c_program_files = json({ command: 'icacls "c:\\Program Files" | ConvertTo-Json' }).params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\Program Files ", '') }
 
   describe 'The ACL on C:\Windows are set to the right permissions' do
     subject { query_c_windows.params }
@@ -159,4 +159,3 @@ control 'V-63373' do
     it { should be_in c_program_files_permissions }
   end
 end
-
