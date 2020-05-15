@@ -138,24 +138,26 @@ control 'V-63373' do
         Security Option: \"Network access: Let everyone permissions apply to anonymous
         users\" to \"Disabled\" (WN10-SO-000160)."
 
-  #Gets C Folder Permissions on Desktop
-  c_permissions = json( command: "icacls 'c:\\' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\ ", '') }
-    describe "c:\\ permissions are set correctly on folder structure" do
-      subject { c_permissions.eql? input('c_folder_permissions') }
-      it { should eq true }
-    end
-  #Gets Windows Folder Permissions on Desktop
-  windows_permissions = json( command: "icacls 'c:\\windows' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\windows ", '') }
-    describe "c:\\Windows permissions are set correctly on folder structure" do
-      subject { windows_permissions.eql? input('c_windows_folder_permissions') }
-      it { should eq true }
-    end
-  #Gets Program Files Folder Permissions on Desktop
-  program_files_permissions = json( command: "icacls 'c:\\Program Files' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\Program Files ", '') }
-    describe "c:\\Program Files permissions are set correctly on folder structure" do
-      subject { program_files_permissions.eql? input('c_program_files_folder_permissions') }
-      it { should eq true }
-    end
-end
+=======
+  c_windows_permission = JSON.parse(input('c_windows_permissions').to_json)
+  c_permission = JSON.parse(input('c_permissions').to_json)
+  c_program_files_permissions = JSON.parse(input('c_program_files_permissions').to_json)
 
+  query_c_windows = json({ command: 'icacls "c:\\windows" | ConvertTo-Json' }).params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\windows ", '') }
+  query_c = json( command: "icacls 'C:\\' | ConvertTo-Json").params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("C:\\ ", '') }
+  query_c_program_files = json({ command: 'icacls "c:\\Program Files" | ConvertTo-Json' }).params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\Program Files ", '') }
+
+  describe 'The ACL on C:\Windows are set to the right permissions' do
+    subject { query_c_windows }
+    it { should be_in c_windows_permission }
+  end
+  describe 'The ACL on C:\ are set to the right permissions' do
+    subject { query_c }
+    it { should be_in c_permission }
+  end
+  describe 'The ACL on C:\Program Files are set to the right permissions' do
+    subject { query_c_program_files }
+    it { should be_in c_program_files_permissions }
+  end
+end
 

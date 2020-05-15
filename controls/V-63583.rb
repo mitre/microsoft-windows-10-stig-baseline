@@ -106,7 +106,7 @@ control 'V-63583' do
     end
   else
     dod_eca_certificates = JSON.parse(input('dod_eca_certificates').to_json)
-    query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\root | Where {$_.Subject -Like "*ECA*"} | Select Subject, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
+    query = json({ command: 'Get-ChildItem -Path Cert:Localmachine\\\\root | Where {$_.Subject -Like "*ECA Root*"} | Select Subject, Thumbprint, @{Name=\'NotAfter\';Expression={"{0:dddd, MMMM dd, yyyy}" -f [datetime]$_.NotAfter}} | ConvertTo-Json' })
     describe 'The ECA Root CA certificates cross-certificates installed' do
       subject { query.params }
       it { should be_in dod_eca_certificates }

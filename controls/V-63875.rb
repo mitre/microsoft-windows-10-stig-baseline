@@ -70,9 +70,23 @@ control 'V-63875' do
       skip 'This requirement is applicable to domain-joined systems, for standalone systems this is NA'
     end
   else
-    domain_sid = input('domain_sid')
+    domain_query = <<-EOH
+              $group = New-Object System.Security.Principal.NTAccount('Domain Admins')
+              $sid = ($group.Translate([security.principal.securityidentifier])).value
+              $sid | ConvertTo-Json
+              EOH
+
+      domain_admin_sid = json(command: domain_query).params
+      enterprise_admin_query = <<-EOH
+              $group = New-Object System.Security.Principal.NTAccount('Enterprise Admins')
+              $sid = ($group.Translate([security.principal.securityidentifier])).value
+              $sid | ConvertTo-Json
+              EOH
+
+      enterprise_admin_sid = json(command: enterprise_admin_query).params
+
     describe security_policy do
-      its('SeDenyServiceLogonRight') { should be_in ["S-1-5-21-#{domain_sid}-512", "S-1-5-21-#{domain_sid}-519"] }
+      its('SeDenyServiceLogonRight') { should be_in ["#{domain_admin_sid}", "#{enterprise_admin_sid}"] }
     end
   end
 end

@@ -21,7 +21,6 @@ Many of the inputs have good defaults but some must be set my the end-user.
 The profile _will_ run without updating these values but you will get the _best_ results if you provide the profile with the following data.
 
 - sensitive_system (false) - set to either the string `"true"` or `"false"`
-- domain_sid (NULL) - set to your Domain SID as a string in the form `xxxxxxxxxx-xxxxxxx-xxxxxxxxxx`
 - backup_operators (NULL) - add your usernames as needed
 - administrators (NULL) - add your usernames as needed
 - hyper_v_admin (NULL) - add your usernames as needed
@@ -63,78 +62,43 @@ If you are scanning large numbers of systems - we recommend you use the [MITRE H
 
 ## Inputs used in the profile
 
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|             Input Name             |               Value               |                                     Description                                     | Required | Allowed Values |   Type  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|        av_approved_software        |         Windows Defender,         |                             This is a list of Approved                              |     X    |     String     |  Array  |
-|                                    | Mcafee Host Intrusion Prevention, |                                 Anti-Virus Software                                 |          |                |         |
-|                                    |     Mcafee Endpoint Security,     |                                                                                     |          |                |         |
-|                                    |            Mcafee Agent           |                                                                                     |          |                |         |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|             domain_sid             |                NULL               |                              This is for the Domain SID                             |     X    |     String     |  String |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|         local_administrator        |                NULL               |                             Local Administrator Account                             |     X    |     String     |  String |
-|                                    |                                   |                                  on Windows Server                                  |          |                |         |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|          bitlocker_pin_len         |                 6                 |                     The minimum length for the BitLocker Pin [6]                    |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|            min_pass_len            |                 14                |                      Sets the minimum length of passwords [14]                      |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|       enable_pass_complexity       |                 1                 |               If windows should enforce password complexity (0/1) [1]               |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|            min_pass_age            |                 1                 |                       Sets the minimum age for a password [1]                       |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|            max_pass_age            |                 60                |                       Sets the maximum age for a password [60]                      |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|           pass_lock_time           |                 15                |              Sets the number of min before a session is locked out [15]             |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|           pass_hist_size           |                 24                |             Number of passwords remembered in the password history [24]             |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|          max_pass_lockout          |                 3                 | Account lockout threshold is recommended to be 3 or less invalid logon attempts [3] |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|          max_inactive_days         |                 35                |             Max number of days an account is allowed to be inactive [35]            |     X    |   Any Integer  | Numeric |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|           LegalNoticeText          |          see 'inspec.yml'         |                     The default full banner text for the system                     |     X    |     String     |  String |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|         LegalNoticeCaption         |          see 'inspec.yml'         |                     The default short banner text for the system                    |     X    |     String     |  String |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|          dod_certificates          |          see 'inspec.yml'         |                    List of DoD Interoperability Root Certificates                   |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|        dod_cceb_certificates       |          see 'inspec.yml'         |                              List of CCEB Certificates                              |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|        dod_eca_certificates        |          see 'inspec.yml'         |                    List of ECA Root CA certificates Certificates                    |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|      dod_trusted_certificates      |          see 'inspec.yml'         |                   List of DOD Trusted CA certificates Certificates                  |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|          sensitive_system          |               False               |                  Set flag to true if the target system is sensitive                 |     X    |     String     |  String |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|          backup_operators          |                NULL               |             List of authorized users in the local Backup Operators Group            |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|           administrators           |                NULL               |              List of authorized users in the local Administrators group             |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|            hyper_v_admin           |                NULL               |                    List of authorized users in the Hyper-V Group                    |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|         reg_software_perms         |          see 'inspec.yml'         |                  The required Registry Software Permission Settings                 |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|         reg_security_perms         |          see 'inspec.yml'         |                 The required Registry Security Permissions Settings                 |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|          reg_system_perms          |          see 'inspec.yml'         |                  The required Registry System Permissions Settings                  |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|        c_folder_permissions        |          see 'inspec.yml'         |                       Default Permissions for C:\ Folder on OS                      |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|    c_windows_folder_permissions    |          see 'inspec.yml'         |                   Default Permissions for C:\Windows Folder on OS                   |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-| c_program_files_folder_permissions |          see 'inspec.yml'         |                   Default Permissions for C:\Windows Folder on OS                   |     X    |     String     |  Array  |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
-|        onedrive_tenant_guid        |                NULL               |                    This is the OneDrive GUID for the Organization                   |     X    |     String     |  String |
-+------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+----------+----------------+---------+
+
+| Input                       | Description                                                                                                                                                      | Type               | Default                                                                                    | Required | Allowed Values                |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ | -------- | ----------------------------- |
+| av_approved_software        | List of organizationally approved AV Software                                                                                                                    | Array              | Windows Defender, McAfee Host Intrusion Prevention, McAfee Endpoint Security, McAfee Agent | x        | Any String                    |
+| bitlocker_pin_len           | The minimum length for the BitLocker Pin                                                                                                                         | Number             | 6                                                                                          | x        | Any Integer                   |
+| min_pass_len                | Minimum length of system passwords                                                                                                                               | Number             | 14                                                                                         | x        | Any Integer                   |
+| enable_pass_complexity      | If windows should enforce password complexity                                                                                                                    | Number             | 1                                                                                          | x        | 0 or 1                        |
+| min_pass_age                | Defines the tested minimum password age for the system in days                                                                                                   | Number             | 1                                                                                          | x        | Any Integer                   |
+| max_pass_age                | Defined the tested maximum age for a password on the system in days                                                                                              | Number             | 60                                                                                         | x        | Any Integer                   |
+| pass_lock_time              | Sets the number of min before a session is locked out on the system                                                                                              | Number             | 15                                                                                         | x        | Any Integer                   |
+| pass_hist_size              | Defines the number of passwords that are remembered in the password history for the system                                                                       | Number             | 24                                                                                         | x        | Any Integer                   |
+| max_pass_lockout            | Sets the maximum threshold for invalid login attempts to the system                                                                                              | Number             | 3                                                                                          | x        | Any Integer                   |
+| max_inactive_days           | Defines the number of days an account on the system is allowed to be inactive                                                                                    | Number             | 35                                                                                         | x        | Any Integer                   |
+| sensitive_system            | Defines if the system is considered Sensitive by the organization                                                                                                | String             | 'false'                                                                                    | x        | 'true' or 'false'             |
+| backup_operators            | The list of usernames that are allowed in the local Backup Operators Group                                                                                       | Array              | NULL                                                                                       |          | List of LOCAL usernames       |
+| administrators              | The list of usernames that are allowed in the local Administrators Group                                                                                         | Array              | NULL                                                                                       |          | List of LOCAL usernames       |
+| hyper_v_admin               | The list of usernames that are allowed in the local Hyper-V Group                                                                                                | Array              | NULL                                                                                       |          | List of LOCAL usernames       |
+| LegalNoticeText             | The default full banner text for the system                                                                                                                      | String             | see `inspec.yml`                                                                           | x        | Any block of text             |
+| LegalNoticeCaption          | The default short banner text for the system                                                                                                                     | String             | see `inspec.yml`                                                                           | x        | Any block of text             |
+| dod_cceb_certificates       | List of approved DoD CCEB Interoperability CA Root Certificates                                                                                                  | Array of Hashes    | see `inspec.yml`                                                                           | x        | see `inspec.yml`              |
+| dod_certificates            | List of approved DoD Interoperability Root Certificates                                                                                                          | Array of Hashes    | see `inspec.yml`                                                                           | x        | see `inspec.yml`              |
+| dod_eca_certificates        | List of approved ECA Root CA certificates Certificates                                                                                                           | Array of Hashes    | see `inspec.yml`                                                                           | x        | see `inspec.yml`              |
+| dod_trusted_certificates    | List of approved ECA Root CA certificates Certificates                                                                                                           | Array of Hashes    | see `inspec.yml`                                                                           | x        | see `inspec.yml`              |
+| c_windows_permissions       | Permission set allowed for the `C:\Windows` folder as returned by the `something --<flags here>` command                                                         | Array String Block | see `inspec.yml`                                                                           | x        | see `inspec.yml`              |
+| c_permissions               | Permission set allowed for the `C:\` folder as returned by the `something --<flags here>` command | Array String Block | see `inspec.yml` | x | see `inspec.yml` |
+| c_program_files_permissions | Permission set allowed for the Windows `C:\Program Files` folder as returned by the `something --<flags here>` command                                           | Array String Block | see `inspec.yml`                                                                           | x        | see `inspec.yml`              |
+| reg_software_perms          | The allowed registry Software Permission Settings                                                                                                                | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
+| reg_security_perms          | The allowed registry Security Permission Settings                                                                                                                | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
+| reg_system_perms            | The allowed registry System Permission Settings                                                                                                                  | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
+
 
 ## Contribution
 
 Please feel free to submit a PR or Issue on the board. To get an idea of our style and best practices, please see our InSpec training at:
 
-- https://mitre-inspec-developer.netlify.com/
-- https://mitre-inspec-advanced-developer.netlify.com/
+- The MITRE InSpec Team
+- Jared Burns, VMware.Inc
 
 ## Useful References
 

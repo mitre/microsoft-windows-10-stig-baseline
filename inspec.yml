@@ -17,11 +17,6 @@ inputs:
       - McAfee Host Intrusion Prevention
       - McAfee Endpoint Security
       - McAfee Agent
-      
-  - name: domain_sid
-    desc: "This is the domain sid"
-    type: String
-    value: "3561952647-5207400-2818715555"
 
   - name: bitlocker_pin_len
     desc: "The minimum length for the BitLocker Pin [6]"
@@ -176,6 +171,7 @@ inputs:
        - :Subject: "CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US"
          :Thumbprint: "4ECB5CC3095670454DA1CBD410FC921F46B8564B"
          :NotAfter: "Friday, June 14, 2041"
+
 
   - name: reg_software_perms
     desc: "The required Registry Software Permission Settings"
