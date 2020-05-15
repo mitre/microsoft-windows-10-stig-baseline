@@ -74,13 +74,7 @@ control 'V-77091' do
       configured to \"Enabled\" with file name and location defined under
       \"Options:\". It is recommended the file be in a read-only network location."
 
-  dep_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -System | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object = $convert_out_json.Dep | Select Enable
-    $result = $select_object.Enable
-    write-output $result
-  EOH
+
 
   if input('sensitive_system') == 'true' || nil
     impact 0.0
@@ -93,10 +87,10 @@ control 'V-77091' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'DEP is required to be enabled on System' do
-      subject { powershell(dep_script).strip }
-      it { should_not eq '2' }
-    end
+    dep_enable = json( command: 'Get-ProcessMitigation -System | Select DEP | ConvertTo-Json').params
+      describe 'DEP is required to be enabled on System' do
+       subject { dep_enable }
+       its(['Enable']) { should_not eq '2' }
+     end
   end
 end
-

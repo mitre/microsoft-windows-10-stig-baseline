@@ -6,7 +6,7 @@ copyright: MITRE, 2020
 copyright_email: saf@groups.mitre.org
 license: Apache-2.0
 summary: "The Windows 10 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil."
-version: 1.19.0
+version: 1.20.0
 
 inputs:
   - name: av_approved_software
@@ -145,7 +145,7 @@ inputs:
         :NotAfter: "Sunday, December 30, 2029"
 
   - name: dod_trusted_certificates
-    description: "List of ECA Root CA certificates Certificates"
+    description: "List of DOD Trusted CA certificates Certificates"
     type: Array
     value: 
        - :Subject: "CN=DoD Root CA 3, OU=PKI, OU=DoD, O=U.S. Government, C=US"
@@ -171,58 +171,10 @@ inputs:
        - :Subject: "CN=DoD Root CA 5, OU=PKI, OU=DoD, O=U.S. Government, C=US"
          :Thumbprint: "4ECB5CC3095670454DA1CBD410FC921F46B8564B"
          :NotAfter: "Friday, June 14, 2041"
-      
-
-  - name: c_windows_permissions
-    desc: "Permission of the Windows Folder"
-    type: Array
-    value:
-      - NT SERVICE\TrustedInstaller:(F)
-      - NT SERVICE\TrustedInstaller:(CI)(IO)(F)
-      - NT AUTHORITY\SYSTEM:(M)
-      - NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(F)
-      - BUILTIN\Administrators:(M)
-      - BUILTIN\Administrators:(OI)(CI)(IO)(F)
-      - BUILTIN\Users:(RX)
-      - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
-      - CREATOR OWNER:(OI)(CI)(IO)(F)
-      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(RX)
-      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
-      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(RX)
-      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
-
-  - name: c_permissions
-    desc: "Permissions of the C Drive"
-    type: Array
-    value:
-      - NT AUTHORITY\Authenticated Users:(S,AD)
-      - NT AUTHORITY\Authenticated Users:(OI)(CI)(IO)(M)
-      - NT AUTHORITY\SYSTEM:(OI)(CI)(F)
-      - BUILTIN\Administrators:(OI)(CI)(F)
-      - BUILTIN\Users:(OI)(CI)(RX)
-      - Mandatory Label\High Mandatory Level:(OI)(NP)(IO)(NW)
-
-  - name: c_program_files_permissions
-    desc: 'Permissions on C:\Program Files Folder'
-    type: Array
-    value:
-      - NT SERVICE\TrustedInstaller:(F)
-      - NT SERVICE\TrustedInstaller:(CI)(IO)(F)
-      - NT AUTHORITY\SYSTEM:(M)
-      - NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(F)
-      - BUILTIN\Administrators:(M)
-      - BUILTIN\Administrators:(OI)(CI)(IO)(F)
-      - BUILTIN\Users:(RX)
-      - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
-      - CREATOR OWNER:(OI)(CI)(IO)(F)
-      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(RX)
-      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
-      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(RX)
-      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
 
 
   - name: reg_software_perms
-    desc: 'The required Registry Software Permission Settings'
+    desc: "The required Registry Software Permission Settings"
     type: Array
     value:
       - CREATOR OWNER Allow  FullControl
@@ -233,14 +185,14 @@ inputs:
       - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
 
   - name: reg_security_perms
-    desc: 'The required Registry Security Permissions Settings'
+    desc: "The required Registry Security Permissions Settings"
     type: Array
     value:
       - NT AUTHORITY\SYSTEM Allow  FullControl
       - BUILTIN\Administrators Allow  ReadKey, ChangePermissions
 
   - name: reg_system_perms
-    desc: 'The required Registry System Permissions Settings'
+    desc: "The required Registry System Permissions Settings"
     type: Array
     value:
       - CREATOR OWNER Allow  FullControl
@@ -249,4 +201,62 @@ inputs:
       - BUILTIN\Users Allow  ReadKey
       - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadKey
       - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
+  
+  - name: c_folder_permissions
+    desc: "Default Permissions for C:\ Folder on OS"
+    type: Array
+    value:
+      - NT AUTHORITY\Authenticated Users:(S,AD)
+      - NT AUTHORITY\Authenticated Users:(OI)(CI)(IO)(M)
+      - NT AUTHORITY\SYSTEM:(OI)(CI)(F)
+      - BUILTIN\Administrators:(OI)(CI)(F)
+      - BUILTIN\Users:(OI)(CI)(RX)
+      - Mandatory Label\High Mandatory Level:(OI)(NP)(IO)(NW)
+  
+  - name: c_windows_folder_permissions
+    desc: "Default Permissions for C:\Windows Folder on OS"
+    type: Array
+    value:
+      - NT SERVICE\TrustedInstaller:(F)
+      - NT SERVICE\TrustedInstaller:(CI)(IO)(F)
+      - NT AUTHORITY\SYSTEM:(M)
+      - NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(F)
+      - BUILTIN\Administrators:(M)
+      - BUILTIN\Administrators:(OI)(CI)(IO)(F)
+      - BUILTIN\Users:(RX)
+      - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
+      - CREATOR OWNER:(OI)(CI)(IO)(F)
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
 
+  - name: c_program_files_folder_permissions
+    desc: "Default Permissions for C:\Windows Folder on OS"
+    type: Array
+    value:
+      - NT SERVICE\TrustedInstaller:(F)
+      - NT SERVICE\TrustedInstaller:(CI)(IO)(F)
+      - NT AUTHORITY\SYSTEM:(M)
+      - NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(F)
+      - BUILTIN\Administrators:(M)
+      - BUILTIN\Administrators:(OI)(CI)(IO)(F)
+      - BUILTIN\Users:(RX)
+      - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
+      - CREATOR OWNER:(OI)(CI)(IO)(F)
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+
+
+  - name: onedrive_tenant_guid
+    desc: "This is the OneDrive GUID for the Organization"
+    type: String
+    value: "1111-2222-3333-4444"
+
+  - name: local_administrator
+    desc: "List of Local Accounts on Desktop that are Administrators"
+    type: Array
+    value:
+      -

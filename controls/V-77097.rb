@@ -71,13 +71,6 @@ control 'V-77097' do
       >> Exploit Protection >> \"Use a common set of exploit protection settings\"
       configured to \"Enabled\" with file name and location defined under
       \"Options:\". It is recommended the file be in a read-only network location."
-  cfg_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -System | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object = $convert_out_json.Cfg | Select Enable
-    $result = $select_object.Enable
-    write-output $result
-  EOH
 
   if input('sensitive_system') == 'true' || nil
     impact 0.0
@@ -90,10 +83,10 @@ control 'V-77097' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'CFG is required to be enabled on System' do
-      subject { powershell(cfg_script).strip }
-      it { should_not eq '2' }
-    end
+    cfg = json( command: 'Get-ProcessMitigation -System | Select CFG | ConvertTo-Json').params
+     describe 'ControlFlowGuard is required to be enabled on System' do
+       subject { cfg }
+       its(['Enable']) { should_not eq '2' }
+     end
   end
 end
-

@@ -1,6 +1,6 @@
 # microsoft-windows-10-stig-baseline
 
-InSpec profile to validate the secure configuration of Microsoft Windows 10, against DISA's Microsoft Windows 10 Security Technical Implementation Guide (STIG) Version 1, Release 19.
+InSpec profile to validate the secure configuration of Microsoft Windows 10, against DISA's Microsoft Windows 10 Security Technical Implementation Guide (STIG) Version 1, Release 20.
 
 ## Getting Started
 
@@ -62,6 +62,7 @@ If you are scanning large numbers of systems - we recommend you use the [MITRE H
 
 ## Inputs used in the profile
 
+
 | Input                       | Description                                                                                                                                                      | Type               | Default                                                                                    | Required | Allowed Values                |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ | -------- | ----------------------------- |
 | av_approved_software        | List of organizationally approved AV Software                                                                                                                    | Array              | Windows Defender, McAfee Host Intrusion Prevention, McAfee Endpoint Security, McAfee Agent | x        | Any String                    |
@@ -90,6 +91,7 @@ If you are scanning large numbers of systems - we recommend you use the [MITRE H
 | reg_software_perms          | The allowed registry Software Permission Settings                                                                                                                | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
 | reg_security_perms          | The allowed registry Security Permission Settings                                                                                                                | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
 | reg_system_perms            | The allowed registry System Permission Settings                                                                                                                  | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
+
 
 ## Contribution
 

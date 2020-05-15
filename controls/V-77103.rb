@@ -72,14 +72,6 @@ control 'V-77103' do
       configured to \"Enabled\" with file name and location defined under
       \"Options:\". It is recommended the file be in a read-only network location."
 
-  dep_script = <<-EOH
-  $convert_json = Get-ProcessMitigation -System | ConvertTo-Json
-  $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-  $select_object = $convert_out_json.Heap | Select TerminateOnError
-  $result = $select_object.TerminateOnError
-  write-output $result
-  EOH
-
   if input('sensitive_system') == 'true' || nil
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
@@ -91,10 +83,10 @@ control 'V-77103' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'Heap Terminate On Error is required to be enabled on System' do
-      subject { powershell(dep_script).strip }
-      it { should_not eq '2' }
+    heap = json( command: 'Get-ProcessMitigation -System | Select Heap | ConvertTo-Json').params
+     describe 'Heap Terminate On Error is required to be enabled on System' do
+       subject { heap }
+       its(['TerminateOnError']) { should_not eq '2' }
     end
   end
 end
-

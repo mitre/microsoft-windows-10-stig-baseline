@@ -39,12 +39,15 @@ control 'V-77267' do
       If the following mitigations do not have a status of \"ON\", this is a finding:
 
       DEP:
-      Enable: ON
+      OverrideDEP: False
 
       Payload:
-      EnableRopStackPivot: ON
-      EnableRopCallerCheck: ON
-      EnableRopSimExec: ON
+      OverrideEnableExportAddressFilter: False
+      OverrideEnableExportAddressFilterPlus: False
+      OverrideEnableImportAddressFilter: False
+      OverrideEnableRopStackPivot: False
+      OverrideEnableRopCallerCheck: False
+      OverrideEnableRopSimExec: False
 
       The PowerShell command produces a list of mitigations; only those with a
       required status of \"ON\" are listed here. If the PowerShell command does not
@@ -54,12 +57,15 @@ control 'V-77267' do
   desc 'fix', "Ensure the following mitigations are turned \"ON\" for wmplayer.exe:
 
       DEP:
-      Enable: ON
+      OverrideDEP: False
 
       Payload:
-      EnableRopStackPivot: ON
-      EnableRopCallerCheck: ON
-      EnableRopSimExec: ON
+      OverrideEnableExportAddressFilter: False
+      OverrideEnableExportAddressFilterPlus: False
+      OverrideEnableImportAddressFilter: False
+      OverrideEnableRopStackPivot: False
+      OverrideEnableRopCallerCheck: False
+      OverrideEnableRopSimExec: False
 
       Application mitigations defined in the STIG are configured by a DoD EP XML file
       included with the Windows 10 STIG package in the \"Supporting Files\" folder.
@@ -69,38 +75,6 @@ control 'V-77267' do
       >> Exploit Protection >> \"Use a common set of exploit protection settings\"
       configured to \"Enabled\" with file name and location defined under
       \"Options:\".  It is recommended the file be in a read-only network location."
-
-  dep_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name wmplayer.exe | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_dep_enable = $convert_out_json.Dep | Select Enable
-    $result_dep_enable = $select_object_dep_enable.Enable
-    write-output $result_dep_enable
-  EOH
-
-  payload_enropstacpiv_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name wmplayer.exe | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enropstacpiv = $convert_out_json.Payload | Select EnableRopStackPivot
-    $result_payload_enropstacpiv = $select_object_payload_enropstacpiv.EnableRopStackPivot
-    write-output $result_payload_enropstacpiv
-  EOH
-
-  payload_enropcalleche_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name wmplayer.exe | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enropcalleche = $convert_out_json.Payload | Select EnableRopCallerCheck
-    $result_payload_enropcalleche = $select_object_payload_enropcalleche.EnableRopCallerCheck
-    write-output $result_payload_enropcalleche
-  EOH
-
-  payload_enropsimexec_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name wmplayer.exe | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_payload_enropsimexec = $convert_out_json.Payload | Select EnableRopSimExec
-    $result_payload_enropsimexec = $select_object_payload_enropsimexec.EnableRopSimExec
-    write-output $result_payload_enropsimexec
-  EOH
 
   if input('sensitive_system') == 'true' || nil
     impact 0.0
@@ -113,22 +87,20 @@ control 'V-77267' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'DEP is required to be enabled on Windows Media Player' do
-      subject { powershell(dep_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Rop Stack Pivot is required to be enabled on Windows Media Player' do
-      subject { powershell(payload_enropstacpiv_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Rop Caller Check is required to be enabled on Windows Media Player' do
-      subject { powershell(payload_enropcalleche_script).strip }
-      it { should_not eq '2' }
-    end
-    describe 'Payload Enable Rop Sim Exec is required to be enabled on Windows Media Player' do
-      subject { powershell(payload_enropsimexec_script).strip }
-      it { should_not eq '2' }
-    end
+   dep = json( command: 'Get-ProcessMitigation -Name wmplayer.exe | Select DEP | ConvertTo-Json').params
+       describe 'OverRide DEP is required to be false on Windows Media Player' do
+        subject { dep }
+        its(['OverrideDEP']) { should_not eq 'true' }
+       end
+   payload = json( command: 'Get-ProcessMitigation -Name wmplayer.exe | Select Payload | ConvertTo-Json').params
+       describe 'Override Payload Enable Export Address Filter, Override Payload Enable Export Address Filter Plus, Override EnableImportAddressFilter, Override EnableRopStackPivot, Override EnableRopCallerCheck, and Override EnableRopSimExec are required to be false on Windows Media Player' do
+        subject { payload }
+        its(['OverrideEnableExportAddressFilter']) { should_not eq 'true' }
+        its(['OverrideEnableExportAddressFilterPlus']) { should_not eq 'true' }
+        its(['OverrideEnableImportAddressFilter']) { should_not eq 'true' }
+        its(['OverrideEnableRopStackPivot']) { should_not eq 'true' }
+        its(['OverrideEnableRopCallerCheck']) { should_not eq 'true' }
+        its(['OverrideEnableRopSimExec']) { should_not eq 'true' }
+       end
   end
 end
-

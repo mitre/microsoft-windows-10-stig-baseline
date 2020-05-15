@@ -50,12 +50,16 @@ control 'V-63713' do
       configured under Computer Configuration >> Administrative Templates >> Windows
       Components >> Windows Defender SmartScreen >> Microsoft Edge."
 
-  # TODO: update to include the LTSC B and C installs
 
   if input('sensitive_system') == 'true'
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
       skip 'This Control is Not Applicable to sensitive systems.'
+    end
+  elsif registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ProductName == 'Windows 10 Enterprise 2016 LTSB' || registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion').ProductName == 'Windows 10 Enterprise 2016 LTSC'
+    impact 0.0
+    describe 'This System is running either Windows 10 LTSB or Windows 10 LTSC, The Control is NA' do
+      skip 'This System is running either Windows 10 LTSB or Windows 10 LTSC, The Control is NA'
     end
   else
     describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter') do

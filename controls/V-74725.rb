@@ -55,7 +55,10 @@ control 'V-74725' do
 
       The system must be restarted for the changes to take effect. "
 
-  if (command('Get-WindowsOptionalFeature -Online | Where FeatureName -eq SMB1Protocol').stdout != "\r\n\r\nFeature Name : SMB1Protocol\r\nState        : Enabled\r\n\r\n\r\n\r\n")
+  smb1protocol = json( command: 'Get-WindowsOptionalFeature -Online | Where FeatureName -eq SMB1Protocol | ConvertTo-Csv | ConvertFrom-Csv | ConvertTo-Json').params
+  state = smb1protocol['State']
+
+   if state == "Disabled"
     impact 0.0
     describe 'V-70639 is configured, this control is NA' do
       skip 'V-70639 is configured, this control is NA'

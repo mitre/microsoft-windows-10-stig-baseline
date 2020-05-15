@@ -118,6 +118,7 @@ control 'V-63879' do
       enterprise_admin_sid = json(command: enterprise_admin_query).params
 
     describe security_policy do
+
       its('SeDenyNetworkLogonRight') { should include "#{enterprise_admin_sid}" }
     end
     describe security_policy do

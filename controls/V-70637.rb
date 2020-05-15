@@ -62,13 +62,15 @@ control 'V-70637' do
       Select \"Turn Windows features on or off\".
       De-select \"Windows PowerShell 2.0\"."
 
-  describe.one do
-    describe command('Get-WindowsOptionalFeature -Online | Where FeatureName -eq MicrosoftWindowsPowerShellV2') do
-      its('stdout') { should_not eq "\r\n\r\nFeature Name : MicrosoftWindowsPowerShellV2\r\nState        : Enabled\r\n\r\n\r\n\r\n" }
-    end
-    describe command('Get-WindowsOptionalFeature -Online | Where FeatureName -eq MicrosoftWindowsPowerShellV2Root') do
-      its('stdout') { should_not eq "\r\n\r\nFeature Name : MicrosoftWindowsPowerShellV2Root\r\nState        : Enabled\r\n\r\n\r\n\r\n" }
-    end
-  end
-end
+  powershellv2 = json( command: 'Get-WindowsOptionalFeature -Online | Where FeatureName -eq MicrosoftWindowsPowerShellV2 | ConvertTo-Csv | ConvertFrom-Csv | ConvertTo-Json').params
+  powershellv2root = json( command: 'Get-WindowsOptionalFeature -Online | Where FeatureName -eq MicrosoftWindowsPowerShellV2Root | ConvertTo-Csv | ConvertFrom-Csv | ConvertTo-Json').params  
 
+    describe 'Feature Name MicrosoftWindowsPowerShellV2 should not be Enabled' do
+      subject { powershellv2 }
+      its(['State']) { should_not eq "Enabled" }
+    end
+    describe 'Feature Name MicrosoftWindowsPowerShellV2Root should not be Enabled' do
+      subject { powershellv2root }
+      its(['State']) { should_not eq "Enabled" }
+    end
+end

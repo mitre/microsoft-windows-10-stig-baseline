@@ -138,6 +138,7 @@ control 'V-63373' do
         Security Option: \"Network access: Let everyone permissions apply to anonymous
         users\" to \"Disabled\" (WN10-SO-000160)."
 
+=======
   c_windows_permission = JSON.parse(input('c_windows_permissions').to_json)
   c_permission = JSON.parse(input('c_permissions').to_json)
   c_program_files_permissions = JSON.parse(input('c_program_files_permissions').to_json)
@@ -159,3 +160,4 @@ control 'V-63373' do
     it { should be_in c_program_files_permissions }
   end
 end
+

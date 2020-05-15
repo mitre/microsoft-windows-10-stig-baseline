@@ -51,5 +51,8 @@ control 'V-63661' do
     it { should have_property 'MaximumPasswordAge' }
     its('MaximumPasswordAge') { should be <= 30 }
   end
+  describe registry_key('HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters') do
+    its('MaximumPasswordAge') { should be_positive }
+  end
 end
 

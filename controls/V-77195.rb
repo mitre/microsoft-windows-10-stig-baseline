@@ -38,7 +38,7 @@ control 'V-77195' do
       If the following mitigations do not have a status of \"ON\", this is a finding:
 
       DEP:
-      Enable: ON
+      OverrideDEP: False
 
       The PowerShell command produces a list of mitigations; only those with a
       required status of \"ON\" are listed here. If the PowerShell command does not
@@ -47,7 +47,7 @@ control 'V-77195' do
   desc 'fix', "Ensure the following mitigations are turned \"ON\" for chrome.exe:
 
       DEP:
-      Enable: ON
+      OverrideDEP: False
 
       Application mitigations defined in the STIG are configured by a DoD EP XML file
       included with the Windows 10 STIG package in the \"Supporting Files\" folder.
@@ -57,14 +57,6 @@ control 'V-77195' do
       >> Exploit Protection >> \"Use a common set of exploit protection settings\"
       configured to \"Enabled\" with file name and location defined under
       \"Options:\".  It is recommended the file be in a read-only network location."
-
-  dep_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -Name chrome.exe | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object_dep_enable = $convert_out_json.Dep | Select Enable
-    $result_dep_enable = $select_object_dep_enable.Enable
-    write-output $result_dep_enable
-  EOH
 
   if input('sensitive_system') == 'true' || nil
     impact 0.0
@@ -77,10 +69,10 @@ control 'V-77195' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'DEP is required to be enabled on Chrome' do
-      subject { powershell(dep_script).strip }
-      it { should_not eq '2' }
-    end
+    dep = json( command: 'Get-ProcessMitigation -Name chrome.exe | Select DEP | ConvertTo-Json').params
+      describe 'OverRide DEP is required to be false on Chrome' do
+       subject { dep }
+       its(['OverrideDEP']) { should_not eq 'true' }
+     end
   end
 end
-

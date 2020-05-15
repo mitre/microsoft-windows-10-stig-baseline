@@ -49,5 +49,8 @@ control 'V-63669' do
     it { should have_property 'InactivityTimeoutSecs' }
     its('InactivityTimeoutSecs') { should be <= 900 }
   end
+  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System') do
+    its('InactivityTimeoutSecs') { should be_positive }
+  end
 end
 

@@ -113,44 +113,21 @@ control 'V-63593' do
 
   # Adding Read permission for Security for Administrators to allow for read of key permissions
 
-  hklm_software = <<-EOH
-  $output = (Get-Acl -Path HKLM:Software).AccessToString
-  write-output $output
-  EOH
+   hklm_software = powershell("(Get-Acl -Path HKLM:Software).AccessToString").stdout.lines.collect(&:strip)
+    describe "Registry Key Software permissions are set correctly on folder structure" do
+      subject { hklm_software.eql? input('reg_software_perms')}
+      it { should eq true }
+    end
 
-  hklm_security = <<-EOH
-  $output = (Get-Acl -Path HKLM:Security.AccessToString
-  write-output $output
-  EOH
+   hklm_security = powershell("(Get-Acl -Path HKLM:Security).AccessToString").stdout.lines.collect(&:strip)
+    describe "Registry Key Security are set correctly on folder structure" do
+      subject { hklm_security.eql? input('reg_security_perms')}
+      it { should eq true }
+    end
 
-  hklm_system = <<-EOH
-  $output = (Get-Acl -Path HKLM:System).AccessToString
-  write-output $output
-  EOH
-
-  # raw powershell output
-  raw_software = powershell(hklm_software).stdout.strip
-  raw_security = powershell(hklm_security).stdout.strip
-  raw_system = powershell(hklm_system).stdout.strip
-
-  # clean results cleans up the extra line breaks
-  clean_result_software = raw_software.lines.collect(&:strip)
-  clean_result_security = raw_security.lines.collect(&:strip)
-  clean_result_system = raw_system.lines.collect(&:strip)
-
-  describe 'Verify the default registry permissions for the keys note below of the HKEY_LOCAL_MACHINE\Software Hive' do
-    subject { clean_result_software }
-    it { should be_in input('reg_software_perms') }
-  end
-
-  describe 'Verify the default registry permissions for the keys note below of the HKEY_LOCAL_MACHINE\Security Hive' do
-    subject { clean_result_security }
-    it { should be_in input('reg_security_perms') }
-  end
-
-  describe 'Verify the default registry permissions for the keys note below of the HKEY_LOCAL_MACHINE\System Hive' do
-    subject { clean_result_system }
-    it { should be_in input('reg_system_perms') }
-  end
+   hklm_system = powershell("(Get-Acl -Path HKLM:System).AccessToString").stdout.lines.collect(&:strip)
+    describe "Registry Key Security are set correctly on folder structure" do
+      subject { hklm_system.eql? input('reg_system_perms')}
+      it { should eq true }
+    end
 end
-

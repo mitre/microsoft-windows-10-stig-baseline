@@ -42,9 +42,16 @@ control 'V-63649' do
       Administrative Templates >> System >> Power Management >> Sleep Settings >>
       \"Require a password when a computer wakes (plugged in)\" to \"Enabled\"."
 
-  describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51') do
-    it { should have_property 'ACSettingIndex' }
-    its('ACSettingIndex') { should cmp 1 }
+   if sys_info.manufacturer == 'VMware, Inc.'
+    impact 0.0
+    describe 'This is a VDI System; This System is NA for Control V-63649.' do
+      skip 'This is a VDI System; This System is NA for Control V-63649.'
+    end
+  else
+    describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51') do
+     it { should have_property 'ACSettingIndex' }
+     its('ACSettingIndex') { should cmp 1 }
+    end
   end
 end
 

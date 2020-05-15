@@ -74,14 +74,6 @@ control 'V-77101' do
       configured to \"Enabled\" with file name and location defined under
       \"Options:\". It is recommended the file be in a read-only network location."
 
-  sehop_script = <<~EOH
-    $convert_json = Get-ProcessMitigation -System | ConvertTo-Json
-    $convert_out_json = ConvertFrom-Json -InputObject $convert_json
-    $select_object = $convert_out_json.SEHOP | Select Enable
-    $result = $select_object.Enable
-    write-output $result
-  EOH
-
   if input('sensitive_system') == 'true' || nil
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
@@ -93,10 +85,10 @@ control 'V-77101' do
       skip 'This STIG does not apply to Prior Versions before 1709.'
     end
   else
-    describe 'SEHOP is required to be enabled on System' do
-      subject { powershell(sehop_script).strip }
-      it { should_not eq '2' }
+   sehop = json( command: 'Get-ProcessMitigation -System | Select SEHOP | ConvertTo-Json').params
+     describe 'SEHOP is required to be enabled on System' do
+       subject { sehop }
+       its(['Enable']) { should_not eq '2' }
     end
   end
 end
-
