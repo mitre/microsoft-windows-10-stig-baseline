@@ -203,7 +203,7 @@ inputs:
       - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
   
   - name: c_folder_permissions
-    desc: "Default Permissions for C:\ Folder on OS"
+    desc: "Default Permissions for C:\\ Folder on OS"
     type: Array
     value:
       - NT AUTHORITY\Authenticated Users:(S,AD)
@@ -214,7 +214,7 @@ inputs:
       - Mandatory Label\High Mandatory Level:(OI)(NP)(IO)(NW)
   
   - name: c_windows_folder_permissions
-    desc: "Default Permissions for C:\Windows Folder on OS"
+    desc: "Default Permissions for C:\\Windows Folder on OS"
     type: Array
     value:
       - NT SERVICE\TrustedInstaller:(F)
@@ -232,7 +232,7 @@ inputs:
       - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
 
   - name: c_program_files_folder_permissions
-    desc: "Default Permissions for C:\Windows Folder on OS"
+    desc: "Default Permissions for C:\\Windows Folder on OS"
     type: Array
     value:
       - NT SERVICE\TrustedInstaller:(F)

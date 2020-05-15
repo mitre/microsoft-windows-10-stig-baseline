@@ -91,6 +91,7 @@ If you are scanning large numbers of systems - we recommend you use the [MITRE H
 | reg_software_perms          | The allowed registry Software Permission Settings                                                                                                                | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
 | reg_security_perms          | The allowed registry Security Permission Settings                                                                                                                | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
 | reg_system_perms            | The allowed registry System Permission Settings                                                                                                                  | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
+| onedrive_tenant_guid        | This is the OneDrive GUID for the Organization Settings                                                                                                                  | String             | see `inspec.yml`                                                                           | x        | Any String        |
 
 
 ## Contribution
