@@ -17,11 +17,6 @@ inputs:
       - McAfee Host Intrusion Prevention
       - McAfee Endpoint Security
       - McAfee Agent
-      
-  - name: domain_sid
-    desc: "This is the domain sid"
-    type: String
-    value: "3561952647-5207400-2818715555"
 
   - name: bitlocker_pin_len
     desc: "The minimum length for the BitLocker Pin [6]"
@@ -182,56 +177,49 @@ inputs:
     desc: "Permission of the Windows Folder"
     type: Array
     value:
-     ["c:\\windows NT SERVICE\\TrustedInstaller:(F)",
- "           NT SERVICE\\TrustedInstaller:(CI)(IO)(F)",
- "           NT AUTHORITY\\SYSTEM:(M)",
- "           NT AUTHORITY\\SYSTEM:(OI)(CI)(IO)(F)",
- "           BUILTIN\\Administrators:(M)",
- "           BUILTIN\\Administrators:(OI)(CI)(IO)(F)",
- "           BUILTIN\\Users:(RX)",
- "           BUILTIN\\Users:(OI)(CI)(IO)(GR,GE)",
- "           CREATOR OWNER:(OI)(CI)(IO)(F)",
- "           APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(RX)",
- "           APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
- "           APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(RX)",
- "           APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
- "",
- "Successfully processed 1 files; Failed processing 0 files"]
-
-
+      - NT SERVICE\TrustedInstaller:(F)
+      - NT SERVICE\TrustedInstaller:(CI)(IO)(F)
+      - NT AUTHORITY\SYSTEM:(M)
+      - NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(F)
+      - BUILTIN\Administrators:(M)
+      - BUILTIN\Administrators:(OI)(CI)(IO)(F)
+      - BUILTIN\Users:(RX)
+      - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
+      - CREATOR OWNER:(OI)(CI)(IO)(F)
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
 
   - name: c_permissions
     desc: "Permissions of the C Drive"
     type: Array
     value:
-     ["c:\\ BUILTIN\\Administrators:(OI)(CI)(F)",
- "    NT AUTHORITY\\SYSTEM:(OI)(CI)(F)",
- "    BUILTIN\\Users:(OI)(CI)(RX)",
- "    NT AUTHORITY\\Authenticated Users:(OI)(CI)(IO)(M)",
- "    NT AUTHORITY\\Authenticated Users:(AD)",
- "    Mandatory Label\\High Mandatory Level:(OI)(NP)(IO)(NW)",
- "",
- "Successfully processed 1 files; Failed processing 0 files"]
+      - NT AUTHORITY\Authenticated Users:(S,AD)
+      - NT AUTHORITY\Authenticated Users:(OI)(CI)(IO)(M)
+      - NT AUTHORITY\SYSTEM:(OI)(CI)(F)
+      - BUILTIN\Administrators:(OI)(CI)(F)
+      - BUILTIN\Users:(OI)(CI)(RX)
+      - Mandatory Label\High Mandatory Level:(OI)(NP)(IO)(NW)
 
   - name: c_program_files_permissions
     desc: 'Permissions on C:\Program Files Folder'
     type: Array
     value:
-      ["c:\\Program Files NT SERVICE\\TrustedInstaller:(F)",
- "                 NT SERVICE\\TrustedInstaller:(CI)(IO)(F)",
- "                 NT AUTHORITY\\SYSTEM:(M)",
- "                 NT AUTHORITY\\SYSTEM:(OI)(CI)(IO)(F)",
- "                 BUILTIN\\Administrators:(M)",
- "                 BUILTIN\\Administrators:(OI)(CI)(IO)(F)",
- "                 BUILTIN\\Users:(RX)",
- "                 BUILTIN\\Users:(OI)(CI)(IO)(GR,GE)",
- "                 CREATOR OWNER:(OI)(CI)(IO)(F)",
- "                 APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(RX)",
- "                 APPLICATION PACKAGE AUTHORITY\\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
- "                 APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(RX)",
- "                 APPLICATION PACKAGE AUTHORITY\\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)",
- "",
- "Successfully processed 1 files; Failed processing 0 files"]
+      - NT SERVICE\TrustedInstaller:(F)
+      - NT SERVICE\TrustedInstaller:(CI)(IO)(F)
+      - NT AUTHORITY\SYSTEM:(M)
+      - NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(F)
+      - BUILTIN\Administrators:(M)
+      - BUILTIN\Administrators:(OI)(CI)(IO)(F)
+      - BUILTIN\Users:(RX)
+      - BUILTIN\Users:(OI)(CI)(IO)(GR,GE)
+      - CREATOR OWNER:(OI)(CI)(IO)(F)
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(RX)
+      - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
+
 
   - name: reg_software_perms
     desc: 'The required Registry Software Permission Settings'

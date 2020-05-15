@@ -21,7 +21,6 @@ Many of the inputs have good defaults but some must be set my the end-user.
 The profile _will_ run without updating these values but you will get the _best_ results if you provide the profile with the following data.
 
 - sensitive_system (false) - set to either the string `"true"` or `"false"`
-- domain_sid (NULL) - set to your Domain SID as a string in the form `xxxxxxxxxx-xxxxxxx-xxxxxxxxxx`
 - backup_operators (NULL) - add your usernames as needed
 - administrators (NULL) - add your usernames as needed
 - hyper_v_admin (NULL) - add your usernames as needed
@@ -66,7 +65,6 @@ If you are scanning large numbers of systems - we recommend you use the [MITRE H
 | Input                       | Description                                                                                                                                                      | Type               | Default                                                                                    | Required | Allowed Values                |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ | -------- | ----------------------------- |
 | av_approved_software        | List of organizationally approved AV Software                                                                                                                    | Array              | Windows Defender, McAfee Host Intrusion Prevention, McAfee Endpoint Security, McAfee Agent | x        | Any String                    |
-| domain_sid                  | The Domain SID of the node                                                                                                                                       | String             | NULL                                                                                       | **x**    | xxxxxxxxxx-xxxxxxx-xxxxxxxxxx |
 | bitlocker_pin_len           | The minimum length for the BitLocker Pin                                                                                                                         | Number             | 6                                                                                          | x        | Any Integer                   |
 | min_pass_len                | Minimum length of system passwords                                                                                                                               | Number             | 14                                                                                         | x        | Any Integer                   |
 | enable_pass_complexity      | If windows should enforce password complexity                                                                                                                    | Number             | 1                                                                                          | x        | 0 or 1                        |
@@ -97,8 +95,8 @@ If you are scanning large numbers of systems - we recommend you use the [MITRE H
 
 Please feel free to submit a PR or Issue on the board. To get an idea of our style and best practices, please see our InSpec training at:
 
-- https://mitre-inspec-developer.netlify.com/
-- https://mitre-inspec-advanced-developer.netlify.com/
+- The MITRE InSpec Team
+- Jared Burns, VMware.Inc
 
 ## Useful References
 

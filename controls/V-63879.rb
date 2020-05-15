@@ -102,12 +102,26 @@ control 'V-63879' do
       its('SeDenyRemoteInteractiveLogonRight') { should eq ['S-1-5-32-546'] }
     end
   else
-    domain_sid = input('domain_sid')
+    domain_query = <<-EOH
+              $group = New-Object System.Security.Principal.NTAccount('Domain Admins')
+              $sid = ($group.Translate([security.principal.securityidentifier])).value
+              $sid | ConvertTo-Json
+              EOH
+
+      domain_admin_sid = json(command: domain_query).params
+      enterprise_admin_query = <<-EOH
+              $group = New-Object System.Security.Principal.NTAccount('Enterprise Admins')
+              $sid = ($group.Translate([security.principal.securityidentifier])).value
+              $sid | ConvertTo-Json
+              EOH
+
+      enterprise_admin_sid = json(command: enterprise_admin_query).params
+
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should include "S-1-5-21-#{domain_sid}-519" }
+      its('SeDenyNetworkLogonRight') { should include "#{enterprise_admin_sid}" }
     end
     describe security_policy do
-      its('SeDenyNetworkLogonRight') { should include "S-1-5-21-#{domain_sid}-512" }
+      its('SeDenyNetworkLogonRight') { should include "#{domain_admin_sid}" }
     end
   end
 end
