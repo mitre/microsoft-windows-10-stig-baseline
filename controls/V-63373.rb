@@ -147,15 +147,15 @@ control 'V-63373' do
   query_c_program_files = json({ command: 'icacls "c:\\Program Files" | ConvertTo-Json' }).params.map { |e| e.strip }[0..-3].map{ |e| e.gsub("c:\\Program Files ", '') }
 
   describe 'The ACL on C:\Windows are set to the right permissions' do
-    subject { query_c_windows.params }
+    subject { query_c_windows }
     it { should be_in c_windows_permission }
   end
   describe 'The ACL on C:\ are set to the right permissions' do
-    subject { query_c.params }
+    subject { query_c }
     it { should be_in c_permission }
   end
   describe 'The ACL on C:\Program Files are set to the right permissions' do
-    subject { query_c_program_files.params }
+    subject { query_c_program_files }
     it { should be_in c_program_files_permissions }
   end
 end
