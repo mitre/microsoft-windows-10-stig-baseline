@@ -7,6 +7,7 @@ copyright_email: saf@groups.mitre.org
 license: Apache-2.0
 summary: "The Windows 10 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil."
 version: 1.20.0
+inspec_version: ">= 4.0"
 
 inputs:
   - name: av_approved_software
