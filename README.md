@@ -8,27 +8,25 @@ __For the best security of the runner, always install on the runner the _latest 
 
 The latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
-## Required Inputs **_prior_** to running the profile
+## Tailoring to Your Environment
+The following inputs must be configured in an inputs ".yml" file for the profile to run correctly for your specific environment. More information about InSpec inputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
-For the best results with your system, we _highly_ suggest that you adjust the values of these profile inputs prior to running the profile.
+```
+- set to either the string `"true"` or `"false"`
+sensitive_system: false
 
-Many of the inputs have good defaults but some must be set my the end-user.
+- add your usernames as needed
+backup_operators: NULL
 
-### Please review and set these `inputs` as best fits your target
+- add your usernames as needed
+administrators: NULL
 
-The profile _will_ run without updating these values but you will get the _best_ results if you provide the profile with the following data.
+- add your usernames as needed
+hyper_v_admin: NULL
 
-- sensitive_system (false) - set to either the string `"true"` or `"false"`
-- backup_operators (NULL) - add your usernames as needed
-- administrators (NULL) - add your usernames as needed
-- hyper_v_admin (NULL) - add your usernames as needed
-- av_approved_software(List of AV Software) - add your AV Software Product to this list
-
-## Using your `input` data with the profile
-
-Use the `inputs.example.yml` file as a starting point, and use the `--input-files` flag _or_ set the input via the `CLI` using the `--input` flag.
-
-See <https://www.inspec.io/docs/reference/inputs/> for further information.
+- add your AV Software Product to this list
+av_approved_software: <List of AV Software>
+```
 
 ## Running your profile
 
