@@ -73,7 +73,7 @@ To report a bug or feature request, please open an [issue](https://github.com/mi
 ## Background design of the profile
 
 
-| Input                       | Description                                                                                                                                                      | Type               | STIG-Compliant Default                                                                                    | Required | Allowed Values                |
+| Input | Description | Type | STIG-Compliant Default | Required | Allowed Values |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ | -------- | ----------------------------- |
 | av_approved_software        | List of organizationally approved AV Software                                                                                                                    | Array              | Windows Defender, McAfee Host Intrusion Prevention, McAfee Endpoint Security, McAfee Agent | x        | Any String                    |
 | bitlocker_pin_len           | The minimum length for the BitLocker Pin                                                                                                                         | Number             | 6                                                                                          | x        | Any Integer                   |
