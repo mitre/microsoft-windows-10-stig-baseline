@@ -12,7 +12,7 @@ The latest versions and installation options are available at the [InSpec](http:
 The following inputs must be configured in an inputs ".yml" file for the profile to run correctly for your specific environment. More information about InSpec inputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
 
 ```
-- set to either the string `"true"` or `"false"`
+- set to either the string "true" or "false"
 sensitive_system: false
 
 - add your usernames as needed
@@ -28,21 +28,41 @@ hyper_v_admin: NULL
 av_approved_software: <List of AV Software>
 ```
 
-## Running your profile
+# Running This Baseline Directly from Github
 
-To run the profile:
+```
+# How to run
+inspec exec https://github.com/mitre/microsoft-windows-10-stig-baseline/archive/master.tar.gz --target winrm://<hostip> --user '<admin-account>' --password=<password> --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+```
 
-1. Install InSpec on your runner
-2. Ensure you have WinRM https access to your traget
-3. Ensure you have the 'Admin User' and 'Admin Password' for your system.
-4. From your 'InSpec Runner',
-   a. if you are using an `input-file`:
+### Different Run Options
 
-   - `inspec exec https://github.com/mitre/microsoft-windows-10-stig-baseline.git -t winrm://<user>@<host> --password <your password> --input-files <your-input-yml> --reporter cli json:<your-results-filename>.json`
+  [Full exec options](https://docs.chef.io/inspec/cli/#options-3)
 
-   b. if you are using `cli` inputs:
+## Running This Baseline from a local Archive copy 
 
-   - `inspec exec https://github.com/mitre/microsoft-windows-10-stig-baseline.git -t winrm://<user>@<host> --password <your password> --reporter cli json:<your-results-filename>.json --input sensitive_system='true' domain_sid='xxxxxxxxxxxxxxxxxxx'`
+If your runner is not always expected to have direct access to GitHub, use the following steps to create an archive bundle of this baseline and all of its dependent tests:
+
+(Git is required to clone the InSpec profile using the instructions below. Git can be downloaded from the [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) site.)
+
+When the __"runner"__ host uses this profile baseline for the first time, follow these steps: 
+
+```
+mkdir profiles
+cd profiles
+git clone https://github.com/mitre/microsoft-windows-10-stig-baseline
+inspec archive microsoft-windows-10-stig-baseline
+inspec exec <name of generated archive> --target winrm://<hostip> --user '<admin-account>' --password=<password> --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+```
+For every successive run, follow these steps to always have the latest version of this baseline:
+
+```
+cd microsoft-windows-10-stig-baseline
+git pull
+cd ..
+inspec archive microsoft-windows-10-stig-baseline --overwrite
+inspec exec <name of generated archive> --target winrm://<hostip> --user '<admin-account>' --password=<password> --input-file=<path_to_your_inputs_file/name_of_your_inputs_file.yml> --reporter=cli json:<path_to_your_output_file/name_of_your_output_file.json>
+```
 
 ## Using Heimdall for Viewing the JSON Results
 
