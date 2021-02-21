@@ -1,14 +1,12 @@
 # microsoft-windows-10-stig-baseline
-
-InSpec profile to validate the secure configuration of Microsoft Windows 10, against DISA's Microsoft Windows 10 Security Technical Implementation Guide (STIG) Version 1, Release 20.
+InSpec profile to validate the secure configuration of Microsoft Windows 10, against [DISA](https://iase.disa.mil/stigs/) Microsoft Windows 10 Security Technical Implementation Guide (STIG) Version 1, Release 20.
 
 ## Getting Started
+It is intended and recommended that InSpec run this profile from a __"runner"__ host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over __winrm__.
 
-It is intended and recommended that InSpec run this profile from a "runner" host (such as a DevOps orchestration server, an administrative management system, or a developer's workstation/laptop) against the target remotely over winrm.
+__For the best security of the runner, always install on the runner the _latest version_ of InSpec and supporting Ruby language components.__ 
 
-For the best security of the runner, always install on the runner the latest version of InSpec and supporting Ruby language components.
-
-Latest versions and installation options are available at the InSpec site.
+The latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
 ## Required Inputs **_prior_** to running the profile
 
@@ -60,10 +58,22 @@ Heimdall-Lite is a Single Page Client Side JavaScript app that runs completely i
 
 If you are scanning large numbers of systems - we recommend you use the [MITRE Heimdall Enterprise Sever](https://heimdall.mitre.org/) which ....
 
-## Inputs used in the profile
 
 
-| Input                       | Description                                                                                                                                                      | Type               | Default                                                                                    | Required | Allowed Values                |
+## Contribution
+
+Please feel free to submit a PR or Issue on the board. To get an idea of our style and best practices, please see our InSpec training at:
+
+- The MITRE InSpec Team
+- Jared Burns, VMware.Inc
+
+## Contributing and Getting Help
+To report a bug or feature request, please open an [issue](https://github.com/mitre/microsoft-windows-10-stig-baseline/issues/new).
+
+## Background design of the profile
+
+
+| Input                       | Description                                                                                                                                                      | Type               | STIG-Compliant Default                                                                                    | Required | Allowed Values                |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ | -------- | ----------------------------- |
 | av_approved_software        | List of organizationally approved AV Software                                                                                                                    | Array              | Windows Defender, McAfee Host Intrusion Prevention, McAfee Endpoint Security, McAfee Agent | x        | Any String                    |
 | bitlocker_pin_len           | The minimum length for the BitLocker Pin                                                                                                                         | Number             | 6                                                                                          | x        | Any Integer                   |
@@ -93,33 +103,24 @@ If you are scanning large numbers of systems - we recommend you use the [MITRE H
 | reg_system_perms            | The allowed registry System Permission Settings                                                                                                                  | Array              | see `inspec.yml`                                                                           | x        | Any valid registry key        |
 | onedrive_tenant_guid        | This is the OneDrive GUID for the Organization Settings                                                                                                                  | String             | see `inspec.yml`                                                                           | x        | Any String        |
 
-
-## Contribution
-
-Please feel free to submit a PR or Issue on the board. To get an idea of our style and best practices, please see our InSpec training at:
-
-- The MITRE InSpec Team
-- Jared Burns, VMware.Inc
-
-## Useful References
-
-- <https://lonesysadmin.net/2017/08/10/fix-winrm-client-issues/>
-- <https://www.hurryupandwait.io/blog/understanding-and-troubleshooting-winrm-connection-and-authentication-a-thrill-seekers-guide-to-adventure>
-
 ### NOTICE
 
-© 2019 The MITRE Corporation.
+© 2018-2020 The MITRE Corporation.
 
 Approved for Public Release; Distribution Unlimited. Case Number 18-3678.
 
-### NOTICE
+### NOTICE 
 
 MITRE hereby grants express written permission to use, reproduce, distribute, modify, and otherwise leverage this software to the extent permitted by the licensed terms provided in the LICENSE.md file included with this project.
 
-### NOTICE
+### NOTICE  
 
-This software was produced for the U. S. Government under Contract Number HHSM-500-2012-00008I, and is subject to Federal Acquisition Regulation Clause 52.227-14, Rights in Data-General.
+This software was produced for the U. S. Government under Contract Number HHSM-500-2012-00008I, and is subject to Federal Acquisition Regulation Clause 52.227-14, Rights in Data-General.  
 
 No other use other than that granted to the U. S. Government, or to those acting on behalf of the U. S. Government under that Clause is authorized without the express written permission of The MITRE Corporation.
 
-For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA 22102-7539, (703) 983-6000.
+For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA  22102-7539, (703) 983-6000.
+
+### NOTICE 
+
+DISA STIGs are published by DISA IASE, see: https://iase.disa.mil/Pages/privacy_policy.aspx
