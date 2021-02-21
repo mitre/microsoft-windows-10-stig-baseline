@@ -46,32 +46,23 @@ To run the profile:
 
    - `inspec exec https://github.com/mitre/microsoft-windows-10-stig-baseline.git -t winrm://<user>@<host> --password <your password> --reporter cli json:<your-results-filename>.json --input sensitive_system='true' domain_sid='xxxxxxxxxxxxxxxxxxx'`
 
-## Reviewing your Results
+## Using Heimdall for Viewing the JSON Results
 
-### Reviewing Single Runs
+The JSON results output file can be loaded into __[heimdall-lite](https://heimdall-lite.mitre.org/)__ for a user-interactive, graphical view of the InSpec results. 
 
-The **recommended** review format for for **security review** or **accrediation discussions** or the Security Engineer is the `JSON` results format using the InSpec `JSON` reporter and the MITRE open-souce `heimdall-lite` viewer. You can use heimdall-lite any-time anywhere from: <https://heimdall-lite.mitre.org>.
+The JSON InSpec results file may also be loaded into a __[full heimdall server](https://github.com/mitre/heimdall)__, allowing for additional functionality such as to store and compare multiple profile runs.
 
-Heimdall-Lite is a Single Page Client Side JavaScript app that runs completely in your browser and was designed to help make reviewing, sorting and sharing your InSpec results easier.
+## Authors
+* Aaron Lippold, Mitre - [aaronlippold](https://github.com/aaronlippold)
+- Jared Burns, VMware.Inc - [burnsjared0415](https://github.com/burnsjared0415)
 
-### Reviewing Large amounts of Runs
-
-If you are scanning large numbers of systems - we recommend you use the [MITRE Heimdall Enterprise Sever](https://heimdall.mitre.org/) which ....
-
-
-
-## Contribution
-
-Please feel free to submit a PR or Issue on the board. To get an idea of our style and best practices, please see our InSpec training at:
-
-- The MITRE InSpec Team
-- Jared Burns, VMware.Inc
+## Special Thanks
+* Shivani Karikar, DIFZ - [karikarshivani](https://github.com/karikarshivani)
 
 ## Contributing and Getting Help
 To report a bug or feature request, please open an [issue](https://github.com/mitre/microsoft-windows-10-stig-baseline/issues/new).
 
 ## Background design of the profile
-
 
 | Input | Description | Type | STIG-Compliant Default | Required | Allowed Values |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ | -------- | ----------------------------- |
