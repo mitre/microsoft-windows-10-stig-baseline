@@ -16,13 +16,13 @@ The following inputs must be configured in an inputs ".yml" file for the profile
 sensitive_system: false
 
 - add your usernames as needed
-backup_operators: NULL
+backup_operators: (NULL)
 
 - add your usernames as needed
-administrators: NULL
+administrators: (NULL)
 
 - add your usernames as needed
-hyper_v_admin: NULL
+hyper_v_admin: (NULL)
 
 - add your AV Software Product to this list
 av_approved_software: <List of AV Software>
@@ -72,7 +72,7 @@ The JSON InSpec results file may also be loaded into a __[full heimdall server](
 
 ## Authors
 * Aaron Lippold, Mitre - [aaronlippold](https://github.com/aaronlippold)
-- Jared Burns, VMware.Inc - [burnsjared0415](https://github.com/burnsjared0415)
+* Jared Burns, VMware.Inc - [burnsjared0415](https://github.com/burnsjared0415)
 
 ## Special Thanks
 * Shivani Karikar, DIFZ - [karikarshivani](https://github.com/karikarshivani)
