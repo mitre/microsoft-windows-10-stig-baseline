@@ -115,7 +115,7 @@ control 'V-63587' do
 
   # NOTE:  DoD Root CA 2 - DoD Interoperability Root CA 1 - 22BBE981F0694D246CC1472ED2B021DC8540A22F does not exist on Install Root 5.5
 
-  if input('is_sensitive_system') == 'true'
+  if input('sensitive_system') == 'true'
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
       skip 'This Control is Not Applicable to sensitive systems.'
