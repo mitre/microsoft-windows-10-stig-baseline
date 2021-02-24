@@ -99,7 +99,7 @@ control 'V-63583' do
       The InstallRoot tool is available on IASE at
       http://iase.disa.mil/pki-pke/Pages/tools.aspx."
 
-  if input('is_sensitive_system') == 'true'
+  if input('sensitive_system') == 'true'
     impact 0.0
     describe 'This Control is Not Applicable to sensitive systems.' do
       skip 'This Control is Not Applicable to sensitive systems.'
