@@ -44,12 +44,20 @@ control 'V-63319' do
 
   desc "fix", 'Use Windows 10 Enterprise 64-bit version for domain-joined systems.'
 
-  describe os.arch do
-    it { should eq 'x86_64' }
-  end
-
-  describe os.name do
-    it { should eq 'windows_10_enterprise' }
+  is_domain = command("(gwmi win32_computersystem).partofdomain").stdout.strip == "True"
+  if is_domain
+    describe os.arch do
+      it { should eq 'x86_64' }
+    end
+    describe os.name do
+      it { should eq 'windows_10_enterprise' }
+    end
+  else
+    impact 0.0
+      describe 'This system is not joined to a domain, therefore this control is Not Applicable' do
+        skip 'This system is not joined to a domain, therefore this control is Not Applicable'
+      end
+    else
   end
 end
 
