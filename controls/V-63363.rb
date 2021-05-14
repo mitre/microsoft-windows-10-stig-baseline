@@ -44,8 +44,8 @@ control 'V-63363' do
         privilege."
 
   backup_operators = input('backup_operators')
-  backup_operators_group = command("net localgroup Backup Operators | Format-List | Findstr /V 'Alias Name Comment Members - command'").stdout.strip.split("\r\n")
-
+  backup_operators_group = command("net localgroup 'Backup Operators' | Format-List | Findstr /V 'Alias Name Comment Members - command'").stdout.strip.split("\r\n")
+  
   backup_operators_group.each do |user|
     describe user.to_s do
       it { should be_in backup_operators }
