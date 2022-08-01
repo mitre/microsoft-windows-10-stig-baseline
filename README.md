@@ -9,17 +9,71 @@ __For the best security of the runner, always install on the runner the _latest 
 The latest versions and installation options are available at the [InSpec](http://inspec.io/) site.
 
 ## Tailoring to Your Environment
-The following inputs must be configured in an inputs ".yml" file for the profile to run correctly for your specific environment. More information about InSpec inputs can be found in the [InSpec Profile Documentation](https://www.inspec.io/docs/reference/profiles/).
+
+### Profile Inputs (see `inspec.yml` file)
+
+This profile uses InSpec Inputs to make the tests more flexible. You are able to provide inputs at runtime either via the cli or via YAML files to help the profile work best in your deployment.
+
+#### **_Do not change the inputs in the `inspec.yml` file_**
+
+The `inputs` configured in the `inspec.yml` file are **profile definition and defaults for the profile** and not for the user. InSpec provides two ways to adjust the profile's inputs at run-time that do not require modifiying `inspec.yml` itself. This is because automated profiles like this one are frequently run from a script, inside a pipeline or some kind of task scheduler. Such automation usually works by running the profile directly from its source (i.e. this repository), which means the runner will not have access to the `inspec.yml`.
+
+To tailor the tested values for your deployment or organizationally defined values, **_you may update the inputs_**.
+
+#### Update Profile Inputs from the CLI or Local File
+
+1. Via the cli with the `--input` flag
+2. Pass them in a YAML file with the `--input-file` flag.
+
+More information about InSpec inputs can be found in the [InSpec Inputs Documentation](https://docs.chef.io/inspec/inputs/).
+
+#### See the `inspec.yml` file for full list of avalible inputs
+
+Example Available Inputs
+
+```yaml
+  - name: max_inactive_days
+    desc: "Max number of days an account is allowed to be inactive [35]"
+    type: Numeric
+    value: 35
+
+  - name: sensitive_system
+    description: "Set flag to true if the target system is sensitive"
+    type: String
+    value: "false"
+
+  - name: backup_operators
+    type: Array
+    description: "List of authorized users in the local Backup Operators Group"
+    value:
+      -
+
+  - name: administrators
+    type: Array
+    description: "List of authorized users in the local Administrators group"
+    sensitive: true
+    value:
+      -
+      
+  - name: hyper_v_admin
+    type: Array
+    description: "List of authorized users in the Hyper-V Group"
+    sensitive: true
+    value:
+      -
+```
+
+An example input file could look as follows:
 
 ```
 - set to either the string "true" or "false"
 sensitive_system: false
 
 - add your usernames as needed
-backup_operators: (NULL)
+backup_operators: my_backup_operator
 
 - add your usernames as needed
-administrators: (NULL)
+administrators: Administrator, X_Admin, my_example_admin
 
 - add your usernames as needed
 hyper_v_admin: (NULL)
