@@ -33,7 +33,7 @@ Administrative Templates >> Windows Components >> Cloud Content >> \"Do not
 suggest third-party content in Windows spotlight\" to \"Enabled"
  
    describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\CloudContent') do
-      it { should have_property 'AllowWindowsInkWorkspace' }
+      it { should have_property 'DisableThirdPartySuggestions' }
       its('DisableThirdPartySuggestions') { should cmp 1 }
    end
 end
