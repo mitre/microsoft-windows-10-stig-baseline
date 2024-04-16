@@ -65,7 +65,7 @@ control 'V-63337' do
     query = json({ command: 'Get-BitlockerVolume | Select ProtectionStatus | ConvertTo-Json' })
     describe 'Verify all Windows 10 information systems (including SIPRNET) employ BitLocker for full disk encryption.' do
       subject { query.params }
-      its(['ProtectionStatus']) { should be 0 }
+      its(['ProtectionStatus']) { should be 1 }
     end
   end
 end
