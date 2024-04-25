@@ -114,7 +114,7 @@ control 'V-63351' do
         Write-Output $rtstatus
   EOH
 
-  check_product = powershell(anti_virus_product_name).stdout.strip.split("\n")
+  check_product = powershell(anti_virus_product_name).stdout.strip.split("\n").map(&:strip)
 
   describe "The installed anti-virus: #{check_product} is on the Approved Sofware List" do
     subject { check_product }
