@@ -43,7 +43,7 @@ control 'V-63829' do
 
   describe registry_key('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System') do
     it { should have_property 'EnableLUAs' }
-    its('EnableLUAs') { should cmp 1 }
+    its('EnableLUA') { should cmp 1 }
   end
 end
 
