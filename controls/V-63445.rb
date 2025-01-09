@@ -22,8 +22,7 @@ control 'V-63445' do
   tag fix_id: 'F-69373r1_fix'
   tag cci: %w[CCI-000018 CCI-000172 CCI-001403 CCI-001404
               CCI-001405 CCI-002130 CCI-002234]
-  tag nist: ['AC-2 (4)', 'AU-12 c', 'AC-2 (4)', 'AC-2 (4)', 'AC-2 (4)', "AC-2
-(4)", 'AC-6 (9)', 'Rev_4']
+  tag nist: ['AC-2 (4)', 'AU-12 c', 'AC-2 (4)', 'AC-2 (4)', 'AC-2 (4)', "AC-2 (4)", 'AC-6 (9)', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false

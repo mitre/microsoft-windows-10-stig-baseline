@@ -13,8 +13,7 @@ control 'V-63427' do
   tag stig_id: 'WN10-AC-000040'
   tag fix_id: 'F-69355r1_fix'
   tag cci: %w[CCI-000192 CCI-000193 CCI-000194 CCI-001619]
-  tag nist: ['IA-5 (1) (a)', 'IA-5 (1) (a)', 'IA-5 (1) (a)', 'IA-5 (1) (a)',
-             'Rev_4']
+  tag nist: ['IA-5 (1) (a)', 'IA-5 (1) (a)', 'IA-5 (1) (a)', 'IA-5 (1) (a)', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false

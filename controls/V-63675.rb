@@ -15,8 +15,7 @@ control 'V-63675' do
   tag fix_id: 'F-69601r2_fix'
   tag cci: %w[CCI-000048 CCI-000050 CCI-001384 CCI-001385
               CCI-001386 CCI-001387 CCI-001388]
-  tag nist: ['AC-8 a', 'AC-8 b', 'AC-8 c 1', 'AC-8 c 2', 'AC-8 c 2', "AC-8 c
-2", 'AC-8 c 3', 'Rev_4']
+  tag nist: ['AC-8 a', 'AC-8 b', 'AC-8 c 1', 'AC-8 c 2', 'AC-8 c 2', "AC-8 c2", 'AC-8 c 3', 'Rev_4']
   tag false_negatives: nil
   tag false_positives: nil
   tag documentable: false
