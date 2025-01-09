@@ -60,8 +60,6 @@ control 'V-63337' do
       skip 'This is a VDI System; This System is NA for Control V-63337.'
     end
   else
-    # Code needs to be worked on for Parsing the Output of the Command
-    bitlocker_status = JSON.parse(input('bitlocker_status').to_json)
     query = json({ command: 'Get-BitlockerVolume | Select ProtectionStatus | ConvertTo-Json' })
     describe 'Verify all Windows 10 information systems (including SIPRNET) employ BitLocker for full disk encryption.' do
       subject { query.params }
