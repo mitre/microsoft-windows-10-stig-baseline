@@ -1,0 +1,37 @@
+environment:
+  machine_user: vagrant
+  machine_pass: vagrant
+  KITCHEN_YAML: kitchen.appveyor.yml
+
+branches:
+  only:
+    - master
+
+# Do not build on tags (GitHub only)
+skip_tags: true
+
+#faster cloning
+clone_depth: 1
+
+# Install the latest current build of Chef Workstation
+install:
+  - gem install bundler --no-document
+  - gem install inspec --no-document
+  - gem install inspec-bin --no-document
+  - bundle install
+
+build_script:
+  # - ps: c:\opscode\chef-workstation\bin\chef.exe shell-init powershell | iex; cmd /c c:\opscode\chef-workstation\bin\chef.exe --version
+
+test_script:
+  - chef --version
+  - chef.exe exec kitchen verify; echo 1;
+  - $results = $(ls *results.json)
+  # - chef.exe gem install inspec_tools --no-document
+  - chef.exe exec inspec_tools summary -j $results -c
+  - chef.exe exec inspec_tools compliance -j $results -f .\threshold.yml
+
+artifacts:
+  - path: "*results.json"
+
+deploy: off
