@@ -1,15 +1,37 @@
-name: Microsoft-windows-10-stig-baseline
-title: microsoft-windows-10-stig-baseline
+name: microsoft-windows-10-stig-baseline
+title: "Microsoft Windows 10 Security Technical Implementation Guide :: Version
+  3, Release 2 :: Benchmark Date:  15 Nov 2024"
 maintainer: MITRE SAF Team
-copyright: MITRE, 2020
+copyright: MITRE
 copyright_email: saf@groups.mitre.org
 license: Apache-2.0
-summary: "InSpec Validation Profile for Microsoft Windows 10 STIG"
-version: 1.20.1
+summary: InSpec profile aligned to STIG Guidance for Microsoft Windows 10
+  Security Technical Implementation Guide
+description: null
+version: 3.2.0
+supports: []
+depends: []
 inspec_version: ">= 4.0"
 
+
+### INPUTS ###
+# Inputs are variables that can be referenced by any control in the profile,
+# and are defined and given a default value in this file.
+
+# By default, each parameter is set to exactly comply with the profile baseline
+# wherever possible. Some profile controls will require a unique value reflecting
+# the necessary context for the supporting system.
+
+# Values provided here can be overridden using an input file or a CLI flag at
+# execution time. See InSpec's Inputs docs at https://docs.chef.io/inspec/profiles/inputs/
+# for details.
+
+# NOTE: DO NOT directly change the default values by editing this file. Use
+# overrides instead.
+###
+
 inputs:
-  # V-633351
+  # SV-220707
   - name: av_approved_software
     desc: "This is a list of Approved Anti-Virus Software"
     type: Array
@@ -18,82 +40,64 @@ inputs:
       - McAfee Host Intrusion Prevention
       - McAfee Endpoint Security
       - McAfee Agent
-  
-  # V-94861
+
+  # SV-220704
   - name: bitlocker_pin_len
     desc: "The minimum length for the BitLocker Pin [6]"
     type: Numeric
     value: 6
 
-  # V-63423
   - name: min_pass_len
     desc: "Sets the minimum length of passwords [14]"
     type: Numeric
     value: 14
 
-  # V-63427
   - name: enable_pass_complexity
     desc: "If windows should enforce password complexity (0/1) [1]"
     type: Numeric
     value: 1
 
-  # V-63421
   - name: min_pass_age
     desc: "Sets the minimum age for a password [1]"
     type: Numeric
     value: 1
 
-  # V-63419
   - name: max_pass_age
     desc: "Sets the maximum age for a password [60]"
     type: Numeric
     value: 60
 
-  # V-63405, V-63413
   - name: pass_lock_time
     desc: "Sets the number of min before a session is locked out [15]"
     type: Numeric
     value: 15
 
-  # V-63415
   - name: pass_hist_size
     desc: "Number of passwords remembered in the password history [24]"
     type: Numeric
     value: 24
 
-  # V-63409
   - name: max_pass_lockout
     desc: "Account lockout threshold is recommended to be 3 or less invalid logon attempts [3]"
     type: Numeric
     value: 3
 
-  # V-63359
   - name: max_inactive_days
     desc: "Max number of days an account is allowed to be inactive [35]"
     type: Numeric
     value: 35
 
-  # V-63345, V-63579, V-63583, V-63587, V-63589, V-63685, V-63699, V-63701
-  # V-63713, V-77091, V-77095, V-77097, V-77097, V-77101, V-77103, V-77189
-  # V-77191, V-77195, V-77201, V-77205, V-77209, V-77213, V-77217, V-77221
-  # V-77223, V-77227, V-77231, V-77233, V-77235, V-77239, V-77243, V-77245
-  # V-77247, V-77249, V-77255, V-77259, V-77263, V-77267, V-77269
   - name: sensitive_system
     description: "Set flag to true if the target system is sensitive"
     type: String
     value: "false"
 
-  # V-63363
   - name: backup_operators
     type: Array
     description: "List of authorized users in the local Backup Operators Group"
     value:
       -
-  # V-63321, V-63361, V-63365, V-63373, V-63533, V-63537, V-63541, V-63593
-  # V-63599, V-63601, V-63635, V-63679, V-63819, V-63829, V-63845, V-63847
-  # V-63851, V-63853, V-63853, V-63855, V-63857, V-63861, V-63865, V-63869
-  # V-63883, V-63889, V-63917, V-63927, V-63931, V-63933, V-63935, V-63939
-  # V-63941, V-71769
+
   - name: administrators
     type: Array
     description: "List of authorized users in the local Administrators group"
@@ -101,15 +105,13 @@ inputs:
     value:
       -
 
-  # V-63365
   - name: hyper_v_admin
     type: Array
     description: "List of authorized users in the Hyper-V Group"
     sensitive: true
     value:
       -
-  
-  # V-63675
+
   - name: LegalNoticeText
     type: String
     value:
@@ -134,12 +136,10 @@ inputs:
       communications and work product are private and confidential.  See User
       Agreement for details."
 
-  # V-63681
   - name: LegalNoticeCaption
     type: String
     value: "DoD Notice and Consent Banner, US Department of Defense Warning Statement, or a site-defined equivalent."
-  
-  # V-63589
+
   - name: dod_cceb_certificates
     description: "List of DoD CCEB Interoperability CA Root Certificates"
     type: Array
@@ -148,8 +148,7 @@ inputs:
         :Issuer: "CN=US DoD CCEB Interoperability Root CA 2, OU=PKI, OU=DoD, O=U.S. Government, C=US"
         :Thumbprint: "929BF3196896994C0A201DF4A5B71F603FEFBF2E"
         :NotAfter: "Friday, September 27, 2019"
-  
-  # V-63587
+
   - name: dod_certificates
     description: "List of DoD Interoperability Root Certificates"
     type: Array
@@ -159,7 +158,6 @@ inputs:
         :Thumbprint: "AC06108CA348CC03B53795C64BF84403C1DBD341"
         :NotAfter: "Saturday, January 22, 2022"
 
-  # V-63583
   - name: dod_eca_certificates
     description: "List of ECA Root CA certificates Certificates"
     type: Array
@@ -172,7 +170,6 @@ inputs:
         :Thumbprint: "73E8BB08E337D6A5A6AEF90CFFDD97D9176CB582"
         :NotAfter: "Sunday, December 30, 2029"
 
-  # V-63579
   - name: dod_trusted_certificates
     description: "List of DOD Trusted CA certificates Certificates"
     type: Array
@@ -201,7 +198,7 @@ inputs:
          :Thumbprint: "4ECB5CC3095670454DA1CBD410FC921F46B8564B"
          :NotAfter: "Friday, June 14, 2041"
 
-  # V-63593
+
   - name: reg_software_perms
     desc: "The required Registry Software Permission Settings"
     type: Array
@@ -212,16 +209,14 @@ inputs:
       - BUILTIN\Users Allow  ReadKey
       - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadKey
       - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
-  
-  # V-63593
+
   - name: reg_security_perms
     desc: "The required Registry Security Permissions Settings"
     type: Array
     value:
       - NT AUTHORITY\SYSTEM Allow  FullControl
       - BUILTIN\Administrators Allow  ReadKey, ChangePermissions
-  
-  # V-63593
+
   - name: reg_system_perms
     desc: "The required Registry System Permissions Settings"
     type: Array
@@ -232,8 +227,7 @@ inputs:
       - BUILTIN\Users Allow  ReadKey
       - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadKey
       - S-1-15-3-1024-1065365936-1281604716-3511738428-1654721687-432734479-3232135806-4053264122-3456934681 Allow  ReadKey
-    
-  # V-63373
+  
   - name: c_folder_permissions
     desc: "Default Permissions for C:\\ Folder on OS"
     type: Array
@@ -245,7 +239,6 @@ inputs:
       - BUILTIN\Users:(OI)(CI)(RX)
       - Mandatory Label\High Mandatory Level:(OI)(NP)(IO)(NW)
   
-  # V-63373
   - name: c_windows_folder_permissions
     desc: "Default Permissions for C:\\Windows Folder on OS"
     type: Array
@@ -263,8 +256,7 @@ inputs:
       - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
       - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(RX)
       - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
-  
-  # V-63373
+
   - name: c_program_files_folder_permissions
     desc: "Default Permissions for C:\\Windows Folder on OS"
     type: Array
@@ -282,14 +274,12 @@ inputs:
       - APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
       - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(RX)
       - APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES:(OI)(CI)(IO)(GR,GE)
-  
-  # V-88203
+
   - name: onedrive_tenant_guid
     desc: "This is the OneDrive GUID for the Organization"
     type: String
     value: "1111-2222-3333-4444"
-  
-  # V-99555
+
   - name: local_administrator
     desc: "List of Local Accounts on Desktop that are Administrators"
     type: Array
