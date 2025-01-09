@@ -27,11 +27,18 @@ If "System type" is not "64-bit operating system…", this is a finding.'
   tag cci: ['CCI-000366']
   tag nist: ['CM-6 b']
 
-  describe os.arch do
-    it { should eq 'x86_64' }
-  end
-
-  describe os.name do
-    it { should eq 'windows_10_enterprise' }
+  is_domain = command("(gwmi win32_computersystem).partofdomain").stdout.strip == "True"
+  if is_domain
+    describe os.arch do
+      it { should eq 'x86_64' }
+    end
+    describe os.name do
+      it { should eq 'windows_10_enterprise' }
+    end
+  else
+    impact 0.0
+      describe 'This system is not joined to a domain, therefore this control is Not Applicable' do
+        skip 'This system is not joined to a domain, therefore this control is Not Applicable'
+      end
   end
 end

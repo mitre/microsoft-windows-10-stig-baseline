@@ -31,7 +31,7 @@ Configure the policy value for Computer Configuration >> Administrative Template
 
   is_domain = command('wmic computersystem get domain | FINDSTR /V Domain').stdout.strip
 
-  if is_domain != 'WORKGROUP'
+  if is_domain == 'WORKGROUP'
     impact 0.0
     describe 'The system is not a member of a domain, control is NA' do
       skip 'The system is not a member of a domain, control is NA'
