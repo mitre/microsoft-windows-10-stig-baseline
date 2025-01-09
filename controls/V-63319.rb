@@ -57,7 +57,6 @@ control 'V-63319' do
       describe 'This system is not joined to a domain, therefore this control is Not Applicable' do
         skip 'This system is not joined to a domain, therefore this control is Not Applicable'
       end
-    else
   end
 end
 
